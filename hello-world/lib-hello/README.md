@@ -76,5 +76,5 @@ cp -rf target/doc/*.*  <REPOSITORY>/docs/<PROJECT_NAME>/.
 ```bash
 cargo doc
 mkdir -p ../../docs/hello-world
-cp -rf target/doc/*.*  ../../docs/hello-world/.
+cp -rf target/doc/*.* ../../docs/hello-world/
 ```
