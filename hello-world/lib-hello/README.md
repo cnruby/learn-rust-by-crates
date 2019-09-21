@@ -37,7 +37,7 @@ cargo init --name bin-hello --bin
 ### Step 2: configure the file Cargo.toml
 - Go to Bin Root Path
 ```bash
-echo 'hello_exercism = "0.2.1"' >> Cargo.toml
+echo 'hello_exercism = "0.2.2"' >> Cargo.toml
 ```
 ### Step 3: edit the rust file main.rs
 - Go to Bin Root Path
@@ -59,12 +59,11 @@ cargo run main
 ## III. create the crate 'hello_exercism' doc in local version
 - Go to Crate Root Path
 ```bash
-cd 
 cargo doc --open --package hello_exercism
 ```
 
 ## IV. create the crate 'hello_exercism' doc in server version
-- github.com >> <REPOSITORY> >> Setting >> Options >> GitHub Pages >> ...
+- github.com >> <REPOSITORY> >> Setting >> Options >> GitHub Pages >> [...](https://github.blog/2016-08-22-publish-your-project-documentation-with-github-pages/)
 - Go to Crate Root Path
 ```bash
 cargo doc
@@ -76,5 +75,6 @@ cp -rf target/doc/*.*  <REPOSITORY>/docs/<PROJECT_NAME>/.
 ```bash
 cargo doc
 mkdir -p ../../docs/hello-world
+cargo doc
 cp -rf target/doc/*.* ../../docs/hello-world/
 ```
