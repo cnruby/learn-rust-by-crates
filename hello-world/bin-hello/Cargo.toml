@@ -1,6 +1,6 @@
 [package]
 name = "hello-bin"
-version = "0.1.7"
+version = "0.2.0"
 authors = ["cnruby <gudao.luo@gmail.com>"]
 edition = "2018"
 
@@ -11,4 +11,4 @@ edition = "2018"
 # https://crates.io/crates/hello_exercism
 # cargo build
 # cargo run
-hello_exercism = "0.1.7"  
+hello_exercism = "0.2.0"  
