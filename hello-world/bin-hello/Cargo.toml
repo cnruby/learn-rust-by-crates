@@ -1,6 +1,6 @@
 [package]
 name = "bin-hello"
-version = "0.2.5"
+version = "0.2.7"
 authors = ["cnruby <gudao.luo@gmail.com>"]
 edition = "2018"
 
@@ -8,4 +8,4 @@ edition = "2018"
 
 [dependencies]
 # https://crates.io/crates/hello_exercism
-hello_exercism = "0.2.5"
+hello_exercism = "0.2.7"
