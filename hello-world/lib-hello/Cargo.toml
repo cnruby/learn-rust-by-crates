@@ -1,6 +1,6 @@
 [package]
 name = "hello_exercism"
-version = "0.1.0"
+version = "0.1.2"
 authors = ["cnruby <gudao.luo@gmail.com>"]
 edition = "2018"
 license = "MIT OR Apache-2.0"
