@@ -1,6 +1,6 @@
-# hello_exercism
+# The crate "hello_exercism"
 
-## develop the crate
+## I. develop the crate
 ### Step 1: create the default crate
 ```bash
 mkdir lib-hello && cd lib-hello
@@ -26,7 +26,7 @@ vi examples/hello.rs
 cargo run --example hello
 ```
 
-## use the crate 'hello_exercism'
+## II. use the crate 'hello_exercism'
 ### Step 1: create the default Bin
 ```bash
 mkdir bin-hello && cd bin-hello
@@ -37,7 +37,7 @@ cargo init --name bin-hello --bin
 ### Step 2: configure the file Cargo.toml
 - Go to Bin Root Path
 ```bash
-echo 'hello_exercism = "0.2.0"' >> Cargo.toml
+echo 'hello_exercism = "0.2.1"' >> Cargo.toml
 ```
 ### Step 3: edit the rust file main.rs
 - Go to Bin Root Path
@@ -54,4 +54,27 @@ fn main () {
 - Go to Bin Root Path
 ```bash
 cargo run main
+```
+
+## III. create the crate 'hello_exercism' doc in local version
+- Go to Crate Root Path
+```bash
+cd 
+cargo doc --open --package hello_exercism
+```
+
+## IV. create the crate 'hello_exercism' doc in server version
+- github.com >> <REPOSITORY> >> Setting >> Options >> GitHub Pages >> ...
+- Go to Crate Root Path
+```bash
+cargo doc
+mkdir <REPOSITORY>/docs/<PROJECT_NAME>
+cp -rf target/doc/*.*  <REPOSITORY>/docs/<PROJECT_NAME>/.
+```
+- Example:
+- Go to Crate Root Path
+```bash
+cargo doc
+mkdir -p ../../docs/hello-world
+cp -rf target/doc/*.*  ../../docs/hello-world/.
 ```
