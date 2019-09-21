@@ -1,0 +1,10 @@
+[package]
+name = "hello_exercism"
+version = "0.1.0"
+authors = ["cnruby <gudao.luo@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+#hello_exercism = { path = "../hello_exercism" }
