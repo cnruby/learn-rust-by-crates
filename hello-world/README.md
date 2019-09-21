@@ -1,0 +1,23 @@
+# Prject
+- name: hello-world
+- goal: develop a crate
+- folder name: hello-world
+
+## Crate
+- name: hello_exercism
+- folder name: lib-hello
+
+## Exampl Application for Crate 'hello_exercism'
+- name: bin-hello
+- folder name: bin-hello
+
+# Resources
+- https://doc.rust-lang.org/rust-by-example/testing/integration_testing.html
+- https://riptutorial.com/rust/example/3481/create-new-project
+- https://pascalhertleif.de/artikel/good-practices-for-writing-rust-libraries/
+- https://doc.rust-lang.org/rust-by-example/testing/doc_testing.html
+- https://doc.rust-lang.org/rust-by-example/testing/integration_testing.html 
+- https://stackoverflow.com/questions/33025887/how-to-use-a-local-unpublished-crate
+- https://github.com/rust-lang/cargo/issues/538
+- https://users.rust-lang.org/t/how-to-use-my-own-crate/2634
+- https://doc.rust-lang.org/cargo/guide/creating-a-new-project.html   
