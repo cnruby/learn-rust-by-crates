@@ -27,12 +27,19 @@ cargo run --example hello
 ```
 
 ## use the crate 'hello_exercism'
-### Step 1: configure the file Cargo.toml
+### Step 1: create the default Bin
+```bash
+mkdir bin-hello && cd bin-hello
+# this is Bin Root Path
+cargo init --name bin-hello --bin
+```
+
+### Step 2: configure the file Cargo.toml
 - Go to Bin Root Path
 ```bash
-echo 'hello_exercism = "0.1.6"' >> Cargo.toml
+echo 'hello_exercism = "0.1.7"' >> Cargo.toml
 ```
-### Step 2: edit the rust file main.rs
+### Step 3: edit the rust file main.rs
 - Go to Bin Root Path
 ```rust
 // vi src/main.rs
@@ -43,7 +50,7 @@ fn main () {
     assert_eq!("Hello, World!", hello_exercism::hello());
 }
 ```
-### Step 3: run the Bin program
+### Step 4: run the Bin program
 - Go to Bin Root Path
 ```bash
 cargo run main
