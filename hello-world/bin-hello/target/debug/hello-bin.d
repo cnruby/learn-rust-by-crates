@@ -1,1 +1,0 @@
-/home/iotoi/dev/rust/exercism.io/hello-world/bin-hello/target/debug/hello-bin: /home/iotoi/dev/rust/exercism.io/hello-world/bin-hello/src/main.rs /home/iotoi/dev/rust/exercism.io/hello-world/lib-hello/src/lib.rs
