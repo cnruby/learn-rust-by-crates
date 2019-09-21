@@ -4,10 +4,13 @@
 name = "hello-bin"
 version = "0.1.0"
 dependencies = [
- "hello_exercism 0.1.0",
+ "hello_exercism 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
 name = "hello_exercism"
 version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
 
+[metadata]
+"checksum hello_exercism 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)" = "1bbbc0f1049dd36cb454f18d847c742c24092a4ef47828efddc97986e93bb79d"

@@ -7,4 +7,8 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-hello_exercism = { path = "../lib-hello" } 
+# hello_exercism = { path = "../lib-hello" }
+# https://crates.io/crates/hello_exercism
+# cargo build
+# cargo run
+hello_exercism = "0.1.0"  
