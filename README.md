@@ -1,1 +1,1 @@
-## rust on exercism.io
+# rust on exercism.io
