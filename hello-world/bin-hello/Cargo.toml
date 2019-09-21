@@ -11,4 +11,4 @@ edition = "2018"
 # https://crates.io/crates/hello_exercism
 # cargo build
 # cargo run
-hello_exercism = "0.2.1"
+hello_exercism = "0.2.0"

@@ -2,5 +2,9 @@
 # It is not intended for manual editing.
 [[package]]
 name = "hello_exercism"
+<<<<<<< HEAD
 version = "0.2.1"
+=======
+version = "0.2.0"
+>>>>>>> e5ad8c877c4f4ce133d7f99d5cb3137c0e7b35d4
 
