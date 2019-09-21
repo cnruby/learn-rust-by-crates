@@ -23,3 +23,4 @@
 - https://github.com/rust-lang/cargo/issues/538
 - https://users.rust-lang.org/t/how-to-use-my-own-crate/2634
 - https://doc.rust-lang.org/cargo/guide/creating-a-new-project.html
+- https://exercism.io/tracks/rust/exercises/hello-world/solutions/23a033649a3a4891a727b0962cdd000e
