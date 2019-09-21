@@ -5,8 +5,8 @@
 // cargo build --release
 
 //extern crate hello_exercism;
-use local_hello_exercism;
+use hello_exercism;
 
 fn main () {
-    println!("{}",local_hello_exercism::hello());
+    println!("{}",hello_exercism::hello());
 }
