@@ -6,6 +6,7 @@
 ## Crate
 - name: hello_exercism
 - goal: how to create a simple own crate for rust
+- description: how to test an own crate and use an own crate with th folder examples
 - folder name: lib-hello
 
 ## Exampl Application for Crate 'hello_exercism'

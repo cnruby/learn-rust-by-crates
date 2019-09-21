@@ -1,4 +1,4 @@
 # rust on exercism.io
 
 ## project
-- hello-world
+- hello-world: how to create a simple own crate for rust 
