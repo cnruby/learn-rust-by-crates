@@ -5,10 +5,12 @@
 
 ## Crate
 - name: hello_exercism
+- goal: how to create a simple own crate for rust
 - folder name: lib-hello
 
 ## Exampl Application for Crate 'hello_exercism'
 - name: bin-hello
+- goal: how to use the local own crate 
 - folder name: bin-hello
 
 # Resources
@@ -20,4 +22,4 @@
 - https://stackoverflow.com/questions/33025887/how-to-use-a-local-unpublished-crate
 - https://github.com/rust-lang/cargo/issues/538
 - https://users.rust-lang.org/t/how-to-use-my-own-crate/2634
-- https://doc.rust-lang.org/cargo/guide/creating-a-new-project.html   
+- https://doc.rust-lang.org/cargo/guide/creating-a-new-project.html
