@@ -30,7 +30,7 @@ cargo run --example hello
 ### Step 1: configure the file Cargo.toml
 - Go to Bin Root Path
 ```bash
-echo 'hello_exercism = "0.1.3"' >> Cargo.toml
+echo 'hello_exercism = "0.1.6"' >> Cargo.toml
 ```
 ### Step 2: edit the rust file main.rs
 - Go to Bin Root Path
