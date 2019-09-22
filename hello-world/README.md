@@ -1,4 +1,4 @@
-# Prject
+# Project
 - name: hello-world
 - goal: develop a crate
 - folder name: hello-world
