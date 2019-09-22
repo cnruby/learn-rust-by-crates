@@ -1,5 +1,9 @@
 # Learn Rust By Crates
 
-## project
-- hello-world: how to create a simple own crate for rust
-- hello-trait: how to understand the trait for rust
+## List Projects
+### hello-world
+- crate name: hello_exercism
+- description: how to create a simple own crate for rust
+### hello-trait
+- crate name: hello_trait
+- description: how to understand the rust feature trait
