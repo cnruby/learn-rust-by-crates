@@ -4,10 +4,10 @@
 name = "bin-local-hello"
 version = "0.1.0"
 dependencies = [
- "hello_exercism 0.2.7",
+ "hello_exercism 0.2.9",
 ]
 
 [[package]]
 name = "hello_exercism"
-version = "0.2.7"
+version = "0.2.9"
 

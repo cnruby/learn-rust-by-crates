@@ -2,15 +2,15 @@
 # It is not intended for manual editing.
 [[package]]
 name = "bin-hello"
-version = "0.2.6"
+version = "0.2.9"
 dependencies = [
- "hello_exercism 0.2.6 (registry+https://github.com/rust-lang/crates.io-index)",
+ "hello_exercism 0.2.9 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
 name = "hello_exercism"
-version = "0.2.6"
+version = "0.2.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [metadata]
-"checksum hello_exercism 0.2.6 (registry+https://github.com/rust-lang/crates.io-index)" = "81d7fec6894b152d5e14239171200c3d438e042bc539d048f924b24abf06f582"
+"checksum hello_exercism 0.2.9 (registry+https://github.com/rust-lang/crates.io-index)" = "ad420ba3f358dfd7bf4d25d1fab4719060dc4e1f92c9772169196720ca34d944"
