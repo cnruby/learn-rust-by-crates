@@ -13,7 +13,7 @@ cargo init --name trait_exerci --lib
 vi Cargo.toml
 vi src/lib.rs
 cargo fmt
-cargo clippy # warning: struct is never constructed: `MyType`
+cargo clippy
 mkdir tests
 touch tests/hello.rs
 vi tests/hello.rs
