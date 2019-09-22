@@ -1,7 +1,4 @@
-# Crate
-- crate name: trait_exerci
-- folder name: lib-hello
-- description: how to understand the rust feature trait
+# How to Understand the Rust Feature trait
 
 ## I. develop the crate
 ### Step 1: create the default crate
