@@ -3,6 +3,14 @@
 - crate name: trait_exerci
 - description: how to understand the rust feature trait
 
+## Subproject: lib-hello
+- folder name: lib-hello
+- description: the crate 'trait_exerci'
+
+## Subproject: bin-hello
+- folder name: bin-hello
+- description: examples apps for the crate 'trait_exerci'
+
 ### Create a project
 ```bash
 mkdir ./docs/hello-trait
