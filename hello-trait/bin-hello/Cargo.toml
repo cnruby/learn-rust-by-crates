@@ -8,4 +8,4 @@ edition = "2018"
 
 [dependencies]
 local_trait_exerci = { path = "../lib-hello", package = "trait_exerci"}
-trait_exerci = "0.1.0"
+trait_exerci = "0.1.1"
