@@ -1,0 +1,6 @@
+[book]
+authors = ["Gudao Luo"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Learn Rust by Crates"
