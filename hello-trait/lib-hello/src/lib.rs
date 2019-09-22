@@ -1,14 +1,14 @@
-struct MyType {
-    data: u32,
+pub struct StructType {
+    pub data: u32,
 }
 
-// Defining an interface
-trait MyTrait {
+// Defining a trait for any type
+pub trait CanalTrait {
     fn foo(&self) -> u32;
 }
 
-// Implementing an interface
-impl MyTrait for MyType {
+// Implementing a trait for a type
+impl CanalTrait for StructType {
     fn foo(&self) -> u32 {
         self.data
     }

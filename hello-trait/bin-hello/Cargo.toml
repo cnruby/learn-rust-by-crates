@@ -1,0 +1,11 @@
+[package]
+name = "bin-hello"
+version = "0.1.0"
+authors = ["Gudao Luo <gudao.luo@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+local_trait_exerci = { path = "../lib-hello", package = "trait_exerci"}
+trait_exerci = "0.1.0"

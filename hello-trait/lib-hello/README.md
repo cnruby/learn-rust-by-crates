@@ -1,10 +1,13 @@
-
+# Crate
+- crate name: trait_exerci
+- folder name: lib-hello
+- description: how to understand the rust feature trait
 
 ## I. develop the crate
 ### Step 1: create the default crate
 ```bash
 mkdir lib-hello && cd lib-hello
-cargo init --name trait_exercism --lib
+cargo init --name trait_exerci --lib
 ```
 
 ### Step 2: develop the crate source and test codes
@@ -17,6 +20,8 @@ cargo clippy # warning: struct is never constructed: `MyType`
 mkdir tests
 touch tests/hello.rs
 vi tests/hello.rs
+touch tests/mod_hello.rs
+vi tests/mod_hello.rs
 cargo fmt
 cargo clippy
 cargo test
