@@ -5,9 +5,9 @@ authors = ["Gudao Luo <gudao.luo@gmail.com>"]
 edition = "2018"
 readme = "README.md"
 license = "MIT OR Apache-2.0"
-repository = "https://github.com/cnruby/leran-rust-by-creates/tree/master/hello-trait"
+repository = "https://github.com/cnruby/learn-rust-by-crates/tree/master/hello-trait"
 homepage = "https://crates.io/crates/trait_exercism"
-documentation = "https://cnruby.github.io/leran-rust-by-creates/hello-world/trait_exercism/"
+documentation = "https://cnruby.github.io/learn-rust-by-crates/hello-world/trait_exercism/"
 description = "how to understand the trait for rust"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
