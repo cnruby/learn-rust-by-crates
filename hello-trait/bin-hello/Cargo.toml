@@ -7,5 +7,5 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-local_trait_exerci = { path = "../lib-hello", package = "trait_exerci"}
-trait_exerci = "0.1.2"
+trait_exerci = { path = "../lib-hello"}
+#trait_exerci = "0.1.2"
