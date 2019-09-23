@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["mod_bare",""],["mod_trait",""]]});
