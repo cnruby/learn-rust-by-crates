@@ -1,0 +1,5 @@
+var N=null,E="",T="t",U="u",searchIndex={};
+var R=["mod_trait_exerci","StructType","mod_trait_exerci::mod_trait","result","mod_trait_exerci::mod_bare","try_from","try_into","borrow_mut","borrow","type_id","CanalTrait"];
+
+searchIndex["mod_trait_exerci"]={"doc":E,"i":[[0,"mod_trait",R[0],E,N,N],[3,R[1],R[2],E,N,N],[12,"data",E,E,0,N],[8,R[10],E,E,N,N],[10,"foo",E,E,1,[[["self"]],["u32"]]],[0,"mod_bare",R[0],E,N,N],[3,R[1],R[4],E,N,N],[12,"data",E,E,2,N],[11,"foo",E,E,2,[[["self"]],["u32"]]],[11,"from",R[2],E,0,[[[T]],[T]]],[11,"into",E,E,0,[[],[U]]],[11,R[5],E,E,0,[[[U]],[R[3]]]],[11,R[6],E,E,0,[[],[R[3]]]],[11,R[7],E,E,0,[[["self"]],[T]]],[11,R[8],E,E,0,[[["self"]],[T]]],[11,R[9],E,E,0,[[["self"]],["typeid"]]],[11,"from",R[4],E,2,[[[T]],[T]]],[11,"into",E,E,2,[[],[U]]],[11,R[5],E,E,2,[[[U]],[R[3]]]],[11,R[6],E,E,2,[[],[R[3]]]],[11,R[7],E,E,2,[[["self"]],[T]]],[11,R[8],E,E,2,[[["self"]],[T]]],[11,R[9],E,E,2,[[["self"]],["typeid"]]],[11,"foo",R[2],E,0,[[["self"]],["u32"]]]],"p":[[3,R[1]],[8,R[10]],[3,R[1]]]};
+initSearch(searchIndex);addSearchOptions(searchIndex);
