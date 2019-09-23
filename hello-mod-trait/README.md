@@ -3,6 +3,18 @@
 - crate name: mod_trait_exerci
 - description: how to understand the rust feature trait with mod
 
+## Subproject: lib-hello
+- folder name: lib-hello
+- description: the crate 'mod_trait_exerci'
+
+## Subproject: bin-local-hello
+- folder name: bin-local-hello
+- description: with local crate version to use examples apps for the crate 'mod_trait_exerci'
+
+## Subproject: bin-hello
+- folder name: bin-hello
+- description: with the crates.io version to use examples apps for the crate 'mod_trait_exerci'
+
 ### Create a project
 ```bash
 mkdir ./docs/hello-mod-trait
