@@ -12,7 +12,7 @@ fn main() {
     println!("{}", mine.foo());
 
     use mod_trait_exerci::mod_trait;
-    use mod_trait_exerci::mod_trait::CanalTrait;
+    use mod_trait_exerci::mod_trait::CanalTrait as ModCanalTrait;
     let mine = mod_trait::StructType { data: 100 };
     println!("{}", mine.foo());
     let mine = Box::new(mod_trait::StructType { data: 200 });
