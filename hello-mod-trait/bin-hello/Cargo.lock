@@ -4,8 +4,14 @@
 name = "bin-hello"
 version = "0.1.0"
 dependencies = [
+ "mod_trait_exerci 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "trait_exerci 0.1.2 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
+
+[[package]]
+name = "mod_trait_exerci"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
 name = "trait_exerci"
@@ -13,4 +19,5 @@ version = "0.1.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [metadata]
+"checksum mod_trait_exerci 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)" = "ddb1242b413c1696c6241db6a5cc88d50f31086ec30bbc0622752cd623a6aa69"
 "checksum trait_exerci 0.1.2 (registry+https://github.com/rust-lang/crates.io-index)" = "fe189e011a96c77849e6f22f966213fc0cd107a047cf586f786ac998a30cfd25"
