@@ -8,6 +8,8 @@
 ```bash
 mkdir lib-hello && cd lib-hello
 cargo init --name mod_trait_exerci --lib
+touch README.md
+vi README.md
 ```
 
 ### Step 2: develop the crate source and test codes
@@ -16,7 +18,7 @@ cargo init --name mod_trait_exerci --lib
 vi Cargo.toml
 vi src/lib.rs
 cargo fmt
-cargo clippy # warning: struct is never constructed: `MyType`
+cargo clippy
 mkdir tests
 touch tests/hello.rs
 vi tests/hello.rs

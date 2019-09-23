@@ -5,6 +5,8 @@
 ```bash
 mkdir lib-hello && cd lib-hello
 cargo init --name trait_exerci --lib
+touch README.md
+vi README.md
 ```
 
 ### Step 2: develop the crate source and test codes
