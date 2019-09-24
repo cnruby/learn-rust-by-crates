@@ -3,6 +3,7 @@
 - [前言](./foreword/README.md)
   - [本书项目结构](./foreword/about.md)
   - [关于软件篋和应用程序](./foreword/crate.md)
+  - [关于Cargo工具命令](./foreword/cargo.md)
   - [Rust语言新思维和新概念](./foreword/rust.md)
 - [软件篋hello_exercism](./hello-world/README.md)
   - [关于软件篋hello_exercism](./hello-world/about.md)
