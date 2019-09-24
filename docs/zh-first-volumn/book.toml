@@ -1,0 +1,26 @@
+[book]
+authors = ["Gudao Luo"]
+language = "zh"
+multilingual = false
+src = "src"
+translators = ["Gudao Luo"]
+title = "以软件篋学习Rust语言"
+description = "Chinese"
+
+[build]
+build-dir = "../zh-volumn-one"
+
+[output.html]
+mathjax-support = true
+
+[output.html.playpen]
+editable = true
+
+[output.html.search]
+limit-results = 20
+use-boolean-and = true
+boost-title = 2
+boost-hierarchy = 2
+boost-paragraph = 1
+expand = true
+heading-split-level = 2
