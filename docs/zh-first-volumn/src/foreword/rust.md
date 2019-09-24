@@ -2,11 +2,11 @@
 
 ## 变量生命期
 
-## 不可变量和可变量
+## 不可变量(Immutable)和可变量(Mutable)
 
-## 表达式和语句
+## 表达式(Expression)和语句(statements)
 
-## 方法(metgod)和函数(function)
+## 方法(method)和函数(function)
 
 ## 类和对象
 

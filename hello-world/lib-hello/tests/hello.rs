@@ -1,5 +1,5 @@
 //use hello_exercism;
-extern crate hello_exercism;
+//extern crate hello_exercism;
 
 //cargo test
 //cargo test tests::test_hello_world
