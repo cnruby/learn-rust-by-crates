@@ -1,4 +1,4 @@
-# Prject
+# Project
 - name: hello-world
 - goal: develop a crate
 - folder name: hello-world
@@ -9,7 +9,7 @@
 - description: how to test an own crate and use an own crate with th folder examples
 - folder name: lib-hello
 
-## Exampl Application for Crate 'hello_exercism'
+## Example Application for Crate 'hello_exercism'
 - name: bin-hello
 - goal: how to use the local own crate 
 - folder name: bin-hello

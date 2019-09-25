@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["StructType",""]],"trait":[["CanalTrait",""]]});

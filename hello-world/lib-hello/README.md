@@ -37,7 +37,7 @@ cargo init --name bin-hello --bin
 ### Step 2: configure the file Cargo.toml
 - Go to Bin Root Path
 ```bash
-echo 'hello_exercism = "0.2.7"' >> Cargo.toml
+echo 'hello_exercism = "0.3.1"' >> Cargo.toml
 ```
 ### Step 3: edit the rust file main.rs
 - Go to Bin Root Path
@@ -68,12 +68,12 @@ cargo doc --open --package hello_exercism
 ```bash
 mkdir <REPOSITORY>/docs/<PROJECT_NAME>
 cargo doc
-cp -rf target/doc/*.*  <REPOSITORY>/docs/<PROJECT_NAME>/.
+cp -rf target/doc/.  <REPOSITORY>/docs/<PROJECT_NAME>/.
 ```
 - Example:
 - Go to Crate Root Path
 ```bash
 mkdir -p ../../docs/hello-world
 cargo doc
-cp -rf target/doc/*.* ../../docs/hello-world/
+cp -rf target/doc/. ../../docs/hello-world/
 ```

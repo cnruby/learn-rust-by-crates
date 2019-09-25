@@ -1,0 +1,15 @@
+[package]
+name = "mod_trait_exerci"
+version = "0.1.1"
+authors = ["Gudao Luo <gudao.luo@gmail.com>"]
+edition = "2018"
+readme = "README.md"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/cnruby/learn-rust-by-crates/tree/master/hello-mod-trait"
+homepage = "https://crates.io/crates/mod_trait_exerci"
+documentation = "https://cnruby.github.io/learn-rust-by-crates/hello-mod-trait/mod_trait_exerci/"
+description = "how to understand the rust feature trait with mod"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]

@@ -1,5 +1,12 @@
-# rust on exercism.io
+# Learn Rust By Crates
 
-## project
-- hello-world: how to create a simple own crate for rust
-- hello-trait: how to understand the trait for rust
+## List Projects
+### hello-world
+- crate name: [hello_exercism](https://crates.io/crates/hello_exercism)
+- description: how to create a simple own crate for rust
+### hello-trait
+- crate name: [trait_exerci](https://crates.io/crates/trait_exerci)
+- description: how to understand the rust feature trait
+### hello-mod-trait
+- crate name: [mod_trait_exerci](https://crates.io/crates/mod_trait_exerci)
+- description: how to understand the rust feature trait with mod
