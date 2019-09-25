@@ -42,7 +42,7 @@ cargo init --name bin-hello --bin
 ### Step 2: configure the file Cargo.toml
 - Go to Bin Root Path
 ```bash
-echo 'hello_exercism = "0.3.5"' >> Cargo.toml
+echo 'hello_exercism = "0.3.6"' >> Cargo.toml
 ```
 ### Step 3: edit the rust file main.rs
 - Go to Bin Root Path

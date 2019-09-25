@@ -7,7 +7,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
 name = "hello_exercism"
-version = "0.3.5"
+version = "0.3.6"
 dependencies = [
  "hello_exercism 0.3.3 (registry+https://github.com/rust-lang/crates.io-index)",
 ]

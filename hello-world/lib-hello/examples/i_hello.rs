@@ -1,3 +1,3 @@
 fn main () {
-    println!("{}",i_crate::hello());
+    //println!("{}",i_crate::hello());
 }
