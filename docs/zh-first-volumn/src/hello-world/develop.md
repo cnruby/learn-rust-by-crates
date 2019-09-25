@@ -83,3 +83,4 @@
 - https://doc.rust-lang.org/rust-by-example/testing/unit_testing.html
 - [Rust中的const和static](https://blog.csdn.net/s_lisheng/article/details/79287713)
 - [unit-test-vs-integration-test](https://www.guru99.com/unit-test-vs-integration-test.html)
+- [specifying-dependencies](https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html)
