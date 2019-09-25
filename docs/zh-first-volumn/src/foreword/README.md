@@ -19,8 +19,11 @@
 
 　　以开发软件篋过程，学习和理解Rust语言的全新设计思路及其重要概念。
 
-## 重要链接
+## 重要Rust语言链接
 - [Rust官方网站](https://www.rust-lang.org/)
 - [rustup官方网站](https://rustup.rs/)
 - [Cargo项目源代码](https://github.com/rust-lang/cargo)
 - [Crate.io官方网站](https://crates.io/)
+
+## 重要工具链接链接
+- [Tables Generator](https://www.tablesgenerator.com/)

@@ -14,10 +14,24 @@
 
 　　下面说明这些目录名称含义。整个项目名称随着不同项目其名称也会不同，但每一个整体项目目录下，所有Cargo项目名称都是一样的。
 
-- 整个项目名称：hello-world
-- 共享篋项目名称：lib-hello
-- 本地程序项目名称：bin-local-hello
-- 仓库程序项目名称：bin-hello
+<hr/>
+
+| 项目类型 | 项目名称 | 相对路径 |
+|---|---|---|
+| 整个项目 | **hello-world** | ./hello-world |
+| 共享篋 | lib-hello | ./hello-world/lib-hello |
+| 本地程序 | bin-local-hello | ./hello-world/bin-local-hello |
+| 仓库程序 | bin-hello | ./hello-world/bin-hello |
+
+<hr/>
+
+| 篋类型 | 篋名称 | 相对路径 |
+|---|---|---|
+| 共享软件篋 | **hello_exercism** | ./hello-world/lib-hello |
+| 可执行程序 | bin-local-hello | ./hello-world/bin-local-hello |
+| 可执行程序 | bin-hello | ./hello-world/bin-hello |
+
+<hr/>
 
 ```
 ── hello-world
