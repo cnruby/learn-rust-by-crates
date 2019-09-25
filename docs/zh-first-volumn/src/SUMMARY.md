@@ -10,6 +10,7 @@
   - [开发软件篋hello_exercism](./hello-world/develop.md)
   - [开发软件篋hello_exercism的本地程序](./hello-world/bin.md)
   - [开发软件篋hello_exercism的仓库程序](./hello-world/bin-local.md)
+  - [开发软件篋命令](./hello-world/commands.md)
   - [题外话](./hello-world/off-topic.md)
 - [软件篋borrowing_exerci](./hello-borrowing/README.md)
   - [关于软件篋borrowing_exerci](./hello-borrowing/about.md)

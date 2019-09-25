@@ -1,3 +1,3 @@
 fn main () {
-    let hello :&'static str = "Hello, World!";
+    let _hello :&'static str = "Hello, World!";
 }
