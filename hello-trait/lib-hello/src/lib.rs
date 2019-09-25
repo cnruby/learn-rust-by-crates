@@ -1,9 +1,9 @@
-struct MyType {
-    data: u32,
+pub struct MyType {
+    pub data: u32,
 }
 
 // Defining an interface
-trait MyTrait {
+pub trait MyTrait {
     fn foo(&self) -> u32;
 }
 
