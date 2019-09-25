@@ -13,17 +13,22 @@ cargo init --name hello_exercism --lib
 vi Cargo.toml
 vi src/lib.rs
 mkdir tests
-touch tests/hello.rs
-vi tests/hello.rs
+touch tests/u_hello.rs
+vi tests/u_hello.rs
+touch tests/i_hello.rs
+vi tests/i_hello.rs
 cargo test
 ```
 ### Step 3: develop the example codes
 - Go to Crate Root Path
 ```bash
 mkdir examples
-touch examples/hello.rs
-vi examples/hello.rs
-cargo run --example hello
+touch examples/u_hello.rs
+vi examples/u_hello.rs
+cargo run --example u_hello
+touch examples/i_hello.rs
+vi examples/i_hello.rs
+cargo run --example i_hello
 ```
 
 ## II. use the crate 'hello_exercism'
@@ -37,7 +42,7 @@ cargo init --name bin-hello --bin
 ### Step 2: configure the file Cargo.toml
 - Go to Bin Root Path
 ```bash
-echo 'hello_exercism = "0.3.1"' >> Cargo.toml
+echo 'hello_exercism = "0.3.5"' >> Cargo.toml
 ```
 ### Step 3: edit the rust file main.rs
 - Go to Bin Root Path

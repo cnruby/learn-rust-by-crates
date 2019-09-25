@@ -1,6 +1,6 @@
 [package]
 name = "hello_exercism"
-version = "0.3.4"
+version = "0.3.5"
 authors = ["cnruby <gudao.luo@gmail.com>"]
 edition = "2018"
 readme = "README.md"
@@ -13,4 +13,4 @@ description = "how to create an own crate"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-i_crate = { version = "0.3.2", package = "hello_exercism" }
+i_crate = { version = "0.3.3", package = "hello_exercism" }
