@@ -7,7 +7,7 @@
 
 | 项目类型 | 项目名称 | 相对路径 |
 |---|---|---|
-| 整个项目 | **hello-world** | ./hello-world |
+| 作业区 | **hello-world** | ./hello-world |
 | 共享篋 | lib-hello | ./hello-world/lib-hello |
 | 本地程序 | bin-local-hello | ./hello-world/bin-local-hello |
 | 仓库程序 | bin-hello | ./hello-world/bin-hello |
@@ -48,40 +48,65 @@
 
 ```
 ── hello-world
+    ├── Cargo.lock
+    ├── Cargo.toml
     ├── README.md
     ├── bin-hello
     │   ├── Cargo.lock
     │   ├── Cargo.toml
-    │   ├── src
-    │   │   └── main.rs
-    │   └── target
-    │       ├── debug
-    │       └── release
+    │   └── src
+    │       └── main.rs
     ├── bin-local-hello
     │   ├── Cargo.lock
     │   ├── Cargo.toml
     │   ├── src
     │   │   └── main.rs
-    │   ├── target
-    │   │   ├── debug
-    │   │   └── release
     │   └── tests
     │       └── hello.rs
-    └── lib-hello
-        ├── Cargo.lock
-        ├── Cargo.toml
-        ├── README.md
-        ├── examples
-        │   ├── hello.rs
-        │   └── main.rs
-        ├── src
-        │   └── lib.rs
-        ├── target
-        │   ├── debug
-        │   └── release
-        └── tests
-            └── hello.rs
+    ├── lib-hello
+    │   ├── Cargo.lock
+    │   ├── Cargo.toml
+    │   ├── Cargo.txt
+    │   ├── README.md
+    │   ├── examples
+    │   │   ├── i_hello.rs
+    │   │   ├── main.rs
+    │   │   └── u_hello.rs
+    │   ├── src
+    │   │   └── lib.rs
+    │   └── tests
+    │       ├── i_hello.rs
+    │       └── u_hello.rs
+    └── target
+        ├── debug
+        │   ├── bin-hello
+        │   ├── bin-hello.d
+        │   ├── bin-hello.dSYM -> deps/bin_hello-e487e1d0c9778df2.dSYM
+        │   ├── bin-local-hello
+        │   ├── bin-local-hello.d
+        │   ├── bin-local-hello.dSYM -> deps/bin_local_hello-8b6b201fe1d502bb.dSYM
+        │   ├── build
+        │   ├── deps
+        │   ├── examples
+        │   ├── incremental
+        │   ├── libhello_exercism.d
+        │   ├── libhello_exercism.rlib
+        │   └── native
+        └── release
+            ├── bin-hello
+            ├── bin-hello.d
+            ├── bin-local-hello
+            ├── bin-local-hello.d
+            ├── build
+            ├── deps
+            ├── examples
+            ├── incremental
+            ├── libhello_exercism.d
+            ├── libhello_exercism.rlib
+            └── native
 ```
+
+## 题外话
 
 ### 目录与命令
 

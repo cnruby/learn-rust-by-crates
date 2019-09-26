@@ -1,11 +1,26 @@
-# 关于软件篋（Crate）
+# 关于作业区和软件篋（Crate）
 
 　　软件篋（Crate）是其他语言的库（library）或包（package）的同义词。软件篋可以生成这里称之为应用程序的可执行文件或共享库，
+
+## 创建作业区命令
+
+```bash
+# 创建一个工作空间
+mkdir workpsaces && cd workpsaces
+# 创建一个作业区hello-world
+mkdir hello-world && cd hello-world
+# 创建一个作业区配置文件
+touch Cargo.toml
+# 作业区存在三个软件篋
+# 注意：下面两行代码是一行命令
+echo '[workspace]
+members = ["lib-hello", "bin-hello", "bin-local-hello"]' >> Cargo.toml
+```
 
 ## 创建默认共享软件篋程序命令
 
 ```bash
-# 进入整体项目根目录
+# 进入作业区根目录
 # 命令说明：
 # mkdir <crate-project-name>
 # 命令实例，如创建名称为lib-hello的共享篋程序项目目录
@@ -21,7 +36,7 @@ cargo init --name hello_exercism --lib
 ## 创建默认可执行的应用程序命令
 
 ```bash
-# 进入整体项目根目录
+# 进入作业区根目录
 # 命令说明：
 # mkdir <app-project-name>
 # 命令实例，如创建名称为bin-hello的应用程序项目目录

@@ -1,6 +1,7 @@
+# Crate Configuration File: ./Cargo.toml
 [package]
 name = "hello_exercism"
-version = "0.3.7"
+version = "0.3.8"
 authors = ["cnruby <gudao.luo@gmail.com>"]
 edition = "2018"
 readme = "README.md"
@@ -13,3 +14,4 @@ description = "how to create an own crate"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+i_crate = { version = "0.3.6", package = "hello_exercism"}

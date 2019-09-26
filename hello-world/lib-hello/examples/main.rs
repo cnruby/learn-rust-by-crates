@@ -1,3 +1,5 @@
+// Rust File: examples/main.rs
 fn main () {
-    let _hello :&'static str = "Hello, World!";
+    let _ :&'static str = "Hello, World!";
+    let _ :&str = "Hello, World!";
 }

@@ -42,6 +42,11 @@ cargo test test_hello_world
 ## 项目重要配置和代码
 
 ## 思考问题
+
+### `＆str`和`＆'static str`有什么区别？
+- 在语句里，它们是没有任何区别。
+- 在函数返回类型里，它们是有区别的。
+
 ### 使用关键词use和extern有什么区别？
 - 自Rust2018版本以来几乎不再需要extern语句。
 - 关键词use方法与以前相同。
@@ -57,4 +62,4 @@ cargo test test_hello_world
 - [cfg-test-and-cargo-test-a-missing-information](https://freyskeyd.fr/cfg-test-and-cargo-test-a-missing-information/)
 - [ch11-03-test-organization](https://doc.rust-lang.org/book/ch11-03-test-organization.html)
 - [writing-integration-tests-in-rust](https://klausi.github.io/rustnish/2017/05/25/writing-integration-tests-in-rust.html)
-- 
+- [what-is-the-difference-between-str-and-static-str-in-a-static-or-const](https://stackoverflow.com/questions/49684657/what-is-the-difference-between-str-and-static-str-in-a-static-or-const)
