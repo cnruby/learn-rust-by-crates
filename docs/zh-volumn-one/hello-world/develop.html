@@ -177,7 +177,7 @@ description = &quot;how to create an own crate&quot;
 i_crate = { version = &quot;0.3.6&quot;, package = &quot;hello_exercism&quot;}
 </code></pre>
 <p>　　在文件Cargo.toml里，最重要的一项是共享软件篋名称：name。这是使用该共享篋的入口名称。这里默认模块名称为hello_exercism。</p>
-<p>　　最常用的一节是共享篋依赖关系：[dependencies]。这里有一行依赖关系代码，说明</p>
+<p>　　最常用的一节是共享篋依赖关系：[dependencies]。这里有一行依赖关系代码，说明共享篋有赖于外部共享篋。</p>
 <h3><a class="header" href="#程序文件librs" id="程序文件librs">程序文件lib.rs</a></h3>
 <p>　　程序文件lib.rs是共享篋的入口文件。这里它只有一个函数hello()，其功能就是返回一个字符串文字。其返回的类型为&amp;'static str的字符串，这一类型是静态生命周期的字符串文字，或者简单说静态的字符串文字。</p>
 <p>　　ⓡ 所有字符串文字类型都是引用，且具有静态生命周期的功能。</p>
