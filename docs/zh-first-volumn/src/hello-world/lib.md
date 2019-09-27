@@ -1,12 +1,12 @@
-# 子项目：共享软件篋hello_exercism
+# 子项目：共享软件篋hello_exercism代码
+
+　　共享软件篋本身只能提供给其他共享篋和应用程序使用。Cargo工具实现了项目内所有目录和文件有机联系在一起。当运行测试代码或者实例代码时，这些代码都知道应该怎么样连接到正在开发的共享篋。
 
 ## 学习内容
 - 阐述Rust语言文件功能
 - 理解项目共享篋程序代码
 
-## 说明共享篋代码
-
-　　共享软件篋本身只能提供给其他共享篋和应用程序使用。Cargo工具实现了项目内所有目录和文件有机联系在一起。当运行测试代码或者实例代码时，这些代码都知道应该怎么样连接到正在开发的共享篋。
+## 项目配置文件
 
 ### 项目配置文件: ./Cargo.toml
 
@@ -20,35 +20,27 @@
 
 　　最常用的一节是共享篋依赖关系：[dependencies]。这里有一行依赖关系代码，说明共享篋有赖于外部共享篋。
 
-### 程序文件lib.rs
+## 程序文件lib.rs
 
-　　程序文件lib.rs是共享篋的入口文件。这里它只有一个函数hello()，其功能就是返回一个字符串文字。其返回的类型为&'static str的字符串，这一类型是静态生命周期的字符串文字，或者简单说静态的字符串文字。
+　　程序文件lib.rs是共享篋的入口文件。这里它有两个函数：hello()和hallo()，其功能都是返回一个字符串文字。hello()返回英文问候，而hallo()返回德文问候。它们返回的类型也都是&'static str的字符串，这一类型是静态生命周期的字符串文字，或者简单说静态的字符串文字。
 
 　　ⓡ 所有字符串文字类型都是引用，且具有静态生命周期的功能。
 
-　　此函数的返回值是包含一个引用字符串文字类型值，所以函数返回类型也要此类型`&str`。因为在整个程序过程中需要该类型是有效的，所以此类型还要是静态生命周期`'static`。
+　　↳ 这里的函数返回值是包含一个引用字符串文字类型值，所以函数返回类型也要此类型`&str`。因为在整个程序过程中需要该类型是有效的，所以此类型还要是静态生命周期`'static`。
 
-　　Ⓓ 所有模块和函数默认情况下都是私有的。要使得它们可公开访问的话，就需要使用修饰词关键词'pub'。
+　　Ⓓ 在默认情况下，所有使用关键词mod定义的模块和使用关键词fn定义的函数都是私有的。要使得它们可公开访问的话，就需要使用修饰词关键词'pub'。
+
+　　↳ hello()是公共可访问的函数，而hallo()是只有模块hello_exercism内可访问的私有函数。
+
+　　↳ 所有私有函数的单元测试代码必须在程序文件内。将在后面说明该文件的相关测试代码。
+
+　　Ⓓ 共享篋模块默认情况下是公开的。
+
+　　↳ 这里共享篋模块名称是hello_exercism，尽管它没有使用关键词mod定义，但是Rust语言默认定义了它。
 
 {{#playpen ../../../../hello-world/lib-hello/src/lib.rs editable}}
 
-### 单元测试文件u_hello.rs
-
-　　Ⓒ 大多数单元测试都带有注解'#[cfg(test)]'的测试模块。
-
-　　ⓡ 每一个单元测试函数注解带有'#[test]'标记。
-
-　　每个测试函数都是单独地调用正在开发的共享软件篋进行运行的。因此Cargo工具将共享软件篋纳入到每个测试函数的范围里。测试文件名称命名是由用户自己确定的。
-
-{{#playpen ../../../../hello-world/lib-hello/tests/u_hello.rs editable}}
-
-### 集成测试文件i_hello.rs
-
-　　Ⓒ 集成测试不需要使用注释'#[cfg(test)]'来注释任何测试代码。
-
-　　ⓡ 每一个单元测试函数注解带有'#[test]'标记。
-
-{{#playpen ../../../../hello-world/lib-hello/tests/i_hello.rs editable}}
+## 说明目录examples的实例文件
 
 ### 单元实例文件u_hello.rs
 
@@ -92,15 +84,10 @@
 
 　　表达式和语句可以汇聚成一个由{}内的代码块和由关键词fn开始的函数与方法。函数和方法可以组成一个由关键词mod开始的模块。若干个模块可以形成由关键词mod开始的父模块。
 
-### 单元测试与集成测试
+### 项目配置文件
 
-　　单元测试（Unit tests）是单个模块的单独测试：它们很小且可以测试私有代码。
-
-　　集成测试（Integration tests）在您的板条箱外部，并且仅以其公共接口的方式使用其他任何代码。 它们的目的是测试库的许多部分能否正常协同工作。
+　　除了项目配置文件Cargo.toml之外，还可以有其它功能的配置文件，如工具rustfmt的配置文件。
 
 ## 参考资料
-- [unit_testing](https://doc.rust-lang.org/rust-by-example/testing/unit_testing.html)
 - [Rust中的const和static](https://blog.csdn.net/s_lisheng/article/details/79287713)
-- [unit-test-vs-integration-test](https://www.guru99.com/unit-test-vs-integration-test.html)
 - [specifying-dependencies](https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html)
-- [Liste der Unicode-Zeichen der Kategorie „Sonstiges Symbol“](https://www.compart.com/de/unicode/category/So)

@@ -10,3 +10,10 @@
 cargo run
 cargo run -q
 ```
+
+
+```toml
+{{#include ../../../../hello-world/bin-local-hello/Cargo.toml}}
+```
+
+[how-to-use-a-local-unpublished-crate](https://stackoverflow.com/questions/33025887/how-to-use-a-local-unpublished-crate)
