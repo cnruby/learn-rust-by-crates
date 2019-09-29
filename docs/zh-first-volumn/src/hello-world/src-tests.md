@@ -73,8 +73,6 @@ $ tree ./src -L 3
 
 {{#playpen ../../../../hello-world/lib-hello/src/integration_tests/i_hello.rs editable}}
 
-- ![image](../../images/crates_io_api_access_create.png)
-
 ## 参考资料
 - [unit_testing](https://doc.rust-lang.org/rust-by-example/testing/unit_testing.html)
 - [unit-test-vs-integration-test](https://www.guru99.com/unit-test-vs-integration-test.html)

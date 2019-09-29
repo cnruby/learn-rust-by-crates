@@ -1,5 +1,20 @@
 # How to Create an Own Crate
 
+## Crate a workspace
+
+```bash
+# create a workspaces
+mkdir workpsaces && cd workpsaces
+# create a workspace 'hello-world'
+mkdir hello-world && cd hello-world
+# create a configration for the workspace
+touch Cargo.toml
+# four crates for this workspace
+# the follow lines is ONE command
+echo '[workspace]
+members = ["lib-hello", "bin-hello", "bin-local-hello", "lib-extern"]' >> Cargo.toml
+```
+
 ## I. develop the crate
 ### Step 1: create the default crate
 ```bash
@@ -7,7 +22,7 @@ mkdir lib-hello && cd lib-hello
 # this is Crate Root Path
 cargo init --name hello_exercism --lib
 ```
-### Step 2: develop the crate source and test codes
+### Step 2: develop the crate source and test codes for folder 'tests'
 - Go to Crate Root Path
 ```bash
 vi Cargo.toml
@@ -31,6 +46,34 @@ vi examples/i_hello.rs
 cargo run --example i_hello
 ```
 
+### Step 4: develop the crate source and test codes for folder 'src'
+```bash
+vi src/lib.rs
+mkdir -p src/integration_tests
+touch src/integration_tests/mod.rs
+vi src/integration_tests/mod.rs
+touch src/integration_tests/i_hello.rs
+vi src/integration_tests/i_hello.rs
+mkdir -p src/private_tests
+touch src/private_tests/mod.rs
+vi src/private_tests/mod.rs
+touch src/private_tests/owned_hello.rs
+vi src/private_tests/owned_hello.rs
+cargo test
+```
+
+## publish the own crate to crates.io
+- register the crates.io with github.com account
+- login the crates.io
+- get the token
+- run the command in computer
+
+```bash
+cargo login <token>
+cargo package
+cargo publish
+```
+
 ## II. use the crate 'hello_exercism'
 ### Step 1: create the default Bin
 ```bash
@@ -42,7 +85,7 @@ cargo init --name bin-hello --bin
 ### Step 2: configure the file Cargo.toml
 - Go to Bin Root Path
 ```bash
-echo 'hello_exercism = "0.3.7"' >> Cargo.toml
+echo 'hello_exercism = "0.4.0"' >> Cargo.toml
 ```
 ### Step 3: edit the rust file main.rs
 - Go to Bin Root Path

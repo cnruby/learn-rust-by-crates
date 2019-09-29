@@ -254,7 +254,7 @@ touch Cargo.toml
 # 作业区存在三个软件篋
 # 注意：下面两行代码是一行命令
 echo '[workspace]
-members = [&quot;lib-hello&quot;, &quot;bin-hello&quot;, &quot;bin-local-hello&quot;]' &gt;&gt; Cargo.toml
+members = [&quot;lib-hello&quot;, &quot;bin-hello&quot;, &quot;bin-local-hello&quot;, &quot;lib-extern&quot;]' &gt;&gt; Cargo.toml
 </code></pre>
 <h2><a class="header" href="#创建默认共享软件篋程序命令" id="创建默认共享软件篋程序命令">创建默认共享软件篋程序命令</a></h2>
 <pre><code class="language-bash"># 进入作业区根目录
@@ -391,7 +391,6 @@ cargo run -p bin-hello
 <li>了解项目软件篋开发过程</li>
 </ul>
 <h2><a class="header" href="#开发共享篋项目命令" id="开发共享篋项目命令">开发共享篋项目命令</a></h2>
-<p>　　只有发布了自己共享软件篋以后，才能开发这个项目的集成测试代码和集成实例。</p>
 <h3><a class="header" href="#创建项目命令" id="创建项目命令">创建项目命令</a></h3>
 <pre><code class="language-bash"># 先进入作业区根目录，且创建项目目录，然后进入共享篋根目录
 mkdir lib-hello &amp;&amp; cd lib-hello
@@ -420,7 +419,7 @@ touch examples/u_hello.rs
 vi examples/u_hello.rs
 </code></pre>
 <h3><a class="header" href="#开发共享篋和集成测试代码" id="开发共享篋和集成测试代码">开发共享篋和集成测试代码</a></h3>
-<pre><code class="language-bash">echo 'i_crate = { version = &quot;0.3.6&quot;, package = &quot;hello_exercism&quot;}' &gt;&gt; Cargo.toml
+<pre><code class="language-bash">echo 'i_crate = { version = &quot;0.1.1&quot;, package = &quot;hello_extern&quot;}' &gt;&gt; Cargo.toml
 touch tests/i_hello.rs
 vi tests/i_hello.rs
 touch examples/i_hello.rs
@@ -499,9 +498,24 @@ vi tests/u_hello.rs
 <h3><a class="header" href="#开发共享篋文档" id="开发共享篋文档">开发共享篋文档</a></h3>
 <pre><code class="language-bash">mkdir -p ../../docs/hello-world
 cargo doc
-cd ..
-cp -rf ./target/doc/. ../../docs/hello-world/.
+cp -rf ../target/doc/. ../../docs/hello-world/.
 </code></pre>
+<h3><a class="header" href="#发布共享篋" id="发布共享篋">发布共享篋</a></h3>
+<pre><code class="language-bash">## commit the codes
+cargo package
+cargo publish
+</code></pre>
+<h2><a class="header" href="#发布共享篋准备工作" id="发布共享篋准备工作">发布共享篋准备工作</a></h2>
+<ul>
+<li>register the crates.io</li>
+<li>login the crates.io</li>
+<li>get the token</li>
+<li>run the commands in computer</li>
+</ul>
+<pre><code class="language-bash">cargo login &lt;token&gt;
+</code></pre>
+<p><img src="hello-world/../../images/crates_io_api_access_new_token.png" alt="image" />
+<img src="hello-world/../../images/crates_io_api_access_create.png" alt="image" /></p>
 <h1><a class="header" href="#关于软件篋项目hello-world-1" id="关于软件篋项目hello-world-1">关于软件篋项目hello-world</a></h1>
 <h2><a class="header" href="#学习内容-2" id="学习内容-2">学习内容</a></h2>
 <ul>
@@ -636,7 +650,8 @@ description = &quot;how to create an own crate&quot;
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-i_crate = { version = &quot;0.3.6&quot;, package = &quot;hello_exercism&quot;}
+#hello_extern = { version = &quot;0.1.1&quot;}
+i_crate = { version = &quot;0.1.1&quot;, package = &quot;hello_extern&quot;}
 
 </code></pre>
 <p>　　在文件Cargo.toml里，最重要的一项是共享软件篋名称：name。这是使用该共享篋的入口名称。这里默认模块名称为hello_exercism。</p>
@@ -950,9 +965,6 @@ fn it_works_with_the_crate_and_extern() {
 }
 
 </code></pre></pre>
-<ul>
-<li><img src="hello-world/../../images/crates_io_api_access_create.png" alt="image" /></li>
-</ul>
 <h2><a class="header" href="#参考资料-4" id="参考资料-4">参考资料</a></h2>
 <ul>
 <li><a href="https://doc.rust-lang.org/rust-by-example/testing/unit_testing.html">unit_testing</a></li>

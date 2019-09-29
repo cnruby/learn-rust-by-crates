@@ -14,7 +14,7 @@ touch Cargo.toml
 # 作业区存在三个软件篋
 # 注意：下面两行代码是一行命令
 echo '[workspace]
-members = ["lib-hello", "bin-hello", "bin-local-hello"]' >> Cargo.toml
+members = ["lib-hello", "bin-hello", "bin-local-hello", "lib-extern"]' >> Cargo.toml
 ```
 
 ## 创建默认共享软件篋程序命令
