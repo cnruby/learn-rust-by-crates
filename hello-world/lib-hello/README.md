@@ -73,6 +73,7 @@ cargo test
 cargo login <token>
 ## can repeat the follow commands
 cargo test
+## commit and push the codes
 cargo package
 cargo publish
 ```
