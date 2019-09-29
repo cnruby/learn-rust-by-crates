@@ -1,23 +1,28 @@
-# 关于作业区和软件篋（Crate）
+# 关于作业区和软件篋（Crate）实例
 
 　　软件篋（Crate）是其他语言的库（library）或包（package）的同义词。软件篋可以生成这里称之为应用程序的可执行文件或共享库，
 
-## 创建作业区命令
+## 实例：创建作业区空间
 
 ```bash
 # 创建一个工作空间
 mkdir workpsaces && cd workpsaces
+```
+
+## 实例：创建作业区
+
+```bash
 # 创建一个作业区hello-world
 mkdir hello-world && cd hello-world
 # 创建一个作业区配置文件
 touch Cargo.toml
-# 作业区存在三个软件篋
+# 作业区存在四个软件篋
 # 注意：下面两行代码是一行命令
 echo '[workspace]
 members = ["lib-hello", "bin-hello", "bin-local-hello", "lib-extern"]' >> Cargo.toml
 ```
 
-## 创建默认共享软件篋程序命令
+## 实例：创建默认共享软件篋程序命令
 
 ```bash
 # 进入作业区根目录
@@ -33,7 +38,7 @@ cd lib-hello
 cargo init --name hello_exercism --lib
 ```
 
-## 创建默认可执行的应用程序命令
+## 实例：创建默认可执行的应用程序命令
 
 ```bash
 # 进入作业区根目录
@@ -49,7 +54,7 @@ cd bin-hello
 cargo init --name bin-hello --bin
 ```
 
-## 说明共享软件篋结构
+## 实例：说明共享软件篋结构
 
 　　使用软件工具Cargo，在默认Cargo项目基础上，这里除了增加了默认说明文件README.md外，还有增加了两个Cargo默认目录：tests和examples，同时在两个目录下增加了两个rust程序文件，其结果如下：
 

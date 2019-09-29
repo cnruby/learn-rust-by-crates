@@ -1,7 +1,7 @@
 [package]
 name = "hello_extern"
 version = "0.1.1"
-authors = ["Gudao Luo <gudao.luo@gmail.com>"]
+authors = ["cnruby <gudao.luo@gmail.com>"]
 edition = "2018"
 readme = "README.md"
 license = "MIT OR Apache-2.0"

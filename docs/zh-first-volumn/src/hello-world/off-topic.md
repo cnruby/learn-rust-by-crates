@@ -7,8 +7,8 @@
 ```bash
 # cargo build --example <目录examples下无扩展名的文件名称>
 # cargo run --example <目录examples下无扩展名的文件名称>
-cargo build --example hello
-cargo run --example hello
+cargo build --example i_hello
+cargo run --example i_hello
 ```
 
 ### Cargo项目构建命令
@@ -17,29 +17,11 @@ cargo build
 cargo build --release
 ```
 
-```
-── lib-hello
-    ├── Cargo.lock
-    ├── Cargo.toml
-    ├── examples
-    │   └── hello.rs
-    ├── README.md
-    ├── src
-    │   └── lib.rs
-    ├── target
-    │   ├── debug
-    │   └── package
-    └── tests
-        └── hello.rs
-```
-
 ### Cargo项目测试特定代码命令
 ```bash
-cargo test tests::it_works_hello_exercism
+cargo test tests::it_works_at_uint
 cargo test test_hello_world
 ```
-
-## 项目重要配置和代码
 
 ## 思考问题
 
