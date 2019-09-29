@@ -1,4 +1,4 @@
-# 共享软件篋 hello_exercism ：目录src的测试代码解释
+# 共享篋hello_exercism：目录src的测试代码解释
 
 ## 学习内容
 - 了解共享篋目录src下的测试代码结构
@@ -61,15 +61,15 @@ $ tree ./src -L 3
 
 {{#playpen ../../../../hello-world/lib-hello/src/private_tests/mod.rs editable}}
 
-## 基于共享篋目录src内的集成测试
+## 基于目录src内的集成测试
 
 　　基于共享篋目录src内的集成测试，与私有代码的单元测试思路有类似性，其测试代码也都是在模块程序代码里，但是有本质上区别，它仅仅使用了共享篋模块结构属性，而非共享篋的原代码，因此它是只能访问共享篋的公共接口。
 
 　　在程序文件lib.rs里，存在两段集成测试集成代码。第一段代码和第二段代码方法都是把测试代码分离到另外文件里，这里它们指向相同的集成测试文件或者说模块。代码原理与前面私有代码的单元测试是完全一样的。
 
-　　不同代码的是，程序文件mod.rs和集成测试文件i_hello.rs。程序文件mod.rs没有super相关语句，只是说明了使用i_hello模块。集成测试文件i_hello.rs也是不一样的，也没有super相关语句，而是引用了一行使用自己模块的语句，且把自己也称之为模块hello_exercism，这个模块名称可以随意自己命名。
-
 {{#playpen ../../../../hello-world/lib-hello/src/integration_tests/mod.rs editable}}
+
+　　不同代码的是，程序文件mod.rs和集成测试文件i_hello.rs。程序文件mod.rs没有super相关语句，只是说明了使用i_hello模块。集成测试文件i_hello.rs也是不一样的，也没有super相关语句，而是引用了一行使用自己模块的语句，且把自己也称之为模块hello_exercism，这个模块名称可以随意自己命名。
 
 {{#playpen ../../../../hello-world/lib-hello/src/integration_tests/i_hello.rs editable}}
 

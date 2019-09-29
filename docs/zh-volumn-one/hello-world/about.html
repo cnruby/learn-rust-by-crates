@@ -156,22 +156,26 @@
 </ul>
 <h2><a class="header" href="#项目名称" id="项目名称">项目名称</a></h2>
 <h3><a class="header" href="#项目清单" id="项目清单">项目清单</a></h3>
-<table><thead><tr><th>项目类型</th><th>项目名称</th><th>相对路径</th></tr></thead><tbody>
-<tr><td>作业区</td><td><strong>hello-world</strong></td><td>./hello-world</td></tr>
-<tr><td>共享篋</td><td>lib-hello</td><td>./hello-world/lib-hello</td></tr>
-<tr><td>本地程序</td><td>bin-local-hello</td><td>./hello-world/bin-local-hello</td></tr>
-<tr><td>仓库程序</td><td>bin-hello</td><td>./hello-world/bin-hello</td></tr>
+<table><thead><tr><th>项目类型</th><th>项目名称</th><th>相对路径</th><th>项目说明</th></tr></thead><tbody>
+<tr><td>作业区</td><td><strong>hello-world</strong></td><td>./hello-world</td><td>开发共享软件篋工作区</td></tr>
+<tr><td>共享篋</td><td>lib-hello</td><td>./hello-world/lib-hello</td><td>开发共享软件篋实例</td></tr>
+<tr><td>本地程序</td><td>bin-local-hello</td><td>./hello-world/bin-local-hello</td><td>使用在本地的共享篋</td></tr>
+<tr><td>仓库程序</td><td>bin-hello</td><td>./hello-world/bin-hello</td><td>使用在crates.io上共享篋</td></tr>
+<tr><td>共享篋</td><td>lib-extern</td><td>./hello-world/lib-extern</td><td>作为第三方共享篋实例使用</td></tr>
 </tbody></table>
 <h3><a class="header" href="#软件篋清单" id="软件篋清单">软件篋清单</a></h3>
 <table><thead><tr><th>篋类型</th><th>篋名称</th><th>相对路径</th></tr></thead><tbody>
 <tr><td>共享软件篋</td><td><strong>hello_exercism</strong></td><td>./hello-world/lib-hello</td></tr>
 <tr><td>可执行程序</td><td>bin-local-hello</td><td>./hello-world/bin-local-hello</td></tr>
 <tr><td>可执行程序</td><td>bin-hello</td><td>./hello-world/bin-hello</td></tr>
+<tr><td>共享软件篋</td><td>hello_extern</td><td>./hello-world/lib-extern</td></tr>
 </tbody></table>
 <h2><a class="header" href="#项目结构" id="项目结构">项目结构</a></h2>
 <h3><a class="header" href="#目录清单" id="目录清单">目录清单</a></h3>
 <table><thead><tr><th>目录名称</th><th>根目录说明</th><th>生成方式</th></tr></thead><tbody>
 <tr><td>src</td><td>篋源代码目录</td><td>Cargo命令</td></tr>
+<tr><td>src/integration_tests</td><td>篋源代码集成测试目录</td><td>用户手动命令</td></tr>
+<tr><td>src/private_tests</td><td>篋源代码私有代码测试目录</td><td>用户手动命令</td></tr>
 <tr><td>tests</td><td>篋测试源代码目录</td><td>用户手动命令</td></tr>
 <tr><td>examples</td><td>篋实例源代码目录</td><td>用户手动命令</td></tr>
 <tr><td>target</td><td>篋构建目录</td><td>Cargo命令</td></tr>
@@ -185,7 +189,10 @@
 <tr><td>Cargo.toml</td><td>项目配置锁定文件</td><td>可修改</td><td>不可修改</td></tr>
 <tr><td>main.rs</td><td>可执行软件篋的入口文件</td><td>可修改</td><td>不可修改</td></tr>
 <tr><td>lib.rs</td><td>共享软件篋的入口文件</td><td>可修改</td><td>不可修改</td></tr>
-<tr><td>hello.rs</td><td>软件篋源代码文件</td><td>可修改</td><td>可修改</td></tr>
+<tr><td>mod.rs</td><td>篋模块的入口文件</td><td>可修改</td><td>不可修改</td></tr>
+<tr><td>i_hello.rs</td><td>集成测试或者实例文件</td><td>可修改</td><td>可修改</td></tr>
+<tr><td>u_hello.rs</td><td>单元测试或者实例文件</td><td>可修改</td><td>可修改</td></tr>
+<tr><td>owned_hello.rs</td><td>私有代码测试文件</td><td>可修改</td><td>可修改</td></tr>
 </tbody></table>
 <h3><a class="header" href="#所有项目结构树" id="所有项目结构树">所有项目结构树</a></h3>
 <pre><code>── hello-world
@@ -203,48 +210,32 @@
     │   ├── src
     │   │   └── main.rs
     │   └── tests
-    │       └── hello.rs
-    ├── lib-hello
-    │   ├── Cargo.lock
+    │       └── i_hello.rs
+    ├── lib-extern
     │   ├── Cargo.toml
-    │   ├── Cargo.txt
     │   ├── README.md
-    │   ├── examples
-    │   │   ├── i_hello.rs
-    │   │   ├── main.rs
-    │   │   └── u_hello.rs
     │   ├── src
     │   │   └── lib.rs
     │   └── tests
-    │       ├── i_hello.rs
     │       └── u_hello.rs
-    └── target
-        ├── debug
-        │   ├── bin-hello
-        │   ├── bin-hello.d
-        │   ├── bin-hello.dSYM -&gt; deps/bin_hello-e487e1d0c9778df2.dSYM
-        │   ├── bin-local-hello
-        │   ├── bin-local-hello.d
-        │   ├── bin-local-hello.dSYM -&gt; deps/bin_local_hello-8b6b201fe1d502bb.dSYM
-        │   ├── build
-        │   ├── deps
-        │   ├── examples
-        │   ├── incremental
-        │   ├── libhello_exercism.d
-        │   ├── libhello_exercism.rlib
-        │   └── native
-        └── release
-            ├── bin-hello
-            ├── bin-hello.d
-            ├── bin-local-hello
-            ├── bin-local-hello.d
-            ├── build
-            ├── deps
-            ├── examples
-            ├── incremental
-            ├── libhello_exercism.d
-            ├── libhello_exercism.rlib
-            └── native
+    └── lib-hello
+        ├── Cargo.toml
+        ├── README.md
+        ├── examples
+        │   ├── i_hello.rs
+        │   ├── main.rs
+        │   └── u_hello.rs
+        ├── src
+        │   ├── integration_tests
+        │   │   ├── i_hello.rs
+        │   │   └── mod.rs
+        │   ├── lib.rs
+        │   └── private_tests
+        │       ├── mod.rs
+        │       └── owned_hello.rs
+        └── tests
+            ├── i_hello.rs
+            └── u_hello.rs
 </code></pre>
 <h2><a class="header" href="#题外话" id="题外话">题外话</a></h2>
 <h3><a class="header" href="#目录与命令" id="目录与命令">目录与命令</a></h3>

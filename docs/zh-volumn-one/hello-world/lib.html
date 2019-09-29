@@ -152,7 +152,7 @@
 <p>　　共享软件篋本身只能提供给其他共享篋和应用程序使用。Cargo工具实现了项目内所有目录和文件有机联系在一起。当运行测试代码或者实例代码时，这些代码都知道应该怎么样连接到正在开发的共享篋。</p>
 <h2><a class="header" href="#学习内容" id="学习内容">学习内容</a></h2>
 <ul>
-<li>阐述Rust语言文件功能</li>
+<li>阐述共享篋文件功能</li>
 <li>理解项目共享篋程序代码</li>
 </ul>
 <h2><a class="header" href="#项目配置文件" id="项目配置文件">项目配置文件</a></h2>
@@ -161,7 +161,7 @@
 <pre><code class="language-toml"># Crate Configuration File: ./Cargo.toml
 [package]
 name = &quot;hello_exercism&quot;
-version = &quot;0.3.8&quot;
+version = &quot;0.4.0&quot;
 authors = [&quot;cnruby &lt;gudao.luo@gmail.com&gt;&quot;]
 edition = &quot;2018&quot;
 readme = &quot;README.md&quot;
@@ -281,12 +281,12 @@ Hallo, Welt!
 <p>　　在Rust语言里，存在一类关键词是修饰词关键词，如关键词&quot;pub&quot;和“static”。</p>
 <table><thead><tr><th>类型</th><th>关键词</th><th>类型说明</th></tr></thead><tbody>
 <tr><td>&amp;str</td><td></td><td>字符串文字</td></tr>
-<tr><td></td><td>'static</td><td>静态修饰词关键词</td></tr>
+<tr><td></td><td>static</td><td>静态修饰词关键词</td></tr>
 <tr><td></td><td>'</td><td>生命周期注释符</td></tr>
 <tr><td></td><td>'static</td><td>静态生命周期注释符</td></tr>
 </tbody></table>
 <h3><a class="header" href="#浅谈软件篋的模块" id="浅谈软件篋的模块">浅谈软件篋的模块</a></h3>
-<p>　　每一个共享篋都有自己的入口模块名称，这里是hello_exercism，使用共享篋都要从这个名称开始，这里模块hello_exercism有自己的函数hello()。程序文件lib.rs可以使用关键词mod再定义模块名称，但是它们都是hello_exercism的子模块。</p>
+<p>　　每一个共享篋都有自己的入口模块名称，这里是hello_exercism，使用共享篋都要从这个名称开始，这里模块hello_exercism有自己的函数hello()。在程序文件lib.rs内还，可以使用关键词mod再定义模块名称，但是它们都是hello_exercism的子模块。</p>
 <h3><a class="header" href="#函数hello功能" id="函数hello功能">函数hello()功能</a></h3>
 <p>　　从作用意义上，共享篋的函数hello()类似于使用关键词let语句，即可把它看作为一个类型为&amp;str的字符串与一个变量绑定，如下所示：</p>
 <pre><pre class="playpen"><code class="language-rust">// Rust File: examples/main.rs
