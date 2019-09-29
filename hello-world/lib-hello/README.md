@@ -63,13 +63,16 @@ cargo test
 ```
 
 ## publish the own crate to crates.io
-- register the crates.io with github.com account
-- login the crates.io
-- get the token
-- run the command in computer
+- register the [crates.io](https://crates.io) with [github.com](https://github.com/) account
+- login the [crates.io](https://crates.io)
+- get the [token](https://crates.io/me)
+- run the follow command in computer
 
 ```bash
+## run the follow commant at A time
 cargo login <token>
+## can repeat the follow commands
+cargo test
 cargo package
 cargo publish
 ```
