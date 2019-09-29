@@ -1,0 +1,17 @@
+[package]
+name = "hello_extern"
+version = "0.1.0"
+authors = ["Gudao Luo <gudao.luo@gmail.com>"]
+edition = "2018"
+readme = "README.md"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/cnruby/learn-rust-by-crates/tree/master/hello-world"
+homepage = "https://crates.io/crates/hello_exercism"
+documentation = "https://cnruby.github.io/learn-rust-by-crates/hello-world/hello_exercism/"
+description = "how to use an external crate"
+
+
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]

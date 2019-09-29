@@ -132,3 +132,23 @@ cargo run
 # 或者
 cargo run main
 ```
+
+## 开发共享篋项目hello_extern命令
+
+### 创建项目命令
+```bash
+# 先进入作业区根目录，且创建项目目录，然后进入共享篋根目录
+mkdir lib-extern && cd lib-extern
+# 创建名称为hello_extern的共享篋
+cargo init --name hello_extern --lib
+```
+
+### 开发共享篋和单元测试代码
+```bash
+vi Cargo.toml
+vi src/lib.rs
+mkdir tests
+touch tests/u_hello.rs
+vi tests/u_hello.rs
+```
+

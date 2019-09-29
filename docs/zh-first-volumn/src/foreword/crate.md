@@ -68,3 +68,5 @@ cargo init --name bin-hello --bin
 
 　　在上面的结构里，除了两个文件hello.rs之外，其他都是Cargo项目的默认目录和文件。这些目录和文件都是与Cargo工具默认命令相关的。Cargo项目还有其他默认目录和文件。目录src下的默认文件lib.rs是共享篋的入口文件。
 
+## 参考资料
+- [a4.cargo,crates_and_basic_project_structure](https://learning-rust.github.io/docs/a4.cargo,crates_and_basic_project_structure.html)

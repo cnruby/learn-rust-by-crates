@@ -1,18 +1,28 @@
 # Project
 - name: hello-world
-- goal: develop a crate
+- goal: how to develop an own crate
 - folder name: hello-world
 
-## Crate
+## Libray Crate
 - name: hello_exercism
 - goal: how to create a simple own crate for rust
-- description: how to test an own crate and use an own crate with th folder examples
+- description: how to test an own crate and use an own crate with the folder examples. how to delevop the unit tests and integration tests.
 - folder name: lib-hello
 
-## Example Application for Crate 'hello_exercism'
-- name: bin-hello
+## Application for Local Crate 'hello_exercism'
+- name: bin-local-hello
 - goal: how to use the local own crate 
 - folder name: bin-hello
+
+## Application for Crate.io 'hello_exercism'
+- name: bin-hello
+- goal: how to use the own crate in crates.io 
+- folder name: bin-hello
+
+## Libray Crate 'hello_extern' in crates.io
+- name: lib-extern
+- goal: how to use the extern crate in crates.io 
+- folder name: lib-extern
 
 # Resources
 - https://doc.rust-lang.org/rust-by-example/testing/integration_testing.html
