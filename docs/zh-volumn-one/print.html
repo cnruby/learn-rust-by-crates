@@ -496,6 +496,12 @@ mkdir tests
 touch tests/u_hello.rs
 vi tests/u_hello.rs
 </code></pre>
+<h3><a class="header" href="#开发共享篋文档" id="开发共享篋文档">开发共享篋文档</a></h3>
+<pre><code class="language-bash">mkdir -p ../../docs/hello-world
+cargo doc
+cd ..
+cp -rf ./target/doc/. ../../docs/hello-world/.
+</code></pre>
 <h1><a class="header" href="#关于软件篋项目hello-world-1" id="关于软件篋项目hello-world-1">关于软件篋项目hello-world</a></h1>
 <h2><a class="header" href="#学习内容-2" id="学习内容-2">学习内容</a></h2>
 <ul>

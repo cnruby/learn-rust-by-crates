@@ -152,3 +152,10 @@ touch tests/u_hello.rs
 vi tests/u_hello.rs
 ```
 
+### 开发共享篋文档
+```bash
+mkdir -p ../../docs/hello-world
+cargo doc
+cd ..
+cp -rf ./target/doc/. ../../docs/hello-world/.
+```

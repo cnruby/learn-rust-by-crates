@@ -28,7 +28,7 @@ dependencies = [
 
 [[package]]
 name = "hello_extern"
-version = "0.1.0"
+version = "0.1.1"
 
 [metadata]
 "checksum hello_exercism 0.3.7 (registry+https://github.com/rust-lang/crates.io-index)" = "e198483d299186486b6ba6706d32e9c907f7b28a6b80f2403c00a7663b7747d1"
