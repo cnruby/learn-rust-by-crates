@@ -1,10 +1,10 @@
-# Project: [hello_exercism](https://crates.io/crates/hello_exercism)
+# Project: 
 - name: hello-world
 - goal: how to develop an own crate
 - folder name: hello-world
 
 ## Libray Crate
-- name: hello_exercism 
+- name: [hello_exercism](https://crates.io/crates/hello_exercism) 
 - goal: how to create a simple own crate for rust
 - description: how to test an own crate and use an own crate with the folder examples. how to delevop the unit tests and integration tests.
 - folder name: lib-hello
