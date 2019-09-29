@@ -24,6 +24,10 @@
 - goal: how to use the extern crate in crates.io 
 - folder name: lib-extern
 
+[mkdnlink]: ./lib-hello/README.md
+
+{{./lib-hello/README.md}}
+
 # Resources
 - https://doc.rust-lang.org/rust-by-example/testing/integration_testing.html
 - https://riptutorial.com/rust/example/3481/create-new-project
