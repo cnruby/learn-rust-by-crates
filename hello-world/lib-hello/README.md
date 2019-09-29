@@ -1,6 +1,6 @@
 # How to Create an Own Crate
 
-## Crate a workspace
+## I Crate a workspace
 
 ```bash
 # create a workspaces
@@ -15,7 +15,7 @@ echo '[workspace]
 members = ["lib-hello", "bin-hello", "bin-local-hello", "lib-extern"]' >> Cargo.toml
 ```
 
-## I. develop the crate
+## II develop the crate
 ### Step 1: create the default crate
 ```bash
 mkdir lib-hello && cd lib-hello
@@ -78,7 +78,7 @@ cargo package
 cargo publish
 ```
 
-## II. use the crate 'hello_exercism'
+## III. use the crate 'hello_exercism'
 ### Step 1: create the default Bin
 ```bash
 mkdir bin-hello && cd bin-hello
@@ -108,13 +108,13 @@ fn main () {
 cargo run main
 ```
 
-## III. create the crate 'hello_exercism' doc in local version
+## IV. create the crate 'hello_exercism' doc in local version
 - Go to Crate Root Path
 ```bash
 cargo doc --open --package hello_exercism
 ```
 
-## IV. create the crate 'hello_exercism' doc in server version
+## V. create the crate 'hello_exercism' doc in server version
 - github.com >> <REPOSITORY> >> Setting >> Options >> GitHub Pages >> ([INFO...](https://github.blog/2016-08-22-publish-your-project-documentation-with-github-pages/))
 - Go to Crate Root Path
 ```bash
