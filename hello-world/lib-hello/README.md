@@ -1,10 +1,11 @@
-How to Create an Own Crate
-==========================
+# About 'hello_exercism'
+- How to Create and Publish an Own Crate
+- How to Use an Own Crate
+- How te develop the unit tests
+- How te develop the integration tests
+- How te develop the unit tests for private codes
 
-# Sections
-
-- [How to Create an Own Crate](#how-to-create-an-own-crate)
-- [Sections](#sections)
+- [About 'hello_exercism'](#about-helloexercism)
   - [I crate a workspace](#i-crate-a-workspace)
   - [II develop the crate](#ii-develop-the-crate)
     - [1 create the default crate](#1-create-the-default-crate)
@@ -19,6 +20,7 @@ How to Create an Own Crate
     - [4 run the Bin program](#4-run-the-bin-program)
   - [IV. create the crate docd 'hello_exercism' in local version](#iv-create-the-crate-docd-helloexercism-in-local-version)
   - [V. create the crate doc 'hello_exercism' in server version](#v-create-the-crate-doc-helloexercism-in-server-version)
+
 
 ## I crate a workspace
 
