@@ -5,6 +5,15 @@
 - 了解私有代码的单元测试方法
 - 了解目录src下的集成测试方法
 
+## 篇目
+
+1. [目录src测试代码结构](#目录src测试代码结构)
+1. [默认模块文件mod.rs](#默认模块文件modrs)
+1. [私有代码的单元测试](#私有代码的单元测试)
+1. [基于目录src内的集成测试](#基于目录src内的集成测试)
+1. [参考资料](#参考资料)
+
+
 ## 目录src测试代码结构
 
 ```bash
@@ -35,37 +44,43 @@ $ tree ./src -L 3
 
 ## 私有代码的单元测试
 
+　　↳ 所有私有函数的单元测试代码必须在其相关的程序文件内。
+
 　　Cargo项目私有代码的单元测试思路：单元测试与共享篋程序代码是融为一体的。所以测试代码都是在私有代码相关的可访问模块里，是不可分开的。
 
-### 程序文件lib.rs与单元测试文件owned_hello.rs
+## 程序文件src/lib.rs与私有代码的单元测试
 
-　　为了测试共享篋程序文件src/lib.rs的私有函数hallo()，需要将测试代码存放在该文件的可访问模块里，测试代码可以分离到另外文件里。
+　　为了测试共享篋程序文件src/lib.rs的私有函数hallo()，需要将测试代码存放在该文件的可访问模块里，或者分离到另外若干个文件里。
 
-　　在篋程序文件src/lib.rs里，对于私有代码的单元测试，有四段单元测试代码，它们是为三个不同模块：hello_exercism::private_tests::owned_hello、hello_exercism::private_tests_with_use和hello_exercism::private_tests_without_use，而每一个模块都是一个单元测试函数，其测试目的和代码含义都是完全一样的，只是代码形式不一样。
+　　这里说明程序文件src/lib.rs的第二部分私有代码的单元测试代码，有四段单元测试代码，它们是为三个不同模块：hello_exercism::private_tests::owned_hello、hello_exercism::private_tests_with_use和hello_exercism::private_tests_without_use，而每一个模块都有一个单元测试函数，其测试目的和代码含义都是完全一样的，只是代码形式不一样。
 
 {{#playpen ../../../../hello-world/lib-hello/src/lib.rs editable}}
 
-　　在程序文件lib.rs里，第一段代码和第二段代码方法都是把测试代码分离到另外文件里，这里它们指向相同的单元测试文件或者说模块。分离文件'src/private_tests/owned_hello.rs'如下所示里。它们的第二行说明其下一行模块的位置。
+## 多文件结构的私有代码的单元测试
+
+　　在程序文件lib.rs的第二部分代码里，第一段代码和第二段代码方法都是把测试代码分离到另外文件里，这里它们指向相同的单元测试文件或者说模块。分离文件'src/private_tests/owned_hello.rs'如下所示里。它们的第二行说明其下一行模块的位置。
 
 　　Ⓓ 因为第二段代码的访问模块方式是默认方式，所以第二行代码可以省略。
 
 {{#playpen ../../../../hello-world/lib-hello/src/private_tests/owned_hello.rs editable}}
 
-　　第三段代码和第四段代码方法是把测试代码存放在可访问私有代码的模块里。它们仅仅是否使用了关键词use不同而已。
+　　在程序文件mod.rs和owned_hello.rs里，第一行代码都是需要访问其父模块的所有函数。因为从模块owned_hello出发，需要访问其上两层模块，所以两个模块里都需要使用super语句。
+
+{{#playpen ../../../../hello-world/lib-hello/src/private_tests/mod.rs editable}}
+
+## 单一文件结构的私有代码的单元测试
+
+　　在程序文件lib.rs的第二部分代码里，第三段代码和第四段代码方法是把测试代码存放在可访问私有代码的模块里。它们仅仅是否使用了关键词use不同而已。
 
 　　第三段代码的第三行说明该模块hello_exercism::private_tests_with_use需要访问其父模块hello_exercism的所有函数。
 
 　　第四段代码里super也是说明了需要使用期父模块的函数hallo()。
 
-　　在程序文件mod.rs和owned_hello.rs里，第一行代码都是需要访问其父模块的所有函数。因为从模块owned_hello出发，需要访问其上两层模块，使用两个模块里都需要使用super语句。
-
-{{#playpen ../../../../hello-world/lib-hello/src/private_tests/mod.rs editable}}
-
 ## 基于目录src内的集成测试
 
 　　基于共享篋目录src内的集成测试，与私有代码的单元测试思路有类似性，其测试代码也都是在模块程序代码里，但是有本质上区别，它仅仅使用了共享篋模块结构属性，而非共享篋的原代码，因此它是只能访问共享篋的公共接口。
 
-　　在程序文件lib.rs里，存在两段集成测试集成代码。第一段代码和第二段代码方法都是把测试代码分离到另外文件里，这里它们指向相同的集成测试文件或者说模块。代码原理与前面私有代码的单元测试是完全一样的。
+　　这里说明程序文件src/lib.rs的第三部分集成测试代码，存在两段测试代码。第一段代码和第二段代码方法都是把测试代码分离到另外文件里，这里它们指向相同的集成测试文件或者说模块。代码原理与前面私有代码的单元测试是完全一样的。
 
 {{#playpen ../../../../hello-world/lib-hello/src/integration_tests/mod.rs editable}}
 

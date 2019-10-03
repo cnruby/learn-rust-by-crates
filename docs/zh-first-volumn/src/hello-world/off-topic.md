@@ -1,5 +1,17 @@
 # 题外话
 
+## 篇目
+
+1. [Cargo工具命令](#cargo工具命令)
+1. [构建和运行软件篋目录examples下文件](#构建和运行软件篋目录examples下文件)
+1. [Cargo项目构建命令](#Cargo项目构建命令)
+1. [Cargo项目测试特定代码命令](#Cargo项目测试特定代码命令)
+1. [思考问题](#思考问题)
+1. [类型`＆str`和`＆'static str`有什么区别？](#类型str和static-str有什么区别)
+1. [使用关键词use和extern有什么区别？](#使用关键词use和extern有什么区别？)
+1. [注解#[cfg(test)]有什么意义?](#注解cfgtest有什么意义)
+1. [参考资料](#参考资料)
+
 ## Cargo工具命令
 
 ### 构建和运行软件篋目录examples下文件
@@ -25,7 +37,7 @@ cargo test test_hello_world
 
 ## 思考问题
 
-### `＆str`和`＆'static str`有什么区别？
+### 类型`＆str`和`＆'static str`有什么区别？
 - 在语句里，它们是没有任何区别。
 - 在函数返回类型里，它们是有区别的。
 
