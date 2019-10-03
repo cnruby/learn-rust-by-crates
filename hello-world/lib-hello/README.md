@@ -1,10 +1,12 @@
 
 ### About this Crate
+- How to Create a Workspace
 - How to Create and Publish an Own Crate
 - How to Use an Own Crate
-- How te develop the unit tests
-- How te develop the integration tests
+- How te develop the unit tests with the folder 'tests'
 - How te develop the unit tests for private codes
+- How te develop the integration tests with the folder 'tests'
+- How te develop the integration tests with the folder 'src'
 - See [Code](https://github.com/cnruby/learn-rust-by-crates/tree/master/hello-world)
 
 ## Sections
