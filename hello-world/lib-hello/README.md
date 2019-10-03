@@ -8,13 +8,13 @@
   - [3 develop the example codes](#3-develop-the-example-codes)
   - [4 develop the crate source and test codes for folder 'src'](#4-develop-the-crate-source-and-test-codes-for-folder-src)
   - [5 publish the own crate to crates.io](#5-publish-the-own-crate-to-cratesio)
-- [III. use the crate 'hello_exercism'](#iii-use-the-crate-helloexercism)
+- [III use the crate 'hello_exercism'](#iii-use-the-crate-helloexercism)
   - [1 create the default Bin](#1-create-the-default-bin)
   - [2 configure the file Cargo.toml](#2-configure-the-file-cargotoml)
   - [3 edit the rust file main.rs](#3-edit-the-rust-file-mainrs)
   - [4 run the Bin program](#4-run-the-bin-program)
-- [IV. create the crate docd 'hello_exercism' in local version](#iv-create-the-crate-docd-helloexercism-in-local-version)
-- [V. create the crate doc 'hello_exercism' in server version](#v-create-the-crate-doc-helloexercism-in-server-version)
+- [IV create the crate doc 'hello_exercism' in local version](#iv-create-the-crate-doc-helloexercism-in-local-version)
+- [V create the crate doc 'hello_exercism' in server version](#v-create-the-crate-doc-helloexercism-in-server-version)
 
 # About hello_exercism
 - How to Create and Publish an Own Crate
@@ -98,7 +98,7 @@ cargo test
 cargo package
 cargo publish
 ```
-# III. use the crate 'hello_exercism'
+# III use the crate 'hello_exercism'
 ## 1 create the default Bin
 ```bash
 mkdir bin-hello && cd bin-hello
@@ -127,13 +127,13 @@ fn main () {
 cargo run main
 ```
 
-# IV. create the crate docd 'hello_exercism' in local version
+# IV create the crate doc 'hello_exercism' in local version
 - Go to Crate Root Path
 ```bash
 cargo doc --open --package hello_exercism
 ```
 
-# V. create the crate doc 'hello_exercism' in server version
+# V create the crate doc 'hello_exercism' in server version
 - github.com >> <REPOSITORY> >> Setting >> Options >> GitHub Pages >> ([INFO...](https://github.blog/2016-08-22-publish-your-project-documentation-with-github-pages/))
 - Go to Crate Root Path
 ```bash
