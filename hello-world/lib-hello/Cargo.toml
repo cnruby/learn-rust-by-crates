@@ -1,7 +1,7 @@
 # Crate Configuration File: ./Cargo.toml
 [package]
 name = "hello_exercism"
-version = "0.4.9"
+version = "0.4.10"
 authors = ["cnruby <gudao.luo@gmail.com>"]
 edition = "2018"
 readme = "README.md"
