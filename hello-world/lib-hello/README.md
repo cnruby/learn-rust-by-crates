@@ -1,5 +1,6 @@
-[![GitHub release](https://img.shields.io/github/v/release/cnruby/learn-rust-by-crates)](https://github.com/cnruby/learn-rust-by-crates/releases)
 [![Minimum rustc version](https://img.shields.io/badge/rustc-1.38+-brightgreen)](https://github.com/rust-lang/rust)
+[![GitHub release](https://img.shields.io/github/v/release/cnruby/learn-rust-by-crates)](https://github.com/cnruby/learn-rust-by-crates/releases)
+[![The Crate `hello_exercism` Code](https://img.shields.io/badge/crate-code-yellowgreen)](https://github.com/cnruby/learn-rust-by-crates/tree/master/hello-world)
 
 ## About this Crate `hello_exercism`
 - How to Create a Workspace
@@ -9,7 +10,6 @@
 - How te develop the unit tests for private codes
 - How te develop the integration tests with the folder 'tests'
 - How te develop the integration tests with the folder 'src'
-- See [Code](https://github.com/cnruby/learn-rust-by-crates/tree/master/hello-world)
 
 ## Table of Contents
 
