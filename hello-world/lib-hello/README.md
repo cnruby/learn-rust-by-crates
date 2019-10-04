@@ -10,8 +10,8 @@
 
 ## Table of Contents
 
-- [I crate a workspace](#i-crate-a-workspace)
-- [II develop the crate](#ii-develop-the-crate)
+- [I. crate a workspace](#i-crate-a-workspace)
+- [II. develop the crate](#ii-develop-the-crate)
   - [1 create the default crate](#1-create-the-default-crate)
   - [2 develop the crate source and test codes for folder 'tests'](#2-develop-the-crate-source-and-test-codes-for-folder-tests)
   - [3 develop the example codes](#3-develop-the-example-codes)
@@ -22,10 +22,10 @@
   - [2 configure the file Cargo.toml](#2-configure-the-file-cargotoml)
   - [3 edit the rust file main.rs](#3-edit-the-rust-file-mainrs)
   - [4 run the Bin program](#4-run-the-bin-program)
-- [IV create the crate doc in local version](#iv-create-the-crate-doc-in-local-version)
-- [V create the crate doc in server version](#v-create-the-crate-doc-in-server-version)
+- [IV. create the crate doc in local version](#iv-create-the-crate-doc-in-local-version)
+- [V. create the crate doc in server version](#v-create-the-crate-doc-in-server-version)
 
-# I crate a workspace
+# I. crate a workspace
 
 ```bash
 # create a workspaces
@@ -40,7 +40,7 @@ echo '[workspace]
 members = ["lib-hello", "bin-hello", "bin-local-hello", "lib-extern"]' >> Cargo.toml
 ```
 
-# II develop the crate
+# II. develop the crate
 ## 1 create the default crate
 ```bash
 mkdir lib-hello && cd lib-hello
@@ -129,13 +129,13 @@ fn main () {
 cargo run main
 ```
 
-# IV create the crate doc in local version
+# IV. create the crate doc in local version
 - Go to Crate Root Path
 ```bash
 cargo doc --open --package hello_exercism
 ```
 
-# V create the crate doc in server version
+# V. create the crate doc in server version
 - github.com >> <REPOSITORY> >> Setting >> Options >> GitHub Pages >> ([INFO...](https://github.blog/2016-08-22-publish-your-project-documentation-with-github-pages/))
 - Go to Crate Root Path
 ```bash
