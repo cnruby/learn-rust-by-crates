@@ -2,21 +2,21 @@
 # It is not intended for manual editing.
 [[package]]
 name = "bin-hello"
-version = "0.4.7"
+version = "0.4.8"
 dependencies = [
- "hello_exercism 0.4.7 (registry+https://github.com/rust-lang/crates.io-index)",
+ "hello_exercism 0.4.8 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
 name = "bin-local-hello"
 version = "0.1.0"
 dependencies = [
- "hello_exercism 0.4.8",
+ "hello_exercism 0.4.9",
 ]
 
 [[package]]
 name = "hello_exercism"
-version = "0.4.7"
+version = "0.4.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
  "hello_extern 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -24,7 +24,7 @@ dependencies = [
 
 [[package]]
 name = "hello_exercism"
-version = "0.4.8"
+version = "0.4.9"
 dependencies = [
  "hello_extern 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
@@ -39,5 +39,5 @@ version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [metadata]
-"checksum hello_exercism 0.4.7 (registry+https://github.com/rust-lang/crates.io-index)" = "8a56d69a1b29713ef72a42563dcd8919eda9c513711db9eb17325fac3b9d2c03"
+"checksum hello_exercism 0.4.8 (registry+https://github.com/rust-lang/crates.io-index)" = "fb0a41574a55dd40e250277fe9784624bbded73a5d978f6a3024294c07229225"
 "checksum hello_extern 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)" = "2e3c72e51b22afef2c01cd0fa58c5d2afce4c18a66e744494720a8c00e8eabdb"

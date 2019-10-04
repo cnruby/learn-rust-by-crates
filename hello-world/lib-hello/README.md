@@ -13,7 +13,7 @@
 
 ## Table of Contents
 
-- [I. crate a workspace](#i-crate-a-workspace)
+- [I. create a workspace](#i-create-a-workspace)
 - [II. develop the crate](#ii-develop-the-crate)
   - [1. create the default crate](#1-create-the-default-crate)
   - [2. develop the crate source and test codes for folder 'tests'](#2-develop-the-crate-source-and-test-codes-for-folder-tests)
@@ -28,7 +28,7 @@
 - [IV. create the crate doc in local version](#iv-create-the-crate-doc-in-local-version)
 - [V. create the crate doc in server version](#v-create-the-crate-doc-in-server-version)
 
-# I. crate a workspace
+# I. create a workspace
 
 ```bash
 # create a workspaces
