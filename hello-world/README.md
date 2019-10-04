@@ -1,3 +1,8 @@
+[![Minimum rustc version](https://img.shields.io/badge/rustc-1.38+-brightgreen)](https://github.com/rust-lang/rust)
+[![Crates.io](https://img.shields.io/crates/v/hello_exercism)](https://crates.io/crates/hello_exercism)
+[![GitHub release](https://img.shields.io/github/v/release/cnruby/learn-rust-by-crates)](https://github.com/cnruby/learn-rust-by-crates/releases)
+[![The Crate `hello_exercism` Code](https://img.shields.io/badge/crate-code-yellowgreen)](https://github.com/cnruby/learn-rust-by-crates/tree/master/hello-world)
+
 # Project: 
 - name: hello-world
 - goal: how to develop an own crate
