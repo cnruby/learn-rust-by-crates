@@ -1,3 +1,6 @@
+[![GitHub release](https://img.shields.io/github/v/release/cnruby/learn-rust-by-crates)](https://github.com/cnruby/learn-rust-by-crates/releases)
+[![Minimum rustc version](https://img.shields.io/badge/rustc-1.38+-brightgreen)](https://github.com/rust-lang/rust)
+
 ## About this Crate `hello_exercism`
 - How to Create a Workspace
 - How to Create and Publish an Own Crate
