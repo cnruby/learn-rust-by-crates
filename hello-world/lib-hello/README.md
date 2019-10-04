@@ -99,7 +99,8 @@ cargo test
 cargo login <token>
 ## can repeat the follow commands
 cargo test
-## commit and push the codes
+## 1. commit and push the codes in github.com 
+## 2. change the release github.com
 cargo package
 cargo publish
 ```
