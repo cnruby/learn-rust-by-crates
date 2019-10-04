@@ -8,9 +8,8 @@
 - How te develop the integration tests with the folder 'src'
 - See [Code](https://github.com/cnruby/learn-rust-by-crates/tree/master/hello-world)
 
-# Table of Contents
+## Table of Contents
 
-- [Table of Contents](#table-of-contents)
 - [I crate a workspace](#i-crate-a-workspace)
 - [II develop the crate](#ii-develop-the-crate)
   - [1 create the default crate](#1-create-the-default-crate)
