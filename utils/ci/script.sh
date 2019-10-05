@@ -26,6 +26,7 @@ fi
 # ----- Script -----
 
 main() {
-  cd hello-world && $CARGO build $TARGET --verbose
-  cd hello-world && $CARGO test $TARGET
+  cd hello-world
+  $CARGO build $TARGET --verbose
+  $CARGO test $TARGET
 }
