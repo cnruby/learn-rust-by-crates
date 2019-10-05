@@ -26,7 +26,8 @@ fi
 # ----- Script -----
 
 main() {
-  cd /Users/travis/build/cnruby/learn-rust-by-crates/hello-world
+  WORLD_PATH="./hello-world"
+  cd "${WORLD_PATH}"
   $CARGO build $TARGET --verbose
   $CARGO test $TARGET
 }
