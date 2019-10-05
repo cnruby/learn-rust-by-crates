@@ -7,7 +7,7 @@ sudo: false
 matrix:
   include:
     - rust: 1.38.0
-      name: "Linux, 1.32.0"
+      name: "Linux, 1.38.0"
       env: ALLOC=0
       os: linux
 
