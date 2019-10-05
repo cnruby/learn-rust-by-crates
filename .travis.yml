@@ -1,0 +1,42 @@
+language: rust
+sudo: false
+
+cache: cargo
+
+matrix:
+  include:
+
+  # Builds on stable.
+  - rust: 1.38.0
+    env: RUST_BACKTRACE=1
+    before_script:
+      - (test -x $HOME/.cargo/bin/cargo-install-update || cargo install cargo-update)
+      - cargo install-update -a
+    script:
+      - cd hello-world
+      - cargo build --verbose
+      - cargo test
+
+  # Builds on nightly.
+  - rust: nightly
+    env: RUST_BACKTRACE=1
+    before_script:
+      - (test -x $HOME/.cargo/bin/cargo-install-update || cargo install cargo-update)
+      - (test -x $HOME/.cargo/bin/cargo-generate || cargo install --vers "^0.2" cargo-generate)
+      - cargo install-update -a
+    script:
+      - cd hello-world
+      - cargo build --verbose
+      - cargo test
+
+  # Builds on beta.
+  - rust: beta
+    env: RUST_BACKTRACE=1
+    before_script:
+      - (test -x $HOME/.cargo/bin/cargo-install-update || cargo install cargo-update)
+      - (test -x $HOME/.cargo/bin/cargo-generate || cargo install --vers "^0.2" cargo-generate)
+      - cargo install-update -a
+    script:
+      - cd hello-world
+      - cargo build --verbose
+      - cargo test
