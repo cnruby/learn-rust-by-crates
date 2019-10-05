@@ -26,7 +26,7 @@ fi
 # ----- Script -----
 
 main() {
-  cd hello-world
+  cd ./hello-world
   $CARGO build $TARGET --verbose
   $CARGO test $TARGET
 }
