@@ -26,7 +26,7 @@ fi
 # ----- Script -----
 
 main() {
-  cd ./hello-world
+  cd /Users/travis/build/cnruby/learn-rust-by-crates/hello-world
   $CARGO build $TARGET --verbose
   $CARGO test $TARGET
 }
