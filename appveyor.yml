@@ -50,5 +50,5 @@ install:
 build: false
 
 test_script:
-  - cd hello-world && cargo build --verbose
-  - cd hello-world && cargo test
+  - cargo build --verbose
+  - cargo test
