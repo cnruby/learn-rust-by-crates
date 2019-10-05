@@ -2,7 +2,7 @@
 [![GitHub release](https://img.shields.io/github/v/release/cnruby/learn-rust-by-crates)](https://github.com/cnruby/learn-rust-by-crates/releases)
 [![The Crate `hello_exercism` Code](https://img.shields.io/badge/crate-code-yellowgreen)](https://github.com/cnruby/learn-rust-by-crates/tree/master/hello-world)
 [![Build Status on appveyor.com](https://img.shields.io/appveyor/ci/cnruby/learn-rust-by-crates?label=build%20on%20appveyor.com)](https://github.com/cnruby/learn-rust-by-crates/tree/master/hello-world)
-[![Build Status on travis-ci.org](https://img.shields.io/travis/cnruby/learn-rust-by-crates?label=build%20on%20travis-ci.org)](https://github.com/cnruby/learn-rust-by-crates/tree/master/hello-world)
+
 
 ## About this Crate `hello_exercism`
 - How to Create a Workspace
