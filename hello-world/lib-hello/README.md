@@ -102,10 +102,10 @@ cargo test
 cargo login <token>
 ## can repeat the follow commands
 cargo test
-## 1. commit and push the codes in github.com 
-## 2. change the release github.com
+## commit and push the codes in github.com 
 cargo package
 cargo publish
+## change the release github.com
 ```
 # III. use the crate
 ## 1. create the default Bin
