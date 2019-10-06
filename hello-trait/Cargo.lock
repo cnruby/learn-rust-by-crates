@@ -2,19 +2,19 @@
 # It is not intended for manual editing.
 [[package]]
 name = "hello-trait"
-version = "0.2.1"
+version = "0.2.3"
 dependencies = [
- "trait_exerci 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)",
+ "trait_exerci 0.2.3 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
 name = "trait_exerci"
-version = "0.2.1"
+version = "0.2.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
 name = "trait_exerci"
-version = "0.2.3"
+version = "0.2.4"
 
 [metadata]
-"checksum trait_exerci 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)" = "7b97ecbc8b6b63c8fc2d444a3237313fd729153c9cd822014a9f9a12605fff4f"
+"checksum trait_exerci 0.2.3 (registry+https://github.com/rust-lang/crates.io-index)" = "a28d089bc1f1c1025e169d95b85c88f9d6c794a73e563bf774f81ca11c61a328"
