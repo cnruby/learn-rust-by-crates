@@ -6,7 +6,7 @@
 [![Twitter URL](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fmobile.twitter.com%2Fcnruby)](https://mobile.twitter.com/cnruby)
 
 ## The Rust Feature trait and impl
-<img src="examples/hello-trait-05-complex.png"/>
+[hello-trait-05-complex](https://github.com/cnruby/learn-rust-by-crates/blob/master/hello-trait/lib-hello/images/hello-trait-05-complex.png)
 
 ## About this Crate `hello_trait`
 - Why to need the Rust Feature trait
