@@ -14,7 +14,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
 name = "trait_exerci"
-version = "0.2.2"
+version = "0.2.3"
 
 [metadata]
 "checksum trait_exerci 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)" = "7b97ecbc8b6b63c8fc2d444a3237313fd729153c9cd822014a9f9a12605fff4f"
