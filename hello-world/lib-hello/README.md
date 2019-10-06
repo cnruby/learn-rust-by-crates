@@ -5,7 +5,7 @@
 [![Twitter URL](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fmobile.twitter.com%2Fcnruby)](https://mobile.twitter.com/cnruby)
 
 ## The Rust Language Tool: [Cargo](https://doc.rust-lang.org/cargo/index.html)
-<img src="https://github.com/cnruby/learn-rust-by-crates/raw/master/hello-world/lib-hello/imaegs/hello_exercism_01.png"/>
+<img src="https://github.com/cnruby/learn-rust-by-crates/raw/master/hello-world/lib-hello/images/hello_exercism_01.png"/>
 
 ## About this Crate `hello_exercism`
 - How to Create a Workspace
