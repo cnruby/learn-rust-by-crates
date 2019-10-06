@@ -1,10 +1,16 @@
 #[cfg(test)]
 mod tests {
-    use trait_exerci::CanalTrait;
+    use trait_exerci::TraitCanal;
 
     #[test]
     fn it_works() {
-        let mine = Box::new(trait_exerci::StructType { data: 10 });
-        assert_eq!(10, mine.foo());
+        let instance = Box::new(trait_exerci::StructType { data: 20 });
+        assert_eq!(20, instance.get_data());
+    }
+
+    #[test]
+    fn it_works_with_new() {
+        let instance = Box::new(trait_exerci::StructType::new(21));
+        assert_eq!(21, instance.get_data());
     }
 }

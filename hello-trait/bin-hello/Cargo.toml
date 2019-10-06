@@ -1,5 +1,5 @@
 [package]
-name = "bin-hello"
+name = "hello-trait"
 version = "0.1.0"
 authors = ["Gudao Luo <gudao.luo@gmail.com>"]
 edition = "2018"
@@ -7,5 +7,6 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-trait_exerci = { path = "../lib-hello"}
-#trait_exerci = "0.1.2"
+# https://crates.io/crates/trait_exerci
+# change the follow version to current version
+trait_exerci = "0.1.2"

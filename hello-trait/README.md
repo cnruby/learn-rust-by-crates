@@ -7,9 +7,13 @@
 - folder name: lib-hello
 - description: the crate 'trait_exerci'
 
+## Subproject: bin-local-hello
+- folder name: bin-local-hello
+- description: examples apps for the crate 'trait_exerci' in local develop
+
 ## Subproject: bin-hello
 - folder name: bin-hello
-- description: examples apps for the crate 'trait_exerci'
+- description: examples apps for the crate 'trait_exerci' with crates.io
 
 ### Create a project
 ```bash
