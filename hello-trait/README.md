@@ -5,6 +5,9 @@
 [![GitHub issues](https://img.shields.io/github/issues/cnruby/learn-rust-by-crates)](https://github.com/cnruby/learn-rust-by-crates/issues)
 [![Twitter URL](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fmobile.twitter.com%2Fcnruby)](https://mobile.twitter.com/cnruby)
 
+## Getting Started
+- Learn the crate [hello_exercism](https://crates.io/crates/hello_exercism) 
+
 ## Project
 - name: hello-trait
 - crate name: [trait_exerci](https://crates.io/crates/trait_exerci)
