@@ -23,7 +23,7 @@
 - [软件篋trait_exerci](./hello-trait/README.md)
   - [类型关键词struct](./hello-trait/examples-struct.md)
   - [实现关键词impl与方法代码实现](./hello-trait/examples-impl.md)
-  - [函数代码实现](./hello-trait/examples-functions.md) 
+  - [方法代码实现](./hello-trait/examples-methods.md) 
   - [衔接关键词trait与修饰关键词mut](./hello-trait/examples-trait.md)
   - [关于软件篋项目](./hello-trait/about.md)
   - [共享篋：开发命令](./hello-trait/commands-lib.md)

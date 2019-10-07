@@ -18,7 +18,7 @@
 
 ## 实现功能关键词impl
 
-　　Rust语言规定，Ⓓ 始终是公开的，且不可增加修饰关键词pub；Ⓓ 函数和方法默认是私有的，且可增加修饰关键词pub，默认实例代码如下所示，尽管已经存在函数new的实现，但是该函数外部是不可访问的。
+　　Rust语言规定，Ⓓ 始终是公开的，且不可增加修饰关键词pub；Ⓓ 函数和方法默认是私有的，且可增加修饰关键词pub，默认实例代码如下所示。尽管下面代码已实现了函数new()，但是该函数外部还是不可访问的。
 
 ```rust
 struct Person {
@@ -42,14 +42,12 @@ impl Person {
 
 - 使用关键词impl，实现结构类型StructType的实例化函数new()。
 - 使用关键词pub，实现结构类型StructType的函数new()公开性。
-- 使用结构类型的公开性函数new()，实现结构类型的实例化方式。
-- 结构类型的实例调用结构类型的属性手法。
+- 实例是一种类型的具体对象。
+- 借助于公开性函数new()，实现该结构类型的实例化方式。
+- 结构类型实例实现了调用结构类型的属性手法。
 - 使用宏方法assert_eq!，验证实例调用结果的正确性。
 
-
-
 {{#playpen ../../../../hello-trait/lib-hello/examples/function_instance.rs editable}}
-
 
 ## 参考资料
 - [std keyword impl](https://doc.rust-lang.org/std/keyword.impl.html)
