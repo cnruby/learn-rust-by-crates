@@ -1,5 +1,3 @@
-#![allow(dead_code)]
-
 mod trait_exerci {
     pub struct StructType {
         pub data: u32,
@@ -12,7 +10,7 @@ mod trait_exerci {
     }
 }
 
-// cargo run --example method_instance
+// cargo run --example function_instance
 fn main() {
     let instance = trait_exerci::StructType::new(0);
     println!("instance.data = {}", instance.data);

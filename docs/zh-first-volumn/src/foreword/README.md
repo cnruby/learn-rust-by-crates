@@ -33,3 +33,4 @@
 - [Continuous Integration and Deployment service for Windows and Linux | AppVeyor](https://www.appveyor.com/)
 - [Nu Shell](https://github.com/nushell/nushell)
 - [Markdown: Syntax](https://markdown.de/)
+- [category_slugs from crates.io](https://crates.io/category_slugs)

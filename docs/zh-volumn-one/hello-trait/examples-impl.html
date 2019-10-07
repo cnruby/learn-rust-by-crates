@@ -156,19 +156,65 @@
 </ul>
 <h2><a class="header" href="#篇目" id="篇目">篇目</a></h2>
 <ol>
-<li><a href="#%E5%AE%9E%E7%8E%B0%E5%85%B3%E9%94%AE%E8%AF%8Dimpl%E4%B8%8E%E6%96%B9%E6%B3%95%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0">实现关键词impl与方法代码实现</a></li>
+<li><a href="#%E5%AE%9E%E7%8E%B0%E5%8A%9F%E8%83%BD%E5%85%B3%E9%94%AE%E8%AF%8Dimpl%E4%B8%8E%E5%87%BD%E6%95%B0%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0">实现功能关键词impl与函数代码实现</a></li>
 <li><a href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">参考资料</a></li>
 </ol>
-<h2><a class="header" href="#实现关键词impl与方法代码实现-1" id="实现关键词impl与方法代码实现-1">实现关键词impl与方法代码实现</a></h2>
-<h2><a class="header" href="#实现关键词impl" id="实现关键词impl">实现关键词impl</a></h2>
+<h2><a class="header" href="#关键词impl概念" id="关键词impl概念">关键词impl概念</a></h2>
+<p>　　关键词impl是为类型实现结构类型或者其它一些类型的不同行为功能。这里仅仅说明了直接针对结构类型本身的不同行为实现方式。</p>
+<p><img src="../../images/hello-trait-12-impl.png" alt="image" /></p>
+<h2><a class="header" href="#实现功能关键词impl" id="实现功能关键词impl">实现功能关键词impl</a></h2>
+<p>　　Rust语言规定，Ⓓ 始终是公开的，且不可增加修饰关键词pub；Ⓓ 函数和方法默认是私有的，且可增加修饰关键词pub，默认实例代码如下所示，尽管已经存在函数new的实现，但是该函数外部是不可访问的。</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+struct Person {
+    name: String,
+    age: u32,
+}
+
+impl Person {
+    fn new(name: String, age: u32) -&gt; Person {
+        Person {
+            name: name,
+            age: age,
+        }
+    }
+}
+#}</code></pre></pre>
+<h2><a class="header" href="#实现功能关键词impl与函数代码实现" id="实现功能关键词impl与函数代码实现">实现功能关键词impl与函数代码实现</a></h2>
+<p>　　这里通过下面的代码，说明如下内容：</p>
 <ul>
-<li>默认是公开的，且可增加修饰关键词pub</li>
-<li>函数默认是私有的，且可增加修饰关键词pub</li>
+<li>使用关键词impl，实现结构类型StructType的实例化函数new()。</li>
+<li>使用关键词pub，实现结构类型StructType的函数new()公开性。</li>
+<li>使用结构类型的公开性函数new()，实现结构类型的实例化方式。</li>
+<li>结构类型的实例调用结构类型的属性手法。</li>
+<li>使用宏方法assert_eq!，验证实例调用结果的正确性。</li>
 </ul>
-<p>{{#playpen ../../../../hello-trait/lib-hello/examples/method_instance.rs editable}}</p>
+<pre><pre class="playpen"><code class="language-rust editable">mod trait_exerci {
+    pub struct StructType {
+        pub data: u32,
+    }
+
+    impl StructType {
+        pub fn new(data: u32) -&gt; StructType {
+            StructType { data: data }
+        }
+    }
+}
+
+// cargo run --example function_instance
+fn main() {
+    let instance = trait_exerci::StructType::new(0);
+    println!(&quot;instance.data = {}&quot;, instance.data);
+
+    let instance = trait_exerci::StructType{ data:0, };
+    println!(&quot;instance.data = {}&quot;, instance.data);
+}
+</code></pre></pre>
 <h2><a class="header" href="#参考资料" id="参考资料">参考资料</a></h2>
 <ul>
-<li></li>
+<li><a href="https://doc.rust-lang.org/std/keyword.impl.html">std keyword impl</a></li>
+<li><a href="https://doc.rust-lang.org/reference/items/implementations.html">reference implementations</a></li>
 </ul>
 
                     </main>
