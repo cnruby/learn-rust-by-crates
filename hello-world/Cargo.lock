@@ -11,7 +11,7 @@ dependencies = [
 name = "bin-local-hello"
 version = "0.1.0"
 dependencies = [
- "hello_exercism 0.5.4",
+ "hello_exercism 0.5.5",
 ]
 
 [[package]]
@@ -24,7 +24,7 @@ dependencies = [
 
 [[package]]
 name = "hello_exercism"
-version = "0.5.4"
+version = "0.5.5"
 dependencies = [
  "hello_extern 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
