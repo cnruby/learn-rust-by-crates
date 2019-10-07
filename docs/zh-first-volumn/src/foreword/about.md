@@ -103,7 +103,3 @@
 | ⓡ | regulation | 阐述Rust语言规则 | 必须记住 | ⓡ 所有字符串文字类型都是引用，且具有静态生命周期。 |
 | Ⓒ | consensus	| 解释约定而非强制方法 | 最好记住 | Ⓒ 大多数单元测试都带有注解'#[cfg(test)]'的测试模块。 |
 | Ⓘ | idea | 必须记住 | 计算机技术和Rust语言基本概念 | 
-
-## 参考资料
-- [Liste der Unicode-Zeichen der Kategorie „Sonstiges Symbol“](https://www.compart.com/de/unicode/category/So)
-- [Sketchpad - Draw, Create, Share!](https://sketch.io/sketchpad/)

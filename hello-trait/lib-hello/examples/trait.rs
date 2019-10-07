@@ -1,6 +1,6 @@
 #![allow(dead_code)]
 
-mod trait_example {
+mod trait_exerci {
     pub struct StructType {
         pub data: u32,
     }
@@ -16,10 +16,10 @@ mod trait_example {
     }
 }
 
-use trait_example::TraitCanal;
+use self::trait_exerci::TraitCanal;
 
-// cargo run --example method_instance
+// cargo run --example trait
 fn main() {
-    let instance = trait_example::StructType::new(0);
+    let instance = trait_exerci::StructType::new(0);
     println!("instance.data = {}", instance.data);
 }

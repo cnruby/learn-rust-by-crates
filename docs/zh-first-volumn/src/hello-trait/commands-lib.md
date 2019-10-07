@@ -1,43 +1,18 @@
-# 共享篋：开发命令
+## 共享篋：开发命令
 
+## 篇目
 
-# How to Understand the Rust Feature trait
+- [I. create the crate for library](#i-create-the-crate-for-library)
+- [II. create the crate for application](#ii-create-the-crate-for-application)
 
-## I. develop the crate
-### Step 1: create the default crate
+# I. create the crate for library
 ```bash
 mkdir lib-hello && cd lib-hello
 cargo init --name trait_exerci --lib
-touch README.md
-vi README.md
 ```
 
-### Step 2: develop the crate source and test codes
-- Go to Crate Root Path
+# II. create the crate for application
 ```bash
-vi Cargo.toml
-vi src/lib.rs
-cargo fmt
-cargo clippy
-mkdir tests
-touch tests/hello.rs
-vi tests/hello.rs
-touch tests/mod_hello.rs
-vi tests/mod_hello.rs
-cargo fmt
-cargo clippy
-cargo test
-```
-
-### Step 3: develop the example codes
-- Go to Crate Root Path
-```bash
-mkdir examples
-touch examples/hello.rs
-vi examples/hello.rs
-cargo run --example hello
-```
-
-
 mkdir bin-hello && cd bin-hello
-cargo init --name hello-trait --lib
+cargo init --name hello-trait --bin
+```

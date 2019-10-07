@@ -23,7 +23,13 @@
 - [Rust官方网站](https://www.rust-lang.org/)
 - [rustup官方网站](https://rustup.rs/)
 - [Cargo项目源代码](https://github.com/rust-lang/cargo)
-- [Crate.io官方网站](https://crates.io/)
+- [Crates s.io官方网站](https://crates.io/)
 
 ## 重要工具链接链接
 - [Tables Generator](https://www.tablesgenerator.com/)
+- [Liste der Unicode-Zeichen der Kategorie „Sonstiges Symbol“](https://www.compart.com/de/unicode/category/So)
+- [Sketchpad - Draw, Create, Share!](https://sketch.io/sketchpad/)
+- [Quality metadata badges](https://shields.io/)
+- [Continuous Integration and Deployment service for Windows and Linux | AppVeyor](https://www.appveyor.com/)
+- [Nu Shell](https://github.com/nushell/nushell)
+- [Markdown: Syntax](https://markdown.de/)
