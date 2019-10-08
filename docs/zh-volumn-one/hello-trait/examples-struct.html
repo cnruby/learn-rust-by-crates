@@ -152,18 +152,18 @@
 <p>　　通过了解和学习本节Rust语言的基本概念，可以实现本章需要开发的共享软件篋程序代码。</p>
 <h2><a class="header" href="#学习内容" id="学习内容">学习内容</a></h2>
 <ul>
-<li>理解和掌握Rust语言结构性的类型关键词struct定义形式</li>
-<li>理解和掌握Rust语言结构性的类型关键词struct实例化方式</li>
-<li>理解和掌握Rust语言结构性的类型关键词struct调用手段</li>
+<li>理解和掌握Rust语言结构性的类型关键词<code>struct</code>定义形式</li>
+<li>理解和掌握Rust语言结构性的类型关键词<code>struct</code>实例化方式</li>
+<li>理解和掌握Rust语言结构性的类型关键词<code>struct</code>调用手段</li>
 </ul>
 <h2><a class="header" href="#篇目" id="篇目">篇目</a></h2>
 <ol>
-<li><a href="#%E7%B1%BB%E5%9E%8B%E5%85%B3%E9%94%AE%E8%AF%8Dstruct%E6%98%AF%E4%BB%80%E4%B9%88">类型关键词struct是什么</a></li>
-<li><a href="#C%E8%AF%AD%E8%A8%80%E5%BD%A2%E5%BC%8F%E7%9A%84%E7%B1%BB%E5%9E%8B%E5%85%B3%E9%94%AE%E8%AF%8Dstruct%E4%BB%A3%E7%A0%81">C语言形式的类型关键词struct代码</a></li>
-<li><a href="#%E5%85%83%E7%BB%84%E5%BD%A2%E5%BC%8F%E7%9A%84%E7%B1%BB%E5%9E%8B%E5%85%B3%E9%94%AE%E8%AF%8Dstruct">元组形式的类型关键词struct</a></li>
+<li><a href="#%E7%B1%BB%E5%9E%8B%E5%85%B3%E9%94%AE%E8%AF%8Dstruct%E6%98%AF%E4%BB%80%E4%B9%88">类型关键词<code>struct</code>是什么</a></li>
+<li><a href="#C%E8%AF%AD%E8%A8%80%E5%BD%A2%E5%BC%8F%E7%9A%84%E7%B1%BB%E5%9E%8B%E5%85%B3%E9%94%AE%E8%AF%8Dstruct%E4%BB%A3%E7%A0%81">C语言形式的类型关键词<code>struct</code>代码</a></li>
+<li><a href="#%E5%85%83%E7%BB%84%E5%BD%A2%E5%BC%8F%E7%9A%84%E7%B1%BB%E5%9E%8B%E5%85%B3%E9%94%AE%E8%AF%8Dstruct">元组形式的类型关键词<code>struct</code></a></li>
 <li><a href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">参考资料</a></li>
 </ol>
-<h2><a class="header" href="#类型关键词struct是什么" id="类型关键词struct是什么">类型关键词struct是什么</a></h2>
+<h2><a class="header" href="#类型关键词struct是什么" id="类型关键词struct是什么">类型关键词<code>struct</code>是什么</a></h2>
 <p>　　类型关键词struct提供定义一种结构性的类型方式。这种类型的定义分析如下：</p>
 <table><thead><tr><th>名称</th><th>事物描述</th><th>Rust语言描述</th></tr></thead><tbody>
 <tr><td>结构性事物</td><td>类别</td><td>struct</td></tr>
@@ -173,7 +173,7 @@
 <p><img src="../../images/hello-trait-11-struct.png" alt="image" /></p>
 <p>　　从上图所示，可以理解到，结构类型关键词struct将一组不同的数据类型作为整体在一起分析和处理。</p>
 <p>　　同时还可以看到，在Rust语言里，结构类型关键词struct可以将这种结构性事物以两种不同的表达形式进行定义。它们分别称之为：C语言形式和元组形式。图上左边的C语言形式是以哈希结构表达的类型，而图上右边的元组形式是以数组结构表达的类型。</p>
-<h2><a class="header" href="#类型关键词struct的私有性" id="类型关键词struct的私有性">类型关键词struct的私有性</a></h2>
+<h2><a class="header" href="#类型关键词struct的私有性" id="类型关键词struct的私有性">类型关键词<code>struct</code>的私有性</a></h2>
 <p>　　Rust语言规定，Ⓓ 默认情况下，关键词struct定义的类型及其属性都是私有的，默认实例代码如下所示：</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
@@ -183,14 +183,14 @@ struct Person {
     age: u32,
 }
 #}</code></pre></pre>
-<h2><a class="header" href="#c语言形式的类型关键词struct代码" id="c语言形式的类型关键词struct代码">C语言形式的类型关键词struct代码</a></h2>
+<h2><a class="header" href="#c语言形式的类型关键词struct代码" id="c语言形式的类型关键词struct代码">C语言形式的类型关键词<code>struct</code>代码</a></h2>
 <p>　　这里通过下面的代码，说明如下内容：</p>
 <ul>
-<li>使用关键词mod，关键词struct定义结构类型的方式。</li>
-<li>使用关键词pub，实现关键词struct定义的类型及其属性公开性。</li>
+<li>使用关键词mod，关键词<code>struct</code>定义结构类型的方式。</li>
+<li>使用关键词pub，实现关键词<code>struct</code>定义的类型及其属性公开性。</li>
 <li>使用结构类型属性的公开性，实现结构类型的实例化方式。</li>
 <li>结构类型的实例调用结构类型的属性手法。</li>
-<li>使用宏方法assert_eq!，验证实例调用结果的正确性。</li>
+<li>使用宏方法<code>assert_eq!</code>，验证实例调用结果的正确性。</li>
 </ul>
 <pre><pre class="playpen"><code class="language-rust editable">mod trait_exerci {
     pub struct ClikeStructType {
@@ -206,14 +206,14 @@ fn main() {
     assert_eq!(0, data);
 }
 </code></pre></pre>
-<h2><a class="header" href="#元组形式的类型关键词struct" id="元组形式的类型关键词struct">元组形式的类型关键词struct</a></h2>
+<h2><a class="header" href="#元组形式的类型关键词struct" id="元组形式的类型关键词struct">元组形式的类型关键词<code>struct</code></a></h2>
 <p>　　通过下面的代码，可以学习到这些知识：</p>
 <ul>
-<li>使用关键词mod，关键词struct定义结构类型的方式。<br/>ⓡ 注意：元组形式的类型关键词struct定义的类型是以分号结束的，而C语言形式的类型关键词struct代码是没有分号的。</li>
-<li>使用关键词pub，实现关键词struct定义的类型及其属性公开性。</li>
+<li>使用关键词<code>mod</code>，关键词struct定义结构类型的方式。<br/>ⓡ 注意：元组形式的类型关键词<code>struct</code>定义的类型是以分号结束的，而C语言形式的类型关键词<code>struct</code>代码是没有分号的。</li>
+<li>使用关键词<code>pub</code>，实现关键词<code>struct</code>定义的类型及其属性公开性。</li>
 <li>使用结构类型属性的公开性，实现结构类型的实例化方式。两种形式的类型不同的。</li>
 <li>结构类型的实例调用结构类型的属性手法。元组形式的类型是以其属性的顺序号实现调用的，而C语言形式的类型是以其公开性属性实现调用的。</li>
-<li>使用宏方法assert_eq!，验证实例调用结果的正确性。</li>
+<li>使用宏方法<code>assert_eq!</code>，验证实例调用结果的正确性。</li>
 </ul>
 <pre><pre class="playpen"><code class="language-rust editable">mod trait_exerci {
     pub struct TupleStructType (pub u32);

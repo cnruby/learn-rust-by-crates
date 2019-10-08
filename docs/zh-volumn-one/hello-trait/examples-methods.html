@@ -156,13 +156,17 @@
 </ul>
 <h2><a class="header" href="#篇目" id="篇目">篇目</a></h2>
 <ol>
-<li><a href="#%E4%BF%AE%E9%A5%B0%E5%AE%9E%E4%BE%8B%E5%85%B3%E9%94%AE%E8%AF%8Dmut%E6%A6%82%E5%BF%B5">修饰实例关键词mut概念</a></li>
+<li><a href="#%E4%BF%AE%E9%A5%B0%E5%AE%9E%E4%BE%8B%E5%85%B3%E9%94%AE%E8%AF%8Dmut%E6%A6%82%E5%BF%B5">修饰实例关键词<code>mut</code>概念</a></li>
 <li><a href="#%E5%87%BD%E6%95%B0%E4%B8%8E%E6%96%B9%E6%B3%95%E6%A6%82%E5%BF%B5">函数与方法概念</a></li>
 <li><a href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95%E4%BB%A3%E7%A0%81">实现方法代码</a></li>
 <li><a href="#%E7%BB%93%E6%9E%84%E7%B1%BB%E5%9E%8B%E5%B1%9E%E6%80%A7%E7%9A%84%E7%A7%81%E6%9C%89%E6%80%A7">结构类型属性的私有性</a></li>
+<li><a href="#%E9%A2%98%E5%A4%96%E8%AF%9D">题外话</a></li>
+<li><a href="#%E5%9C%A8%E7%BB%88%E7%AB%AF%E9%87%8C%E6%80%8E%E4%B9%88%E6%A0%B7%E4%BD%BF%E7%94%A8%E8%A1%A8%E6%A0%BC%E5%BD%A2%E5%BC%8F">在终端里怎么样使用表格形式</a></li>
 <li><a href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">参考资料</a></li>
 </ol>
-<h2><a class="header" href="#修饰实例关键词mut概念" id="修饰实例关键词mut概念">修饰实例关键词mut概念</a></h2>
+<h2><a class="header" href="#修饰实例关键词mut概念" id="修饰实例关键词mut概念">修饰实例关键词<code>mut</code>概念</a></h2>
+<p>　　关键词<code>let</code>用来定义实例变量，其值是不可改变的，而在一组关键词<code>let mut</code>也用来定义实例变量，但其值是可改变的。</p>
+<p>　　下面具体实际代码，这样执行的话，一切正常，但是去掉注释行，就会出现编译错误。</p>
 <pre><pre class="playpen"><code class="language-rust editable">fn main() {
     let instance = 1;
     // instance = 2;
@@ -171,28 +175,21 @@
 }
 </code></pre></pre>
 <h2><a class="header" href="#函数与方法概念" id="函数与方法概念">函数与方法概念</a></h2>
-<p>　　在Rust语言里，给予了函数（fcuntion）与方法（method）两个名称不同的概念。</p>
-<p>　　引用：<a href="https://doc.rust-lang.org/rust-by-example/fn/methods.html">Methods are functions attached to objects</a>，直接翻译：方法是附加到对象的函数（行为功能），可以这么理解，方法是附属于类型实例的行为功能。</p>
+<p>　　在Rust语言里，给予了函数（function）与方法（method）两个名称不同的概念。</p>
+<p>　　<a href="https://doc.rust-lang.org/rust-by-example/fn/methods.html">引用</a>：Methods are functions attached to objects，直接翻译：方法是附加到对象的函数（行为功能），可以这么理解，方法是附属于类型实例的行为功能。</p>
 <p>　　而函数是附属于类型的功能。在前面一节里，可以看到，实现类型的函数代码方法及其调用手法。下面通过代码详细说明它们的区别。</p>
 <h2><a class="header" href="#实现方法代码" id="实现方法代码">实现方法代码</a></h2>
 <p>　　这里通过下面的代码，说明如下内容：</p>
 <ul>
-<li>实现结构类型StructType的实例化函数new()。</li>
-<li>实现结构类型StructType的获取属性内容方法get_data()。</li>
-<li>实现结构类型StructType的变更属性内容方法set_data()。</li>
-<li>实现结构类型StructType的属性data是私有的。</li>
-<li>借助于公开性函数new()，实现该结构类型的实例化方式。</li>
-<li>结构类型实例实现了调用结构类型的属性手法。</li>
-<li>使用宏方法assert_eq!，验证实例调用结果的正确性。</li>
+<li>实现结构类型<code>StructType</code>的实例化函数<code>new()</code>。</li>
+<li>实现结构类型<code>StructType</code>获取其属性的方法<code>get_data()</code>。</li>
+<li>实现结构类型<code>StructType</code>变更其属性的方法<code>set_data()</code>。</li>
+<li>实现结构类型<code>StructType</code>的属性<code>data</code>是私有的。</li>
+<li>借助于公开性方法<code>get_data()</code>，实现结构类型的属性内容获取手法。</li>
+<li>借助于公开性方法<code>set_data()</code>，实现结构类型的属性内容变更手法。</li>
 </ul>
-<h2><a class="header" href="#实现方法代码-1" id="实现方法代码-1">实现方法代码</a></h2>
-<p>　　通过下面的代码，可以学习到这些知识：</p>
-<ul>
-<li>实现结构类型StructType实例的方法：get_data()和set_data()。</li>
-<li>借助于公开性方法get_data()，实现获取该结构类型属性的方式。</li>
-<li>借助于结构类型属性的公开性，实现了实例调用结构类型的属性手法。</li>
-<li>使用宏方法assert_eq!，验证实例调用结果的正确性。</li>
-</ul>
+<p>　　在Rust语言里，ⓡ 方法的第一个参数使用其本身的引用如<code>&amp;self</code>或者<code>&amp;mut self</code>，凡是第一个参数不是引用的就是函数。</p>
+<p>　　调用函数如<code>new()</code>是使用类型名称如<code>StructType</code>实现的，其调用函数new()的手法形式是使用<code>::</code>，而调用函数方法如<code>get_data()</code>是使用类型的实例变量如<code>instance</code>实现的，其调用方法的手法形式是使用<code>.</code>。</p>
 <pre><pre class="playpen"><code class="language-rust editable">mod trait_exerci {
     pub struct StructType {
         data: u32,
@@ -213,7 +210,7 @@
     }
 }
 
-// cargo run --example function_method
+// cargo run --example function_methods
 fn main() {
     let instance = trait_exerci::StructType::new(0);
     let data = instance.get_data();
@@ -229,7 +226,19 @@ fn main() {
 }
 </code></pre></pre>
 <h2><a class="header" href="#结构类型属性的私有性" id="结构类型属性的私有性">结构类型属性的私有性</a></h2>
-<p>　　结构类型属性的私有性</p>
+<p>　　结构类型<code>StructType</code>的属性是私有的，所以模块之外是不可访问的，如使用语句<code>instance.data;</code>是不可以的。但是使用方法<code>get_data()</code>可以实现了对该属性的访问。</p>
+<p>　　结构类型属性私有性的好处是隐蔽了结构类型的属性。</p>
+<h2><a class="header" href="#题外话" id="题外话">题外话</a></h2>
+<h3><a class="header" href="#在终端里怎么样使用表格形式" id="在终端里怎么样使用表格形式">在终端里怎么样使用表格形式</a></h3>
+<p>　　下面打印宏<code>println!</code>语句，实现了第一列和第二列20个字符输出。</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let data = 10;
+println!(&quot;{0: &lt;20} = {1: &lt;20}&quot;, &quot;data&quot;, data);
+println!(&quot;{0: &lt;20} = {1: &lt;20}&quot;, &quot;data&quot;, data);
+println!(&quot;{0: &lt;20} = {1: &lt;20}&quot;, &quot;data&quot;, data);
+#}</code></pre></pre>
 <h2><a class="header" href="#参考资料" id="参考资料">参考资料</a></h2>
 <ul>
 <li><a href="https://doc.rust-lang.org/rust-by-example/fn/methods.html">rust-by-example methods</a></li>

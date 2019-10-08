@@ -1369,18 +1369,18 @@ rustup show
 <p>　　通过了解和学习本节Rust语言的基本概念，可以实现本章需要开发的共享软件篋程序代码。</p>
 <h2><a class="header" href="#学习内容-10" id="学习内容-10">学习内容</a></h2>
 <ul>
-<li>理解和掌握Rust语言结构性的类型关键词struct定义形式</li>
-<li>理解和掌握Rust语言结构性的类型关键词struct实例化方式</li>
-<li>理解和掌握Rust语言结构性的类型关键词struct调用手段</li>
+<li>理解和掌握Rust语言结构性的类型关键词<code>struct</code>定义形式</li>
+<li>理解和掌握Rust语言结构性的类型关键词<code>struct</code>实例化方式</li>
+<li>理解和掌握Rust语言结构性的类型关键词<code>struct</code>调用手段</li>
 </ul>
 <h2><a class="header" href="#篇目-12" id="篇目-12">篇目</a></h2>
 <ol>
-<li><a href="hello-trait/examples-struct.html#%E7%B1%BB%E5%9E%8B%E5%85%B3%E9%94%AE%E8%AF%8Dstruct%E6%98%AF%E4%BB%80%E4%B9%88">类型关键词struct是什么</a></li>
-<li><a href="hello-trait/examples-struct.html#C%E8%AF%AD%E8%A8%80%E5%BD%A2%E5%BC%8F%E7%9A%84%E7%B1%BB%E5%9E%8B%E5%85%B3%E9%94%AE%E8%AF%8Dstruct%E4%BB%A3%E7%A0%81">C语言形式的类型关键词struct代码</a></li>
-<li><a href="hello-trait/examples-struct.html#%E5%85%83%E7%BB%84%E5%BD%A2%E5%BC%8F%E7%9A%84%E7%B1%BB%E5%9E%8B%E5%85%B3%E9%94%AE%E8%AF%8Dstruct">元组形式的类型关键词struct</a></li>
+<li><a href="hello-trait/examples-struct.html#%E7%B1%BB%E5%9E%8B%E5%85%B3%E9%94%AE%E8%AF%8Dstruct%E6%98%AF%E4%BB%80%E4%B9%88">类型关键词<code>struct</code>是什么</a></li>
+<li><a href="hello-trait/examples-struct.html#C%E8%AF%AD%E8%A8%80%E5%BD%A2%E5%BC%8F%E7%9A%84%E7%B1%BB%E5%9E%8B%E5%85%B3%E9%94%AE%E8%AF%8Dstruct%E4%BB%A3%E7%A0%81">C语言形式的类型关键词<code>struct</code>代码</a></li>
+<li><a href="hello-trait/examples-struct.html#%E5%85%83%E7%BB%84%E5%BD%A2%E5%BC%8F%E7%9A%84%E7%B1%BB%E5%9E%8B%E5%85%B3%E9%94%AE%E8%AF%8Dstruct">元组形式的类型关键词<code>struct</code></a></li>
 <li><a href="hello-trait/examples-struct.html#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">参考资料</a></li>
 </ol>
-<h2><a class="header" href="#类型关键词struct是什么" id="类型关键词struct是什么">类型关键词struct是什么</a></h2>
+<h2><a class="header" href="#类型关键词struct是什么" id="类型关键词struct是什么">类型关键词<code>struct</code>是什么</a></h2>
 <p>　　类型关键词struct提供定义一种结构性的类型方式。这种类型的定义分析如下：</p>
 <table><thead><tr><th>名称</th><th>事物描述</th><th>Rust语言描述</th></tr></thead><tbody>
 <tr><td>结构性事物</td><td>类别</td><td>struct</td></tr>
@@ -1390,7 +1390,7 @@ rustup show
 <p><img src="hello-trait/../../images/hello-trait-11-struct.png" alt="image" /></p>
 <p>　　从上图所示，可以理解到，结构类型关键词struct将一组不同的数据类型作为整体在一起分析和处理。</p>
 <p>　　同时还可以看到，在Rust语言里，结构类型关键词struct可以将这种结构性事物以两种不同的表达形式进行定义。它们分别称之为：C语言形式和元组形式。图上左边的C语言形式是以哈希结构表达的类型，而图上右边的元组形式是以数组结构表达的类型。</p>
-<h2><a class="header" href="#类型关键词struct的私有性" id="类型关键词struct的私有性">类型关键词struct的私有性</a></h2>
+<h2><a class="header" href="#类型关键词struct的私有性" id="类型关键词struct的私有性">类型关键词<code>struct</code>的私有性</a></h2>
 <p>　　Rust语言规定，Ⓓ 默认情况下，关键词struct定义的类型及其属性都是私有的，默认实例代码如下所示：</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
@@ -1400,14 +1400,14 @@ struct Person {
     age: u32,
 }
 #}</code></pre></pre>
-<h2><a class="header" href="#c语言形式的类型关键词struct代码" id="c语言形式的类型关键词struct代码">C语言形式的类型关键词struct代码</a></h2>
+<h2><a class="header" href="#c语言形式的类型关键词struct代码" id="c语言形式的类型关键词struct代码">C语言形式的类型关键词<code>struct</code>代码</a></h2>
 <p>　　这里通过下面的代码，说明如下内容：</p>
 <ul>
-<li>使用关键词mod，关键词struct定义结构类型的方式。</li>
-<li>使用关键词pub，实现关键词struct定义的类型及其属性公开性。</li>
+<li>使用关键词mod，关键词<code>struct</code>定义结构类型的方式。</li>
+<li>使用关键词pub，实现关键词<code>struct</code>定义的类型及其属性公开性。</li>
 <li>使用结构类型属性的公开性，实现结构类型的实例化方式。</li>
 <li>结构类型的实例调用结构类型的属性手法。</li>
-<li>使用宏方法assert_eq!，验证实例调用结果的正确性。</li>
+<li>使用宏方法<code>assert_eq!</code>，验证实例调用结果的正确性。</li>
 </ul>
 <pre><pre class="playpen"><code class="language-rust editable">mod trait_exerci {
     pub struct ClikeStructType {
@@ -1423,14 +1423,14 @@ fn main() {
     assert_eq!(0, data);
 }
 </code></pre></pre>
-<h2><a class="header" href="#元组形式的类型关键词struct" id="元组形式的类型关键词struct">元组形式的类型关键词struct</a></h2>
+<h2><a class="header" href="#元组形式的类型关键词struct" id="元组形式的类型关键词struct">元组形式的类型关键词<code>struct</code></a></h2>
 <p>　　通过下面的代码，可以学习到这些知识：</p>
 <ul>
-<li>使用关键词mod，关键词struct定义结构类型的方式。<br/>ⓡ 注意：元组形式的类型关键词struct定义的类型是以分号结束的，而C语言形式的类型关键词struct代码是没有分号的。</li>
-<li>使用关键词pub，实现关键词struct定义的类型及其属性公开性。</li>
+<li>使用关键词<code>mod</code>，关键词struct定义结构类型的方式。<br/>ⓡ 注意：元组形式的类型关键词<code>struct</code>定义的类型是以分号结束的，而C语言形式的类型关键词<code>struct</code>代码是没有分号的。</li>
+<li>使用关键词<code>pub</code>，实现关键词<code>struct</code>定义的类型及其属性公开性。</li>
 <li>使用结构类型属性的公开性，实现结构类型的实例化方式。两种形式的类型不同的。</li>
 <li>结构类型的实例调用结构类型的属性手法。元组形式的类型是以其属性的顺序号实现调用的，而C语言形式的类型是以其公开性属性实现调用的。</li>
-<li>使用宏方法assert_eq!，验证实例调用结果的正确性。</li>
+<li>使用宏方法<code>assert_eq!</code>，验证实例调用结果的正确性。</li>
 </ul>
 <pre><pre class="playpen"><code class="language-rust editable">mod trait_exerci {
     pub struct TupleStructType (pub u32);
@@ -1450,26 +1450,26 @@ fn main() {
 <h1><a class="header" href="#实现关键词impl与方法代码实现" id="实现关键词impl与方法代码实现">实现关键词impl与方法代码实现</a></h1>
 <h2><a class="header" href="#学习内容-11" id="学习内容-11">学习内容</a></h2>
 <ul>
-<li>阐述关键词impl基本概念</li>
-<li>理解关键词impl实现代码的方式</li>
+<li>阐述关键词<code>impl</code>基本概念</li>
+<li>理解关键词<code>impl</code>实现代码的方式</li>
 </ul>
 <h2><a class="header" href="#篇目-13" id="篇目-13">篇目</a></h2>
 <ol>
-<li><a href="hello-trait/examples-impl.html#%E5%85%B3%E9%94%AE%E8%AF%8Dimpl%E6%A6%82%E5%BF%B5">关键词impl概念</a></li>
-<li><a href="hello-trait/examples-impl.html#%E5%AE%9E%E7%8E%B0%E5%8A%9F%E8%83%BD%E5%85%B3%E9%94%AE%E8%AF%8Dimpl">实现功能关键词impl</a></li>
-<li><a href="hello-trait/examples-impl.html#%E5%AE%9E%E7%8E%B0%E5%8A%9F%E8%83%BD%E5%85%B3%E9%94%AE%E8%AF%8Dimpl%E4%B8%8E%E5%87%BD%E6%95%B0%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0">实现功能关键词impl与函数代码实现</a></li>
+<li><a href="hello-trait/examples-impl.html#%E5%85%B3%E9%94%AE%E8%AF%8Dimpl%E6%A6%82%E5%BF%B5">关键词<code>impl</code>概念</a></li>
+<li><a href="hello-trait/examples-impl.html#%E5%AE%9E%E7%8E%B0%E5%8A%9F%E8%83%BD%E5%85%B3%E9%94%AE%E8%AF%8Dimpl">实现功能关键词<code>impl</code></a></li>
+<li><a href="hello-trait/examples-impl.html#%E5%AE%9E%E7%8E%B0%E5%8A%9F%E8%83%BD%E5%85%B3%E9%94%AE%E8%AF%8Dimpl%E4%B8%8E%E5%87%BD%E6%95%B0%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0">实现功能关键词<code>impl</code>与函数代码实现</a></li>
 <li><a href="hello-trait/examples-impl.html#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">参考资料</a></li>
 </ol>
 <h2><a class="header" href="#关键词impl概念" id="关键词impl概念">关键词impl概念</a></h2>
-<p>　　关键词impl是为类型实现结构类型或者其它一些类型的不同行为功能。这里仅仅说明了直接针对结构类型本身的不同行为实现方式。</p>
+<p>　　关键词<code>impl</code>是为类型实现结构类型或者其它一些类型的不同行为功能。这里仅仅说明了直接针对结构类型本身的不同行为实现方式。</p>
 <p><img src="hello-trait/../../images/hello-trait-12-impl.png" alt="image" /></p>
 <h2><a class="header" href="#实现功能关键词impl" id="实现功能关键词impl">实现功能关键词impl</a></h2>
 <p>　　Rust语言规定：</p>
 <ul>
-<li>Ⓓ 关键词impl始终是公开的，且不可增加修饰关键词pub；</li>
-<li>Ⓓ 关键词impl实现的函数和方法默认都是私有的，且可增加修饰关键词pub.</li>
+<li>Ⓓ 关键词<code>impl</code>始终是公开的，且不可增加修饰关键词<code>pub</code>；</li>
+<li>Ⓓ 关键词<code>impl</code>实现的函数和方法默认都是私有的，且可增加修饰关键词<code>pub</code>。</li>
 </ul>
-<p>默认实例代码如下所示。尽管下面代码已实现了函数new()，但是该函数外部还是不可访问的。</p>
+<p>默认实例代码如下所示。尽管下面代码已实现了函数<code>new()</code>，但是该函数外部还是不可访问的。</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
 #fn main() {
@@ -1490,12 +1490,12 @@ impl Person {
 <h2><a class="header" href="#实现功能关键词impl与函数代码实现" id="实现功能关键词impl与函数代码实现">实现功能关键词impl与函数代码实现</a></h2>
 <p>　　通过下面的代码，可以学习到这些知识：</p>
 <ul>
-<li>使用关键词impl，实现结构类型StructType的实例化函数new()。</li>
-<li>使用关键词pub，实现结构类型StructType的函数new()公开性。</li>
+<li>使用关键词<code>impl</code>，实现结构类型<code>StructType</code>的实例化函数<code>new()</code>。</li>
+<li>使用关键词<code>pub</code>，实现结构类型<code>StructType</code>的函数<code>new()</code>公开性。</li>
 <li>实例是一种类型的具体对象。</li>
-<li>借助于公开性函数new()，实现该结构类型的实例化方式。</li>
+<li>借助于公开性函数<code>new()</code>，实现该结构类型的实例化方式。</li>
 <li>借助于结构类型属性的公开性，实现了实例调用结构类型的属性手法。</li>
-<li>使用宏方法assert_eq!，验证实例调用结果的正确性。</li>
+<li>使用宏方法<code>assert_eq!</code>，验证实例调用结果的正确性。</li>
 </ul>
 <pre><pre class="playpen"><code class="language-rust editable">mod trait_exerci {
     pub struct StructType {
@@ -1531,13 +1531,17 @@ fn main() {
 </ul>
 <h2><a class="header" href="#篇目-14" id="篇目-14">篇目</a></h2>
 <ol>
-<li><a href="hello-trait/examples-methods.html#%E4%BF%AE%E9%A5%B0%E5%AE%9E%E4%BE%8B%E5%85%B3%E9%94%AE%E8%AF%8Dmut%E6%A6%82%E5%BF%B5">修饰实例关键词mut概念</a></li>
+<li><a href="hello-trait/examples-methods.html#%E4%BF%AE%E9%A5%B0%E5%AE%9E%E4%BE%8B%E5%85%B3%E9%94%AE%E8%AF%8Dmut%E6%A6%82%E5%BF%B5">修饰实例关键词<code>mut</code>概念</a></li>
 <li><a href="hello-trait/examples-methods.html#%E5%87%BD%E6%95%B0%E4%B8%8E%E6%96%B9%E6%B3%95%E6%A6%82%E5%BF%B5">函数与方法概念</a></li>
 <li><a href="hello-trait/examples-methods.html#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95%E4%BB%A3%E7%A0%81">实现方法代码</a></li>
 <li><a href="hello-trait/examples-methods.html#%E7%BB%93%E6%9E%84%E7%B1%BB%E5%9E%8B%E5%B1%9E%E6%80%A7%E7%9A%84%E7%A7%81%E6%9C%89%E6%80%A7">结构类型属性的私有性</a></li>
+<li><a href="hello-trait/examples-methods.html#%E9%A2%98%E5%A4%96%E8%AF%9D">题外话</a></li>
+<li><a href="hello-trait/examples-methods.html#%E5%9C%A8%E7%BB%88%E7%AB%AF%E9%87%8C%E6%80%8E%E4%B9%88%E6%A0%B7%E4%BD%BF%E7%94%A8%E8%A1%A8%E6%A0%BC%E5%BD%A2%E5%BC%8F">在终端里怎么样使用表格形式</a></li>
 <li><a href="hello-trait/examples-methods.html#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">参考资料</a></li>
 </ol>
-<h2><a class="header" href="#修饰实例关键词mut概念" id="修饰实例关键词mut概念">修饰实例关键词mut概念</a></h2>
+<h2><a class="header" href="#修饰实例关键词mut概念" id="修饰实例关键词mut概念">修饰实例关键词<code>mut</code>概念</a></h2>
+<p>　　关键词<code>let</code>用来定义实例变量，其值是不可改变的，而在一组关键词<code>let mut</code>也用来定义实例变量，但其值是可改变的。</p>
+<p>　　下面具体实际代码，这样执行的话，一切正常，但是去掉注释行，就会出现编译错误。</p>
 <pre><pre class="playpen"><code class="language-rust editable">fn main() {
     let instance = 1;
     // instance = 2;
@@ -1546,28 +1550,21 @@ fn main() {
 }
 </code></pre></pre>
 <h2><a class="header" href="#函数与方法概念" id="函数与方法概念">函数与方法概念</a></h2>
-<p>　　在Rust语言里，给予了函数（fcuntion）与方法（method）两个名称不同的概念。</p>
-<p>　　引用：<a href="https://doc.rust-lang.org/rust-by-example/fn/methods.html">Methods are functions attached to objects</a>，直接翻译：方法是附加到对象的函数（行为功能），可以这么理解，方法是附属于类型实例的行为功能。</p>
+<p>　　在Rust语言里，给予了函数（function）与方法（method）两个名称不同的概念。</p>
+<p>　　<a href="https://doc.rust-lang.org/rust-by-example/fn/methods.html">引用</a>：Methods are functions attached to objects，直接翻译：方法是附加到对象的函数（行为功能），可以这么理解，方法是附属于类型实例的行为功能。</p>
 <p>　　而函数是附属于类型的功能。在前面一节里，可以看到，实现类型的函数代码方法及其调用手法。下面通过代码详细说明它们的区别。</p>
 <h2><a class="header" href="#实现方法代码" id="实现方法代码">实现方法代码</a></h2>
 <p>　　这里通过下面的代码，说明如下内容：</p>
 <ul>
-<li>实现结构类型StructType的实例化函数new()。</li>
-<li>实现结构类型StructType的获取属性内容方法get_data()。</li>
-<li>实现结构类型StructType的变更属性内容方法set_data()。</li>
-<li>实现结构类型StructType的属性data是私有的。</li>
-<li>借助于公开性函数new()，实现该结构类型的实例化方式。</li>
-<li>结构类型实例实现了调用结构类型的属性手法。</li>
-<li>使用宏方法assert_eq!，验证实例调用结果的正确性。</li>
+<li>实现结构类型<code>StructType</code>的实例化函数<code>new()</code>。</li>
+<li>实现结构类型<code>StructType</code>获取其属性的方法<code>get_data()</code>。</li>
+<li>实现结构类型<code>StructType</code>变更其属性的方法<code>set_data()</code>。</li>
+<li>实现结构类型<code>StructType</code>的属性<code>data</code>是私有的。</li>
+<li>借助于公开性方法<code>get_data()</code>，实现结构类型的属性内容获取手法。</li>
+<li>借助于公开性方法<code>set_data()</code>，实现结构类型的属性内容变更手法。</li>
 </ul>
-<h2><a class="header" href="#实现方法代码-1" id="实现方法代码-1">实现方法代码</a></h2>
-<p>　　通过下面的代码，可以学习到这些知识：</p>
-<ul>
-<li>实现结构类型StructType实例的方法：get_data()和set_data()。</li>
-<li>借助于公开性方法get_data()，实现获取该结构类型属性的方式。</li>
-<li>借助于结构类型属性的公开性，实现了实例调用结构类型的属性手法。</li>
-<li>使用宏方法assert_eq!，验证实例调用结果的正确性。</li>
-</ul>
+<p>　　在Rust语言里，ⓡ 方法的第一个参数使用其本身的引用如<code>&amp;self</code>或者<code>&amp;mut self</code>，凡是第一个参数不是引用的就是函数。</p>
+<p>　　调用函数如<code>new()</code>是使用类型名称如<code>StructType</code>实现的，其调用函数new()的手法形式是使用<code>::</code>，而调用函数方法如<code>get_data()</code>是使用类型的实例变量如<code>instance</code>实现的，其调用方法的手法形式是使用<code>.</code>。</p>
 <pre><pre class="playpen"><code class="language-rust editable">mod trait_exerci {
     pub struct StructType {
         data: u32,
@@ -1588,7 +1585,7 @@ fn main() {
     }
 }
 
-// cargo run --example function_method
+// cargo run --example function_methods
 fn main() {
     let instance = trait_exerci::StructType::new(0);
     let data = instance.get_data();
@@ -1604,7 +1601,19 @@ fn main() {
 }
 </code></pre></pre>
 <h2><a class="header" href="#结构类型属性的私有性" id="结构类型属性的私有性">结构类型属性的私有性</a></h2>
-<p>　　结构类型属性的私有性</p>
+<p>　　结构类型<code>StructType</code>的属性是私有的，所以模块之外是不可访问的，如使用语句<code>instance.data;</code>是不可以的。但是使用方法<code>get_data()</code>可以实现了对该属性的访问。</p>
+<p>　　结构类型属性私有性的好处是隐蔽了结构类型的属性。</p>
+<h2><a class="header" href="#题外话-3" id="题外话-3">题外话</a></h2>
+<h3><a class="header" href="#在终端里怎么样使用表格形式" id="在终端里怎么样使用表格形式">在终端里怎么样使用表格形式</a></h3>
+<p>　　下面打印宏<code>println!</code>语句，实现了第一列和第二列20个字符输出。</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let data = 10;
+println!(&quot;{0: &lt;20} = {1: &lt;20}&quot;, &quot;data&quot;, data);
+println!(&quot;{0: &lt;20} = {1: &lt;20}&quot;, &quot;data&quot;, data);
+println!(&quot;{0: &lt;20} = {1: &lt;20}&quot;, &quot;data&quot;, data);
+#}</code></pre></pre>
 <h2><a class="header" href="#参考资料-10" id="参考资料-10">参考资料</a></h2>
 <ul>
 <li><a href="https://doc.rust-lang.org/rust-by-example/fn/methods.html">rust-by-example methods</a></li>
@@ -1822,7 +1831,7 @@ mod tests {
 }
 
 </code></pre></pre>
-<h1><a class="header" href="#题外话-3" id="题外话-3">题外话</a></h1>
+<h1><a class="header" href="#题外话-4" id="题外话-4">题外话</a></h1>
 <h1><a class="header" href="#第二章" id="第二章">第二章</a></h1>
 <p><a href="https://archive.fosdem.org/2018/schedule/event/rust_testing_mocking/attachments/slides/2113/export/events/attachments/rust_testing_mocking/slides/2113/testing_in_rust_by_donald_whyte.pdf">rust_testing_mocking/slides/2113/testing_in_rust_by_donald_whyte.pdf</a></p>
 <h1><a class="header" href="#关于软件篋mod_trait_exerci" id="关于软件篋mod_trait_exerci">关于软件篋mod_trait_exerci</a></h1>

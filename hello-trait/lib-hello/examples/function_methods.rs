@@ -18,7 +18,7 @@ mod trait_exerci {
     }
 }
 
-// cargo run --example function_method
+// cargo run --example function_methods
 fn main() {
     let instance = trait_exerci::StructType::new(0);
     let data = instance.get_data();
