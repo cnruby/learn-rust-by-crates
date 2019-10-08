@@ -1450,11 +1450,13 @@ fn main() {
 <h1><a class="header" href="#实现关键词impl与方法代码实现" id="实现关键词impl与方法代码实现">实现关键词impl与方法代码实现</a></h1>
 <h2><a class="header" href="#学习内容-11" id="学习内容-11">学习内容</a></h2>
 <ul>
-<li>阐述</li>
-<li>理解</li>
+<li>阐述关键词impl基本概念</li>
+<li>理解关键词impl实现代码的方式</li>
 </ul>
 <h2><a class="header" href="#篇目-13" id="篇目-13">篇目</a></h2>
 <ol>
+<li><a href="hello-trait/examples-impl.html#%E5%85%B3%E9%94%AE%E8%AF%8Dimpl%E6%A6%82%E5%BF%B5">关键词impl概念</a></li>
+<li><a href="hello-trait/examples-impl.html#%E5%AE%9E%E7%8E%B0%E5%8A%9F%E8%83%BD%E5%85%B3%E9%94%AE%E8%AF%8Dimpl">实现功能关键词impl</a></li>
 <li><a href="hello-trait/examples-impl.html#%E5%AE%9E%E7%8E%B0%E5%8A%9F%E8%83%BD%E5%85%B3%E9%94%AE%E8%AF%8Dimpl%E4%B8%8E%E5%87%BD%E6%95%B0%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0">实现功能关键词impl与函数代码实现</a></li>
 <li><a href="hello-trait/examples-impl.html#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">参考资料</a></li>
 </ol>
@@ -1462,14 +1464,19 @@ fn main() {
 <p>　　关键词impl是为类型实现结构类型或者其它一些类型的不同行为功能。这里仅仅说明了直接针对结构类型本身的不同行为实现方式。</p>
 <p><img src="hello-trait/../../images/hello-trait-12-impl.png" alt="image" /></p>
 <h2><a class="header" href="#实现功能关键词impl" id="实现功能关键词impl">实现功能关键词impl</a></h2>
-<p>　　Rust语言规定，Ⓓ 始终是公开的，且不可增加修饰关键词pub；Ⓓ 函数和方法默认是私有的，且可增加修饰关键词pub，默认实例代码如下所示。尽管下面代码已实现了函数new()，但是该函数外部还是不可访问的。</p>
+<p>　　Rust语言规定：</p>
+<ul>
+<li>Ⓓ 关键词impl始终是公开的，且不可增加修饰关键词pub；</li>
+<li>Ⓓ 关键词impl实现的函数和方法默认都是私有的，且可增加修饰关键词pub.</li>
+</ul>
+<p>默认实例代码如下所示。尽管下面代码已实现了函数new()，但是该函数外部还是不可访问的。</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
 #fn main() {
-struct Person {
-    name: String,
-    age: u32,
-}
+#struct Person {
+#    name: String,
+#    age: u32,
+#}
 
 impl Person {
     fn new(name: String, age: u32) -&gt; Person {
@@ -1529,9 +1536,20 @@ fn main() {
 <li><a href="hello-trait/examples-methods.html#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">参考资料</a></li>
 </ol>
 <h2><a class="header" href="#函数与方法概念" id="函数与方法概念">函数与方法概念</a></h2>
-<p>Methods are 功能 attached to objects.
-Functions are 功能 attached to types.</p>
-<h2><a class="header" href="#方法代码实现-1" id="方法代码实现-1">方法代码实现</a></h2>
+<p>　　在Rust语言里，给予了函数（fcuntion）与方法（method）两个名称不同的概念。</p>
+<p>　　引用：<a href="https://doc.rust-lang.org/rust-by-example/fn/methods.html">Methods are functions attached to objects</a>，直接翻译：方法是附加到对象的函数（行为功能），可以这么理解，方法是附属于类型实例的行为功能。</p>
+<p>　　而函数是附属于类型的功能。在前面一节里，可以看到，实现类型的函数代码方法及其调用手法。下面通过代码详细说明它们的区别。</p>
+<h2><a class="header" href="#实现方法代码" id="实现方法代码">实现方法代码</a></h2>
+<p>　　这里通过下面的代码，说明如下内容：</p>
+<ul>
+<li>实现结构类型StructType的实例化函数new()。</li>
+<li>实现结构类型StructType的获取属性内容方法get_data()。</li>
+<li>实现结构类型StructType的变更属性内容方法set_data()。</li>
+<li>实现结构类型StructType的属性data是私有的。</li>
+<li>借助于公开性函数new()，实现该结构类型的实例化方式。</li>
+<li>结构类型实例实现了调用结构类型的属性手法。</li>
+<li>使用宏方法assert_eq!，验证实例调用结果的正确性。</li>
+</ul>
 <pre><pre class="playpen"><code class="language-rust editable">#![allow(dead_code)]
 
 mod trait_exerci {
