@@ -1424,7 +1424,7 @@ fn main() {
 }
 </code></pre></pre>
 <h2><a class="header" href="#元组形式的类型关键词struct" id="元组形式的类型关键词struct">元组形式的类型关键词struct</a></h2>
-<p>　　这里通过下面的代码，说明如下内容：</p>
+<p>　　通过下面的代码，可以学习到这些知识：</p>
 <ul>
 <li>使用关键词mod，关键词struct定义结构类型的方式。<br/>ⓡ 注意：元组形式的类型关键词struct定义的类型是以分号结束的，而C语言形式的类型关键词struct代码是没有分号的。</li>
 <li>使用关键词pub，实现关键词struct定义的类型及其属性公开性。</li>
@@ -1488,13 +1488,13 @@ impl Person {
 }
 #}</code></pre></pre>
 <h2><a class="header" href="#实现功能关键词impl与函数代码实现" id="实现功能关键词impl与函数代码实现">实现功能关键词impl与函数代码实现</a></h2>
-<p>　　这里通过下面的代码，说明如下内容：</p>
+<p>　　通过下面的代码，可以学习到这些知识：</p>
 <ul>
 <li>使用关键词impl，实现结构类型StructType的实例化函数new()。</li>
 <li>使用关键词pub，实现结构类型StructType的函数new()公开性。</li>
 <li>实例是一种类型的具体对象。</li>
 <li>借助于公开性函数new()，实现该结构类型的实例化方式。</li>
-<li>结构类型实例实现了调用结构类型的属性手法。</li>
+<li>借助于结构类型属性的公开性，实现了实例调用结构类型的属性手法。</li>
 <li>使用宏方法assert_eq!，验证实例调用结果的正确性。</li>
 </ul>
 <pre><pre class="playpen"><code class="language-rust editable">mod trait_exerci {
@@ -1531,10 +1531,20 @@ fn main() {
 </ul>
 <h2><a class="header" href="#篇目-14" id="篇目-14">篇目</a></h2>
 <ol>
+<li><a href="hello-trait/examples-methods.html#%E4%BF%AE%E9%A5%B0%E5%AE%9E%E4%BE%8B%E5%85%B3%E9%94%AE%E8%AF%8Dmut%E6%A6%82%E5%BF%B5">修饰实例关键词mut概念</a></li>
 <li><a href="hello-trait/examples-methods.html#%E5%87%BD%E6%95%B0%E4%B8%8E%E6%96%B9%E6%B3%95%E6%A6%82%E5%BF%B5">函数与方法概念</a></li>
-<li><a href="hello-trait/examples-methods.html#%E6%96%B9%E6%B3%95%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0">方法代码实现</a></li>
+<li><a href="hello-trait/examples-methods.html#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95%E4%BB%A3%E7%A0%81">实现方法代码</a></li>
+<li><a href="hello-trait/examples-methods.html#%E7%BB%93%E6%9E%84%E7%B1%BB%E5%9E%8B%E5%B1%9E%E6%80%A7%E7%9A%84%E7%A7%81%E6%9C%89%E6%80%A7">结构类型属性的私有性</a></li>
 <li><a href="hello-trait/examples-methods.html#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">参考资料</a></li>
 </ol>
+<h2><a class="header" href="#修饰实例关键词mut概念" id="修饰实例关键词mut概念">修饰实例关键词mut概念</a></h2>
+<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+    let instance = 1;
+    // instance = 2;
+    let mut instance = 1;
+    instance = 2;
+}
+</code></pre></pre>
 <h2><a class="header" href="#函数与方法概念" id="函数与方法概念">函数与方法概念</a></h2>
 <p>　　在Rust语言里，给予了函数（fcuntion）与方法（method）两个名称不同的概念。</p>
 <p>　　引用：<a href="https://doc.rust-lang.org/rust-by-example/fn/methods.html">Methods are functions attached to objects</a>，直接翻译：方法是附加到对象的函数（行为功能），可以这么理解，方法是附属于类型实例的行为功能。</p>
@@ -1550,9 +1560,15 @@ fn main() {
 <li>结构类型实例实现了调用结构类型的属性手法。</li>
 <li>使用宏方法assert_eq!，验证实例调用结果的正确性。</li>
 </ul>
-<pre><pre class="playpen"><code class="language-rust editable">#![allow(dead_code)]
-
-mod trait_exerci {
+<h2><a class="header" href="#实现方法代码-1" id="实现方法代码-1">实现方法代码</a></h2>
+<p>　　通过下面的代码，可以学习到这些知识：</p>
+<ul>
+<li>实现结构类型StructType实例的方法：get_data()和set_data()。</li>
+<li>借助于公开性方法get_data()，实现获取该结构类型属性的方式。</li>
+<li>借助于结构类型属性的公开性，实现了实例调用结构类型的属性手法。</li>
+<li>使用宏方法assert_eq!，验证实例调用结果的正确性。</li>
+</ul>
+<pre><pre class="playpen"><code class="language-rust editable">mod trait_exerci {
     pub struct StructType {
         data: u32,
     }
@@ -1572,19 +1588,27 @@ mod trait_exerci {
     }
 }
 
-// cargo run --example method_function
+// cargo run --example function_method
 fn main() {
     let instance = trait_exerci::StructType::new(0);
     let data = instance.get_data();
-    println!(&quot;data = {}&quot;, data);
+    println!(&quot;{0: &lt;20} = {1: &lt;20}&quot;, &quot;instance data&quot;, data);
 
-    let data = trait_exerci::StructType::new(0).get_data();
-    println!(&quot;data = {}&quot;, data);
+    let mut instance = trait_exerci::StructType::new(0);
+    instance.set_data(&amp;10);
+    let data = instance.get_data();
+    println!(&quot;{0: &lt;20} = {1: &lt;20}&quot;, &quot;mut instance data&quot;, data);
+
+    let data = trait_exerci::StructType::new(20).get_data();
+    println!(&quot;{0: &lt;20} = {1: &lt;20}&quot;, &quot;data&quot;, data);
 }
 </code></pre></pre>
+<h2><a class="header" href="#结构类型属性的私有性" id="结构类型属性的私有性">结构类型属性的私有性</a></h2>
+<p>　　结构类型属性的私有性</p>
 <h2><a class="header" href="#参考资料-10" id="参考资料-10">参考资料</a></h2>
 <ul>
 <li><a href="https://doc.rust-lang.org/rust-by-example/fn/methods.html">rust-by-example methods</a></li>
+<li><a href="https://stackoverflow.com/questions/30379341/how-to-print-well-formatted-tables-to-the-console">how-to-print-well-formatted-tables-to-the-console</a></li>
 </ul>
 <h1><a class="header" href="#衔接关键词trait与修饰关键词mut" id="衔接关键词trait与修饰关键词mut">衔接关键词trait与修饰关键词mut</a></h1>
 <h2><a class="header" href="#学习内容-13" id="学习内容-13">学习内容</a></h2>
