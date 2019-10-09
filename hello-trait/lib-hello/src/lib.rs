@@ -1,5 +1,6 @@
+#[derive(Debug, PartialEq)]
 pub struct StructType {
-    pub data: u32,
+    data: u32,
 }
 
 // Defining a trait for any type

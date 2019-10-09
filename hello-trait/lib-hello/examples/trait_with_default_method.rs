@@ -1,13 +1,13 @@
-#![allow(dead_code)]
-
-mod xtrait_exerci {
+mod trait_exerci {
+    #[derive(Debug)]
     pub struct StructType {
         pub data: u32,
     }
 
     pub trait TraitCanal {
         fn new(data: u32) -> StructType;
-        fn get_data(&self) -> u32 { 0 }
+        fn init() -> StructType { StructType{data:0} }
+        fn get_data(&self) -> u32;
         fn set_data(&mut self, data: &u32);
     }
 
@@ -26,12 +26,15 @@ mod xtrait_exerci {
     }
 }
 
-use self::xtrait_exerci::TraitCanal;
+use self::trait_exerci::TraitCanal;
 
-// cargo run --example trait_with_default
+// cargo run --example trait_with_default_method
 fn main() {
-    let mut instance = xtrait_exerci::StructType::new(10);
-    println!("instance.data = {}", instance.get_data());
+    let mut instance = trait_exerci::StructType::new(10);
     instance.set_data(&11);
-    println!("instance.data = {}", instance.get_data());
+    println!("new {:?}", instance);
+
+    let mut instance = trait_exerci::StructType::init();
+    instance.set_data(&12);
+    println!("init {:?}", instance);
 }

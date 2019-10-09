@@ -21,5 +21,5 @@ use self::trait_exerci::TraitCanal;
 // cargo run --example trait
 fn main() {
     let instance = trait_exerci::StructType::new(0);
-    println!("instance.data = {}", instance.data);
+    assert_eq!(0, instance.data);
 }
