@@ -1,0 +1,34 @@
+use super::mod_deref::TraitCanal;
+
+
+// StructType
+// &StructType
+// Box<StructType>
+// &Box<StructType>
+// Box<&StructType>
+// &Box<&StructType>
+pub fn get_box_type<Type, U>(typ: Type) -> u32
+    where 
+        Type: TraitCanal,
+        Type: std::ops::Deref<Target = U>,
+        U: TraitCanal + ?Sized {
+    typ.get()
+}
+
+// Box<&StructType>
+pub fn get_box_and_type_ref<'de, Type, U>(typ: Box<&Type>) -> u32
+    where 
+        Type: TraitCanal,
+        Box<&'de Type>: std::ops::Deref<Target = U> + 'de,
+        U: TraitCanal + 'de + ?Sized {
+    typ.get()
+}
+
+// &Box<&StructType>
+pub fn get_box_ref_and_type_ref<'de, Type, U>(typ: &Box<&Type>) -> u32
+    where 
+        Type: TraitCanal,
+        Box<&'de Type>: std::ops::Deref<Target = U> + 'de,
+        U: TraitCanal + 'de + ?Sized {
+    typ.get()
+}

@@ -1,28 +1,22 @@
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Default)]
 pub struct StructType {
     data: u32,
 }
 
-// Defining a trait for any type
 pub trait TraitCanal {
-    //fn new(data: u32) -> StructType;
     fn get_data(&self) -> u32;
 }
 
-// Defining a trait for any type
 pub trait TraitKanal {
-    //fn new(data: u32) -> StructType;
     fn set_data(&mut self, data: &u32);
 }
 
-// Implementing a trait for a type
 impl TraitCanal for StructType {
     fn get_data(&self) -> u32 {
         self.data
     }
 }
 
-// Implementing a trait for a type
 impl TraitKanal for StructType {
     fn set_data(&mut self, data: &u32) {
         self.data = *data;

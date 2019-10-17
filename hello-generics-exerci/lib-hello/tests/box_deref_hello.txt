@@ -1,0 +1,48 @@
+// FROM ROOT bin-local-hello
+// clear && cargo test
+// FROM ROOT ../bin-local-hello
+// clear && cargo test --package bin-local-hello
+#[cfg(test)]
+mod tests {
+    use mod_trait_exerci::mod_deref_fn;
+    use mod_trait_exerci::mod_deref::StructType;
+
+    #[test]
+    fn struct_box_type() {
+        let instance: StructType = Default::default();
+        let instance_box_type: Box<StructType> = Box::new(instance);
+        assert_eq!(0, mod_deref_fn::get_box_type(&instance));
+        assert_eq!(0, mod_deref_fn::get_box_type(&instance_box_type));
+        assert_eq!(0, mod_deref_fn::get_box_type(instance));
+        assert_eq!(0, mod_deref_fn::get_box_type(instance_box_type));
+
+        let instance: StructType = Default::default();
+        let instance_box_type: Box<_> = Box::new(&instance);
+        assert_eq!(0, mod_deref_fn::get_box_type(instance_box_type));
+
+        let instance: StructType = Default::default();
+        let instance_box_type: Box<_> = Box::new(&instance);
+        assert_eq!(0, mod_deref_fn::get_box_type(&instance_box_type));
+        assert_eq!(0, mod_deref_fn::get_box_type(instance_box_type));
+
+        let instance: StructType = Default::default();
+        let instance_box_type: Box<_> = Box::new(&instance);
+        assert_eq!(0, mod_deref_fn::get_box_type(&instance_box_type));
+        assert_eq!(0, mod_deref_fn::get_box_type(instance_box_type));
+    }
+
+    #[test]
+    fn struct_box_and_type_ref() {
+        let instance: StructType = Default::default();
+        let instance_box_type: Box<_> = Box::new(&instance);
+        assert_eq!(0, mod_deref_fn::get_box_and_type_ref(instance_box_type));
+    }
+
+    #[test]
+    fn struct_box_ref_and_type_ref() {
+        let instance: StructType = Default::default();
+        let instance_box_type: Box<_> = Box::new(&instance);
+        assert_eq!(0, mod_deref_fn::get_box_ref_and_type_ref(&instance_box_type));
+        // assert_eq!(0, mod_deref_fn::get_box_ref_and_type_ref(instance_box_type)); //ERROR
+    }
+}

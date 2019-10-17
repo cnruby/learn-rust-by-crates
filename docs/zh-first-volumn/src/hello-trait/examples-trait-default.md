@@ -1,8 +1,8 @@
-# 题外话：标准库默认衔接特质Default
+# 题外话：标准库默认衔接特质`Default`
 
 
 ## 学习内容
-- 理解标准库默认衔接特质Default
+- 理解标准库默认衔接特质`Default`
 
 ## 篇目
 
@@ -25,7 +25,7 @@
 ## 实现自己默认衔接特质`Default`
 
 ```rust
-#[derive(Debug)]
+#[derive(Debug)]``
 pub struct Person {
     name: String,
     age: u32,

@@ -1,0 +1,379 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>理解动态与静态调度实现 - 以软件篋学习Rust语言</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Chinese">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li><a href="../foreword/index.html"><strong aria-hidden="true">1.</strong> 前言</a></li><li><ol class="section"><li><a href="../foreword/about.html"><strong aria-hidden="true">1.1.</strong> 本书项目结构</a></li><li><a href="../foreword/crate.html"><strong aria-hidden="true">1.2.</strong> 关于作业区和软件篋实例</a></li><li><a href="../foreword/cargo.html"><strong aria-hidden="true">1.3.</strong> 关于Cargo工具基础命令</a></li><li><a href="../foreword/rust.html"><strong aria-hidden="true">1.4.</strong> Rust语言新思维和新概念</a></li></ol></li><li><a href="../hello-world/index.html"><strong aria-hidden="true">2.</strong> 软件篋hello_exercism</a></li><li><ol class="section"><li><a href="../hello-world/about.html"><strong aria-hidden="true">2.1.</strong> 关于软件篋项目</a></li><li><a href="../hello-world/commands-lib.html"><strong aria-hidden="true">2.2.</strong> 共享篋：开发命令</a></li><li><a href="../hello-world/lib.html"><strong aria-hidden="true">2.3.</strong> 共享篋：程序代码解释</a></li><li><a href="../hello-world/lib-tests.html"><strong aria-hidden="true">2.4.</strong> 共享篋：目录tests的测试代码解释</a></li><li><a href="../hello-world/src-tests.html"><strong aria-hidden="true">2.5.</strong> 共享篋：目录src的测试代码解释</a></li><li><a href="../hello-world/commands-local.html"><strong aria-hidden="true">2.6.</strong> 本地程序：开发命令</a></li><li><a href="../hello-world/bin-local.html"><strong aria-hidden="true">2.7.</strong> 本地程序：程序代码解释</a></li><li><a href="../hello-world/commands-bin.html"><strong aria-hidden="true">2.8.</strong> 仓库程序：开发命令</a></li><li><a href="../hello-world/bin.html"><strong aria-hidden="true">2.9.</strong> 仓库程序：程序代码解释</a></li><li><a href="../hello-world/off-topic.html"><strong aria-hidden="true">2.10.</strong> 题外话</a></li></ol></li><li><a href="../hello-borrowing/index.html"><strong aria-hidden="true">3.</strong> 软件篋borrowing_exerci</a></li><li><ol class="section"><li><a href="../hello-borrowing/about.html"><strong aria-hidden="true">3.1.</strong> 关于软件篋borrowing_exerci</a></li><li><a href="../hello-borrowing/develop.html"><strong aria-hidden="true">3.2.</strong> 开发软件篋borrowing_exerci</a></li><li><a href="../hello-borrowing/apply.html"><strong aria-hidden="true">3.3.</strong> 使用软件篋borrowing_exerci</a></li></ol></li><li><a href="../hello-trait/index.html"><strong aria-hidden="true">4.</strong> 软件篋trait_exerci</a></li><li><ol class="section"><li><a href="../hello-trait/examples-struct.html"><strong aria-hidden="true">4.1.</strong> 类型关键词struct</a></li><li><a href="../hello-trait/examples-impl.html"><strong aria-hidden="true">4.2.</strong> 实现关键词impl与方法代码实现</a></li><li><a href="../hello-trait/examples-methods.html"><strong aria-hidden="true">4.3.</strong> 方法代码实现</a></li><li><a href="../hello-trait/examples-trait.html"><strong aria-hidden="true">4.4.</strong> 衔接关键词trait与修饰关键词mut</a></li><li><a href="../hello-trait/examples-trait-default.html"><strong aria-hidden="true">4.5.</strong> 题外话：默认衔接特质Default</a></li><li><a href="../hello-trait/lib-structure.html"><strong aria-hidden="true">4.6.</strong> 程序代码结构</a></li><li><a href="../hello-trait/about.html"><strong aria-hidden="true">4.7.</strong> 关于软件篋项目</a></li><li><a href="../hello-trait/commands-lib.html"><strong aria-hidden="true">4.8.</strong> 共享篋：开发命令</a></li><li><a href="../hello-trait/lib-codes.html"><strong aria-hidden="true">4.9.</strong> 共享篋：程序代码解释</a></li><li><a href="../hello-trait/lib-tests.html"><strong aria-hidden="true">4.10.</strong> 共享篋：目录测试代码解释</a></li><li><a href="../hello-trait/off-topic.html"><strong aria-hidden="true">4.11.</strong> 题外话</a></li></ol></li><li><a href="../hello-mod-trait/index.html"><strong aria-hidden="true">5.</strong> 软件篋mod_trait_exerci</a></li><li><ol class="section"><li><a href="../hello-mod-trait/about.html"><strong aria-hidden="true">5.1.</strong> 关于软件篋mod_trait_exerci</a></li><li><a href="../hello-mod-trait/crate-structure.html"><strong aria-hidden="true">5.2.</strong> 文件与模块</a></li><li><a href="../hello-mod-trait/lib-codes.html"><strong aria-hidden="true">5.3.</strong> 共享篋：程序结构和代码解释</a></li><li><a href="../hello-mod-trait/exampels-codes.html"><strong aria-hidden="true">5.4.</strong> 共享篋：三种调用方式解释</a></li><li><a href="../hello-mod-trait/examples-dispatch.html" class="active"><strong aria-hidden="true">5.5.</strong> 理解动态与静态调度实现</a></li><li><a href="../hello-mod-trait/examples-miri.html"><strong aria-hidden="true">5.6.</strong> 深度解析动态与静态调度实现</a></li><li><a href="../hello-mod-trait/lib-static.html"><strong aria-hidden="true">5.7.</strong> 共享篋：静态调度实现</a></li><li><a href="../hello-mod-trait/lib-dynamic.html"><strong aria-hidden="true">5.8.</strong> 共享篋：动态调度实现</a></li><li><a href="../hello-mod-trait/lib-tests.html"><strong aria-hidden="true">5.9.</strong> 共享篋：目录测试代码解释</a></li><li><a href="../hello-mod-trait/off-topic.html"><strong aria-hidden="true">5.10.</strong> 题外话：泛型实例</a></li></ol></li><li><a href="../hello-deref/index.html"><strong aria-hidden="true">6.</strong> 软件篋deref_exerci</a></li><li><ol class="section"><li><a href="../hello-deref/about.html"><strong aria-hidden="true">6.1.</strong> 关于软件篋deref_exerci</a></li><li><a href="../hello-deref/develop.html"><strong aria-hidden="true">6.2.</strong> 开发软件篋deref_exerci</a></li><li><a href="../hello-deref/apply.html"><strong aria-hidden="true">6.3.</strong> 使用软件篋deref_exerci</a></li></ol></li><li><a href="../hello-macro/index.html"><strong aria-hidden="true">7.</strong> 软件篋macro_exerci</a></li><li><ol class="section"><li><a href="../hello-macro/about.html"><strong aria-hidden="true">7.1.</strong> 关于软件篋macro_exerci</a></li><li><a href="../hello-macro/develop.html"><strong aria-hidden="true">7.2.</strong> 开发软件篋macro_exerci</a></li><li><a href="../hello-macro/apply.html"><strong aria-hidden="true">7.3.</strong> 使用软件篋macro_exerci</a></li></ol></li><li><a href="../hello-generics/index.html"><strong aria-hidden="true">8.</strong> 软件篋generics_exerci</a></li><li><ol class="section"><li><a href="../hello-generics/about.html"><strong aria-hidden="true">8.1.</strong> 关于软件篋generics_exerci</a></li><li><a href="../hello-generics/develop.html"><strong aria-hidden="true">8.2.</strong> 开发软件篋generics_exerci</a></li><li><a href="../hello-generics/apply.html"><strong aria-hidden="true">8.3.</strong> 使用软件篋generics_exerci</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">以软件篋学习Rust语言</h1>
+
+                        <div class="right-buttons">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#理解动态与静态调度实现" id="理解动态与静态调度实现">理解动态与静态调度实现</a></h1>
+<p>　　在这一节里，介绍Rust语言调度动态与静态函数的方式。动态与静态调度函数是计算机语言广泛应用的概念和技术。</p>
+<h2><a class="header" href="#学习内容" id="学习内容">学习内容</a></h2>
+<ul>
+<li>了解和学习Rust语言静态和动态函数概念</li>
+<li>理解和掌握静态和动态函数基本实现</li>
+</ul>
+<h2><a class="header" href="#篇目" id="篇目">篇目</a></h2>
+<ul>
+<li><a href="#%E6%9C%80%E5%B8%B8%E8%A7%81%E9%9D%99%E6%80%81%E5%87%BD%E6%95%B0%E5%AE%9E%E4%BE%8B">最常见静态函数实例</a></li>
+<li><a href="#%E9%9D%99%E6%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%8A%A8%E6%80%81%E8%B0%83%E5%BA%A6%E5%AE%9E%E4%BE%8B">静态函数的动态调度实例</a></li>
+<li><a href="#%E8%B0%83%E7%94%A8%E5%8A%A8%E6%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9E%E4%BE%8B">调用动态函数的实例</a></li>
+<li><a href="#%E9%A2%98%E5%A4%96%E8%AF%9D">题外话</a></li>
+<li><a href="#%E5%8E%9F%E5%A7%8B%E6%A0%87%E8%AF%86%E7%AC%A6%E5%89%8D%E7%BC%80r">原始标识符前缀<code>r#</code></a></li>
+<li><a href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BVec">数据类型<code>Vec</code></a></li>
+<li><a href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">参考资料</a></li>
+</ul>
+<h2><a class="header" href="#最常见静态函数实例" id="最常见静态函数实例">最常见静态函数实例</a></h2>
+<p>　　Ⓓ 在默认情况下，Rust语言方法都是静态函数。如下面代码的函数<code>static_dispatch()</code>。</p>
+<p>　　静态调度或者分派（static dispatch）在编译时就知道被调用方是谁，而动态调度只有在运行时，才知道被调用方是谁。显然，在常见的情况下，相比动态调度，在运行程序时，静态调度会更快速，而相比静态调度，在编译程序时，动态调度会更快速。</p>
+<p>　　在使用静态分派会更有效，因为总是可以使用静态分派包装器函数来执行动态调度，但反之则不然。由于这个原因，比如标准库尝试在尽可能的情况下进行静态调度。</p>
+<pre><pre class="playpen"><code class="language-rust editable">// File: examples/simple_static_dispatch.rs
+#[derive(Default)]
+struct NormalStruct {
+    data: (u8)
+}
+
+impl NormalStruct {
+    fn static_dispatch(&amp;self) -&gt; (u8) { (self.data) }
+}
+
+// clear &amp;&amp; cargo run --example simple_static_dispatch
+fn main() {
+    let instance_struct :NormalStruct = Default::default();
+    assert_eq!((0u8), instance_struct.static_dispatch());
+}
+</code></pre></pre>
+<h2><a class="header" href="#静态函数的动态调度实例" id="静态函数的动态调度实例">静态函数的动态调度实例</a></h2>
+<p>　　上面程序与下面程序的前面一部分是完全一致的。而下面程序的后面一部分代码动态方式调度静态函数。</p>
+<p>　　下面程序的关键词<code>dyn</code>就是告诉编译器需要进行动态方式调度。但是，要是关键词<code>dyn</code>不在，也能够通过编译，只是有警告提示“不带显式<code>dyn</code>的衔接特质对象已弃用”，这告诉我们代码需要增加动态调度关键词<code>dyn</code>。</p>
+<p>　　这个警告提示提供了一条信息：我们正在涉及到的是衔接特质的一个或者一组对象，之所以需要动态方式，是因为，在Rust语言里衔接特质关键词<code>trait</code>可以针对任何类型实现功能，这是一种未知类型行为的随时调度方式。衔接特质的对象如同一个衔接插口，可以随时插到任何一个类型上。</p>
+<p>　　在动态调度时，Rust语言需要衔接特质对象的指针。从下面后面的三段代码里，可以理解到这个概念。比如。指针类型<code>Box</code>把实例<code>instance_struct</code>包装为指针类型；类型Vec的内部项都是实例<code>instance_struct</code>的指针类型。</p>
+<pre><pre class="playpen"><code class="language-rust editable">// File: examples/simple_dynamic_dispatch.rs
+trait Trait {
+    fn static_dispatch(&amp;self) -&gt; (u8);
+}
+
+#[derive(Default)]
+struct Struct {data: (u8)}
+
+impl Trait for Struct {
+    fn static_dispatch(&amp;self) -&gt; (u8) {
+        (self.data)
+    }
+}
+
+// clear &amp;&amp; cargo run --example simple_dynamic_dispatch
+fn main () {
+    let instance_struct: Struct = Default::default();
+    assert_eq!((0u8), instance_struct.static_dispatch());
+
+    let instance_struct: Struct = Default::default();
+    let box_struct: Box&lt;dyn Trait&gt; = Box::new(instance_struct);
+    assert_eq!((0), box_struct.static_dispatch());
+
+    let instance_struct: Struct = Default::default();
+    let mut v: Vec&lt;&amp;dyn Trait&gt; = Vec::new();
+    v.push(&amp;instance_struct);
+    for instance_struct in v.iter() {
+        assert_eq!((0), instance_struct.static_dispatch());
+    }
+
+    let instance_struct: Struct = Default::default();
+    let mut v: Vec&lt;Box&lt;dyn Trait&gt;&gt; = Vec::new();
+    v.push(Box::new(instance_struct));
+    for instance_struct in v.iter() {
+        assert_eq!((0), instance_struct.static_dispatch());
+    }    
+}
+</code></pre></pre>
+<h2><a class="header" href="#调用动态函数的实例" id="调用动态函数的实例">调用动态函数的实例</a></h2>
+<p>　　这里将说明基于衔接特质关键性<code>trait</code>的静态和动态函数实现，但是这静态函数与之前的也是完全不一样的概念。另外将会看到调用这种动态函数，它们看起来是一些更复杂的静态和动态函数。</p>
+<p>　　 下面程序第二段代码的两个函数<code>static_dispatch()</code>和<code>dynamic_dispatch()</code>，它们的目的是解决代码重复的相同问题。但是其手段是不同的，静态函数<code>static_dispatch()</code>使用了泛型编程方法，关于泛型编程将有另外专题说明。而动态函数<code>dynamic_dispatch()</code>使用了动态编程方法。从代码上看，它们达到相同的功能。</p>
+<p>　　下面程序第三段代码里，无论是类型<code>NormalStruct</code>，还是类型<code>TupleStruct</code>，它们都是以同一方式分别调用函数<code>static_dispatch()</code>和函数<code>dynamic_dispatch()</code>。</p>
+<p>　　不管是静态函数，还是动态函数，它们都是基于衔接特质对象的指针实现，这一点是非常重要的。</p>
+<p>　　下面程序是Rust语言非常经典的代码结构。</p>
+<pre><pre class="playpen"><code class="language-rust editable">// File: examples/trait_dispatch_concrete.rs
+// 1. Define and Implement struct, trait and impl..for
+struct NormalStruct {
+    data: (u8)
+}
+
+trait Trait {
+    fn _fn(&amp;self) -&gt; (u8);
+}
+
+impl Trait for NormalStruct {
+    fn _fn(&amp;self) -&gt; (u8) { (self.data) }
+}
+
+struct TupleStruct(u8);
+
+impl Trait for TupleStruct {
+    fn _fn(&amp;self) -&gt; (u8) { (self.0) }
+}
+
+// 2. Implement static and dynamic dispatch
+fn static_dispatch&lt;TraitObject: Trait&gt;(r#type: &amp;TraitObject) {
+    r#type._fn(); 
+}
+
+fn dynamic_dispatch(r#trait: &amp;dyn Trait) {
+    r#trait._fn();
+}
+
+// 3. Use these dispatch functions
+// clear &amp;&amp; cargo run --example trait_dispatch_concrete
+fn main() {
+    let instance_struct = NormalStruct{data: 0};
+    assert_eq!((), static_dispatch(&amp;instance_struct));
+    assert_eq!((), dynamic_dispatch(&amp;instance_struct));
+
+    let instance_tuple = TupleStruct(0);
+    assert_eq!((), static_dispatch(&amp;instance_tuple));
+    assert_eq!((), dynamic_dispatch(&amp;instance_tuple));
+}
+</code></pre></pre>
+<h2><a class="header" href="#题外话" id="题外话">题外话</a></h2>
+<h3><a class="header" href="#原始标识符前缀r" id="原始标识符前缀r">原始标识符前缀<code>r#</code></a></h3>
+<p>　　原始标识符也是一种标识符，其前缀是<code>r#</code>，之后也可以加上任何严格或保留的关键字，但除关键字<code>crate, extern, self, super, Self</code>外。</p>
+<h3><a class="header" href="#向量数据类型vec" id="向量数据类型vec">向量数据类型<code>Vec</code></a></h3>
+<p>　　向量数据类型<code>Vec</code>也是一种数组，其内部是以0开始进行排序的，但是这种数组大小是可调整的，或者说是一种连续的且可增长的数组类型。</p>
+<h2><a class="header" href="#参考资料" id="参考资料">参考资料</a></h2>
+<ul>
+<li><a href="https://doc.rust-lang.org/reference/identifiers.html">reference identifiers</a></li>
+<li><a href="https://www.cs.brandeis.edu/%7Ecs146a/rust/doc-02-21-2015/book/static-and-dynamic-dispatch.html">static-and-dynamic-dispatch</a></li>
+<li><a href="https://doc.rust-lang.org/1.0.0-beta/book/static-and-dynamic-dispatch.html">book static-and-dynamic-dispatch</a></li>
+<li><a href="https://jmarcher.io/when-does-dynamic-vs-static-dispatch-matter/">when-does-dynamic-vs-static-dispatch-matter</a></li>
+<li><a href="https://riptutorial.com/rust/example/4656/static-and-dynamic-dispatch">riptutorial.com static-and-dynamic-dispatch</a></li>
+<li><a href="https://alschwalm.com/blog/static/2017/03/07/exploring-dynamic-dispatch-in-rust/">exploring-dynamic-dispatch-in-rust</a></li>
+<li><a href="https://joshleeb.com/posts/rust-traits-and-trait-objects/">rust-traits-and-trait-objects</a></li>
+<li><a href="https://gist.github.com/greister/37289c6eb3629d4fefa7dd0acf6de378">Static vs Dynamic dispatch</a></li>
+<li><a href="https://tratt.net/laurie/blog/entries/a_quick_look_at_trait_objects_in_rust.html">a_quick_look_at_trait_objects_in_rust</a></li>
+<li><a href="https://learning-rust.github.io/docs/b5.impls_and_traits.html">b5.impls_and_traits</a></li>
+<li><a href="https://doc.rust-lang.org/std/keyword.dyn.html">std keyword dyn</a></li>
+<li><a href="https://stackoverflow.com/questions/25818082/vector-of-objects-belonging-to-a-trait/25819164">Vector of objects belonging to a trait</a></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../hello-mod-trait/exampels-codes.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../hello-mod-trait/examples-miri.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../hello-mod-trait/exampels-codes.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../hello-mod-trait/examples-miri.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3001");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload(true); // force reload from server (not from cache)
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+        
+
+        
+
+        
+        <script src="../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

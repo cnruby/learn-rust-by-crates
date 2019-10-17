@@ -1,0 +1,14 @@
+[workspace]
+#members = ["lib-hello", "bin-hello", "bin-local-hello", "lib-extern"]
+members = ["lib-hello", "bin-local-hello", "bin-hello"]
+
+# clear && cargo test --lib lib-hello
+# clear && cargo test --package bin-local-hello
+# clear && cargo test --package bin-hello
+
+
+# clear && cargo run -p bin-local-hello --example box_static_hello
+# clear && cargo run -p bin-local-hello --example box_dynamic_hello
+# clear && cargo run -p bin-local-hello --example all_hello
+# clear && cargo run -p bin-local-hello --example type_hello
+# clear && cargo run -p bin-local-hello --example bar_hello

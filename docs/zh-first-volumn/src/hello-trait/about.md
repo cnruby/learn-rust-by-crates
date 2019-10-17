@@ -1,4 +1,4 @@
-# 关于软件篋trait_exerci
+# 关于软件篋`trait_exerci`
 
 ## 学习内容
 - 了解项目名称和目录

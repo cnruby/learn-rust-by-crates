@@ -1,0 +1,72 @@
+/*
+#[derive(Debug, Default, PartialEq, Copy, Clone)]
+pub struct StructType {
+    pub data: (u32),
+}
+
+pub trait TraitCanal {
+    //fn new(data: u32) -> StructType;
+    fn get(&self) -> (u32);
+}
+
+/*
+impl<U> TraitCanal for U
+where U: StructType {
+    fn get(&self) -> (u32) {
+        println!("impl TraitCanal for StructType");
+        self.data
+    }
+}
+*/
+
+impl TraitCanal for StructType {
+    fn get(&self) -> (u32) {
+        println!("impl TraitCanal for StructType");
+        self.data
+    }
+}
+
+impl TraitCanal for &StructType {
+    fn get(&self) -> (u32) {
+        println!("impl TraitCanal for &StructType");
+        self.data
+    }
+}
+
+impl TraitCanal for Box<StructType> {
+    fn get(&self) -> (u32) {
+        println!("impl TraitCanal for Box<StructType>");
+        self.data
+    }
+}
+
+impl TraitCanal for Box<&StructType> {
+    fn get(&self) -> (u32) {
+        println!("impl TraitCanal for Box<&StructType>");
+        self.data
+    }
+}
+
+impl TraitCanal for &Box<StructType> {
+    fn get(&self) -> (u32) {
+        println!("impl TraitCanal for &Box<StructType>");
+        self.data
+    }
+}
+
+impl TraitCanal for &Box<&StructType> {
+    fn get(&self) -> (u32) {
+        println!("impl TraitCanal for &Box<StructType>");
+        self.data
+    }
+}
+
+use std::ops::Deref;
+impl Deref for StructType {
+    type Target = StructType;
+
+    fn deref(&self) -> &Self::Target {
+        &self
+    }
+}
+*/
