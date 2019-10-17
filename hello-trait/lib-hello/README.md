@@ -8,7 +8,7 @@
 - Learn the crate [hello_exercism](https://crates.io/crates/hello_exercism)
 
 ## The Rust Feature trait and impl
-<img src="https://github.com/cnruby/learn-rust-by-crates/raw/master/hello-trait/lib-hello/imaegs/hello-trait-05-complex.png"/>
+<img src="https://github.com/cnruby/learn-rust-by-crates/raw/master/hello-trait/lib-hello/images/hello-trait-05-complex.png"/>
 
 ## About this Crate `hello_trait`
 - Why to need the Rust Feature trait

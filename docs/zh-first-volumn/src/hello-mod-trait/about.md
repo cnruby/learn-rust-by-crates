@@ -29,23 +29,56 @@
 ## 项目目录文件结构
 
 ```bash
-$ tree -L 2
+$ tree -L 3
 .
 ├── Cargo.lock
 ├── Cargo.toml
 ├── README.md
-├── examples
-│   ├── trait_dispatch_abstract.rs
-│   ├── trait_dispatch_concrete.rs
-│   └── trait_where_hello.rs
-└── src
-    ├── lib.rs
-    ├── mod_bare
-    ├── mod_deref.rs
-    ├── mod_deref_fn.rs
-    ├── mod_dynamic_fn.rs
-    ├── mod_generics.rs
-    ├── mod_generics_fn.rs
-    ├── mod_static_fn.rs
-    └── mod_where_fn.rs
+├── bin-hello
+│   ├── Cargo.lock
+│   ├── Cargo.toml
+│   ├── src
+│   │   ├── bin
+│   │   └── main.rs
+│   └── target
+│       └── debug
+├── bin-local-hello
+│   ├── Cargo.lock
+│   ├── Cargo.toml
+│   ├── src
+│   │   └── main.rs
+│   ├── target
+│   │   └── debug
+│   └── tests
+│       └── type_both_hello.rs
+└── lib-hello
+    ├── Cargo.lock
+    ├── Cargo.toml
+    ├── README.md
+    ├── examples
+    │   ├── bare_hello.rs
+    │   ├── box_dynamic_hello.rs
+    │   ├── box_static_hello.rs
+    │   ├── generics_fn_hello.rs
+    │   ├── generics_impl_hello.rs
+    │   ├── generics_trait_hello.rs
+    │   ├── generics_type_hello.rs
+    │   ├── simple_dynamic_dispatch.rs
+    │   ├── simple_static_dispatch.rs
+    │   ├── trait_dispatch_abstract.rs
+    │   ├── trait_dispatch_concrete.rs
+    │   ├── trait_fn_hello.rs
+    │   ├── trait_instance_hello.rs
+    │   └── trait_where_hello.rs
+    ├── src
+    │   ├── lib.rs
+    │   ├── mod_bare
+    │   ├── mod_dynamic_fn.rs
+    │   ├── mod_static_fn.rs
+    │   └── mod_where_fn.rs
+    └── tests
+        ├── box_dynamic_hello.rs
+        ├── box_static_hello.rs
+        ├── mod_bare.rs
+        └── mod_trait.rs
 ```

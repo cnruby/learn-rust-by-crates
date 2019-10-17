@@ -12,17 +12,17 @@ dependencies = [
 name = "bin-local-hello"
 version = "0.1.0"
 dependencies = [
- "mod_trait_exerci 0.1.1",
+ "mod_trait_exerci 0.1.2",
 ]
 
 [[package]]
 name = "mod_trait_exerci"
 version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
 name = "mod_trait_exerci"
-version = "0.1.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
+version = "0.1.2"
 
 [[package]]
 name = "trait_exerci"

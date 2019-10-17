@@ -8,6 +8,9 @@
 ## Getting Started
 - Learn the crate [hello_exercism](https://crates.io/crates/hello_exercism)
 
+## The Rust Feature trait and impl
+<img src="https://github.com/cnruby/learn-rust-by-crates/raw/master/hello-mod-trait/lib-hello/images/hello_mod_trait_00_structure.png"/>
+
 # Crate
 - crate name: mod_trait_exerci
 - folder name: lib-hello
