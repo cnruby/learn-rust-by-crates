@@ -1,6 +1,6 @@
 [package]
 name = "hello-trait"
-version = "0.2.9"
+version = "0.3.0"
 authors = ["Gudao Luo <gudao.luo@gmail.com>"]
 edition = "2018"
 
@@ -9,4 +9,4 @@ edition = "2018"
 [dependencies]
 # https://crates.io/crates/trait_exerci
 # change the follow version to current version
-trait_exerci = "0.2.9"
+trait_exerci = "0.3.0"
