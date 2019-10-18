@@ -1,8 +1,8 @@
 // File: examples/trait_where_hello.rs
+use mod_trait_exerci::mod_where_fn;
 use mod_trait_exerci::mod_trait;
 use mod_trait::StructType;
 use mod_trait::TupleType;
-use mod_trait_exerci::mod_where_fn;
 
 fn static_struct_ref_with_where(instance: &StructType) {
     let data = mod_where_fn::get_static_type_ref_with_where(instance);

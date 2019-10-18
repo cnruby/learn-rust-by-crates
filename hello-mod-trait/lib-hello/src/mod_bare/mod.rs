@@ -4,7 +4,7 @@ pub struct StructType {
 }
 
 impl StructType {
-    pub fn get(&self) -> (u32) {
+    pub fn get_tuple(&self) -> (u32) {
         (self.data)
     }
 }
@@ -13,7 +13,7 @@ impl StructType {
 pub struct TupleType (pub u32);
 
 impl TupleType {
-    pub fn get(&self) -> (u32) {
+    pub fn get_tuple(&self) -> (u32) {
         (self.0)
     }
 }

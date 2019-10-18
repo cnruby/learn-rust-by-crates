@@ -24,9 +24,9 @@ fn get_data_from_tuple(instances: [TupleType; 2]) {
 
 // clear && cargo run --example trait_instance_hello
 fn main() {
-    let instances: [StructType; 2] = [Default::default(), StructType{data:0}];
+    let instances: [StructType; 2] = [Default::default(), StructType::new(0)];
     get_data_from_struct(instances);
 
-    let instances: [TupleType; 2] = [Default::default(), TupleType(0)];
+    let instances: [TupleType; 2] = [Default::default(), TupleType::new(0)];
     get_data_from_tuple(instances);    
 }
