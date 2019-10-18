@@ -3,7 +3,7 @@ use mod_trait_exerci::mod_bare::StructType;
 use mod_trait_exerci::mod_bare::TupleType;
 
 fn get_data_from_struct(instances: [StructType; 2]) {
-    let data = instances[0].get();
+    let data = instances[0].get_tuple();
     assert_eq!(0, data);
     assert_eq!((0), data);
     assert_eq!(instances[0], instances[1]);
@@ -12,7 +12,7 @@ fn get_data_from_struct(instances: [StructType; 2]) {
 }
 
 fn get_data_from_tuple(instances: [TupleType; 2]) {
-    let data = instances[0].get();
+    let data = instances[0].get_tuple();
     assert_eq!(0, data);
     assert_eq!((0), data);
     assert_eq!(instances[0], instances[1]);

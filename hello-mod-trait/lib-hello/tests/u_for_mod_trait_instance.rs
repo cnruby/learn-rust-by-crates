@@ -12,15 +12,15 @@ mod tests {
     #[test]
     fn it_works_with_struct_default() {
         let instance: StructType = Default::default();
-        assert_eq!(0, instance.get());
-        assert_eq!((0), instance.get());
+        assert_eq!(0, instance.get_tuple());
+        assert_eq!((0), instance.get_tuple());
     }
 
     #[test]
     fn it_works_with_struct_new() {
         let instance = StructType::new(0);
-        assert_eq!(0, instance.get());
-        assert_eq!((0), instance.get());
+        assert_eq!(0, instance.get_tuple());
+        assert_eq!((0), instance.get_tuple());
     }
 
     #[test]
@@ -33,15 +33,15 @@ mod tests {
     #[test]
     fn it_works_with_tuple_default() {
         let instance: TupleType = Default::default();
-        assert_eq!(0, instance.get());
-        assert_eq!((0), instance.get());
+        assert_eq!(0, instance.get_tuple());
+        assert_eq!((0), instance.get_tuple());
     }
 
     #[test]
     fn it_works_with_tuple_struct() {
         let instance = TupleType::new(0);
-        assert_eq!(0, instance.get());
-        assert_eq!((0), instance.get());
+        assert_eq!(0, instance.get_tuple());
+        assert_eq!((0), instance.get_tuple());
     }
 
     #[test]
