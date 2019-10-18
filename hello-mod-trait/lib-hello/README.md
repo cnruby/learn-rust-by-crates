@@ -9,7 +9,7 @@
 - Learn the crate [hello_exercism](https://crates.io/crates/hello_exercism)
 
 ## The Rust Feature trait and impl
-<img src="https://github.com/cnruby/learn-rust-by-crates/raw/master/hello-mod-trait/lib-hello/images/hello_mod_trait_00_structure.png"/>
+<img src="https://github.com/cnruby/learn-rust-by-crates/blob/master/docs/zh-first-volumn/src/images/hello_mod_trait_00_structure.png?raw=true"/>
 
 # Crate
 - crate name: mod_trait_exerci
