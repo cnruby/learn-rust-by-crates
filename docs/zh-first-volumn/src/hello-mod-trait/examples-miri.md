@@ -12,6 +12,7 @@
 - [与Miri相关的Cargo工具命令](#与Miri相关的Cargo工具命令)
 - [打开Miri代码文件命令](#打开Miri代码文件命令)
 - [Miri代码实例说明](#Miri代码实例说明)
+- [类型泛型参数与特质对象](#类型泛型参数与特质对象)
 - [参考资料](#参考资料)
 
 ## 什么是Miri
@@ -86,6 +87,10 @@ fn  dynamic_dispatch(_1: &dyn Trait) -> () {
     }
 }
 ```
+
+## 类型泛型参数与特质对象
+
+　　类型泛型参数（generics type parameters）与特质对象（trait objects）
 
 ## 参考资料
 - [An interpreter for Rust's mid-level intermediate representation](https://github.com/rust-lang/miri)

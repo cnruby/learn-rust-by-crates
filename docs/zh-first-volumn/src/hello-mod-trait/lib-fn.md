@@ -40,7 +40,4 @@
 
 {{#playpen ../../../../hello-mod-trait/lib-hello/examples/trait_fn_hello.rs editable}}
 
-
-
-
 ## 参考资料

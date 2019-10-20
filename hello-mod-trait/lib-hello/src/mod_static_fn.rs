@@ -3,6 +3,17 @@ use super::mod_trait::TraitCanal;
 use std::fmt::Debug;
 use std::cmp::PartialEq;
 
+//get_static_type_ref<T>
+//get_static_trait_ref::<StructType>
+//get_static_trait_ref::<TupleType>
+
+// get_static_type_ref<Type: TraitCanal>(typ: &Type) -> (u32)
+//get_static_trait_ref(typ: &StructType) -> (u32)
+//get_static_trait_ref(typ: &TupleType) -> (u32)
+
+// static: Generics type parameters
+// dynamic: trait objects
+
 pub fn get_static_type_ref<Type: TraitCanal>(typ: &Type) -> (u32) {
     (typ.get_tuple())
 }

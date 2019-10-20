@@ -1,21 +1,40 @@
-# 衔接关键词`trait`与修饰关键词`mut`
+# 衔接关键词`trait`
 
 ## 学习内容
 - 阐述衔接类型关键词`trait`基本概念
-- 理解衔接类型关键词`trait`的实现
-
 
 ## 篇目
 
-1. [衔接类型关键词`trait`概念](#衔接类型关键词trait概念)
-1. [关键词`impl`和`for`概念](#关键词impl和for概念)
-1. [实现类型关键词`trait`](#实现类型关键词trait)
-1. [实现关键词`trait`代码](#实现关键词trait代码)
-1. [程序结构图与衔接类型关键词`trait`](#程序结构图与衔接类型关键词trait)
-1. [实现基于默认方法的关键词`trait`代码](#实现基于默认方法的关键词trait代码)
-1. [题外话](#题外话)
-1. [什么是可衍生特质](#什么是可衍生特质)
-1. [参考资料](#参考资料)
+- [关键词trait概念表述](#关键词trait概念表述)
+- [关键词`impl`和`for`概念](#关键词impl和for概念)
+- [衔接类型关键词`trait`概念](#衔接类型关键词trait概念)
+- [实现类型关键词`trait`](#实现类型关键词trait)
+- [实现关键词`trait`代码](#实现关键词trait代码)
+- [题外话](#题外话)
+- [参考资料](#参考资料)
+
+![image](../../images/hello-trait-21-oop.png)
+
+## 关键词trait概念表述
+
+　　关键词trait概念表述之一：
+
+　　[关键词trait][id_01]是Rust语言的一项功能，可以告诉Rust编译器一种类型必须提供的功能。
+
+　　关键词trait概念表述之二：
+
+　　[关键词trait][id_02]是为任何未知类型定义方法的集合。
+
+　　关键词trait概念表述之三：
+
+　　[关键词trait][id_03]告诉Rust编译器一种特定的类型具有且可与其他类型共享的功效性质。
+
+　　关键词trait提供了一种类型或者几种类型之间的衔接方式。它应该包含下面内容：
+
+- 存在一种类型或者几种类型
+- 使用关键词trait定义衔接特质名称
+- 使用关键词trait代码块定义默认方法和函数
+- 使用关键词"impl"和"for"组合，实现针对这一种类型或者这几种类型的方法和函数
 
 ## 衔接类型关键词trait概念
 
@@ -34,6 +53,7 @@
 ## 实现类型关键词trait
 
 　　Rust语言规定：
+
 - 关键词`trait`默认是私有的，但可增加修饰关键词`pub`；
 - 使用关键词`trait`可以定义一个称之为特质的一组类型行为功能；
 - 一旦定义了衔接类型特质，其函数和方法都是公共的，且且不可增加修饰关键词`pub`；
@@ -51,7 +71,6 @@ trait TraitPerson {
     fn init() -> Person { Person { name: String::new(), age: 0, } }
 }
 ```
-
 
 ## 关键词`impl`和`for`概念
 
@@ -110,57 +129,11 @@ trait TraitPerson {
 
 {{#playpen ../../../../hello-trait/lib-hello/examples/trait.rs editable}}
 
-## 程序结构图与衔接类型关键词trait
-
-![image](../../images/hello-trait-03-trait-impl.png)
-
-## 实现基于默认方法的关键词trait代码
-
-　　通过下面的代码，可以学习到这些知识：
-
-- 使用关键词`trait`，定义了特质`TraitCanal`的默认实例化函数`init()`；
-- 使用关键词`impl`和`for`，基于结构类型`StructType`，为特质`TraitCanal`实现了方法`new()`、get_data()`和`set_data()`；
-- 借助于特质`TraitCanal`的默认实例化函数`init()`，实现该结构类型的实例化方式；
-
-{{#playpen ../../../../hello-trait/lib-hello/examples/trait_with_default_method.rs editable}}
-
 ## 题外话
 
-### 什么是可衍生特质
-
-　　Rust语言标准库或者第三方提供了一些非常有用的特质，称之为可衍生特质（Derivable Trait）。通过注释`#[derive(特质名称)]`，编译器能够为这些特质提供实现。比如，要求类型实现是可打印的，可以使用特质std::fmt::Debug。具体说，使用可衍生特质#[derive(Debug)]，所有类型都可以自动创建地实现std::fmt::Debug。
-
-　　下面的代码里第一行就是注释可衍生特质`Debug`，为类型`Person`实现了特质`Debug`，这些后面的宏`println!()`就可以使用了这个特质。
-
-　　注意，使用注释`#[derive(特质名称)]`，必须紧挨着类型定义之上。
-
-```rust
-#[derive(Debug)]
-struct Person {
-  name: String,
-  age: u32,
-}
-
-impl Person {
-    fn init() -> Person {
-        Person {
-            name: String::new(),
-            age: 0,
-        }
-    }
-}
-
-fn main() {
-    let person = Person::init();
-    println!("{:?}", person);
-}
-```
-
 ## 参考资料
-- [trait std::fmt::Debug](https://doc.rust-lang.org/std/fmt/trait.Debug.html)
-- [rust-by-example derive](https://doc.rust-lang.org/rust-by-example/trait/derive.html)
-- [rust-by-example print_debug](https://doc.rust-lang.org/rust-by-example/hello/print/print_debug.html)
-- [appendix-03-derivable-traits](https://doc.rust-lang.org/book/appendix-03-derivable-traits.html#appendix-c-derivable-traits)
 
 
-[id_01]:https://doc.rust-lang.org/book/ch10-02-traits.html?highlight=trait#defining-a-trait
+[id_01]:https://doc.rust-lang.org/1.8.0/book/traits.html
+[id_02]:https://doc.rust-lang.org/stable/rust-by-example/trait.html
+[id_03]:https://doc.rust-lang.org/book/ch10-02-traits.html

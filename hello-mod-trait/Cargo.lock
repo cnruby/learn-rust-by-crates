@@ -11,17 +11,17 @@ dependencies = [
 name = "bin-local-hello"
 version = "0.1.0"
 dependencies = [
- "mod_trait_exerci 0.2.0",
+ "mod_trait_exerci 0.2.1",
 ]
 
 [[package]]
 name = "mod_trait_exerci"
 version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
 name = "mod_trait_exerci"
-version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
+version = "0.2.1"
 
 [metadata]
 "checksum mod_trait_exerci 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)" = "62782d0c11f86cff3b5899730e71a7246705d1fe86dd4bd96e9ea8728b7c5225"

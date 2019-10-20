@@ -1,0 +1,332 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>特质实现及其对象 - 以软件篋学习Rust语言</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Chinese">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li><a href="../foreword/index.html"><strong aria-hidden="true">1.</strong> 前言</a></li><li><ol class="section"><li><a href="../foreword/about.html"><strong aria-hidden="true">1.1.</strong> 本书项目结构</a></li><li><a href="../foreword/crate.html"><strong aria-hidden="true">1.2.</strong> 关于作业区和软件篋实例</a></li><li><a href="../foreword/cargo.html"><strong aria-hidden="true">1.3.</strong> 关于Cargo工具基础命令</a></li><li><a href="../foreword/rust.html"><strong aria-hidden="true">1.4.</strong> Rust语言新思维和新概念</a></li></ol></li><li><a href="../hello-world/index.html"><strong aria-hidden="true">2.</strong> 软件篋hello_exercism</a></li><li><ol class="section"><li><a href="../hello-world/about.html"><strong aria-hidden="true">2.1.</strong> 关于软件篋项目</a></li><li><a href="../hello-world/commands-lib.html"><strong aria-hidden="true">2.2.</strong> 共享篋：开发命令</a></li><li><a href="../hello-world/lib.html"><strong aria-hidden="true">2.3.</strong> 共享篋：程序代码解释</a></li><li><a href="../hello-world/lib-tests.html"><strong aria-hidden="true">2.4.</strong> 共享篋：目录tests的测试代码解释</a></li><li><a href="../hello-world/src-tests.html"><strong aria-hidden="true">2.5.</strong> 共享篋：目录src的测试代码解释</a></li><li><a href="../hello-world/commands-local.html"><strong aria-hidden="true">2.6.</strong> 本地程序：开发命令</a></li><li><a href="../hello-world/bin-local.html"><strong aria-hidden="true">2.7.</strong> 本地程序：程序代码解释</a></li><li><a href="../hello-world/commands-bin.html"><strong aria-hidden="true">2.8.</strong> 仓库程序：开发命令</a></li><li><a href="../hello-world/bin.html"><strong aria-hidden="true">2.9.</strong> 仓库程序：程序代码解释</a></li><li><a href="../hello-world/off-topic.html"><strong aria-hidden="true">2.10.</strong> 题外话</a></li></ol></li><li><a href="../hello-borrowing/index.html"><strong aria-hidden="true">3.</strong> 软件篋borrowing_exerci</a></li><li><ol class="section"><li><a href="../hello-borrowing/about.html"><strong aria-hidden="true">3.1.</strong> 关于软件篋borrowing_exerci</a></li><li><a href="../hello-borrowing/develop.html"><strong aria-hidden="true">3.2.</strong> 开发软件篋borrowing_exerci</a></li><li><a href="../hello-borrowing/apply.html"><strong aria-hidden="true">3.3.</strong> 使用软件篋borrowing_exerci</a></li></ol></li><li><a href="../hello-trait/index.html"><strong aria-hidden="true">4.</strong> 软件篋trait_exerci</a></li><li><ol class="section"><li><a href="../hello-trait/examples-struct.html"><strong aria-hidden="true">4.1.</strong> 类型关键词struct</a></li><li><a href="../hello-trait/examples-impl.html"><strong aria-hidden="true">4.2.</strong> 关键词impl与方法代码实现</a></li><li><a href="../hello-trait/examples-methods.html"><strong aria-hidden="true">4.3.</strong> 函数与方法代码实现</a></li><li><a href="../hello-trait/examples-trait.html"><strong aria-hidden="true">4.4.</strong> 衔接关键词trait</a></li><li><a href="../hello-trait/examples-trait-impl.html" class="active"><strong aria-hidden="true">4.5.</strong> 特质实现及其对象</a></li><li><a href="../hello-trait/examples-trait-default.html"><strong aria-hidden="true">4.6.</strong> 题外话：默认衔接特质Default</a></li><li><a href="../hello-trait/lib-structure.html"><strong aria-hidden="true">4.7.</strong> 程序代码结构</a></li><li><a href="../hello-trait/about.html"><strong aria-hidden="true">4.8.</strong> 关于软件篋项目</a></li><li><a href="../hello-trait/commands-lib.html"><strong aria-hidden="true">4.9.</strong> 共享篋：开发命令</a></li><li><a href="../hello-trait/lib-codes.html"><strong aria-hidden="true">4.10.</strong> 共享篋：程序代码解释</a></li><li><a href="../hello-trait/lib-tests.html"><strong aria-hidden="true">4.11.</strong> 共享篋：目录测试代码解释</a></li><li><a href="../hello-trait/off-topic.html"><strong aria-hidden="true">4.12.</strong> 题外话</a></li></ol></li><li><a href="../hello-mod-trait/index.html"><strong aria-hidden="true">5.</strong> 软件篋mod_trait_exerci</a></li><li><ol class="section"><li><a href="../hello-mod-trait/about.html"><strong aria-hidden="true">5.1.</strong> 关于软件篋mod_trait_exerci</a></li><li><a href="../hello-mod-trait/crate-structure.html"><strong aria-hidden="true">5.2.</strong> 文件与模块</a></li><li><a href="../hello-mod-trait/lib-codes.html"><strong aria-hidden="true">5.3.</strong> 共享篋：程序结构和代码解释</a></li><li><a href="../hello-mod-trait/exampels-codes.html"><strong aria-hidden="true">5.4.</strong> 三种调用方式解释</a></li><li><a href="../hello-mod-trait/examples-dispatch.html"><strong aria-hidden="true">5.5.</strong> 理解动态与静态调度实现</a></li><li><a href="../hello-mod-trait/examples-miri.html"><strong aria-hidden="true">5.6.</strong> 深度解析动态与静态调度实现</a></li><li><a href="../hello-mod-trait/lib-fn.html"><strong aria-hidden="true">5.7.</strong> 共享篋：简单三层结构实现</a></li><li><a href="../hello-mod-trait/lib-static.html"><strong aria-hidden="true">5.8.</strong> 共享篋：基于封装的静态调度实现</a></li><li><a href="../hello-mod-trait/lib-dynamic.html"><strong aria-hidden="true">5.9.</strong> 共享篋：基于封装的动态调度实现</a></li><li><a href="../hello-mod-trait/lib-tests.html"><strong aria-hidden="true">5.10.</strong> 共享篋：单元测试代码解释</a></li><li><a href="../hello-mod-trait/off-topic.html"><strong aria-hidden="true">5.11.</strong> 题外话：泛型实例</a></li></ol></li><li><a href="../hello-deref/index.html"><strong aria-hidden="true">6.</strong> 软件篋deref_exerci</a></li><li><ol class="section"><li><a href="../hello-deref/about.html"><strong aria-hidden="true">6.1.</strong> 关于软件篋deref_exerci</a></li><li><a href="../hello-deref/develop.html"><strong aria-hidden="true">6.2.</strong> 开发软件篋deref_exerci</a></li><li><a href="../hello-deref/apply.html"><strong aria-hidden="true">6.3.</strong> 使用软件篋deref_exerci</a></li></ol></li><li><a href="../hello-macro/index.html"><strong aria-hidden="true">7.</strong> 软件篋macro_exerci</a></li><li><ol class="section"><li><a href="../hello-macro/about.html"><strong aria-hidden="true">7.1.</strong> 关于软件篋macro_exerci</a></li><li><a href="../hello-macro/develop.html"><strong aria-hidden="true">7.2.</strong> 开发软件篋macro_exerci</a></li><li><a href="../hello-macro/apply.html"><strong aria-hidden="true">7.3.</strong> 使用软件篋macro_exerci</a></li></ol></li><li><a href="../hello-generics/index.html"><strong aria-hidden="true">8.</strong> 软件篋generics_exerci</a></li><li><ol class="section"><li><a href="../hello-generics/about.html"><strong aria-hidden="true">8.1.</strong> 关于软件篋generics_exerci</a></li><li><a href="../hello-generics/develop.html"><strong aria-hidden="true">8.2.</strong> 开发软件篋generics_exerci</a></li><li><a href="../hello-generics/apply.html"><strong aria-hidden="true">8.3.</strong> 使用软件篋generics_exerci</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">以软件篋学习Rust语言</h1>
+
+                        <div class="right-buttons">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#特质实现及其对象" id="特质实现及其对象">特质实现及其对象</a></h1>
+<h2><a class="header" href="#学习内容" id="学习内容">学习内容</a></h2>
+<ul>
+<li>理解衔接类型关键词<code>trait</code>的实现</li>
+</ul>
+<h2><a class="header" href="#篇目" id="篇目">篇目</a></h2>
+<ul>
+<li><a href="#%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84%E5%9B%BE%E4%B8%8E%E8%A1%94%E6%8E%A5%E7%B1%BB%E5%9E%8B%E5%85%B3%E9%94%AE%E8%AF%8Dtrait">程序结构图与衔接类型关键词<code>trait</code></a></li>
+<li><a href="#%E5%AE%9E%E7%8E%B0%E5%9F%BA%E4%BA%8E%E9%BB%98%E8%AE%A4%E6%96%B9%E6%B3%95%E7%9A%84%E5%85%B3%E9%94%AE%E8%AF%8Dtrait%E4%BB%A3%E7%A0%81">实现基于默认方法的关键词<code>trait</code>代码</a></li>
+<li><a href="#%E7%89%B9%E8%B4%A8%E5%AF%B9%E8%B1%A1%E8%A7%A3%E9%87%8A">特质对象解释</a></li>
+<li><a href="#%E9%A2%98%E5%A4%96%E8%AF%9D">题外话</a></li>
+<li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%AF%E8%A1%8D%E7%94%9F%E7%89%B9%E8%B4%A8">什么是可衍生特质</a></li>
+<li><a href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">参考资料</a></li>
+</ul>
+<h2><a class="header" href="#程序结构图与衔接类型关键词trait" id="程序结构图与衔接类型关键词trait">程序结构图与衔接类型关键词trait</a></h2>
+<p><img src="../../images/hello-trait-03-trait-impl.png" alt="image" /></p>
+<h2><a class="header" href="#实现基于默认方法的关键词trait代码" id="实现基于默认方法的关键词trait代码">实现基于默认方法的关键词trait代码</a></h2>
+<p>　　通过下面的代码，可以学习到这些知识：</p>
+<ul>
+<li>使用关键词<code>trait</code>，定义了特质<code>TraitCanal</code>的默认实例化函数<code>init()</code>；</li>
+<li>使用关键词<code>impl</code>和<code>for</code>，基于结构类型<code>StructType</code>，为特质<code>TraitCanal</code>实现了方法<code>new()</code>、get_data()<code>和</code>set_data()`；</li>
+<li>借助于特质<code>TraitCanal</code>的默认实例化函数<code>init()</code>，实现该结构类型的实例化方式；</li>
+</ul>
+<pre><pre class="playpen"><code class="language-rust editable">mod trait_exerci {
+    #[derive(Debug)]
+    pub struct StructType {
+        pub data: u32,
+    }
+
+    pub trait TraitCanal {
+        fn new(data: u32) -&gt; StructType;
+        fn init() -&gt; StructType { StructType{data:0} }
+        fn get_data(&amp;self) -&gt; u32;
+        fn set_data(&amp;mut self, data: &amp;u32);
+    }
+
+    impl TraitCanal for StructType {
+        fn new(data: u32) -&gt; StructType {
+            StructType { data: data }
+        }
+
+        fn get_data(&amp;self) -&gt; u32 {
+            self.data
+        }
+
+        fn set_data(&amp;mut self, data: &amp;u32) {
+            self.data = *data;
+        }
+    }
+}
+
+use self::trait_exerci::TraitCanal;
+
+// cargo run --example trait_with_default_method
+fn main() {
+    let mut instance = trait_exerci::StructType::new(10);
+    instance.set_data(&amp;11);
+    println!(&quot;new {:?}&quot;, instance);
+
+    let mut instance = trait_exerci::StructType::init();
+    instance.set_data(&amp;12);
+    println!(&quot;init {:?}&quot;, instance);
+}
+</code></pre></pre>
+<h2><a class="header" href="#特质对象解释" id="特质对象解释">特质对象解释</a></h2>
+<p>　　特质本身不能定义特质对象，而是通过类型的对象，进行强制转换得到的特质对象。特质对象可以访问类型的公共数据和公共特质的行为。</p>
+<p>　　Rust语言把面向对象编程的思想更加深化了。把类的数据与行为分散化定义，而把类的实例集成化使用。不仅如此，而且Rust语言在代码里完全把这种过程都隐藏起来了。</p>
+<p><img src="../../images/hello-trait-31-trait-object.png" alt="image" /></p>
+<h2><a class="header" href="#题外话" id="题外话">题外话</a></h2>
+<h3><a class="header" href="#什么是可衍生特质" id="什么是可衍生特质">什么是可衍生特质</a></h3>
+<p>　　Rust语言标准库或者第三方提供了一些非常有用的特质，称之为可衍生特质（Derivable Trait）。通过注释<code>#[derive(特质名称)]</code>，编译器能够为这些特质提供实现。比如，要求类型实现是可打印的，可以使用特质std::fmt::Debug。具体说，使用可衍生特质#[derive(Debug)]，所有类型都可以自动创建地实现std::fmt::Debug。</p>
+<p>　　下面的代码里第一行就是注释可衍生特质<code>Debug</code>，为类型<code>Person</code>实现了特质<code>Debug</code>，这些后面的宏<code>println!()</code>就可以使用了这个特质。</p>
+<p>　　注意，使用注释<code>#[derive(特质名称)]</code>，必须紧挨着类型定义之上。</p>
+<pre><pre class="playpen"><code class="language-rust">#[derive(Debug)]
+struct Person {
+  name: String,
+  age: u32,
+}
+
+impl Person {
+    fn init() -&gt; Person {
+        Person {
+            name: String::new(),
+            age: 0,
+        }
+    }
+}
+
+fn main() {
+    let person = Person::init();
+    println!(&quot;{:?}&quot;, person);
+}
+</code></pre></pre>
+<h2><a class="header" href="#参考资料" id="参考资料">参考资料</a></h2>
+<ul>
+<li><a href="https://doc.rust-lang.org/std/fmt/trait.Debug.html">trait std::fmt::Debug</a></li>
+<li><a href="https://doc.rust-lang.org/rust-by-example/trait/derive.html">rust-by-example derive</a></li>
+<li><a href="https://doc.rust-lang.org/rust-by-example/hello/print/print_debug.html">rust-by-example print_debug</a></li>
+<li><a href="https://doc.rust-lang.org/book/appendix-03-derivable-traits.html#appendix-c-derivable-traits">appendix-03-derivable-traits</a></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../hello-trait/examples-trait.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../hello-trait/examples-trait-default.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../hello-trait/examples-trait.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../hello-trait/examples-trait-default.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3001");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload(true); // force reload from server (not from cache)
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+        
+
+        
+
+        
+        <script src="../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

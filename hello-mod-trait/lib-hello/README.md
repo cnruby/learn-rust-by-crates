@@ -21,3 +21,6 @@
 mkdir lib-hello && cd lib-hello
 cargo init --name mod_trait_exerci --lib
 ```
+
+## References
+- [RustConf 2019 - The Rust 2018 Module System by Josh Triplett](https://www.youtube.com/watch?v=AN9FoZgLcFg&feature=youtu.be)
