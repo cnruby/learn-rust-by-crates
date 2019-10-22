@@ -2,7 +2,7 @@
 
 ## Rust语言
 
-　　Rust是一门可靠高效、保证安全、支持并发和似C语言同级速度的计算机编程语言。
+　　Rust是一门可靠高效、保证内存安全、支持安全并发和似C语言同级速度的计算机编程语言。
 
 ## rustup版本管理工具
 　　rustup是Rust语言官方的版本管理工具，负责安装Rust语言及其版本管理。通过rustup工具实现了Rust语言安装工作。
@@ -17,7 +17,7 @@
 
 ## Rust语言编程方法
 
-　　Rust语言是一门多编程方法的计算机语言，它包括了：
+　　Rust语言是一门多编程（multi-programming）方法的或者说多范式（multi-paradigm）系统编程语言，它包括了：
 
 - 面向对象式编程
 - 命令式编程
@@ -69,3 +69,5 @@
 - [Markdown: Syntax](https://markdown.de/)
 - [category_slugs from crates.io](https://crates.io/category_slugs)
 - [Compress That Address](https://is.gd)
+- [The Rust Playground Codes](https://gist.github.com/rust-play)
+- [stable error-index](https://doc.rust-lang.org/stable/error-index.html)

@@ -1,0 +1,37 @@
+name: borrowing_exerci
+version: "1.0"
+about: an using a .yml file to build a CLI rust borrow exerci
+author: Gudao Luo <gudao.luo@gmail.com>
+
+settings:
+    - ArgRequiredElseHelp
+
+args:
+    # cargo run --bin bw -- --help
+    - mode:
+        short: m
+        long: mode
+        help: shows an option with specific values
+        # possible_values can also be defined in this list format
+        possible_values: [ ok, error ]
+        takes_value: true
+    - flag:
+        help: add the rust file name in the folder `examples`
+        short: f
+        long: file
+        multiple: true
+        global: true
+        requires:
+            - pos
+    - pos:
+        help: example positional argument from yaml
+        index: 1
+        # A list of possible values can be defined as a list
+        possible_values:
+            - kw_let
+            - kw_fn
+            - new_var
+            - kw_mut
+            - kw_mut_fn
+            - stack_head
+            - vec_for

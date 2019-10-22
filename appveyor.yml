@@ -61,3 +61,7 @@ test_script:
   - cd hello-mod-trait
   - cargo build --verbose
   - cargo test
+  - cd ..
+  - cd hello-borrowing
+  - cargo build --verbose
+  - cargo test

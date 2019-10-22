@@ -1,0 +1,27 @@
+[package]
+name = "borrowing_exerci"
+version = "0.1.0"
+authors = ["cnruby <gudao.luo@gmail.com>"]
+edition = "2018"
+readme = "README.md"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/cnruby/learn-rust-by-crates/tree/master/hello-borrowing"
+homepage = "https://crates.io/crates/borrowing_exerci"
+documentation = "https://cnruby.github.io/learn-rust-by-crates/hello-borrowing/borrowing_exerci/"
+categories = ["development-tools::testing"]
+description = "how to understand the borrowing in rust"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+name = "aide"
+path = "src/lib.rs"
+
+[dependencies]
+run_script = "0.3.2"
+clap = {version = "2.33.0", features = ["yaml"]}
+bat = "0.12.1"
+
+[features]
+ok = []
+error = []

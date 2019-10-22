@@ -25,13 +25,6 @@
 - folder name: bin-hello
 - description: with the crates.io version to use examples apps for the crate 'mod_trait_exerci'
 
-### Create a project
-```bash
-mkdir ./docs/hello-mod-trait
-mkdir hello-mod-trait && cd hello-mod-trait
-touch README.md
-```
-
 ### Resources
 - https://doc.rust-lang.org/book/ch10-02-traits.html
 - https://doc.rust-lang.org/book/ch17-02-trait-objects.html
