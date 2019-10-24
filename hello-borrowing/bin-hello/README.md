@@ -29,7 +29,7 @@ bw -h
 ```
 - run a rust file `kw_let.rs` with borrowing error in the folder `examples`
 ```bash
-bw --file kw_let --mode error | bat -l rs
+bw --file kw_let --mode err | bat -l rs
 # or
 bw -f kw_let | bat -l rs
 ```

@@ -1,20 +1,4 @@
 #![allow(unused_mut)]
-// cargo run --bin kw_mut
-
-// Run OK:
-// cargo run --bin bw -- --file kw_mut --mode ok
-// target/debug/bw --file kw_mut --mode ok
-// cargo install borrowing_exerci
-// bw --file kw_mut --mode ok
-
-// Compile-Time Error:
-// cargo run --bin bw -- -f kw_mut -m error
-// cargo run --bin bw -- -f kw_mut
-// target/debug/bw -f kw_mut -m error
-// target/debug/bw -f kw_mut
-// cargo install borrowing_exerci
-// bw --file kw_mut -m error
-// bw -f kw_mut
 
 #[cfg(feature = "ok")]
 fn main() {
@@ -27,7 +11,7 @@ fn main() {
 }
 
 // error[E0502]
-#[cfg(feature = "error")]
+#[cfg(feature = "err")]
 fn main() {
     let mut berry_instances = vec!["Blackberry", "Strawberry"];
 
@@ -37,10 +21,9 @@ fn main() {
     println!("{:?} {:?}", first_share_immut, second_share_mut);
 }
 
-#[cfg(not(feature = "ok"))]
-#[cfg(not(feature = "error"))]
+#[cfg(all(not(feature = "ok"), not(feature = "err")))]
 fn main() {
-    use aide::hello;
+    use aide::*;
     hello();
 }
 

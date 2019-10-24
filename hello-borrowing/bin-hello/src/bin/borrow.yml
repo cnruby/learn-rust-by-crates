@@ -13,25 +13,38 @@ args:
         long: mode
         help: shows an option with specific values
         # possible_values can also be defined in this list format
-        possible_values: [ ok, error ]
+        possible_values: [ ok, err ]
         takes_value: true
-    - flag:
-        help: add the rust file name in the folder `examples`
-        short: f
-        long: file
-        multiple: true
-        global: true
-        requires:
-            - pos
     - pos:
         help: example positional argument from yaml
         index: 1
         # A list of possible values can be defined as a list
         possible_values:
-            - kw_let
+            ## BEGIN for insider
+            # relation file: features.rs
+            - allx  # allgemeine information commands
+            - devx  # information commands for developer 
+            - user  # information commands for user
+            - bwx   # bin for information commands
+            ## END for insider
+            - kw_let_mut
             - kw_fn
             - new_var
             - kw_mut
             - kw_mut_fn
             - stack_head
             - vec_for
+            - expand_struct
+            - closure_type
+            - clone_struct
+            - clone_derive
+            - clone_array
+            - dbg_marco
+    - flag:
+        help: add the rust file name in the folder `examples`, ex, `－f kw_let`
+        short: f
+        long: file
+        multiple: true
+        global: true
+        requires:
+            - pos

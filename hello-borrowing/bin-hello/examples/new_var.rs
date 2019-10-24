@@ -1,42 +1,32 @@
-#![allow(unused)]
-struct Struct(u8);
-
-// Run OK:
-// cargo run --bin bw -- --file new_var --mode ok
-// target/debug/bw --file new_var --mode ok
-// cargo install borrowing_exerci
-// bw --file new_var --mode ok
-
-// Compile-Time Error:
-// cargo run --bin bw -- -f new_var -m error
-// cargo run --bin bw -- -f new_var
-// target/debug/bw -f new_var -m error
-// target/debug/bw -f new_var
-// cargo install borrowing_exerci
-// bw --file new_var -m error
-// bw -f new_var
+#![allow(unused_variables)]
 
 #[cfg(feature = "ok")]
 fn main() {
+    struct Struct(u8);
+
     let mut instance = Struct(42u8);
-    // let new_instance = instance;
+    //let new_instance = instance;
+    // How to solve the problem?
+    // Go to clone_struct.rs
     instance.0 = 33;
     println!("instance.data = {}", instance.0);
 }
 
 // error[E0382]
-#[cfg(feature = "error")]
+#[cfg(feature = "err")]
 fn main() {
+    struct Struct(u8);
+
     let mut instance = Struct(42u8);
     let new_instance = instance;
     instance.0 = 33;
     println!("instance.data = {}", instance.0);
 }
 
-#[cfg(not(feature = "ok"))]
-#[cfg(not(feature = "error"))]
+#[cfg(all(not(feature = "ok"), not(feature = "err")))]
 fn main() {
     use aide::hello;
     hello();
 }
+
 // https://doc.rust-lang.org/stable/error-index.html#E0382
