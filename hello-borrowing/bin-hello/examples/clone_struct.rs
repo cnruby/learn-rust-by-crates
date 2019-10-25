@@ -1,7 +1,7 @@
-use std::ptr::eq;
-
 #[cfg(feature = "ok")]
 fn main() {
+    use std::ptr::eq;
+
     let a = String::new();
     let b = a.clone();
     //let c = a;
@@ -16,6 +16,8 @@ fn main() {
 
 #[cfg(feature = "err")]
 fn main() {
+    use std::ptr::eq;
+
     let a = String::new();
     let b = a.clone();
     let c = a;

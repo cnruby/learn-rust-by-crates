@@ -1,8 +1,8 @@
-use std::thread;
-use std::sync::mpsc;
-
 #[cfg(feature = "ok")]
 fn main() {
+    use std::thread;
+    use std::sync::mpsc;
+
     let (tx, rx) = mpsc::channel();
 
     thread::spawn(move || {
@@ -23,6 +23,9 @@ fn main() {
 
 #[cfg(feature = "err")]
 fn main() {
+    use std::thread;
+    use std::sync::mpsc;
+
     let (tx, rx) = mpsc::channel();
 
     thread::spawn(move || {
