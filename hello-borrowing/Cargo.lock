@@ -172,7 +172,7 @@ dependencies = [
 
 [[package]]
 name = "borrowing_exerci"
-version = "0.2.40"
+version = "0.2.50"
 dependencies = [
  "bat 0.12.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "clap 2.33.0 (registry+https://github.com/rust-lang/crates.io-index)",
