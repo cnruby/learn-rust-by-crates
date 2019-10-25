@@ -17,30 +17,23 @@
 - folder name: bin-hello
 - description: the crate 'borrowing_exerci'
 
-## install the crate `borrowing_exerci`
+## download the crate `borrowing_exerci` codes
 ```bash
-cargo install borrowing_exerci
+git clone https://github.com/cnruby/learn-rust-by-crates.git
+cd learn-rust-by-crates/hello-borrowing/bin-hello/
 ```
 
 ## Use the crate `borrowing_exerci`
-- get the crate help
+- run a rust file ex `kw_fn.rs` with borrowing error in the folder `examples`
 ```bash
-bw -h
-```
-- run a rust file `kw_let.rs` with borrowing error in the folder `examples`
-```bash
-bw --file kw_let --mode err | bat -l rs
-# or
-bw -f kw_let | bat -l rs
+cargo run --bin bw -- --file kw_fn --mode err | bat -l rs
 # tip: `f`, Forward  one window
 # tip: `b`, Backward  one window
 # tip: `q`, Exit.
 ```
-- run a rust file `kw_let.rs` without error in the folder `examples`
+- run a rust file ex `kw_fn.rs` without error in the folder `examples`
 ```bash
-bw --file kw_let --mode ok | bat -l rs
-# or
-bw -f kw_let --mode ok | bat -l rs
+cargo run --bin bw -- -f kw_fn -m ok | bat -l rs
 ```
 
 ### Resources

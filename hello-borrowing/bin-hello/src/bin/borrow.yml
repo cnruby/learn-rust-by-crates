@@ -1,5 +1,5 @@
 name: borrowing_exerci
-version: "0.2.2"
+version: "0.2.51"
 about: How to understand rust borrowing.
 author: Gudao Luo <gudao.luo@gmail.com>
 
@@ -11,12 +11,12 @@ args:
     - mode:
         short: m
         long: mode
-        help: example `--mode ok`
+        help: example `-m ok`
         # possible_values can also be defined in this list format
         possible_values: [ ok, err ]
         takes_value: true
     - pos:
-        help: example `--file kw_fn`
+        help: example `bw -f kw_fn -m ok`
         index: 1
         # A list of possible values can be defined as a list
         possible_values:
@@ -47,7 +47,7 @@ args:
             - string_thread
             - string_ref_thread
     - flag:
-        help: add the rust file name in the folder `examples`, ex, `－f kw_fn`
+        help: add the rust file name in the folder `examples`
         short: f
         long: file
         multiple: true
