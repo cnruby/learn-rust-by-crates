@@ -10,7 +10,7 @@ fn main() {
 
 #[cfg(feature = "err")]
 fn main() {
-    let string_instance :String = "hello".to_string();
+    let string_instance: String = "hello".to_string();
 
     let greet_friend = |string: String| println!("{} friend", string);
     greet_friend(string_instance);

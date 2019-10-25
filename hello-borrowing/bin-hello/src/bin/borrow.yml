@@ -40,6 +40,12 @@ args:
             - clone_derive
             - clone_array
             - dbg_marco
+            - move_vec
+            - move_tuple
+            - string_type
+            - string_mut_type
+            - string_thread
+            - string_ref_thread
     - flag:
         help: add the rust file name in the folder `examples`, ex, `－f kw_let`
         short: f

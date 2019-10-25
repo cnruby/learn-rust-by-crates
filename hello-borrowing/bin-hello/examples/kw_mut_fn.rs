@@ -4,10 +4,10 @@
 fn main() {
     fn bar(x: &mut i32) {}
     fn foo(a: &mut i32) {
-        bar(a);             // mutable borrow occurs here
-        let ref y = a;      // immutable borrow occurs here
+        bar(a); // mutable borrow occurs here
+        let ref y = a; // immutable borrow occurs here
 
-        println!("{}", y);  // immutable borrow later used here
+        println!("{}", y); // immutable borrow later used here
     }
 }
 

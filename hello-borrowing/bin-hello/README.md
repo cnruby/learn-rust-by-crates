@@ -32,6 +32,9 @@ bw -h
 bw --file kw_let --mode err | bat -l rs
 # or
 bw -f kw_let | bat -l rs
+# tip: `f`, Forward  one window
+# tip: `b`, Backward  one window
+# tip: `q`, Exit.
 ```
 - run a rust file `kw_let.rs` without error in the folder `examples`
 ```bash

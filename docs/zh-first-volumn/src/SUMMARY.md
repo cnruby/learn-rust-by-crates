@@ -43,6 +43,7 @@
   - [题外话：泛型实例](./hello-mod-trait/off-topic.md)
 - [软件篋borrowing_exerci](./hello-borrowing/README.md)
   - [关于应用篋borrowing_exerci](./hello-borrowing/about.md)
+  - [克隆（Clone）和复制（Copy）](./hello-borrowing/clone-copy.md)
   - [应用篋：变量借用方法](./hello-borrowing/borrowing-var.md)
   - [应用篋：函数借用方法](./hello-borrowing/borrowing-fn.md)
   - [应用篋：类型实例借用方法](./hello-borrowing/borrowing-type.md)
