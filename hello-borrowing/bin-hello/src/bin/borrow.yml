@@ -1,6 +1,6 @@
 name: borrowing_exerci
-version: "0.2.51"
-about: How to understand rust borrowing.
+version: "0.2.52"
+about: How to understand the rust borrowing.
 author: Gudao Luo <gudao.luo@gmail.com>
 
 settings:

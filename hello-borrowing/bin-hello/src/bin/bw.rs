@@ -20,9 +20,10 @@ fn main() {
             match mode {
                 Some(m) => {
                     //dbg!(m);
-                    // cargo run --bin bw -- -f vec_for -m ok
-                    // cargo run --bin bw --  -m ok -f vec_for
-                    features::with_mode(&args, m, s);
+                    // cargo run --bin bw -- -f kw_fn -m ok
+                    // cargo run --bin bw --  -m ok -f kw_fn
+                    features::with_mode(&args, m, s);                    
+                    features::with_script(&args, s);
                 }
                 None => {
                     //dbg!(s);
@@ -32,8 +33,7 @@ fn main() {
             }
         }
         None => {
-            // println!("No <pos> what your favorite number is.");
-            // cargo run --bin bw --
+            //println!("No <pos> what your favorite number is.");
             // cargo run --bin bw -- --mode ok
             hello();
         }

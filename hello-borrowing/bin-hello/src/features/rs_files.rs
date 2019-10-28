@@ -1,0 +1,1 @@
+pub const HELLO :&str = r#"fn main() { println!("Hello, World!") }"#;

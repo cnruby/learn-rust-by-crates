@@ -1,4 +1,29 @@
 use run_script::ScriptOptions;
+mod rs_files;
+
+pub fn with_script(args: &Vec<String>, file_name: &str) {
+    let options = ScriptOptions::new();
+    let rs_file = &format!("./examples/{}.rs", file_name);
+    let set_file = format!("RS_FILE={}", rs_file);
+    //let cmd_cargo;
+
+    //let src = r#"fn main() { println!("Hello, World!") }"#;
+    let cmd_echo = format!("echo '{}' > {}.rs", rs_files::HELLO, file_name);
+    let cargo_script = format!("cargo script {}.rs", file_name);
+    // cargo run --bin bw -- -f kw_let -m error | bat -l rs
+    // cargo run --bin bw -- --file kw_let --mode ok
+    // cargo run --bin bw -- --file kw_let --mode err
+    // is equal to
+    // # cargo run --example kw_let --features ok
+    // # cargo run --example kw_let --features err
+    //cmd_cargo = format!("cargo run --example {} --features '{}'", file_name, mode);
+    //dbg!(&cmd_cargo);
+    let cmds = format!("{}\n{}\n{}", &set_file, &cmd_echo, &cargo_script);
+    let (_code, output, error) = run_script::run(&cmds, &args, &options).unwrap();
+    //println!("Exit Code: {}\n\n", code);
+    println!("{}\n\n", output);
+    println!("Compiler: Output Info  >>>>>>>>>>>>>> :\n\n{}", error);
+}
 
 pub fn with_mode(args: &Vec<String>, mode: &str, file_name: &str) {
     let options = ScriptOptions::new();

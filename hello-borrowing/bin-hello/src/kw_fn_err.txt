@@ -1,0 +1,32 @@
+// https://github.com/rust-lang/cargo/blob/master/tests/testsuite/run.rs
+// https://github.com/rust-lang/cargo/issues/5365
+// https://doc.rust-lang.org/cargo/reference/manifest.html#examples
+// http://xion.io/post/code/rust-examples.html
+
+fn run_bin_example() {
+    let p = project()
+        .file(
+            "Cargo.toml",
+            r#"
+            [package]
+            name = "foo"
+            version = "0.0.1"
+            [[example]]
+            name = "bar"
+            crate_type = ["bin"]
+        "#,
+        )
+        .file("src/lib.rs", "")
+        .file("examples/bar.rs", r#"fn main() { println!("example"); }"#)
+        .build();
+
+    p.cargo("run --example bar")
+        .with_stderr(
+            "\
+[COMPILING] foo v0.0.1 ([CWD])
+[FINISHED] dev [unoptimized + debuginfo] target(s) in [..]
+[RUNNING] `target/debug/examples/bar[EXE]`",
+        )
+        .with_stdout("example")
+        .run();
+}

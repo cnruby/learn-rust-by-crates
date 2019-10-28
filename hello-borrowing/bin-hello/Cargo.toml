@@ -1,6 +1,6 @@
 [package]
 name = "borrowing_exerci"
-version = "0.2.51"
+version = "0.2.52"
 authors = ["cnruby <gudao.luo@gmail.com>"]
 edition = "2018"
 readme = "README.md"
@@ -25,3 +25,10 @@ bat = "0.12.1"
 [features]
 ok = []
 err = []
+
+
+#[[example]]
+# example.path
+#name = "kw_fn"
+#crate-type = ["lib", "bin"]
+#crate-type = ["bin"]

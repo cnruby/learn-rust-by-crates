@@ -45,6 +45,7 @@ fn main() {
                 // cargo run --bin bwx <RUST_FILE_NAME>
                 // cargo run --bin bw -- -f kw_let
                 // cargo run --bin bwx kw_let
+                //"bw_ex" => run_example_bin();
                 _ => devx_cmds(&args[1]),
             }
         }
