@@ -7,6 +7,10 @@
 
 ## Getting Started
 - Learn the crate [hello_exercism](https://crates.io/crates/hello_exercism)
+- install [cargo script](https://crates.io/crates/cargo-script)
+```bash
+cargo install cargo-script
+```
 
 ## Project
 - name: hello-borrowing
