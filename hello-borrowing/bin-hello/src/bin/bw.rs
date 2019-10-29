@@ -21,9 +21,9 @@ fn main() {
                 Some(m) => {
                     //dbg!(m);
                     // cargo run --bin bw -- -f kw_fn -m ok
-                    // cargo run --bin bw --  -m ok -f kw_fn
-                    features::with_mode(&args, m, s);                    
-                    features::with_script(&args, s);
+                    // cargo run --bin bw -- -m ok -f kw_fn
+                    //features::with_mode(&args, m, s);                    
+                    features::with_script(&args, m, s);
                 }
                 None => {
                     //dbg!(s);

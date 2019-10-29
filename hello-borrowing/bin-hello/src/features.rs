@@ -1,30 +1,36 @@
 use run_script::ScriptOptions;
 mod rs_files;
 
-pub fn with_script(args: &Vec<String>, file_name: &str) {
+pub fn with_script(args: &Vec<String>, mode: &str, file_name: &str) {
     let options = ScriptOptions::new();
-    let rs_file = &format!("./examples/{}.rs", file_name);
-    let set_file = format!("RS_FILE={}", rs_file);
-    //let cmd_cargo;
-
-    //let src = r#"fn main() { println!("Hello, World!") }"#;
-    let cmd_echo = format!("echo '{}' > {}.rs", rs_files::HELLO, file_name);
+    let rs_code;
+    match mode.as_ref() {
+        "ok" => {
+            rs_code = rs_files::get_rs_ok(file_name);
+        },
+        "err" => {
+            rs_code = rs_files::get_rs_err(file_name);
+        },
+        _ => {
+            rs_code = rs_files::get_rs_ok("hello");
+        },
+    }
+    //dbg!(rs_code);
+    let set_file = format!("echo '{}'", rs_code);
+    let cmd_echo = format!("echo '{}' > {}.rs", rs_code, file_name);
     let cargo_script = format!("cargo script {}.rs", file_name);
-    // cargo run --bin bw -- -f kw_let -m error | bat -l rs
-    // cargo run --bin bw -- --file kw_let --mode ok
-    // cargo run --bin bw -- --file kw_let --mode err
-    // is equal to
-    // # cargo run --example kw_let --features ok
-    // # cargo run --example kw_let --features err
-    //cmd_cargo = format!("cargo run --example {} --features '{}'", file_name, mode);
-    //dbg!(&cmd_cargo);
-    let cmds = format!("{}\n{}\n{}", &set_file, &cmd_echo, &cargo_script);
+    let rm_script = format!("rm -rf {}.rs", file_name);
+    //dbg!(&rs_code);
+    //dbg!(&cargo_script);
+    //let cmds = format!("{}", &set_file);
+    let cmds = format!("{}\n{}\n{}\n{}", &set_file, &cmd_echo, &cargo_script, &rm_script);
     let (_code, output, error) = run_script::run(&cmds, &args, &options).unwrap();
     //println!("Exit Code: {}\n\n", code);
     println!("{}\n\n", output);
     println!("Compiler: Output Info  >>>>>>>>>>>>>> :\n\n{}", error);
 }
 
+/*
 pub fn with_mode(args: &Vec<String>, mode: &str, file_name: &str) {
     let options = ScriptOptions::new();
     let rs_file: &str = &format!("RS_FILE=./examples/{}.rs", file_name);
@@ -43,6 +49,7 @@ pub fn with_mode(args: &Vec<String>, mode: &str, file_name: &str) {
     println!("{}\n\n", output);
     println!("Compiler: Output Info  >>>>>>>>>>>>>> :\n\n{}", error);
 }
+*/
 
 pub fn without_mode(args: &Vec<String>, file_name: &str) {
     let options = ScriptOptions::new();
@@ -74,7 +81,7 @@ pub fn without_mode(args: &Vec<String>, file_name: &str) {
     }
 }
 
-const RUM_CMD_BAT: &str = r#"bat $RS_FILE"#;
+//const RUM_CMD_BAT: &str = r#"bat $RS_FILE"#;
 
 // https://doc.rust-lang.org/rust-by-example/std_misc/arg/matching.html
 // https://doc.rust-lang.org/rust-by-example/flow_control/match.html

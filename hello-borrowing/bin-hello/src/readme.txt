@@ -1,0 +1,67 @@
+cargo run --example kw_mut --features ok  | bat -l rs
+cargo run --example kw_mut --features err | bat -l rs
+cargo run --bin bwx conv kw_mut
+cargo run --bin bw -- -m ok -f kw_mut | bat -l rs
+cargo run --bin bw -- -m err -f kw_mut | bat -l rs
+
+
+cargo run --example kw_let_mut --features ok  | bat -l rs
+cargo run --example kw_let_mut --features err | bat -l rs
+cargo run --bin bwx conv kw_let_mut
+cargo run --bin bw -- -m ok -f kw_let_mut | bat -l rs
+cargo run --bin bw -- -m err -f kw_let_mut | bat -l rs
+
+
+cargo run --example string_mut_type --features ok  | bat -l rs
+cargo run --example string_mut_type --features err | bat -l rs
+cargo run --bin bwx conv string_mut_type
+cargo run --bin bw -- -m ok -f string_mut_type | bat -l rs
+cargo run --bin bw -- -m err -f string_mut_type | bat -l rs
+
+
+// get all help
+cargo run --bin bwx allx
+// convert the codes
+cargo run --bin bwx conv clone_derive
+// get a help for clone_derive
+cargo run --bin bwx clone_derive
+
+cargo run --bin bwx conv vec_for
+cargo run --bin bwx vec_for | bat -l rs
+
+cargo run --bin bwx conv stack_head
+cargo run --bin bwx stack_head | bat -l rs
+
+cargo run --bin bwx conv new_var
+cargo run --bin bwx new_var | bat -l rs
+
+cargo run --bin bwx conv expand_struct
+cargo run --bin bwx expand_struct | bat -l rs
+
+cargo run --bin bwx conv move_vec
+cargo run --bin bwx move_vec | bat -l rs
+
+cargo run --bin bwx conv dbg_marco
+cargo run --bin bwx dbg_marco | bat -l rs
+
+cargo run --bin bwx conv string_type
+cargo run --bin bwx string_type | bat -l rs
+
+cargo run --bin bwx conv move_tuple
+cargo run --bin bwx move_tuple | bat -l rs
+
+cargo run --bin bwx conv closure_type
+cargo run --bin bwx closure_type | bat -l rs
+
+cargo run --bin bwx conv string_thread
+cargo run --bin bwx string_thread | bat -l rs
+
+cargo run --bin bwx conv kw_mut_fn
+cargo run --bin bwx kw_mut_fn | bat -l rs
+
+cargo run --bin bwx conv clone_struct
+cargo run --bin bwx clone_struct | bat -l rs
+
+
+cargo run --bin bwx string_ref_thread | bat -l rs
+cargo run --bin bwx conv string_ref_thread | bat -l rs

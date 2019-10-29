@@ -2,14 +2,17 @@
 #![allow(unused_assignments)]
 
 #[cfg(feature = "ok")]
+// kw_let_mut.rs
+// ok
 fn main() {
     let mut instance = 42_u8;
 
     instance = 33;
 }
 
-// error[E0384]
 #[cfg(feature = "err")]
+// kw_let_mut.rs
+// error[E0384]
 fn main() {
     let instance = 42_u8;
 

@@ -41,12 +41,18 @@ fn main() {
                 // cargo run --bin bw -- -f user
                 // cargo run --bin bwx user
                 "user" => user_cmds(&args[1]),
-                // cargo run --bin bw -- -f <RUST_FILE_NAME>
-                // cargo run --bin bwx <RUST_FILE_NAME>
-                // cargo run --bin bw -- -f kw_let
-                // cargo run --bin bwx kw_let
-                //"bw_ex" => run_example_bin();
-                _ => devx_cmds(&args[1]),
+                // ONLY FOR Developer
+                // cargo run --bin bwx conv <RUST_FILE_NAME>
+                // cargo run --bin bwx conv kw_mut
+                "conv" => convert_rs(&args[2]),
+                _ => {
+                    // cargo run --bin bw -- -f <RUST_FILE_NAME>
+                    // cargo run --bin bwx <RUST_FILE_NAME>
+                    // cargo run --bin bw -- -f kw_fn
+                    // cargo run --bin bwx kw_fn
+                    //"bw_ex" => run_example_bin();
+                    devx_cmds(&args[1]);
+                } 
             }
         }
     }

@@ -21,23 +21,27 @@ cargo install cargo-script
 - folder name: bin-hello
 - description: the crate 'borrowing_exerci'
 
-## download the crate `borrowing_exerci` codes
+## install the crate `borrowing_exerci`
 ```bash
-git clone https://github.com/cnruby/learn-rust-by-crates.git
-cd learn-rust-by-crates/hello-borrowing/bin-hello/
+cargo install borrowing_exerci
+```
+
+## Use the crate `borrowing_exerci` help
+```bash
+bw -h
 ```
 
 ## Use the crate `borrowing_exerci`
-- run a rust file ex `kw_fn.rs` with borrowing error in the folder `examples`
+- run a rust file like `kw_fn.rs` (See Help Command) with error codes
 ```bash
-cargo run --bin bw -- --file kw_fn --mode err | bat -l rs
+bw -f kw_fn -m err | bat -l rs
 # tip: `f`, Forward  one window
 # tip: `b`, Backward  one window
 # tip: `q`, Exit.
 ```
-- run a rust file ex `kw_fn.rs` without error in the folder `examples`
+- run a rust file ex `kw_fn.rs` without error codes
 ```bash
-cargo run --bin bw -- -f kw_fn -m ok | bat -l rs
+bw -f kw_fn -m ok | bat -l rs
 ```
 
 ### Resources

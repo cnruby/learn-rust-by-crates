@@ -1,6 +1,4 @@
-#[cfg(feature = "ok")]
-// kw_fn.rs
-// ok
+pub const KW_FN_OK :&str = r#"// ok
 fn main() {
     fn print_berry_names(berries: &Vec<&str>) {
         for berry in berries {
@@ -13,10 +11,9 @@ fn main() {
 
     dbg!(berry_instances);
 }
+"#;
 
-#[cfg(feature = "err")]
-// kw_fn.rs
-// error[E0384]
+pub const KW_FN_ERR :&str = r#"// error[E0384]
 fn main() {
     fn print_berry_names(berries: Vec<&str>) {
         for berry in &berries {
@@ -29,9 +26,4 @@ fn main() {
 
     dbg!(berry_instances);
 }
-
-#[cfg(all(not(feature = "ok"), not(feature = "err")))]
-fn main() {
-    use aide::*;
-    hello();
-}
+"#;

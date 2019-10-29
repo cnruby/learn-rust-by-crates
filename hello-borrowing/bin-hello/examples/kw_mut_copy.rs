@@ -1,9 +1,8 @@
 #![allow(unused_mut)]
 
 #[cfg(feature = "ok")]
-// ok
 fn main() {
-    let berry_instances = vec!["Blackberry", "Strawberry"];
+    let mut berry_instances = vec!["Blackberry", "Strawberry"];
 
     let ref first_share_ref = &berry_instances; // immutable reference
     let ref second_share_ref = &berry_instances; // immutable reference
@@ -11,8 +10,8 @@ fn main() {
     println!("{:?} {:?}", first_share_ref, second_share_ref);
 }
 
-#[cfg(feature = "err")]
 // error[E0502]
+#[cfg(feature = "err")]
 fn main() {
     let mut berry_instances = vec!["Blackberry", "Strawberry"];
 

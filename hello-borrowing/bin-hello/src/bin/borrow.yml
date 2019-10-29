@@ -22,10 +22,9 @@ args:
         possible_values:
             ## BEGIN for insider
             # relation file: features.rs
-            - allx  # allgemeine information commands
-            - devx  # information commands for developer 
-            - user  # information commands for user
-            - bwx   # bin for information commands
+            #- allx  # allgemeine information commands
+            #- user  # information commands for user
+            #- bwx   # bin for information commands
             ## END for insider
             - kw_let_mut
             - kw_fn
@@ -38,7 +37,6 @@ args:
             - closure_type
             - clone_struct
             - clone_derive
-            - clone_array
             - dbg_marco
             - move_vec
             - move_tuple
