@@ -1,4 +1,4 @@
-pub const CLOSURE_TYPE_OK :&str = r#"fn main() {
+pub const CLOSURE_STRING_OK: &str = r#"fn main() {
     let str_instance: &str = "hello";
 
     let greet_friend = |str: &str| println!("{} friend", str);
@@ -8,7 +8,7 @@ pub const CLOSURE_TYPE_OK :&str = r#"fn main() {
 }
 "#;
 
-pub const CLOSURE_TYPE_ERR :&str = r#"fn main() {
+pub const CLOSURE_STRING_ERR: &str = r#"fn main() {
     let string_instance: String = "hello".to_string();
 
     let greet_friend = |string: String| println!("{} friend", string);

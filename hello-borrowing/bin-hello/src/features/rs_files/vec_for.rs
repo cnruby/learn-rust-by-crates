@@ -1,4 +1,4 @@
-pub const VEC_FOR_OK :&str = r#"fn main() {
+pub const VEC_FOR_OK: &str = r#"fn main() {
     let a = [1, 2, 3];
     for i in a.iter() {
         print!("{} ", i);
@@ -16,7 +16,7 @@ pub const VEC_FOR_OK :&str = r#"fn main() {
 
 "#;
 
-pub const VEC_FOR_ERR :&str = r#"fn main() {
+pub const VEC_FOR_ERR: &str = r#"fn main() {
     let a = [1, 2, 3];
     for i in a {
         print!("{} ", i);

@@ -5,6 +5,9 @@
 [![GitHub issues](https://img.shields.io/github/issues/cnruby/learn-rust-by-crates)](https://github.com/cnruby/learn-rust-by-crates/issues)
 [![Twitter URL](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fmobile.twitter.com%2Fcnruby)](https://mobile.twitter.com/cnruby)
 
+## The Rust Feature Borrowing and Ownenship
+<img src="https://github.com/cnruby/learn-rust-by-crates/blob/master/docs/zh-first-volumn/src/hello-borrowing/images/hello_borrowing-06-pointers.png?raw=true"/>
+
 ## Getting Started
 - Learn the crate [hello_exercism](https://crates.io/crates/hello_exercism)
 - install [cargo script](https://crates.io/crates/cargo-script)

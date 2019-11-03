@@ -1,4 +1,4 @@
-pub const STRING_THREAD_OK :&str = r#"fn main() {
+pub const STRING_THREAD_OK: &str = r#"fn main() {
     use std::thread;
     use std::sync::mpsc;
 
@@ -17,7 +17,7 @@ pub const STRING_THREAD_OK :&str = r#"fn main() {
 }
 "#;
 
-pub const STRING_THREAD_ERR :&str = r#"fn main() {
+pub const STRING_THREAD_ERR: &str = r#"fn main() {
     use std::thread;
     use std::sync::mpsc;
 

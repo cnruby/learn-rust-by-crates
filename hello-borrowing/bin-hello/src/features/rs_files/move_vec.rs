@@ -1,4 +1,4 @@
-pub const MOVE_VEC_OK :&str = r#"#![allow(unused_variables)]
+pub const MOVE_VEC_OK: &str = r#"#![allow(unused_variables)]
 
 fn main() {
     let v: Vec<u8> = vec![1, 2, 3];
@@ -13,7 +13,7 @@ fn main() {
 }
 "#;
 
-pub const MOVE_VEC_ERR :&str = r#"#![allow(unused_variables)]
+pub const MOVE_VEC_ERR: &str = r#"#![allow(unused_variables)]
 
 fn main() {
     let v: Vec<u8> = vec![1, 2, 3];

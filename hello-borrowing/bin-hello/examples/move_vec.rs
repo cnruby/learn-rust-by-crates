@@ -20,7 +20,7 @@ fn main() {
 
 #[cfg(feature = "err")]
 fn main() {
-    // move occurs because `v` has type `std::vec::Vec<u8>`, 
+    // move occurs because `v` has type `std::vec::Vec<u8>`,
     // which does not implement the `Copy` trait
     let v: Vec<u8> = vec![1, 2, 3];
     println!("v is {:p}", &v);
@@ -32,7 +32,7 @@ fn main() {
 
     // move / copy
     // *moved* the variable v, rendering v unusable.
-    let w = v;  // value moved here
+    let w = v; // value moved here
     println!("w is {:p}", &w);
     println!("v is {:p}", &v); // ERROR: value borrowed here after move
 }

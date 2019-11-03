@@ -1,4 +1,4 @@
-pub const STRING_MUT_TYPE_OK :&str = r#"#![allow(unused_variables)]
+pub const STRING_MUT_TYPE_OK: &str = r#"#![allow(unused_variables)]
 
 fn main() {
     let mut mut_instance = String::from("hello");
@@ -14,7 +14,7 @@ fn main() {
 }
 "#;
 
-pub const STRING_MUT_TYPE_ERR :&str = r#"#![allow(unused_variables)]
+pub const STRING_MUT_TYPE_ERR: &str = r#"#![allow(unused_variables)]
 
 fn main() {
     let mut mut_instance = String::from("hello");

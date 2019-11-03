@@ -1,8 +1,8 @@
+use regex::Regex;
 use std::error::Error;
 use std::fs::File;
 use std::io::prelude::*;
 use std::path::Path;
-use regex::Regex;
 
 pub mod features;
 
@@ -30,7 +30,7 @@ pub fn hello() {
     println!("\t\t{}", "tip: q");
 }
 
-pub fn convert_rs(file_name: &str){
+pub fn convert_rs(file_name: &str) {
     // Create a path to the desired file
 
     let source = read_rs(file_name, false);
@@ -94,7 +94,7 @@ pub fn convert_rs(file_name: &str){
         }
         //dbg!(&result);
     }
-    
+
     write_rs(file_name, codes_str);
     //show_rs(file_name);
 }
@@ -110,23 +110,21 @@ fn read_rs(file_name: &str, visible: bool) -> String {
     let mut file = match File::open(&path) {
         // The `description` method of `io::Error` returns a string that
         // describes the error
-        Err(why) => panic!("couldn't open {}: {}", display,
-                                                   why.description()),
+        Err(why) => panic!("couldn't open {}: {}", display, why.description()),
         Ok(file) => file,
     };
 
     // Read the file contents into a string, returns `io::Result<usize>`
     let mut s = String::new();
     match file.read_to_string(&mut s) {
-        Err(why) => panic!("couldn't read {}: {}", display,
-                                                   why.description()),
+        Err(why) => panic!("couldn't read {}: {}", display, why.description()),
         Ok(_) => {
             if visible {
                 print!("{} contains:\n{}\n\n\n", display, s);
             } else {
                 print!("successfully read to\n{}\n\n", display);
             }
-        },
+        }
     }
     s
 }
@@ -272,3 +270,27 @@ bw --file <RS_FILE_NAME> -m err | bat -l rs
 //- https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=50eaf399f641e0965e86be08a6d2d777
 
 // https://stackoverflow.com/questions/26946646/rust-package-with-both-a-library-and-a-binary
+
+// Cow, as_ref()
+// https://stackoverflow.com/questions/47147844/how-do-i-get-a-str-or-string-from-stdborrowcowstr
+// https://jwilm.io/blog/from-str-to-cow/
+
+// fn contains
+// https://stackoverflow.com/questions/48794974/how-to-check-if-a-string-contains-a-substring-in-rust
+
+// fn is_empty
+// https://doc.rust-lang.org/nightly/std/vec/struct.Vec.html#method.is_empty
+
+// regex
+// https://stackoverflow.com/questions/19274493/regular-expression-match-lines-starting-with-a-certain-character-or-whitespace-a
+// https://stackoverflow.com/questions/1240504/regular-expression-to-match-string-starting-with-stop
+
+// fn split
+// https://stackoverflow.com/questions/26643688/how-do-i-split-a-string-in-rust
+
+// fn to_uppercase
+// https://doc.rust-lang.org/std/char/struct.ToUppercase.html
+
+// file read write
+// https://doc.rust-lang.org/rust-by-example/std_misc/file/open.html
+// https://doc.rust-lang.org/rust-by-example/std_misc/file/create.html

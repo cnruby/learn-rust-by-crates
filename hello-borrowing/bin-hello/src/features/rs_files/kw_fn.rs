@@ -1,4 +1,4 @@
-pub const KW_FN_OK :&str = r#"// ok
+pub const KW_FN_OK: &str = r#"// ok
 fn main() {
     fn print_berry_names(berries: &Vec<&str>) {
         for berry in berries {
@@ -13,7 +13,7 @@ fn main() {
 }
 "#;
 
-pub const KW_FN_ERR :&str = r#"// error[E0384]
+pub const KW_FN_ERR: &str = r#"// error[E0384]
 fn main() {
     fn print_berry_names(berries: Vec<&str>) {
         for berry in &berries {

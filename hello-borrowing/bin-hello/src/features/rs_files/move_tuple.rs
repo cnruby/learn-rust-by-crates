@@ -1,4 +1,4 @@
-pub const MOVE_TUPLE_OK :&str = r#"#![allow(unused_variables)]
+pub const MOVE_TUPLE_OK: &str = r#"#![allow(unused_variables)]
 
 fn main() {
     #[derive(Debug, Clone, Copy)]
@@ -16,7 +16,7 @@ fn main() {
 }
 "#;
 
-pub const MOVE_TUPLE_ERR :&str = r#"#![allow(unused_variables)]
+pub const MOVE_TUPLE_ERR: &str = r#"#![allow(unused_variables)]
 
 fn main() {
     #[derive(Debug, Clone)]

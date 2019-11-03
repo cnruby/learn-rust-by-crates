@@ -52,7 +52,7 @@ fn main() {
                     // cargo run --bin bwx kw_fn
                     //"bw_ex" => run_example_bin();
                     devx_cmds(&args[1]);
-                } 
+                }
             }
         }
     }

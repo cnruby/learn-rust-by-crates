@@ -1,4 +1,4 @@
-pub const KW_MUT_OK :&str = r#"// ok
+pub const KW_MUT_OK: &str = r#"// ok
 fn main() {
     let berry_instances = vec!["Blackberry", "Strawberry"];
 
@@ -9,7 +9,7 @@ fn main() {
 }
 "#;
 
-pub const KW_MUT_ERR :&str = r#"// error[E0502]
+pub const KW_MUT_ERR: &str = r#"// error[E0502]
 fn main() {
     let mut berry_instances = vec!["Blackberry", "Strawberry"];
 

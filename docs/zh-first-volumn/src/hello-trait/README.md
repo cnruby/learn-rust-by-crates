@@ -1,4 +1,7 @@
-# 第二章 软件篋trait_exerci
+[![Crates.io](https://img.shields.io/crates/v/trait_exerci?label=trait_exerci)](https://crates.io/crates/trait_exerci)
+[![The Crate trait_exerci Code](https://img.shields.io/badge/hello--trait-code-yellowgreen)](https://github.com/cnruby/learn-rust-by-crates/tree/master/hello-trait)
+
+# 软件篋trait_exerci
 
 ### 本章学习内容
 - 什么是Rust语言衔接关键词trait

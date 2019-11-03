@@ -1,3 +1,11 @@
+_mdbook version 0.3.4_ [![crates.io](https://img.shields.io/crates/v/mdbook.svg)](https://crates.io/crates/mdbook)
+[![Minimum rustc version](https://img.shields.io/badge/rustc-1.38+-brightgreen)](https://github.com/rust-lang/rust)
+[![Build Status on appveyor.com](https://img.shields.io/appveyor/ci/cnruby/learn-rust-by-crates?label=build%20on%20appveyor.com)](https://github.com/cnruby/learn-rust-by-crates/tree/master/hello-borrowing)
+[![GitHub issues](https://img.shields.io/github/issues/cnruby/learn-rust-by-crates)](https://github.com/cnruby/learn-rust-by-crates/issues)
+[![Twitter URL](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fmobile.twitter.com%2Fcnruby)](https://mobile.twitter.com/cnruby)
+
+> $$\text{只有分享知识，才能延续生命}$$
+
 # 前言
 
 ## Rust语言
@@ -61,6 +69,7 @@
 
 ## 重要工具网站
 - [Tables Generator](https://www.tablesgenerator.com/)
+- [markdown-it demo](https://markdown-it.github.io/)
 - [Liste der Unicode-Zeichen der Kategorie „Sonstiges Symbol“](https://www.compart.com/de/unicode/category/So)
 - [Sketchpad - Draw, Create, Share!](https://sketch.io/sketchpad/)
 - [Quality metadata badges](https://shields.io/)
@@ -71,3 +80,4 @@
 - [Compress That Address](https://is.gd)
 - [The Rust Playground Codes](https://gist.github.com/rust-play)
 - [stable error-index](https://doc.rust-lang.org/stable/error-index.html)
+- [markdown basics](https://daringfireball.net/projects/markdown/basics)

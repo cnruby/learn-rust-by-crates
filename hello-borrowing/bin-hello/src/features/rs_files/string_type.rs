@@ -1,4 +1,4 @@
-pub const STRING_TYPE_OK :&str = r#"#![allow(unused_variables)]
+pub const STRING_TYPE_OK: &str = r#"#![allow(unused_variables)]
 
 fn main() {
     let instance = String::from("hello");
@@ -9,7 +9,7 @@ fn main() {
 }
 "#;
 
-pub const STRING_TYPE_ERR :&str = r#"#![allow(unused_variables)]
+pub const STRING_TYPE_ERR: &str = r#"#![allow(unused_variables)]
 
 fn main() {
     let instance = String::from("hello");

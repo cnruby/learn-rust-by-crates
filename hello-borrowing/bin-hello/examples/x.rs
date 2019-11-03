@@ -1,10 +1,10 @@
 #[cfg(feature = "ok")]
 fn main() {
-    fn greet(name: &String){
+    fn greet(name: &String) {
         println!("Hello, {}", name);
     }
 
-    fn goodbye(name: &String){
+    fn goodbye(name: &String) {
         println!("Goodbye, {}", name);
     }
 
@@ -15,11 +15,11 @@ fn main() {
 
 #[cfg(feature = "err")]
 fn main() {
-    fn greet(name: String){
+    fn greet(name: String) {
         println!("Hello, {}", name);
     }
 
-    fn goodbye(name: String){
+    fn goodbye(name: String) {
         println!("Goodbye, {}", name);
     }
 

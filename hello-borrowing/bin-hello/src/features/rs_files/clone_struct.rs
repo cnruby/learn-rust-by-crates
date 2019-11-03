@@ -1,4 +1,4 @@
-pub const CLONE_STRUCT_OK :&str = r#"#![allow(unused_variables)]
+pub const CLONE_STRUCT_OK: &str = r#"#![allow(unused_variables)]
 
 fn main() {
     use std::ptr::eq;
@@ -13,7 +13,7 @@ fn main() {
 }
 "#;
 
-pub const CLONE_STRUCT_ERR :&str = r#"#![allow(unused_variables)]
+pub const CLONE_STRUCT_ERR: &str = r#"#![allow(unused_variables)]
 
 fn main() {
     use std::ptr::eq;

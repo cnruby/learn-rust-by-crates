@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="zh" class="sidebar-visible no-js">
+<html lang="zh" class="sidebar-visible no-js light">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -37,11 +37,11 @@
         <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         
     </head>
-    <body class="light">
+    <body>
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "";
-            var default_theme = "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -65,8 +65,11 @@
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            document.body.className = theme;
-            document.querySelector('html').className = theme + ' js';
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
@@ -82,8 +85,8 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li><a href="foreword/index.html"><strong aria-hidden="true">1.</strong> 前言</a></li><li><ol class="section"><li><a href="foreword/about.html"><strong aria-hidden="true">1.1.</strong> 本书项目结构</a></li><li><a href="foreword/crate.html"><strong aria-hidden="true">1.2.</strong> 关于作业区和软件篋实例</a></li><li><a href="foreword/cargo.html"><strong aria-hidden="true">1.3.</strong> 关于Cargo工具基础命令</a></li><li><a href="foreword/rust.html"><strong aria-hidden="true">1.4.</strong> Rust语言新思维和新概念</a></li></ol></li><li><a href="hello-world/index.html"><strong aria-hidden="true">2.</strong> 软件篋hello_exercism</a></li><li><ol class="section"><li><a href="hello-world/about.html"><strong aria-hidden="true">2.1.</strong> 关于软件篋项目</a></li><li><a href="hello-world/commands-lib.html"><strong aria-hidden="true">2.2.</strong> 共享篋：开发命令</a></li><li><a href="hello-world/lib.html"><strong aria-hidden="true">2.3.</strong> 共享篋：程序代码解释</a></li><li><a href="hello-world/lib-tests.html"><strong aria-hidden="true">2.4.</strong> 共享篋：目录tests的测试代码解释</a></li><li><a href="hello-world/src-tests.html"><strong aria-hidden="true">2.5.</strong> 共享篋：目录src的测试代码解释</a></li><li><a href="hello-world/commands-local.html"><strong aria-hidden="true">2.6.</strong> 本地程序：开发命令</a></li><li><a href="hello-world/bin-local.html"><strong aria-hidden="true">2.7.</strong> 本地程序：程序代码解释</a></li><li><a href="hello-world/commands-bin.html"><strong aria-hidden="true">2.8.</strong> 仓库程序：开发命令</a></li><li><a href="hello-world/bin.html"><strong aria-hidden="true">2.9.</strong> 仓库程序：程序代码解释</a></li><li><a href="hello-world/off-topic.html"><strong aria-hidden="true">2.10.</strong> 题外话</a></li></ol></li><li><a href="hello-trait/index.html"><strong aria-hidden="true">3.</strong> 软件篋trait_exerci</a></li><li><ol class="section"><li><a href="hello-trait/examples-struct.html"><strong aria-hidden="true">3.1.</strong> 类型关键词struct</a></li><li><a href="hello-trait/examples-impl.html"><strong aria-hidden="true">3.2.</strong> 关键词impl与方法代码实现</a></li><li><a href="hello-trait/examples-methods.html"><strong aria-hidden="true">3.3.</strong> 函数与方法代码实现</a></li><li><a href="hello-trait/examples-trait.html"><strong aria-hidden="true">3.4.</strong> 衔接关键词trait</a></li><li><a href="hello-trait/examples-trait-impl.html"><strong aria-hidden="true">3.5.</strong> 特质实现及其对象</a></li><li><a href="hello-trait/examples-trait-default.html"><strong aria-hidden="true">3.6.</strong> 题外话：默认衔接特质Default</a></li><li><a href="hello-trait/lib-structure.html"><strong aria-hidden="true">3.7.</strong> 程序代码结构</a></li><li><a href="hello-trait/about.html"><strong aria-hidden="true">3.8.</strong> 关于软件篋项目</a></li><li><a href="hello-trait/commands-lib.html"><strong aria-hidden="true">3.9.</strong> 共享篋：开发命令</a></li><li><a href="hello-trait/lib-codes.html"><strong aria-hidden="true">3.10.</strong> 共享篋：程序代码解释</a></li><li><a href="hello-trait/lib-tests.html"><strong aria-hidden="true">3.11.</strong> 共享篋：目录测试代码解释</a></li><li><a href="hello-trait/off-topic.html"><strong aria-hidden="true">3.12.</strong> 题外话</a></li></ol></li><li><a href="hello-mod-trait/index.html"><strong aria-hidden="true">4.</strong> 软件篋mod_trait_exerci</a></li><li><ol class="section"><li><a href="hello-mod-trait/about.html"><strong aria-hidden="true">4.1.</strong> 关于软件篋mod_trait_exerci</a></li><li><a href="hello-mod-trait/crate-structure.html"><strong aria-hidden="true">4.2.</strong> 文件与模块</a></li><li><a href="hello-mod-trait/lib-codes.html"><strong aria-hidden="true">4.3.</strong> 共享篋：程序结构和代码解释</a></li><li><a href="hello-mod-trait/exampels-codes.html"><strong aria-hidden="true">4.4.</strong> 三种调用方式解释</a></li><li><a href="hello-mod-trait/examples-dispatch.html"><strong aria-hidden="true">4.5.</strong> 理解动态与静态调度实现</a></li><li><a href="hello-mod-trait/examples-miri.html"><strong aria-hidden="true">4.6.</strong> 深度解析动态与静态调度实现</a></li><li><a href="hello-mod-trait/lib-fn.html"><strong aria-hidden="true">4.7.</strong> 共享篋：简单三层结构实现</a></li><li><a href="hello-mod-trait/lib-static.html"><strong aria-hidden="true">4.8.</strong> 共享篋：基于封装的静态调度实现</a></li><li><a href="hello-mod-trait/lib-dynamic.html"><strong aria-hidden="true">4.9.</strong> 共享篋：基于封装的动态调度实现</a></li><li><a href="hello-mod-trait/lib-tests.html"><strong aria-hidden="true">4.10.</strong> 共享篋：单元测试代码解释</a></li><li><a href="hello-mod-trait/off-topic.html"><strong aria-hidden="true">4.11.</strong> 题外话：泛型实例</a></li></ol></li><li><a href="hello-borrowing/index.html"><strong aria-hidden="true">5.</strong> 软件篋borrowing_exerci</a></li><li><ol class="section"><li><a href="hello-borrowing/about.html"><strong aria-hidden="true">5.1.</strong> 关于应用篋borrowing_exerci</a></li><li><a href="hello-borrowing/clone-copy.html"><strong aria-hidden="true">5.2.</strong> 克隆（Clone）和复制（Copy）</a></li><li><a href="hello-borrowing/borrowing-var.html"><strong aria-hidden="true">5.3.</strong> 应用篋：变量借用方法</a></li><li><a href="hello-borrowing/borrowing-fn.html"><strong aria-hidden="true">5.4.</strong> 应用篋：函数借用方法</a></li><li><a href="hello-borrowing/borrowing-type.html"><strong aria-hidden="true">5.5.</strong> 应用篋：类型实例借用方法</a></li><li><a href="hello-borrowing/stack_head.html"><strong aria-hidden="true">5.6.</strong> 应用篋：栈和堆借用方法</a></li><li><a href="hello-borrowing/bin-lib.html"><strong aria-hidden="true">5.7.</strong> 题外话：应用篋的软件包结构</a></li><li><a href="hello-borrowing/cargo-features.html"><strong aria-hidden="true">5.8.</strong> 题外话：Cargo工具features功能</a></li><li><a href="hello-borrowing/crates.html"><strong aria-hidden="true">5.9.</strong> 题外话：介绍几个软件篋</a></li></ol></li><li><a href="hello-deref/index.html"><strong aria-hidden="true">6.</strong> 软件篋deref_exerci</a></li><li><ol class="section"><li><a href="hello-deref/about.html"><strong aria-hidden="true">6.1.</strong> 关于软件篋deref_exerci</a></li><li><a href="hello-deref/develop.html"><strong aria-hidden="true">6.2.</strong> 开发软件篋deref_exerci</a></li><li><a href="hello-deref/apply.html"><strong aria-hidden="true">6.3.</strong> 使用软件篋deref_exerci</a></li></ol></li><li><a href="hello-macro/index.html"><strong aria-hidden="true">7.</strong> 软件篋macro_exerci</a></li><li><ol class="section"><li><a href="hello-macro/about.html"><strong aria-hidden="true">7.1.</strong> 关于软件篋macro_exerci</a></li><li><a href="hello-macro/develop.html"><strong aria-hidden="true">7.2.</strong> 开发软件篋macro_exerci</a></li><li><a href="hello-macro/apply.html"><strong aria-hidden="true">7.3.</strong> 使用软件篋macro_exerci</a></li></ol></li><li><a href="hello-generics/index.html"><strong aria-hidden="true">8.</strong> 软件篋generics_exerci</a></li><li><ol class="section"><li><a href="hello-generics/about.html"><strong aria-hidden="true">8.1.</strong> 关于软件篋generics_exerci</a></li><li><a href="hello-generics/develop.html"><strong aria-hidden="true">8.2.</strong> 开发软件篋generics_exerci</a></li><li><a href="hello-generics/apply.html"><strong aria-hidden="true">8.3.</strong> 使用软件篋generics_exerci</a></li></ol></li></ol>
+            <div id="sidebar-scrollbox" class="sidebar-scrollbox">
+                <ol class="chapter"><li class="expanded "><a href="foreword/index.html"><strong aria-hidden="true">1.</strong> 前言</a></li><li><ol class="section"><li class="expanded "><a href="foreword/about.html"><strong aria-hidden="true">1.1.</strong> 本书项目结构</a></li><li class="expanded "><a href="foreword/crate.html"><strong aria-hidden="true">1.2.</strong> 关于作业区和软件篋实例</a></li><li class="expanded "><a href="foreword/cargo.html"><strong aria-hidden="true">1.3.</strong> 关于Cargo工具基础命令</a></li><li class="expanded "><a href="foreword/rust.html"><strong aria-hidden="true">1.4.</strong> Rust语言新思维和新概念</a></li></ol></li><li class="expanded "><a href="hello-world/index.html"><strong aria-hidden="true">2.</strong> 软件篋hello_exercism</a></li><li><ol class="section"><li class="expanded "><a href="hello-world/about.html"><strong aria-hidden="true">2.1.</strong> 关于软件篋项目</a></li><li class="expanded "><a href="hello-world/commands-lib.html"><strong aria-hidden="true">2.2.</strong> 共享篋：开发命令</a></li><li class="expanded "><a href="hello-world/lib.html"><strong aria-hidden="true">2.3.</strong> 共享篋：程序代码解释</a></li><li class="expanded "><a href="hello-world/lib-tests.html"><strong aria-hidden="true">2.4.</strong> 共享篋：目录tests的测试代码解释</a></li><li class="expanded "><a href="hello-world/src-tests.html"><strong aria-hidden="true">2.5.</strong> 共享篋：目录src的测试代码解释</a></li><li class="expanded "><a href="hello-world/commands-local.html"><strong aria-hidden="true">2.6.</strong> 本地程序：开发命令</a></li><li class="expanded "><a href="hello-world/bin-local.html"><strong aria-hidden="true">2.7.</strong> 本地程序：程序代码解释</a></li><li class="expanded "><a href="hello-world/commands-bin.html"><strong aria-hidden="true">2.8.</strong> 仓库程序：开发命令</a></li><li class="expanded "><a href="hello-world/bin.html"><strong aria-hidden="true">2.9.</strong> 仓库程序：程序代码解释</a></li><li class="expanded "><a href="hello-world/off-topic.html"><strong aria-hidden="true">2.10.</strong> 题外话</a></li></ol></li><li class="expanded "><a href="hello-trait/index.html"><strong aria-hidden="true">3.</strong> 软件篋trait_exerci</a></li><li><ol class="section"><li class="expanded "><a href="hello-trait/examples-struct.html"><strong aria-hidden="true">3.1.</strong> 类型关键词struct</a></li><li class="expanded "><a href="hello-trait/examples-impl.html"><strong aria-hidden="true">3.2.</strong> 关键词impl与方法代码实现</a></li><li class="expanded "><a href="hello-trait/examples-methods.html"><strong aria-hidden="true">3.3.</strong> 函数与方法代码实现</a></li><li class="expanded "><a href="hello-trait/examples-trait.html"><strong aria-hidden="true">3.4.</strong> 衔接关键词trait</a></li><li class="expanded "><a href="hello-trait/examples-trait-impl.html"><strong aria-hidden="true">3.5.</strong> 特质实现及其对象</a></li><li class="expanded "><a href="hello-trait/examples-trait-default.html"><strong aria-hidden="true">3.6.</strong> 题外话：默认衔接特质Default</a></li><li class="expanded "><a href="hello-trait/lib-structure.html"><strong aria-hidden="true">3.7.</strong> 程序代码结构</a></li><li class="expanded "><a href="hello-trait/about.html"><strong aria-hidden="true">3.8.</strong> 关于软件篋项目</a></li><li class="expanded "><a href="hello-trait/commands-lib.html"><strong aria-hidden="true">3.9.</strong> 共享篋：开发命令</a></li><li class="expanded "><a href="hello-trait/lib-codes.html"><strong aria-hidden="true">3.10.</strong> 共享篋：程序代码解释</a></li><li class="expanded "><a href="hello-trait/lib-tests.html"><strong aria-hidden="true">3.11.</strong> 共享篋：目录测试代码解释</a></li><li class="expanded "><a href="hello-trait/off-topic.html"><strong aria-hidden="true">3.12.</strong> 题外话</a></li></ol></li><li class="expanded "><a href="hello-mod-trait/index.html"><strong aria-hidden="true">4.</strong> 软件篋mod_trait_exerci</a></li><li><ol class="section"><li class="expanded "><a href="hello-mod-trait/about.html"><strong aria-hidden="true">4.1.</strong> 关于软件篋mod_trait_exerci</a></li><li class="expanded "><a href="hello-mod-trait/crate-structure.html"><strong aria-hidden="true">4.2.</strong> 文件与模块</a></li><li class="expanded "><a href="hello-mod-trait/lib-codes.html"><strong aria-hidden="true">4.3.</strong> 共享篋：程序结构和代码解释</a></li><li class="expanded "><a href="hello-mod-trait/exampels-codes.html"><strong aria-hidden="true">4.4.</strong> 三种调用方式解释</a></li><li class="expanded "><a href="hello-mod-trait/examples-dispatch.html"><strong aria-hidden="true">4.5.</strong> 理解动态与静态调度实现</a></li><li class="expanded "><a href="hello-mod-trait/examples-miri.html"><strong aria-hidden="true">4.6.</strong> 深度解析动态与静态调度实现</a></li><li class="expanded "><a href="hello-mod-trait/lib-fn.html"><strong aria-hidden="true">4.7.</strong> 共享篋：简单三层结构实现</a></li><li class="expanded "><a href="hello-mod-trait/lib-static.html"><strong aria-hidden="true">4.8.</strong> 共享篋：基于封装的静态调度实现</a></li><li class="expanded "><a href="hello-mod-trait/lib-dynamic.html"><strong aria-hidden="true">4.9.</strong> 共享篋：基于封装的动态调度实现</a></li><li class="expanded "><a href="hello-mod-trait/lib-tests.html"><strong aria-hidden="true">4.10.</strong> 共享篋：单元测试代码解释</a></li><li class="expanded "><a href="hello-mod-trait/off-topic.html"><strong aria-hidden="true">4.11.</strong> 题外话：泛型实例</a></li></ol></li><li class="expanded "><a href="hello-borrowing/index.html"><strong aria-hidden="true">5.</strong> 软件篋borrowing_exerci</a></li><li><ol class="section"><li class="expanded "><a href="hello-borrowing/about.html"><strong aria-hidden="true">5.1.</strong> 关于应用篋borrowing_exerci</a></li><li class="expanded "><a href="hello-borrowing/clone-copy.html"><strong aria-hidden="true">5.2.</strong> 特质：克隆（Clone）和复制（Copy）</a></li><li class="expanded "><a href="hello-borrowing/reference-pointer.html"><strong aria-hidden="true">5.3.</strong> 引用Reference与指针Pointer基本概念</a></li><li class="expanded "><a href="hello-borrowing/reference-type-pointer.html"><strong aria-hidden="true">5.4.</strong> 引用、类型与原始指针解释</a></li><li class="expanded "><a href="hello-borrowing/keyword-move.html"><strong aria-hidden="true">5.5.</strong> 应用篋：移动关键词move</a></li><li class="expanded "><a href="hello-borrowing/borrowing-simple.html"><strong aria-hidden="true">5.6.</strong> 应用篋：简单借用方法</a></li><li class="expanded "><a href="hello-borrowing/borrowing-reference.html"><strong aria-hidden="true">5.7.</strong> 应用篋：引用借用实例</a></li><li class="expanded "><a href="hello-borrowing/borrowing-pointer.html"><strong aria-hidden="true">5.8.</strong> 应用篋：指针借用实例</a></li><li class="expanded "><a href="hello-borrowing/borrowing-fixed-size.html"><strong aria-hidden="true">5.9.</strong> 应用篋：固定大小类型实例</a></li><li class="expanded "><a href="hello-borrowing/borrowing-re-sizable.html"><strong aria-hidden="true">5.10.</strong> 应用篋：可变大小类型实例</a></li><li class="expanded "><a href="hello-borrowing/stack_head.html"><strong aria-hidden="true">5.11.</strong> 应用篋：栈（Stack）和堆（Head）</a></li><li class="expanded "><a href="hello-borrowing/borrowing-fn.html"><strong aria-hidden="true">5.12.</strong> 应用篋：函数借用方法</a></li><li class="expanded "><a href="hello-borrowing/bin-lib.html"><strong aria-hidden="true">5.13.</strong> 题外话：应用篋的软件包结构</a></li><li class="expanded "><a href="hello-borrowing/cargo-features.html"><strong aria-hidden="true">5.14.</strong> 题外话：Cargo工具features功能</a></li><li class="expanded "><a href="hello-borrowing/crates.html"><strong aria-hidden="true">5.15.</strong> 题外话：介绍几个软件篋</a></li></ol></li><li class="expanded "><a href="hello-deref/index.html"><strong aria-hidden="true">6.</strong> 软件篋deref_exerci</a></li><li><ol class="section"><li class="expanded "><a href="hello-deref/about.html"><strong aria-hidden="true">6.1.</strong> 关于软件篋deref_exerci</a></li><li class="expanded "><a href="hello-deref/develop.html"><strong aria-hidden="true">6.2.</strong> 开发软件篋deref_exerci</a></li><li class="expanded "><a href="hello-deref/apply.html"><strong aria-hidden="true">6.3.</strong> 使用软件篋deref_exerci</a></li></ol></li><li class="expanded "><a href="hello-macro/index.html"><strong aria-hidden="true">7.</strong> 软件篋macro_exerci</a></li><li><ol class="section"><li class="expanded "><a href="hello-macro/about.html"><strong aria-hidden="true">7.1.</strong> 关于软件篋macro_exerci</a></li><li class="expanded "><a href="hello-macro/develop.html"><strong aria-hidden="true">7.2.</strong> 开发软件篋macro_exerci</a></li><li class="expanded "><a href="hello-macro/apply.html"><strong aria-hidden="true">7.3.</strong> 使用软件篋macro_exerci</a></li></ol></li><li class="expanded "><a href="hello-generics/**README.html"><strong aria-hidden="true">8.</strong> 软件篋generics_exerci</a></li><li><ol class="section"><li class="expanded "><a href="hello-generics/about.html"><strong aria-hidden="true">8.1.</strong> 关于软件篋generics_exerci</a></li><li class="expanded "><a href="hello-generics/develop.html"><strong aria-hidden="true">8.2.</strong> 开发软件篋generics_exerci</a></li><li class="expanded "><a href="hello-generics/apply.html"><strong aria-hidden="true">8.3.</strong> 使用软件篋generics_exerci</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -150,7 +153,15 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#前言" id="前言">前言</a></h1>
+                        <p><em>mdbook version 0.3.4</em> <a href="https://crates.io/crates/mdbook"><img src="https://img.shields.io/crates/v/mdbook.svg" alt="crates.io" /></a>
+<a href="https://github.com/rust-lang/rust"><img src="https://img.shields.io/badge/rustc-1.38+-brightgreen" alt="Minimum rustc version" /></a>
+<a href="https://github.com/cnruby/learn-rust-by-crates/tree/master/hello-borrowing"><img src="https://img.shields.io/appveyor/ci/cnruby/learn-rust-by-crates?label=build%20on%20appveyor.com" alt="Build Status on appveyor.com" /></a>
+<a href="https://github.com/cnruby/learn-rust-by-crates/issues"><img src="https://img.shields.io/github/issues/cnruby/learn-rust-by-crates" alt="GitHub issues" /></a>
+<a href="https://mobile.twitter.com/cnruby"><img src="https://img.shields.io/twitter/url?style=social&amp;url=https%3A%2F%2Fmobile.twitter.com%2Fcnruby" alt="Twitter URL" /></a></p>
+<blockquote>
+<p>$$\text{只有分享知识，才能延续生命}$$</p>
+</blockquote>
+<h1><a class="header" href="#前言" id="前言">前言</a></h1>
 <h2><a class="header" href="#rust语言" id="rust语言">Rust语言</a></h2>
 <p>　　Rust是一门可靠高效、保证内存安全、支持安全并发和似C语言同级速度的计算机编程语言。</p>
 <h2><a class="header" href="#rustup版本管理工具" id="rustup版本管理工具">rustup版本管理工具</a></h2>
@@ -203,6 +214,7 @@
 <h2><a class="header" href="#重要工具网站" id="重要工具网站">重要工具网站</a></h2>
 <ul>
 <li><a href="https://www.tablesgenerator.com/">Tables Generator</a></li>
+<li><a href="https://markdown-it.github.io/">markdown-it demo</a></li>
 <li><a href="https://www.compart.com/de/unicode/category/So">Liste der Unicode-Zeichen der Kategorie „Sonstiges Symbol“</a></li>
 <li><a href="https://sketch.io/sketchpad/">Sketchpad - Draw, Create, Share!</a></li>
 <li><a href="https://shields.io/">Quality metadata badges</a></li>
@@ -213,6 +225,7 @@
 <li><a href="https://is.gd">Compress That Address</a></li>
 <li><a href="https://gist.github.com/rust-play">The Rust Playground Codes</a></li>
 <li><a href="https://doc.rust-lang.org/stable/error-index.html">stable error-index</a></li>
+<li><a href="https://daringfireball.net/projects/markdown/basics">markdown basics</a></li>
 </ul>
 <h1><a class="header" href="#本书项目结构" id="本书项目结构">本书项目结构</a></h1>
 <h2><a class="header" href="#篇目" id="篇目">篇目</a></h2>
@@ -427,6 +440,8 @@ cargo run -p bin-hello
 <h2><a class="header" href="#方法method和函数function" id="方法method和函数function">方法(method)和函数(function)</a></h2>
 <h2><a class="header" href="#类和对象" id="类和对象">类和对象</a></h2>
 <h2><a class="header" href="#全局软件篋和项目软件篋" id="全局软件篋和项目软件篋">全局软件篋和项目软件篋</a></h2>
+<p><a href="https://crates.io/crates/hello_exercism"><img src="https://img.shields.io/crates/v/hello_exercism?label=hello_exercism" alt="Crates.io" /></a>
+<a href="https://github.com/cnruby/learn-rust-by-crates/tree/master/hello-world"><img src="https://img.shields.io/badge/hello--world-code-yellowgreen" alt="The Crate hello_exercism Code" /></a></p>
 <h1><a class="header" href="#关于软件篋项目hello-world" id="关于软件篋项目hello-world">关于软件篋项目hello-world</a></h1>
 <h2><a class="header" href="#项目目标" id="项目目标">项目目标</a></h2>
 <p>　　学习和理解如何开发Rust语言的软件篋基本思路和方法，同时了解该项目的其他Cargo项目开发过程和方法。</p>
@@ -713,7 +728,6 @@ description = &quot;how to create an own crate&quot;
 [dependencies]
 #hello_extern = { version = &quot;0.1.1&quot;}
 i_crate = { version = &quot;0.1.1&quot;, package = &quot;hello_extern&quot;}
-
 </code></pre>
 <p>　　在文件Cargo.toml里，最重要的一项是共享软件篋名称：name。这是使用该共享篋的入口名称。这里默认模块名称为hello_exercism。</p>
 <p>　　最常用的一节是共享篋依赖关系：[dependencies]。这里有一行依赖关系代码，说明共享篋有赖于外部共享篋。这里使用了软件篋hello_exercism的已经发布的版本，只是为了解释问题和说明方便，实际上可以依赖所有需要的共享篋。</p>
@@ -732,45 +746,45 @@ fn hallo() -&gt; &amp;'static str {
 
 // BEGIN: unit tests for private code
 // code 1
-#[cfg(test)]
-#[path = &quot;./private_tests/owned_hello.rs&quot;]
-mod owned_hello;
+<span class="boring">[cfg(test)]
+[path = &quot;./private_tests/owned_hello.rs&quot;]
+</span>mod owned_hello;
 
 // code 2
-#[cfg(test)]
-#[path = &quot;./private_tests/mod.rs&quot;]
-mod private_tests;
+<span class="boring">[cfg(test)]
+[path = &quot;./private_tests/mod.rs&quot;]
+</span>mod private_tests;
 
 // code 3
-#[cfg(test)]
-mod private_tests_with_use {
+<span class="boring">[cfg(test)]
+</span>mod private_tests_with_use {
     use super::*;
     //use super::hallo;
 
-    #[test]
-    fn it_works_at_private() {
+<span class="boring">    [test]
+</span>    fn it_works_at_private() {
         assert_eq!(&quot;Hallo, Welt!&quot;, hallo());
     }
 }
 
 // code 4
-#[cfg(test)]
-mod private_tests_without_use {
-    #[test]
-    fn it_works_at_private() {
+<span class="boring">[cfg(test)]
+</span>mod private_tests_without_use {
+<span class="boring">    [test]
+</span>    fn it_works_at_private() {
         assert_eq!(&quot;Hallo, Welt!&quot;, super::hallo());
     }
 }
 // END unit tests for private code 
 
 // BEGIN: integration tests
-#[cfg(test)]
-#[path = &quot;./integration_tests/i_hello.rs&quot;]
-mod i_hello;
+<span class="boring">[cfg(test)]
+[path = &quot;./integration_tests/i_hello.rs&quot;]
+</span>mod i_hello;
 
-#[cfg(test)]
-#[path = &quot;./integration_tests/mod.rs&quot;]
-mod integration_tests;
+<span class="boring">[cfg(test)]
+[path = &quot;./integration_tests/mod.rs&quot;]
+</span>mod integration_tests;
 // END: integration tests
 </code></pre></pre>
 <h2><a class="header" href="#静态生命周期的字符串文字类型" id="静态生命周期的字符串文字类型">静态生命周期的字符串文字类型</a></h2>
@@ -863,10 +877,10 @@ fn main() {
 <h2><a class="header" href="#公共接口的单元测试文件u_hellors" id="公共接口的单元测试文件u_hellors">公共接口的单元测试文件u_hello.rs</a></h2>
 <p>　　在下面的单元测试程序里，只有一个测试函数，其功能是判断函数hello()返回值与字符串文字“Hello, World!”是否完全一致。</p>
 <pre><pre class="playpen"><code class="language-rust editable">// Rust File: tests/u_hello.rs
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works_at_uint() {
+<span class="boring">[cfg(test)]
+</span>mod tests {
+<span class="boring">    [test]
+</span>    fn it_works_at_uint() {
         assert_eq!(&quot;Hello, World!&quot;, hello_exercism::hello());
     }
 }
@@ -882,13 +896,13 @@ mod tests {
 <h2><a class="header" href="#基于目录tests的集成测试文件i_hellors" id="基于目录tests的集成测试文件i_hellors">基于目录tests的集成测试文件i_hello.rs</a></h2>
 <p>　　在下面的集成测试程序里，有两个测试函数，第一个函数功能是判断外部共享篋的函数hello()返回值与字符串文字“Hello, World!”是否完全一致。第二个函数功能是判断正在开发共享篋与外部共享篋的函数hello()返回值是否完全一致。</p>
 <pre><pre class="playpen"><code class="language-rust editable">// Rust File: tests/i_hello.rs
-#[test]
-fn it_works_with_extern() {
+<span class="boring">[test]
+</span>fn it_works_with_extern() {
     assert_eq!(&quot;Hello, World!&quot;, i_crate::hello());
 }
 
-#[test]
-fn it_works_with_the_crate_and_extern() {
+<span class="boring">[test]
+</span>fn it_works_with_the_crate_and_extern() {
     assert_eq!(hello_exercism::hello(), i_crate::hello());
 }
 
@@ -963,45 +977,45 @@ fn hallo() -&gt; &amp;'static str {
 
 // BEGIN: unit tests for private code
 // code 1
-#[cfg(test)]
-#[path = &quot;./private_tests/owned_hello.rs&quot;]
-mod owned_hello;
+<span class="boring">[cfg(test)]
+[path = &quot;./private_tests/owned_hello.rs&quot;]
+</span>mod owned_hello;
 
 // code 2
-#[cfg(test)]
-#[path = &quot;./private_tests/mod.rs&quot;]
-mod private_tests;
+<span class="boring">[cfg(test)]
+[path = &quot;./private_tests/mod.rs&quot;]
+</span>mod private_tests;
 
 // code 3
-#[cfg(test)]
-mod private_tests_with_use {
+<span class="boring">[cfg(test)]
+</span>mod private_tests_with_use {
     use super::*;
     //use super::hallo;
 
-    #[test]
-    fn it_works_at_private() {
+<span class="boring">    [test]
+</span>    fn it_works_at_private() {
         assert_eq!(&quot;Hallo, Welt!&quot;, hallo());
     }
 }
 
 // code 4
-#[cfg(test)]
-mod private_tests_without_use {
-    #[test]
-    fn it_works_at_private() {
+<span class="boring">[cfg(test)]
+</span>mod private_tests_without_use {
+<span class="boring">    [test]
+</span>    fn it_works_at_private() {
         assert_eq!(&quot;Hallo, Welt!&quot;, super::hallo());
     }
 }
 // END unit tests for private code 
 
 // BEGIN: integration tests
-#[cfg(test)]
-#[path = &quot;./integration_tests/i_hello.rs&quot;]
-mod i_hello;
+<span class="boring">[cfg(test)]
+[path = &quot;./integration_tests/i_hello.rs&quot;]
+</span>mod i_hello;
 
-#[cfg(test)]
-#[path = &quot;./integration_tests/mod.rs&quot;]
-mod integration_tests;
+<span class="boring">[cfg(test)]
+[path = &quot;./integration_tests/mod.rs&quot;]
+</span>mod integration_tests;
 // END: integration tests
 </code></pre></pre>
 <h2><a class="header" href="#多文件结构的私有代码的单元测试" id="多文件结构的私有代码的单元测试">多文件结构的私有代码的单元测试</a></h2>
@@ -1011,8 +1025,8 @@ mod integration_tests;
 use super::*;
 //use super::hallo;
 
-#[test]
-fn it_works_at_private() {
+<span class="boring">[test]
+</span>fn it_works_at_private() {
     assert_eq!(&quot;Hallo, Welt!&quot;, hallo());
 }
 </code></pre></pre>
@@ -1035,13 +1049,13 @@ mod i_hello;
 <pre><pre class="playpen"><code class="language-rust editable">// Rust File: ./integration_tests/i_hello.rs
 use crate as hello_exercism;
 
-#[test]
-fn it_works_with_only_extern() {
+<span class="boring">[test]
+</span>fn it_works_with_only_extern() {
     assert_eq!(&quot;Hello, World!&quot;, i_crate::hello());
 }
 
-#[test]
-fn it_works_with_the_crate_and_extern() {
+<span class="boring">[test]
+</span>fn it_works_with_the_crate_and_extern() {
     assert_eq!(hello_exercism::hello(), i_crate::hello());
 }
 
@@ -1124,8 +1138,8 @@ hello_exercism = { path = &quot;../lib-hello&quot;}
     println!(&quot;{}&quot;,hello_exercism::hello());
 }
 
-#[test]
-fn test_hello_world() {
+<span class="boring">[test]
+</span>fn test_hello_world() {
     assert_eq!(&quot;Hello, World!&quot;, hello_exercism::hello());
 }
 </code></pre></pre>
@@ -1264,13 +1278,14 @@ Hello, World!
 <h2><a class="header" href="#集成测试文件i_hellors" id="集成测试文件i_hellors">集成测试文件i_hello.rs</a></h2>
 <p>　　下面的集成测试文件i_hello.rs与前面项目bin-local-hello完全是一样的。</p>
 <pre><pre class="playpen"><code class="language-rust">
-# #![allow(unused_variables)]
-#fn main() {
-#[test]
-fn test_hello_world() {
+<span class="boring">#![allow(unused_variables)]
+fn main() {
+[test]
+</span>fn test_hello_world() {
     assert_eq!(&quot;Hello, World!&quot;, hello_exercism::hello());
 }
-#}</code></pre></pre>
+<span class="boring">}
+</code></pre></pre>
 <h1><a class="header" href="#题外话-1" id="题外话-1">题外话</a></h1>
 <h2><a class="header" href="#篇目-10" id="篇目-10">篇目</a></h2>
 <ol>
@@ -1325,7 +1340,9 @@ cargo test test_hello_world
 <li><a href="https://klausi.github.io/rustnish/2017/05/25/writing-integration-tests-in-rust.html">writing-integration-tests-in-rust</a></li>
 <li><a href="https://stackoverflow.com/questions/49684657/what-is-the-difference-between-str-and-static-str-in-a-static-or-const">what-is-the-difference-between-str-and-static-str-in-a-static-or-const</a></li>
 </ul>
-<h1><a class="header" href="#第二章-软件篋trait_exerci" id="第二章-软件篋trait_exerci">第二章 软件篋trait_exerci</a></h1>
+<p><a href="https://crates.io/crates/trait_exerci"><img src="https://img.shields.io/crates/v/trait_exerci?label=trait_exerci" alt="Crates.io" /></a>
+<a href="https://github.com/cnruby/learn-rust-by-crates/tree/master/hello-trait"><img src="https://img.shields.io/badge/hello--trait-code-yellowgreen" alt="The Crate trait_exerci Code" /></a></p>
+<h1><a class="header" href="#软件篋trait_exerci" id="软件篋trait_exerci">软件篋trait_exerci</a></h1>
 <h3><a class="header" href="#本章学习内容" id="本章学习内容">本章学习内容</a></h3>
 <ul>
 <li>什么是Rust语言衔接关键词trait</li>
@@ -1392,13 +1409,14 @@ rustup show
 <h2><a class="header" href="#类型关键词struct的私有性" id="类型关键词struct的私有性">类型关键词<code>struct</code>的私有性</a></h2>
 <p>　　Rust语言规定，Ⓓ 默认情况下，关键词struct定义的类型及其属性都是私有的，默认实例代码如下所示：</p>
 <pre><pre class="playpen"><code class="language-rust">
-# #![allow(unused_variables)]
-#fn main() {
-struct Person {
+<span class="boring">#![allow(unused_variables)]
+fn main() {
+</span>struct Person {
     name: String,
     age: u32,
 }
-#}</code></pre></pre>
+<span class="boring">}
+</code></pre></pre>
 <h2><a class="header" href="#c语言形式的类型关键词struct代码" id="c语言形式的类型关键词struct代码">C语言形式的类型关键词<code>struct</code>代码</a></h2>
 <p>　　这里通过下面的代码，说明如下内容：</p>
 <ul>
@@ -1471,13 +1489,13 @@ fn main() {
 </ul>
 <p>　　默认实例代码如下所示。尽管下面代码已实现了函数<code>new()</code>，但是该函数外部还是不可访问的。</p>
 <pre><pre class="playpen"><code class="language-rust">
-# #![allow(unused_variables)]
-#fn main() {
-#struct Person {
-#    name: String,
-#    age: u32,
-#}
-
+<span class="boring">#![allow(unused_variables)]
+fn main() {
+struct Person {
+   name: String,
+   age: u32,
+}
+</span>
 impl Person {
     fn new(name: String, age: u32) -&gt; Person {
         Person {
@@ -1486,7 +1504,8 @@ impl Person {
         }
     }
 }
-#}</code></pre></pre>
+<span class="boring">}
+</code></pre></pre>
 <h2><a class="header" href="#实现功能关键词impl与函数代码实现" id="实现功能关键词impl与函数代码实现">实现功能关键词impl与函数代码实现</a></h2>
 <p>　　通过下面的代码，可以学习到这些知识：</p>
 <ul>
@@ -1609,13 +1628,14 @@ fn main() {
 <h3><a class="header" href="#在终端里怎么样使用表格形式" id="在终端里怎么样使用表格形式">在终端里怎么样使用表格形式</a></h3>
 <p>　　下面打印宏<code>println!</code>语句，实现了第一列和第二列占位20个字符的输出。</p>
 <pre><pre class="playpen"><code class="language-rust">
-# #![allow(unused_variables)]
-#fn main() {
-let data = 10;
+<span class="boring">#![allow(unused_variables)]
+fn main() {
+</span>let data = 10;
 println!(&quot;{0: &lt;20} = {1: &lt;20}&quot;, &quot;data&quot;, data);
 println!(&quot;{0: &lt;20} = {1: &lt;20}&quot;, &quot;data&quot;, data);
 println!(&quot;{0: &lt;20} = {1: &lt;20}&quot;, &quot;data&quot;, data);
-#}</code></pre></pre>
+<span class="boring">}
+</code></pre></pre>
 <h2><a class="header" href="#参考资料-9" id="参考资料-9">参考资料</a></h2>
 <ul>
 <li><a href="https://doc.rust-lang.org/rust-by-example/fn/methods.html">rust-by-example methods</a></li>
@@ -1673,18 +1693,19 @@ println!(&quot;{0: &lt;20} = {1: &lt;20}&quot;, &quot;data&quot;, data);
 </ul>
 <p>　　默认实例代码如下所示。尽管下面代码已定义了函数<code>new()</code>或者实现了默认函数<code>init()</code>，但是该函数外部还是不可访问的，因为该特质是私有的。注意，定义了函数<code>new()</code>是语句，是带分号<code>;</code>，而实现了默认函数<code>init()</code>是表达式，是无分号<code>;</code>。</p>
 <pre><pre class="playpen"><code class="language-rust">
-# #![allow(unused_variables)]
-#fn main() {
-#struct Person {
-#    name: String,
-#    age: u32,
-#}
-#
+<span class="boring">#![allow(unused_variables)]
+fn main() {
+struct Person {
+   name: String,
+   age: u32,
+}
+</span>#
 trait TraitPerson {
     fn new(name: String, age: u32) -&gt; Person;
     fn init() -&gt; Person { Person { name: String::new(), age: 0, } }
 }
-#}</code></pre></pre>
+<span class="boring">}
+</code></pre></pre>
 <h2><a class="header" href="#关键词impl和for概念" id="关键词impl和for概念">关键词<code>impl</code>和<code>for</code>概念</a></h2>
 <p>　　Rust语言规定：</p>
 <ul>
@@ -1692,23 +1713,23 @@ trait TraitPerson {
 <li>使用关键词<code>impl</code>和<code>for</code>实现的函数或者方法是不可增加修饰关键词<code>pub</code>；</li>
 </ul>
 <p>　　默认实例代码如下所示。尽管使用关键词<code>impl</code>和<code>for</code>实现了特质<code>TraitPerson</code>，且其默认是公开的，但是为了使用其功能，其相关的类型<code>Person</code>和特质<code>TraitPerson</code>必须要公开的。</p>
-<pre><pre class="playpen"><code class="language-rust">##![allow(dead_code)]
-#mod trait_exerci {
-#    pub struct Person {
-#        name: String,
-#        age: u32,
-#    }
-#
-#    pub trait TraitPerson {
-#        fn new(name: String, age: u32) -&gt; Person;
-#        fn init() -&gt; Person {
-#            Person {
-#                name: String::new(),
-#                age: 0,
-#            }
-#        }
-#    }
-#
+<pre><pre class="playpen"><code class="language-rust">#![allow(dead_code)]
+<span class="boring">mod trait_exerci {
+   pub struct Person {
+       name: String,
+       age: u32,
+   }
+</span>#
+<span class="boring">   pub trait TraitPerson {
+       fn new(name: String, age: u32) -&gt; Person;
+       fn init() -&gt; Person {
+           Person {
+               name: String::new(),
+               age: 0,
+           }
+       }
+   }
+</span>#
     impl TraitPerson for Person {
         fn new(name: String, age: u32) -&gt; Person {
             Person {
@@ -1717,15 +1738,15 @@ trait TraitPerson {
             }
         }
     }
-#}
-#
-#//use self::trait_exerci::TraitPerson;
-#use crate::trait_exerci::TraitPerson;
-#
-#fn main() {
-#    trait_exerci::Person::init();
-#    trait_exerci::Person::new(String::from(&quot;Leo&quot;), 24);
-#}
+<span class="boring">}
+</span>#
+<span class="boring">//use self::trait_exerci::TraitPerson;
+use crate::trait_exerci::TraitPerson;
+</span>#
+<span class="boring">fn main() {
+   trait_exerci::Person::init();
+   trait_exerci::Person::new(String::from(&quot;Leo&quot;), 24);
+}
 </code></pre></pre>
 <h2><a class="header" href="#实现关键词trait代码" id="实现关键词trait代码">实现关键词trait代码</a></h2>
 <p>　　通过下面的代码，可以学习到这些知识：</p>
@@ -1736,8 +1757,8 @@ trait TraitPerson {
 <li>借助于结构类型属性的公开性，实现了实例调用结构类型的属性手法；</li>
 <li>使用宏方法<code>assert_eq!</code>，验证实例调用结果的正确性；</li>
 </ul>
-<pre><pre class="playpen"><code class="language-rust editable">#![allow(dead_code)]
-
+<pre><pre class="playpen"><code class="language-rust editable"><span class="boring">![allow(dead_code)]
+</span>
 mod trait_exerci {
     pub struct StructType {
         pub data: u32,
@@ -1788,8 +1809,8 @@ fn main() {
 <li>借助于特质<code>TraitCanal</code>的默认实例化函数<code>init()</code>，实现该结构类型的实例化方式；</li>
 </ul>
 <pre><pre class="playpen"><code class="language-rust editable">mod trait_exerci {
-    #[derive(Debug)]
-    pub struct StructType {
+<span class="boring">    [derive(Debug)]
+</span>    pub struct StructType {
         pub data: u32,
     }
 
@@ -1837,8 +1858,8 @@ fn main() {
 <p>　　Rust语言标准库或者第三方提供了一些非常有用的特质，称之为可衍生特质（Derivable Trait）。通过注释<code>#[derive(特质名称)]</code>，编译器能够为这些特质提供实现。比如，要求类型实现是可打印的，可以使用特质std::fmt::Debug。具体说，使用可衍生特质#[derive(Debug)]，所有类型都可以自动创建地实现std::fmt::Debug。</p>
 <p>　　下面的代码里第一行就是注释可衍生特质<code>Debug</code>，为类型<code>Person</code>实现了特质<code>Debug</code>，这些后面的宏<code>println!()</code>就可以使用了这个特质。</p>
 <p>　　注意，使用注释<code>#[derive(特质名称)]</code>，必须紧挨着类型定义之上。</p>
-<pre><pre class="playpen"><code class="language-rust">#[derive(Debug)]
-struct Person {
+<pre><pre class="playpen"><code class="language-rust"><span class="boring">[derive(Debug)]
+</span>struct Person {
   name: String,
   age: u32,
 }
@@ -1880,11 +1901,11 @@ fn main() {
 <p>　　标准库默认衔接特质<code>Default</code>也是一个有用的可衍生特质，为类型提供默认值的特质，也就是为类型提供默认的实例化手法。</p>
 <h2><a class="header" href="#使用默认衔接特质default" id="使用默认衔接特质default">使用默认衔接特质<code>Default</code></a></h2>
 <p>　　在使用默认衔接特质<code>Default</code>的函数default()定义变量时，必须说明变量类型。</p>
-<pre><pre class="playpen"><code class="language-rust editable">#![allow(dead_code)]
-
+<pre><pre class="playpen"><code class="language-rust editable"><span class="boring">![allow(dead_code)]
+</span>
 mod trait_exerci {
-    #[derive(Default, Debug)]
-    pub struct StructType {
+<span class="boring">    [derive(Default, Debug)]
+</span>    pub struct StructType {
         pub data: u32,
     }
 }
@@ -1897,8 +1918,8 @@ fn main() {
 }
 </code></pre></pre>
 <h2><a class="header" href="#实现自己默认衔接特质default" id="实现自己默认衔接特质default">实现自己默认衔接特质<code>Default</code></a></h2>
-<pre><pre class="playpen"><code class="language-rust">#[derive(Debug)]``
-pub struct Person {
+<pre><pre class="playpen"><code class="language-rust"><span class="boring">[derive(Debug)]``
+</span>pub struct Person {
     name: String,
     age: u32,
 }
@@ -2002,8 +2023,8 @@ cargo init --name hello-trait --bin
 <li>针对结构类型<code>StructType</code>，定义了两个特质<code>TraitCanal</code>和<code>TraitKanal</code>；</li>
 <li>对于结构类型<code>StructType</code>，实现了两个特质<code>TraitCanal</code>和<code>TraitKanal</code>；</li>
 </ul>
-<pre><pre class="playpen"><code class="language-rust editable">#[derive(Debug, PartialEq, Default)]
-pub struct StructType {
+<pre><pre class="playpen"><code class="language-rust editable"><span class="boring">[derive(Debug, PartialEq, Default)]
+</span>pub struct StructType {
     data: u32,
 }
 
@@ -2052,8 +2073,8 @@ impl StructType {
 <h2><a class="header" href="#题外话-6" id="题外话-6">题外话</a></h2>
 <h3><a class="header" href="#标准库平等比较特质partialeq" id="标准库平等比较特质partialeq">标准库平等比较特质<code>PartialEq</code></a></h3>
 <p>　　标准库平等比较特质<code>PartialEq</code>，可以比较类型的实例以检查它们是否相等。</p>
-<pre><pre class="playpen"><code class="language-rust editable">#[derive(Default, Debug, PartialEq)]
-pub struct Person {
+<pre><pre class="playpen"><code class="language-rust editable"><span class="boring">[derive(Default, Debug, PartialEq)]
+</span>pub struct Person {
     name: String,
     age: u32,
 }
@@ -2095,27 +2116,27 @@ fn main() {
 </ul>
 <pre><pre class="playpen"><code class="language-rust editable">use trait_exerci::StructType;
 
-#[test]
-fn it_works_with_new() {
+<span class="boring">[test]
+</span>fn it_works_with_new() {
     let instance = StructType::new(10);
     assert_eq!(StructType::new(10), instance);
 }
 
-#[test]
-fn it_works_with_default() {
+<span class="boring">[test]
+</span>fn it_works_with_default() {
     let instance :StructType = Default::default();
     assert_eq!(StructType::new(0), instance);
 }
 
-#[test]
-fn it_works_with_get() {
+<span class="boring">[test]
+</span>fn it_works_with_get() {
     let instance = StructType::new(11);
     assert_eq!(11, instance.get_data_for_all());
     assert_eq!(StructType::new(11), instance);
 }
 
-#[test]
-fn it_works_with_set() {
+<span class="boring">[test]
+</span>fn it_works_with_set() {
     let mut instance = StructType::new(0);
     instance.set_data_for_all(&amp;12);
     assert_eq!(StructType::new(12), instance);
@@ -2137,15 +2158,15 @@ fn it_works_with_set() {
 <pre><pre class="playpen"><code class="language-rust editable">use trait_exerci::StructType;
 use trait_exerci::TraitCanal;
 
-#[test]
-fn it_works_with_get() {
+<span class="boring">[test]
+</span>fn it_works_with_get() {
     let instance = StructType::new(20);
     assert_eq!(20, instance.get_data());
     assert_eq!(StructType::new(20), instance);
 }
 
-#[test]
-fn it_works_with_default() {
+<span class="boring">[test]
+</span>fn it_works_with_default() {
     let instance :StructType = Default::default();
     assert_eq!(0, instance.get_data());
     assert_eq!(StructType::new(0), instance);
@@ -2167,15 +2188,15 @@ fn it_works_with_default() {
 <pre><pre class="playpen"><code class="language-rust editable">use trait_exerci::StructType;
 use trait_exerci::TraitKanal;
 
-#[test]
-fn it_works_with_set() {
+<span class="boring">[test]
+</span>fn it_works_with_set() {
     let mut instance = StructType::new(0);
     instance.set_data(&amp;30);
     assert_eq!(StructType::new(30), instance);
 }
 
-#[test]
-fn it_works_with_default() {
+<span class="boring">[test]
+</span>fn it_works_with_default() {
     let mut instance :StructType = Default::default();
     instance.set_data(&amp;30);
     assert_eq!(StructType::new(30), instance);
@@ -2188,16 +2209,16 @@ fn it_works_with_default() {
 use trait_exerci::TraitCanal;
 use trait_exerci::TraitKanal;
 
-#[test]
-fn it_works_with_both_traits_and_new() {
+<span class="boring">[test]
+</span>fn it_works_with_both_traits_and_new() {
     let mut instance = StructType::new(40);
     instance.set_data(&amp;41);
     assert_eq!(41, instance.get_data());
     assert_eq!(StructType::new(41), instance);
 }
 
-#[test]
-fn it_works_with_both_traits_and_default() {
+<span class="boring">[test]
+</span>fn it_works_with_both_traits_and_default() {
     let mut instance :StructType = Default::default();
     instance.set_data(&amp;41);
     assert_eq!(41, instance.get_data());
@@ -2207,45 +2228,45 @@ fn it_works_with_both_traits_and_default() {
 </code></pre></pre>
 <h2><a class="header" href="#基于模块的单元测试代码" id="基于模块的单元测试代码">基于模块的单元测试代码</a></h2>
 <p>　　下面单元测试主要说明在模块下如何进行单元测试。除了定义模块之外，最重要的是，使用三个实现语句必须在模块内。</p>
-<pre><pre class="playpen"><code class="language-rust editable">#[cfg(test)]
-mod tests {
+<pre><pre class="playpen"><code class="language-rust editable"><span class="boring">[cfg(test)]
+</span>mod tests {
     use trait_exerci::StructType;
     use trait_exerci::TraitCanal;
 
-    #[test]
-    fn it_works_with_new() {
+<span class="boring">    [test]
+</span>    fn it_works_with_new() {
         let instance = StructType::new(50);
         assert_eq!(StructType::new(50), instance);
     }
 
-    #[test]
-    fn it_works_with_get() {
+<span class="boring">    [test]
+</span>    fn it_works_with_get() {
         let instance = StructType::new(51);
         assert_eq!(51, instance.get_data());
     }
 
-    #[test]
-    fn it_works_with_new_and_box() {
+<span class="boring">    [test]
+</span>    fn it_works_with_new_and_box() {
         let instance = Box::new(StructType::new(52));
         assert_eq!(Box::new(StructType::new(52)), instance);
     }
 
-    #[test]
-    fn it_works_with_get_and_box() {
+<span class="boring">    [test]
+</span>    fn it_works_with_get_and_box() {
         let instance = Box::new(StructType::new(53));
         assert_eq!(53, instance.get_data());
     }
 
     use trait_exerci::TraitKanal;
-    #[test]
-    fn it_works_with_set() {
+<span class="boring">    [test]
+</span>    fn it_works_with_set() {
         let mut instance = StructType::new(54);
         instance.set_data(&amp;55);
         assert_eq!(StructType::new(55), instance);
     }
 
-    #[test]
-    fn it_works_with_set_and_box() {
+<span class="boring">    [test]
+</span>    fn it_works_with_set_and_box() {
         let mut instance = Box::new(StructType::new(56));
         instance.set_data(&amp;57);
         assert_eq!(Box::new(StructType::new(57)), instance);
@@ -2256,8 +2277,8 @@ mod tests {
 <h2><a class="header" href="#题外话-7" id="题外话-7">题外话</a></h2>
 <h3><a class="header" href="#浅说指针类型box" id="浅说指针类型box">浅说指针类型<code>Box</code></a></h3>
 <p>　　Rust标准库提供了类型<code>Box&lt;T&gt;</code>。可以使用该类型<code>Box&lt;T&gt;</code>在堆上分配内容。此类型用于安全地抽象指向堆内存的指针。同时它具有更大的灵活性，允许将实现特质如<code>TraitCanal</code>的任何事物进行<code>Box</code>类型化。</p>
-<pre><pre class="playpen"><code class="language-rust editable">#[derive(Debug, Default)]
-pub struct Person {
+<pre><pre class="playpen"><code class="language-rust editable"><span class="boring">[derive(Debug, Default)]
+</span>pub struct Person {
     name: String,
     age: u32,
 }
@@ -2315,7 +2336,9 @@ cargo llvm-ir &lt;CRATE_NAME&gt;::&lt;MOD_NAME&gt;::&lt;FUNCTION_NAME&gt;
 <li><a href="https://crates.io/crates/cargo-asm">cargo-asm</a></li>
 <li><a href="https://stackoverflow.com/questions/39219961/how-to-get-assembly-output-from-building-with-cargo">how-to-get-assembly-output-from-building-with-cargo</a></li>
 </ul>
-<h1><a class="header" href="#第三章-软件篋mod_trait_exerci" id="第三章-软件篋mod_trait_exerci">第三章 软件篋mod_trait_exerci</a></h1>
+<p><a href="https://crates.io/crates/mod_trait_exerci"><img src="https://img.shields.io/crates/v/mod_trait_exerci?label=mod_trait_exerci" alt="Crates.io" /></a>
+<a href="https://github.com/cnruby/learn-rust-by-crates/tree/master/hello-mod-trait"><img src="https://img.shields.io/badge/hello--mod--trait-code-yellowgreen" alt="The Crate mod_trait_exerci Code" /></a></p>
+<h1><a class="header" href="#软件篋mod_trait_exerci" id="软件篋mod_trait_exerci">软件篋mod_trait_exerci</a></h1>
 <h2><a class="header" href="#学习内容-17" id="学习内容-17">学习内容</a></h2>
 <ul>
 <li>学习软件篋文件、模块与程序结构</li>
@@ -2473,8 +2496,8 @@ cargo llvm-ir &lt;CRATE_NAME&gt;::&lt;MOD_NAME&gt;::&lt;FUNCTION_NAME&gt;
 <p><img src="hello-mod-trait/../../images/hello_mod_trait_02_mod_bar.png" alt="image" /></p>
 <h3><a class="header" href="#模块mod_bare代码" id="模块mod_bare代码">模块<code>mod_bare</code>代码</a></h3>
 <p>https://doc.rust-lang.org/stable/error-index.html#E0038</p>
-<pre><pre class="playpen"><code class="language-rust editable">#[derive(Debug, Default, PartialEq)]
-pub struct StructType {
+<pre><pre class="playpen"><code class="language-rust editable"><span class="boring">[derive(Debug, Default, PartialEq)]
+</span>pub struct StructType {
     pub data: (u32),
 }
 
@@ -2484,8 +2507,8 @@ impl StructType {
     }
 }
 
-#[derive(Debug, Default, PartialEq)]
-pub struct TupleType (pub u32);
+<span class="boring">[derive(Debug, Default, PartialEq)]
+</span>pub struct TupleType (pub u32);
 
 impl TupleType {
     pub fn get_tuple(&amp;self) -&gt; (u32) {
@@ -2506,13 +2529,13 @@ pub mod mod_dynamic_fn;
 pub mod mod_box_dynamic_fn;
 
 pub mod mod_trait {
-    #[derive(Debug, Default, PartialEq, Copy, Clone)]
-    pub struct StructType {
+<span class="boring">    [derive(Debug, Default, PartialEq, Copy, Clone)]
+</span>    pub struct StructType {
         data: (u32),
     }
 
-    #[derive(Debug, Default, PartialEq, Copy, Clone)]
-    pub struct TupleType(pub u32);
+<span class="boring">    [derive(Debug, Default, PartialEq, Copy, Clone)]
+</span>    pub struct TupleType(pub u32);
 
     pub trait TraitCanal {
         fn get_object(&amp;self) -&gt; Self where Self: Sized;  // For keyword `dyn`
@@ -2754,8 +2777,8 @@ fn main() {
 <p>　　静态调度或者分派（static dispatch）在编译时就知道被调用方是谁，而动态调度只有在运行时，才知道被调用方是谁。显然，在常见的情况下，相比动态调度，在运行程序时，静态调度会更快速，而相比静态调度，在编译程序时，动态调度会更快速。</p>
 <p>　　在使用静态分派会更有效，因为总是可以使用静态分派包装器函数来执行动态调度，但反之则不然。由于这个原因，比如标准库尝试在尽可能的情况下进行静态调度。</p>
 <pre><pre class="playpen"><code class="language-rust editable">// File: examples/simple_static_dispatch.rs
-#[derive(Default)]
-struct NormalStruct {
+<span class="boring">[derive(Default)]
+</span>struct NormalStruct {
     data: (u8)
 }
 
@@ -2779,8 +2802,8 @@ trait Trait {
     fn static_dispatch(&amp;self) -&gt; (u8);
 }
 
-#[derive(Default)]
-struct Struct {data: (u8)}
+<span class="boring">[derive(Default)]
+</span>struct Struct {data: (u8)}
 
 impl Trait for Struct {
     fn static_dispatch(&amp;self) -&gt; (u8) {
@@ -3214,49 +3237,49 @@ fn main() {
 // clear &amp;&amp; cargo test
 // clear &amp;&amp; cargo test --package mod_trait_exerci
 // $ clear &amp;&amp; cargo test --test u_for_mod_bare
-#[cfg(test)]
-mod tests {
+<span class="boring">[cfg(test)]
+</span>mod tests {
     use mod_trait_exerci::mod_bare;
     use mod_bare::StructType;
     use mod_bare::TupleType;
 
-    #[test]
-    fn it_works_with_struct_default() {
+<span class="boring">    [test]
+</span>    fn it_works_with_struct_default() {
         let instance: StructType = Default::default();
         assert_eq!(0, instance.get_tuple());
         assert_eq!((0), instance.get_tuple());
     }
 
-    #[test]
-    fn it_works_with_struct_struct() {
+<span class="boring">    [test]
+</span>    fn it_works_with_struct_struct() {
         let instance = StructType{data:(0)};
         assert_eq!(0, instance.get_tuple());
         assert_eq!((0), instance.get_tuple());
     }
 
-    #[test]
-    fn it_works_with_struct() {
+<span class="boring">    [test]
+</span>    fn it_works_with_struct() {
         let instance_default: StructType = Default::default();
         let instance_struct = StructType{data:(0)};
         assert_eq!(instance_default, instance_struct);
     }
 
-    #[test]
-    fn it_works_with_tuple_default() {
+<span class="boring">    [test]
+</span>    fn it_works_with_tuple_default() {
         let instance: TupleType = Default::default();
         assert_eq!(0, instance.get_tuple());
         assert_eq!((0), instance.get_tuple());
     }
 
-    #[test]
-    fn it_works_with_tuple_struct() {
+<span class="boring">    [test]
+</span>    fn it_works_with_tuple_struct() {
         let instance = TupleType(0);
         assert_eq!(0, instance.get_tuple());
         assert_eq!((0), instance.get_tuple());
     }
 
-    #[test]
-    fn it_works_with_tuple() {
+<span class="boring">    [test]
+</span>    fn it_works_with_tuple() {
         let instance_default: TupleType = Default::default();
         let instance_tuple = TupleType(0);
         assert_eq!(instance_default, instance_tuple);
@@ -3268,50 +3291,50 @@ mod tests {
 // clear &amp;&amp; cargo test
 // clear &amp;&amp; cargo test --package mod_trait_exerci
 // $ clear &amp;&amp; cargo test --test u_for_mod_trait_instance
-#[cfg(test)]
-mod tests {
+<span class="boring">[cfg(test)]
+</span>mod tests {
     use mod_trait_exerci::mod_trait;
     use mod_trait::TraitCanal;
     use mod_trait::StructType;
     use mod_trait::TupleType;
 
-    #[test]
-    fn it_works_with_struct_default() {
+<span class="boring">    [test]
+</span>    fn it_works_with_struct_default() {
         let instance: StructType = Default::default();
         assert_eq!(0, instance.get_tuple());
         assert_eq!((0), instance.get_tuple());
     }
 
-    #[test]
-    fn it_works_with_struct_new() {
+<span class="boring">    [test]
+</span>    fn it_works_with_struct_new() {
         let instance = StructType::new(0);
         assert_eq!(0, instance.get_tuple());
         assert_eq!((0), instance.get_tuple());
     }
 
-    #[test]
-    fn it_works_with_struct() {
+<span class="boring">    [test]
+</span>    fn it_works_with_struct() {
         let instance_default: StructType = Default::default();
         let instance_struct = StructType::new(0);
         assert_eq!(instance_default, instance_struct);
     }
 
-    #[test]
-    fn it_works_with_tuple_default() {
+<span class="boring">    [test]
+</span>    fn it_works_with_tuple_default() {
         let instance: TupleType = Default::default();
         assert_eq!(0, instance.get_tuple());
         assert_eq!((0), instance.get_tuple());
     }
 
-    #[test]
-    fn it_works_with_tuple_struct() {
+<span class="boring">    [test]
+</span>    fn it_works_with_tuple_struct() {
         let instance = TupleType::new(0);
         assert_eq!(0, instance.get_tuple());
         assert_eq!((0), instance.get_tuple());
     }
 
-    #[test]
-    fn it_works_with_tuple() {
+<span class="boring">    [test]
+</span>    fn it_works_with_tuple() {
         let instance_default: TupleType = Default::default();
         let instance_tuple = TupleType::new(0);
         assert_eq!(instance_default, instance_tuple);
@@ -3323,16 +3346,16 @@ mod tests {
 // clear &amp;&amp; cargo test
 // clear &amp;&amp; cargo test --package mod_trait_exerci
 // $ clear &amp;&amp; cargo test --test u_for_mod_trait_fn
-#[cfg(test)]
-mod tests {
+<span class="boring">[cfg(test)]
+</span>mod tests {
     use mod_trait_exerci::mod_static_fn;
     use mod_trait_exerci::mod_dynamic_fn;
     use mod_trait_exerci::mod_trait;
     use mod_trait::StructType;
     use mod_trait::TupleType;
 
-    #[test]
-    fn it_works_with_fn_struct_default() {
+<span class="boring">    [test]
+</span>    fn it_works_with_fn_struct_default() {
         let instance: StructType = Default::default();
         let data = mod_static_fn::get_static_type_ref(&amp;instance);
         assert_eq!(0, data);
@@ -3342,8 +3365,8 @@ mod tests {
         assert_eq!((0), data);
     }
 
-    #[test]
-    fn it_works_with_fn_tuple_default() {
+<span class="boring">    [test]
+</span>    fn it_works_with_fn_tuple_default() {
         let instance: TupleType = Default::default();
         let data = mod_static_fn::get_static_type_ref(&amp;instance);
         assert_eq!(0, data);
@@ -3359,16 +3382,16 @@ mod tests {
 // clear &amp;&amp; cargo test
 // clear &amp;&amp; cargo test --package mod_trait_exerci
 // clear &amp;&amp; cargo test --test u_for_box_static_hello
-#[cfg(test)]
-mod tests {
+<span class="boring">[cfg(test)]
+</span>mod tests {
     use mod_trait_exerci::mod_box_static_fn;
     use mod_trait_exerci::mod_trait;
     use mod_trait::StructType;
     use mod_trait::TraitCanal;
     use mod_trait::TupleType;
 
-    #[test]
-    fn struct_static_box() {
+<span class="boring">    [test]
+</span>    fn struct_static_box() {
         let instance: StructType = Default::default();
         let instance_box_type: Box&lt;StructType&gt; = Box::new(instance);
         //assert_eq!(0, mod_box_static_fn::get_static_type_ref(&amp;instance_box_type));
@@ -3377,24 +3400,24 @@ mod tests {
         assert_eq!(0, mod_box_static_fn::get_static_box(instance_box_type));
     }
 
-    #[test]
-    fn struct_static_box_ref_and_type_ref() {
+<span class="boring">    [test]
+</span>    fn struct_static_box_ref_and_type_ref() {
         let instance: StructType = Default::default();
         let instance_box_type: Box&lt;&amp;dyn TraitCanal&gt; = Box::new(&amp;instance);
         assert_eq!(0, mod_box_static_fn::get_static_box_and_type_ref(&amp;instance_box_type));
         assert_eq!(0, mod_box_static_fn::get_static_box_type_ref(instance_box_type));
     }
 
-    #[test]
-    fn tuple_static_box() {
+<span class="boring">    [test]
+</span>    fn tuple_static_box() {
         let instance: TupleType = Default::default();
         let instance_box_type: Box&lt;TupleType&gt; = Box::new(instance);
         assert_eq!(0, mod_box_static_fn::get_static_box_ref(&amp;instance_box_type));
         assert_eq!(0, mod_box_static_fn::get_static_box(instance_box_type));
     }
 
-    #[test]
-    fn tuple_static_box_type() {
+<span class="boring">    [test]
+</span>    fn tuple_static_box_type() {
         let instance: TupleType = Default::default();
         let instance_box_type: Box&lt;&amp;dyn TraitCanal&gt; = Box::new(&amp;instance);
         assert_eq!(0, mod_box_static_fn::get_static_box_and_type_ref(&amp;instance_box_type));
@@ -3408,40 +3431,40 @@ mod tests {
 // clear &amp;&amp; cargo test
 // clear &amp;&amp; cargo test --package mod_trait_exerci
 // clear &amp;&amp; cargo test --test u_for_box_dynamic_hello
-#[cfg(test)]
-mod tests {
+<span class="boring">[cfg(test)]
+</span>mod tests {
     use mod_trait_exerci::mod_box_dynamic_fn;
     use mod_trait_exerci::mod_trait;
     use mod_trait::StructType;
     use mod_trait::TraitCanal;
     use mod_trait::TupleType;
 
-    #[test]
-    fn struct_dynamic_box() {
+<span class="boring">    [test]
+</span>    fn struct_dynamic_box() {
         let instance: StructType = Default::default();
         let instance_box_trait: Box&lt;dyn TraitCanal&gt; = Box::new(instance);
         assert_eq!(0, mod_box_dynamic_fn::get_dynamic_box_ref(&amp;instance_box_trait));
         assert_eq!(0, mod_box_dynamic_fn::get_dynamic_box(instance_box_trait));
     }
 
-    #[test]
-    fn struct_dynamic_box_and_trait() {
+<span class="boring">    [test]
+</span>    fn struct_dynamic_box_and_trait() {
         let instance: StructType = Default::default();
         let instance_box_trait: Box&lt;&amp;dyn TraitCanal&gt; = Box::new(&amp;instance);
         assert_eq!(0, mod_box_dynamic_fn::get_dynamic_box_and_trait_ref(&amp;instance_box_trait));
         assert_eq!(0, mod_box_dynamic_fn::get_dynamic_box_trait_ref(instance_box_trait));
     }
 
-    #[test]
-    fn tulpe_dynamic_box() {
+<span class="boring">    [test]
+</span>    fn tulpe_dynamic_box() {
         let instance: TupleType = Default::default();
         let instance_box_trait: Box&lt;dyn TraitCanal&gt; = Box::new(instance);
         assert_eq!(0, mod_box_dynamic_fn::get_dynamic_box_ref(&amp;instance_box_trait));
         assert_eq!(0, mod_box_dynamic_fn::get_dynamic_box(instance_box_trait));
     }
 
-    #[test]
-    fn tulpe_dynamic_box_trait() {
+<span class="boring">    [test]
+</span>    fn tulpe_dynamic_box_trait() {
         let instance: TupleType = Default::default();
         let instance_box_trait: Box&lt;&amp;dyn TraitCanal&gt; = Box::new(&amp;instance);
         assert_eq!(0, mod_box_dynamic_fn::get_dynamic_box_and_trait_ref(&amp;instance_box_trait));
@@ -3463,8 +3486,8 @@ mod tests {
 <li><a href="hello-mod-trait/off-topic.html#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">参考资料</a></li>
 </ul>
 <h2><a class="header" href="#泛型类型实例" id="泛型类型实例">泛型类型实例</a></h2>
-<pre><pre class="playpen"><code class="language-rust editable">#![allow(unused_variables)]
-struct Struct&lt;T&gt; (T);
+<pre><pre class="playpen"><code class="language-rust editable"><span class="boring">![allow(unused_variables)]
+</span>struct Struct&lt;T&gt; (T);
 
 // clear &amp;&amp; cargo run --example generics_type_hello
 fn main() {
@@ -3479,8 +3502,8 @@ fn main() {
 }
 </code></pre></pre>
 <h2><a class="header" href="#泛型方法实例" id="泛型方法实例">泛型方法实例</a></h2>
-<pre><pre class="playpen"><code class="language-rust editable">#![allow(unused_variables)]
-use std::fmt::Debug;
+<pre><pre class="playpen"><code class="language-rust editable"><span class="boring">![allow(unused_variables)]
+</span>use std::fmt::Debug;
 
 fn print&lt;T: Debug&gt;(x: T) {
     println!(&quot;{:?}&quot;, x);
@@ -3498,8 +3521,8 @@ fn main() {
 }
 </code></pre></pre>
 <h2><a class="header" href="#泛型实现实例" id="泛型实现实例">泛型实现实例</a></h2>
-<pre><pre class="playpen"><code class="language-rust editable">#![allow(unused_variables)]
-struct Struct&lt;T&gt; (T);
+<pre><pre class="playpen"><code class="language-rust editable"><span class="boring">![allow(unused_variables)]
+</span>struct Struct&lt;T&gt; (T);
 
 impl&lt;S&gt; Struct&lt;S&gt; {
     fn get(&amp;self) -&gt; &amp;S {
@@ -3520,8 +3543,8 @@ fn main() {
 }
 </code></pre></pre>
 <h2><a class="header" href="#泛型特质实例" id="泛型特质实例">泛型特质实例</a></h2>
-<pre><pre class="playpen"><code class="language-rust editable">#![allow(unused_variables)]
-struct Struct&lt;T&gt; (T);
+<pre><pre class="playpen"><code class="language-rust editable"><span class="boring">![allow(unused_variables)]
+</span>struct Struct&lt;T&gt; (T);
 
 trait Trait&lt;U&gt; {
     fn get(&amp;self) -&gt; &amp;U;
@@ -3571,7 +3594,27 @@ fn main() {
 <li><a href="https://doc.rust-lang.org/book/ch10-01-syntax.html">book ch10-01-syntax</a></li>
 <li></li>
 </ul>
-<h1><a class="header" href="#第四章-软件篋borrowing_exerci" id="第四章-软件篋borrowing_exerci">第四章 软件篋borrowing_exerci</a></h1>
+<p><a href="https://crates.io/crates/borrowing_exerci"><img src="https://img.shields.io/crates/v/borrowing_exerci?label=borrowing_exerci" alt="Crates.io" /></a>
+<a href="https://github.com/cnruby/learn-rust-by-crates/tree/master/hello-borrowing"><img src="https://img.shields.io/badge/hello--borrowing-code-yellowgreen" alt="The Crate borrowing_exerci Code" /></a></p>
+<blockquote>
+<p>$$\text{只有心灵的淡定宁静，继而产生的身心愉悦，才是幸福的真正源泉}$$</p>
+</blockquote>
+<h1><a class="header" href="#软件篋borrowing_exerci" id="软件篋borrowing_exerci">软件篋borrowing_exerci</a></h1>
+<h2><a class="header" href="#re-sizable-type--dynamical-type--resizable-containers--a-heap-allocated-value-of-type" id="re-sizable-type--dynamical-type--resizable-containers--a-heap-allocated-value-of-type">re-sizable type / dynamical type / resizable containers / a heap allocated value of type:</a></h2>
+<ul>
+<li>their size is not known at compile time, but they can grow or shrink at any time</li>
+<li>capacity / length</li>
+<li>Vectors are re-sizable arrays, A contiguous growable array type</li>
+<li>slices</li>
+<li>String</li>
+<li>(vec, list, map, set, hashmap, string, etc... )</li>
+</ul>
+<h2><a class="header" href="#fixed-size-type--static-type--a-regular-fixed-size-type--a-stack-allocated-value-of-type" id="fixed-size-type--static-type--a-regular-fixed-size-type--a-stack-allocated-value-of-type">fixed-size type / static type / a regular fixed size type / a stack allocated value of type:</a></h2>
+<ul>
+<li>the array is a fixed-size list of elements, A fixed-size array</li>
+<li>length</li>
+</ul>
+<p>When comparing pointers they are compared by their address, rather than by what they point to. When comparing pointers to dynamically sized types they also have their addition data compared.</p>
 <h2><a class="header" href="#参考资料-27" id="参考资料-27">参考资料</a></h2>
 <ul>
 <li><a href="https://stackoverflow.com/questions/22596920/split-a-module-across-several-files">split-a-module-across-several-files</a></li>
@@ -3583,20 +3626,23 @@ fn main() {
 <li><a href="https://medium.com/@bugaevc/understanding-rust-ownership-borrowing-lifetimes-ff9ee9f79a9c">understanding-rust-ownership-borrowing-lifetimes</a></li>
 <li><a href="https://words.steveklabnik.com/you-can-t-turn-off-the-borrow-checker-in-rust">you-can-t-turn-off-the-borrow-checker-in-rust</a></li>
 <li><a href="https://users.rust-lang.org/t/cant-derive-copy-because-of-string/18665/6">cant-derive-copy-because-of-string</a></li>
-<li>https://users.rust-lang.org/t/whats-the-difference-between-trait-copy-and-clone/2609</li>
-<li>https://stackoverflow.com/questions/31012923/what-is-the-difference-between-copy-and-clone</li>
-<li>https://www.codevamping.com/2018/12/rust-move-copy/</li>
-<li>https://www.snoyman.com/blog/2018/10/rust-crash-course-02-basics-of-ownership</li>
-<li>https://jeenalee.com/2016/08/29/move-clone-copy.html</li>
-<li>https://facility9.com/2016/04/the-basics-of-rust-structs/</li>
+<li><a href="https://users.rust-lang.org/t/whats-the-difference-between-trait-copy-and-clone/2609">whats-the-difference-between-trait-copy-and-clone</a></li>
+<li><a href="https://stackoverflow.com/questions/31012923/what-is-the-difference-between-copy-and-clone">what-is-the-difference-between-copy-and-clone</a></li>
+<li><a href="https://www.codevamping.com/2018/12/rust-move-copy/">rust-move-copy</a></li>
+<li><a href="https://www.snoyman.com/blog/2018/10/rust-crash-course-02-basics-of-ownership">rust-crash-course-02-basics-of-ownership</a></li>
+<li><a href="https://jeenalee.com/2016/08/29/move-clone-copy.html">move-clone-copy</a></li>
+<li><a href="https://facility9.com/2016/04/the-basics-of-rust-structs/">the-basics-of-rust-structs</a></li>
+<li><a href="http://blog.joncairns.com/2015/10/a-single-command-to-compile-and-run-rust-programs/">a-single-command-to-compile-and-run-rust-programs</a></li>
+<li><a href="https://stackoverflow.com/questions/41322300/how-to-execute-rust-code-directly-on-unix-systems-using-the-shebang">how-to-execute-rust-code-directly-on-unix-systems-using-the-shebang</a></li>
+<li></li>
 </ul>
-<h1><a class="header" href="#关于软件篋borrowing_exerci" id="关于软件篋borrowing_exerci">关于软件篋borrowing_exerci</a></h1>
+<h2><a class="header" href="#关于软件篋borrowing_exerci" id="关于软件篋borrowing_exerci">关于软件篋borrowing_exerci</a></h2>
 <p>使用方法</p>
 <ul>
 <li><a href="https://users.rust-lang.org/t/cargo-test-internal-packages/5187/2">cargo-test-internal-packages</a></li>
 </ul>
 <h1><a class="header" href="#克隆clone和复制copy" id="克隆clone和复制copy">克隆（Clone）和复制（Copy）</a></h1>
-<h1><a class="header" href="#应用篋变量借用方法" id="应用篋变量借用方法">应用篋：变量借用方法</a></h1>
+<p>use_clone_array.rs</p>
 <h2><a class="header" href="#复制copy和克隆clone有什么区别" id="复制copy和克隆clone有什么区别">复制（Copy）和克隆（Clone）有什么区别？</a></h2>
 <h3><a class="header" href="#表达方式不同" id="表达方式不同">表达方式不同</a></h3>
 <p>Copies happen implicitly, for example as part of an assignment y = x. The behavior of Copy is not overloadable; it is always a simple bit-wise copy.</p>
@@ -3621,13 +3667,14 @@ y = x.clone()</p>
 <p>According to the docs, Copy should be implemented for all types that is possible. </p>
 <p>Even if your huge struct is Copy there is nothing that prevents you from passing it by reference. Copy just makes copying more convenient. Besides, if you do something like this:</p>
 <pre><pre class="playpen"><code class="language-rust">
-# #![allow(unused_variables)]
-#fn main() {
-struct Huge {}
+<span class="boring">#![allow(unused_variables)]
+fn main() {
+</span>struct Huge {}
 let a = Huge::new(); // and Huge implements Copy
 let b = a;
 // continue to work with 'b' here, never touch 'a' again.
-#}</code></pre></pre>
+<span class="boring">}
+</code></pre></pre>
 <p>then LLVM will happily optimize the copy away. Personally I would recommend deriving Copy for all types that can, with the exception of types that control access to some kind of resource (but in that case perhaps you don't want them to implement Clone either).</p>
 <p>Right, but what if I accidentally continued to use a after is was copied? I would prefer to have the compiler tell me that I (possibly) unnecessarily copied a large struct and that if I really intended on doing that, I should do it explicitly with .clone().</p>
 <h2><a class="header" href="#为什么存在克隆" id="为什么存在克隆">为什么存在克隆？</a></h2>
@@ -3646,8 +3693,8 @@ let b = a;
 <p>Clone is about indicating how to create a new instance, and must be called explicitly. Most types (but not all) can be copied using it.</p>
 <p>Copy is a specific compiler trait which indicates that the developer wishes to activate implicit copying for the type; it is only available if a shallow copy is equivalent to a deep copy, which ensures that no memory allocation will occur as part of those implicit copies</p>
 <h2><a class="header" href="#代码说明" id="代码说明">代码说明</a></h2>
-<pre><pre class="playpen"><code class="language-rust">#[derive(Debug, Clone, Copy)]
-struct Point { x: i32, y: i32 }
+<pre><pre class="playpen"><code class="language-rust"><span class="boring">[derive(Debug, Clone, Copy)]
+</span>struct Point { x: i32, y: i32 }
 
 fn main() {
     let a = Point{x:3,y:4};
@@ -3674,10 +3721,306 @@ fn main() {
 <li><a href="https://stackoverflow.com/questions/38215753/how-do-i-implement-copy-and-clone-for-a-type-that-contains-a-string">how-do-i-implement-copy-and-clone-for-a-type-that-contains-a-string</a></li>
 <li><a href="https://stackoverflow.com/questions/38304666/how-to-define-a-copyable-struct-containing-a-string">how-to-define-a-copyable-struct-containing-a-string</a></li>
 </ul>
-<h1><a class="header" href="#应用篋函数借用方法" id="应用篋函数借用方法">应用篋：函数借用方法</a></h1>
+<h1><a class="header" href="#引用reference与指针pointer基本概念" id="引用reference与指针pointer基本概念">引用<code>Reference</code>与指针<code>Pointer</code>基本概念</a></h1>
+<h2><a class="header" href="#学习内容-28" id="学习内容-28">学习内容</a></h2>
+<ul>
+<li>了解和学习引用<code>Reference</code>与指针<code>Pointer</code>概念</li>
+</ul>
+<h2><a class="header" href="#篇目-33" id="篇目-33">篇目</a></h2>
+<ul>
+<li><a href="hello-borrowing/reference-pointer.html#%E4%BB%80%E4%B9%88%E6%98%AF%E6%8C%87%E9%92%88Pointer">什么是指针<code>Pointer</code></a></li>
+<li><a href="hello-borrowing/reference-pointer.html#%E4%BB%80%E4%B9%88%E6%98%AF%E5%BC%95%E7%94%A8Reference">什么是引用<code>Reference</code></a></li>
+<li><a href="hello-borrowing/reference-pointer.html#Rust%E8%AF%AD%E8%A8%80%E7%9A%84%E5%BC%95%E7%94%A8Reference%E4%B8%8E%E6%8C%87%E9%92%88Pointer">Rust语言的引用<code>Reference</code>与指针<code>Pointer</code></a></li>
+<li><a href="hello-borrowing/reference-pointer.html#%E5%BC%95%E7%94%A8%E5%AE%9E%E4%BE%8B%E8%A7%A3%E9%87%8A">引用实例解释</a></li>
+<li><a href="hello-borrowing/reference-pointer.html#%E9%A2%98%E5%A4%96%E8%AF%9D">题外话</a></li>
+<li><a href="hello-borrowing/reference-pointer.html#%E4%BB%8B%E7%BB%8DRust%E7%9A%84%E6%8C%87%E9%92%88%E7%B1%BB%E5%9E%8B">介绍Rust的指针类型</a></li>
+<li><a href="hello-borrowing/reference-pointer.html#%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%EF%BC%9A%E8%BD%AF%E4%BB%B6%E7%AF%8Bprettytable-rs%E5%92%8Cripgrep">开发工具：软件篋prettytable-rs和ripgrep</a></li>
+<li><a href="hello-borrowing/reference-pointer.html#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">参考资料</a></li>
+</ul>
+<h2><a class="header" href="#什么是指针pointer" id="什么是指针pointer">什么是指针<code>Pointer</code></a></h2>
+<p>　　Rust语言技术术语，既有其本身专门的技术术语，如软件篋<code>crate</code>、借用<code>Borrowing</code>和生命周期<code>Lifttime</code>等，也有一般计算机科学技术术语，如变量、类型和指针<code>Pointer</code>等。但是，对于一般技术术语，在Rust语言里也是有不同的内涵意义和实现形式。</p>
+<p>　　<a href="https://en.wikipedia.org/wiki/Pointer_(computer_programming)">引用英文</a></p>
+<blockquote>
+<p>In computer science, a pointer is a programming language object that stores the memory address of another value located in computer memory. </p>
+</blockquote>
+<p>直接翻译：在计算机科学中，指针是编程语言的对象，用于存储位于计算机内存中的另一个值的内存地址。</p>
+<p>解读：</p>
+<ul>
+<li>指针是一个对象<code>object</code>或者说实例<code>instance</code>，它是指针类型的对象；</li>
+<li>指针也是变量，与其它变量完全一样；</li>
+<li>指针变量也绑定一个值，与其它变量绑定不一样的值，它绑定一种特殊值，就是内存地址；</li>
+<li>在绑定的内存地址值下，也是一个变量；</li>
+</ul>
+<h2><a class="header" href="#什么是引用reference" id="什么是引用reference">什么是引用<code>Reference</code></a></h2>
+<p>　　<a href="https://de.wikipedia.org/wiki/Referenz_(Programmierung)">引用德文</a></p>
+<blockquote>
+<p>Eine Referenz ist ein Verweis auf ein Objekt. Eine Referenz ist damit ein Aliasname für ein bereits bestehendes Objekt.</p>
+</blockquote>
+<p>直接翻译：引用是关于对象的参照物。因此引用是现有对象的别名。</p>
+<p>解读：</p>
+<ul>
+<li>引用是总是与一个对象关联起来的；</li>
+<li>从本质上，引用就是相关联的对象，只是表现形式不同而已；</li>
+</ul>
+<h2><a class="header" href="#rust语言的引用reference与指针pointer" id="rust语言的引用reference与指针pointer">Rust语言的引用<code>Reference</code>与指针<code>Pointer</code></a></h2>
+<p>　　在Rust语言里，所有指针都是其自己的类型。且存在很多的指针<code>pointer</code>类型。比如，从Rust语言结构上分析，引用<code>reference</code>类型是一种指针类型，且最简单的指针类型，从内容上分析，每一个指针类型都包含引用的内存地址。引用<code>reference</code>类型的对象是最常见的。下面通过最简单的示意图了解什么是指针概念：</p>
+<p><img src="hello-borrowing/../../hello-borrowing/images/hello_borrowing-05_reference_integer.png" alt="image" /></p>
+<p>　　从说明示意图结构上看到，引用<code>reference</code>类型的对象<code>ref_u8</code>与整数u8类型的对象<code>instance</code>是完全一样的，只是其值不同而已。</p>
+<p>　　但是Rust语言在处理其值的方法有所不同。这是因为，Rust通常专注于非指针对象的值或者指针对象的引用对象值（即内容中有趣的部分），而不是指针对象的标识（内存地址）。比如下面代码，使用宏println!简单格式打印它们的值都是一样的，只有使用特殊格式，才能打印出引用对象的值，即内存地址。</p>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+fn main() {
+</span>let instance = 42_u8;
+let ref_u8 = &amp;instance;
+println!(&quot;{}&quot;, instance);
+println!(&quot;{}&quot;, ref_u8);
+println!(&quot;{:p}&quot;, ref_u8);
+<span class="boring">}
+</code></pre></pre>
+<p>　　Rust语言指针类型可以分为三大类：引用（包括<a href="https://doc.rust-lang.org/reference/types/pointer.html">共享引用和可变引用</a>）、<a href="https://doc.rust-lang.org/guide-pointers.html">原始引用</a>和智能引用<code>smart pointer</code>。其中前面两类类是Rust语言本身的，而第三类是属于标准库的。这里重点说明共享引用和原始引用。</p>
+<p>　　Ⓘ　共享引用指向其他值所拥有的内存。当创建共享引用值时，引用将防止该值的直接改变。除了下面说明的原始指针之外，Rust语言其他指针都是安全的，并且都具有其生命周期。</p>
+<p>　　Ⓘ　原始指针是没有安全性保证的指针。</p>
+<p>　　在Rust代码中通常不提倡和不鼓励使用原始指针。Rust语言的原始指针与C语言的指针是等效的。原始指针可以为null，也可以指向垃圾，它们也没有生命周期。</p>
+<p>　　为了以后说明问题简单化，我们把上面示意图统一成如下形式：</p>
+<p><img src="hello-borrowing/../../hello-borrowing/images/hello_borrowing-04_reference_integer.png" alt="image" /></p>
+<h2><a class="header" href="#引用实例解释" id="引用实例解释">引用实例解释</a></h2>
+<p><img src="hello-borrowing/../../hello-borrowing/images/hello_borrowing-08_reference_str.png" alt="image" /></p>
+<p>　　借助于上面两个引用和一个原始引用的示意图，理解下面相关代码的意义。</p>
+<p>　　在函数<code>main()</code>里，一共有四段代码，前面两段代码形成了上面示意图内容，后面两段代码是获取它们的地址，以便说明问题。</p>
+<pre><pre class="playpen"><code class="language-rust editable">// File ./exmaples/use_references_simple.rs
+// clear &amp;&amp; cargo run --example use_references_simple | bat -l cmd
+<span class="boring">![allow(unused_variables)]
+</span>
+fn main() {
+    let instance :&amp;str = &quot;Hello&quot;;
+    let instance = &quot;Hello&quot;;
+
+    let copy_instance :&amp;str = instance;
+    let copy_instance = instance;
+
+    println!(&quot;instance reference address = {:p}&quot;, instance);
+    println!(&quot;copy_instance reference address = {:p}&quot;, copy_instance);
+
+    println!(&quot;instance address = {:p}&quot;, &amp;instance);
+    println!(&quot;copy_instance address = {:p}&quot;, &amp;copy_instance);
+}
+
+</code></pre></pre>
+<p>　　第一段的两行代码是等效的，实际只需要一行代码就可以了。这代码把字符串文字绑定了变量<code>instance</code>同时，也形成了原始指针，变量<code>instance</code>的地址值指向了原始指针的地址。</p>
+<p>　　第二段的两行代码也是等效的，实际只需要一行代码就可以了。这代码把变量<code>instance</code>绑定到新变量<code>copy_instance</code>，这种绑定方式Rust语言称之为复制（Copy），这里它不会产生新原始指针，而是指向与变量<code>instance</code>相同的原始指针地址。</p>
+<p>　　从下面程序输出结果，也可以得到验证上面的阐述。第一行和第二行的地址就是原始指针的内存地址，而第三行和第四行的地址是两个引用变量自身的内存地址，注意，它们不是变量的内容值（内存地址）。</p>
+<pre><code>───────┬──────────────────────────────────────────────────────────────────────────
+       │ STDIN
+───────┼──────────────────────────────────────────────────────────────────────────
+   1   │ instance reference address = 0x101c39b20
+   2   │ copy_instance reference address = 0x101c39b20
+   3   │ instance address = 0x7fff5dfe81a0
+   4   │ copy_instance address = 0x7fff5dfe81c0
+───────┴──────────────────────────────────────────────────────────────────────────
+</code></pre>
+<h2><a class="header" href="#题外话-13" id="题外话-13">题外话</a></h2>
+<h3><a class="header" href="#介绍rust的指针类型列表" id="介绍rust的指针类型列表">介绍Rust的指针类型列表</a></h3>
+<table><thead><tr><th>种类</th><th>类型</th><th>名称</th><th>说明</th></tr></thead><tbody>
+<tr><td>共享引用</td><td>&amp;T</td><td>引用<code>Reference</code></td><td>允许一个或者多个引用来类型T</td></tr>
+<tr><td>可变引用</td><td>&amp;mut T</td><td>可变引用<code>Mutable Reference</code></td><td>仅允许单个引用来读和写类型T</td></tr>
+<tr><td>智能引用</td><td>Box<T></td><td>Box指针</td><td>处于堆上类型T的指针类型，该类型只能有单个所有者，它可以读取和写入类型T。</td></tr>
+<tr><td>智能引用</td><td>Rc<T></td><td>参考计数指针</td><td>处于堆上类型T的指针类型，该类型可以有多个所有者，它们可以读取类型T。</td></tr>
+<tr><td>智能引用</td><td>Arc<T></td><td>核参考计数指针</td><td>与类型Rc<T>一样，但适用于在线程之间安全共享</td></tr>
+<tr><td>原始引用</td><td>*const T</td><td>原始指针<code>Raw pointer</code></td><td>不安全地读取访问类型T</td></tr>
+<tr><td>原始引用</td><td>*mut T</td><td>可变原始指针<code>Mutable raw pointer</code></td><td>不安全地读取和写入访问类型T</td></tr>
+</tbody></table>
+<p><img src="hello-borrowing/../../hello-borrowing/images/rust_container_pointer.png" alt="image" /></p>
+<h3><a class="header" href="#开发工具软件篋prettytable-rs" id="开发工具软件篋prettytable-rs">开发工具：软件篋prettytable-rs</a></h3>
+<p>　　使用工具软件篋prettytable-rs可以使得程序输出更加美观。</p>
+<p>　　为了使用该工具，需要将下面代码放入文件Cargo.toml的<code>[dependencies]</code>段里：</p>
+<pre><code>prettytable-rs = &quot;0.8.0&quot;
+</code></pre>
+<p>　　具体使用实例代码如下：</p>
+<pre><pre class="playpen"><code class="language-rust editable">// File ./exmaples/use_references.rs
+// clear &amp;&amp; cargo run --example use_references | bat -l cmd
+
+<span class="boring">[macro_use] extern crate prettytable;
+</span>
+fn main() {
+    let instance = &quot;Hello&quot;;
+
+    let copy_instance = instance;
+
+    let table = table!([&quot;Name&quot;, &quot;Value&quot;, &quot;Remark&quot;],
+                       [&quot;instance reference address&quot;, format!(&quot;{:p}&quot;, instance), &quot;is equal to the following line&quot;],
+                       [&quot;copy_instance reference address&quot;, format!(&quot;{:p}&quot;, copy_instance), &quot;&quot;],
+                       [&quot;instance address&quot;, format!(&quot;{:p}&quot;, &amp;instance), &quot;is not equal to the following line&quot;],
+                       [&quot;copy_instance address&quot;, format!(&quot;{:p}&quot;, &amp;copy_instance), &quot;&quot;]);
+
+    table.printstd();
+}
+
+</code></pre></pre>
+<p>　　程序输出结果：</p>
+<pre><code>───────┬─────────────────────────────────────────────────────────────────────────────────────────────────────
+       │ STDIN
+───────┼─────────────────────────────────────────────────────────────────────────────────────────────────────
+   1   │ +---------------------------------+----------------+------------------------------------+
+   2   │ | Name                            | Value          | Remark                             |
+   3   │ +---------------------------------+----------------+------------------------------------+
+   4   │ | instance reference address      | 0x104f58ba0    | is equal to the following line     |
+   5   │ +---------------------------------+----------------+------------------------------------+
+   6   │ | copy_instance reference address | 0x104f58ba0    |                                    |
+   7   │ +---------------------------------+----------------+------------------------------------+
+   8   │ | instance address                | 0x7fff5ad3fa50 | is not equal to the following line |
+   9   │ +---------------------------------+----------------+------------------------------------+
+  10   │ | copy_instance address           | 0x7fff5ad3fa60 |                                    |
+  11   │ +---------------------------------+----------------+------------------------------------+
+───────┴─────────────────────────────────────────────────────────────────────────────────────────────────────
+</code></pre>
+<h2><a class="header" href="#参考资料-29" id="参考资料-29">参考资料</a></h2>
+<ul>
+<li><a href="https://crates.io/crates/chars">crate chars</a></li>
+<li><a href="https://stackoverflow.com/questions/27150652/how-can-i-get-an-array-or-a-slice-from-a-raw-pointer">how-can-i-get-an-array-or-a-slice-from-a-raw-pointer</a></li>
+<li><a href="https://users.rust-lang.org/t/mutation-slice-from-raw-pointer/19912">mutation-slice-from-raw-pointer</a></li>
+<li><a href="https://doc.rust-lang.org/std/slice/fn.from_raw_parts.html">std slice fn.from_raw_parts</a></li>
+<li><a href="https://stackoverflow.com/questions/27852613/why-does-printing-a-pointer-print-the-same-thing-as-printing-the-dereferenced-po">why-does-printing-a-pointer-print-the-same-thing-as-printing-the-dereferenced-po</a></li>
+<li><a href="https://shahuwang.com/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Rust%20Pointers.html">Rust的指针类型</a> </li>
+<li><a href="https://www.cs.brandeis.edu/%7Ecs146a/rust/doc-02-21-2015/book/pointers.html#cheat-sheet">pointers cheat-sheet</a></li>
+<li><a href="http://chenju2k6.github.io/blog/2019/05/rustlearn">Rust learning notes</a></li>
+<li><a href="https://medium.com/@orbitalK/why-the-machine-b9803a77fa29">why-the-machine</a></li>
+</ul>
+<h1><a class="header" href="#引用类型与原始指针解释" id="引用类型与原始指针解释">引用、类型与原始指针解释</a></h1>
+<h2><a class="header" href="#学习内容-29" id="学习内容-29">学习内容</a></h2>
+<ul>
+<li>了解和学习Rust语言引用<code>Reference</code>、类型与原始指针<code>Pointer</code>关系</li>
+</ul>
+<h2><a class="header" href="#篇目-34" id="篇目-34">篇目</a></h2>
+<ul>
+<li><a href="hello-borrowing/reference-type-pointer.html#%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8Bstr%E4%B8%8E%E5%8E%9F%E5%A7%8B%E6%8C%87%E9%92%88%E5%85%B3%E7%B3%BB%E5%9B%BE">引用类型<code>&amp;str</code>与原始指针关系图</a></li>
+<li><a href="hello-borrowing/reference-type-pointer.html#%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8BString%E4%B8%8E%E5%8E%9F%E5%A7%8B%E6%8C%87%E9%92%88%E5%85%B3%E7%B3%BB%E5%9B%BE">引用类型<code>&amp;String</code>与原始指针关系图</a></li>
+<li><a href="hello-borrowing/reference-type-pointer.html#%E5%BC%95%E7%94%A8%E3%80%81%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%A7%8B%E6%8C%87%E9%92%88%E8%A7%A3%E9%87%8A">引用、类型与原始指针解释</a></li>
+<li><a href="hello-borrowing/reference-type-pointer.html#%E9%A2%98%E5%A4%96%E8%AF%9D">题外话</a></li>
+<li><a href="hello-borrowing/reference-type-pointer.html#%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7Chars">开发工具Cha(rs)</a></li>
+<li><a href="hello-borrowing/reference-type-pointer.html#%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%EF%BC%9A%E8%BD%AF%E4%BB%B6%E7%AF%8Bripgrep">开发工具：软件篋ripgrep</a></li>
+<li><a href="hello-borrowing/reference-type-pointer.html#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">参考资料</a></li>
+</ul>
+<h2><a class="header" href="#引用类型str与原始指针关系图" id="引用类型str与原始指针关系图">引用类型<code>&amp;str</code>与原始指针关系图</a></h2>
+<p>　　字符串<code>String</code>类型由三个部分组成：指向原始指针的指针地址、其长度和容量。该指针地址指向内部缓冲字符串（buffer string），用于存储其数据。</p>
+<p>方法<code>as_ptr()</code>功能是将字符串切片转换为原始指针。
+方法<code>as_str()</code>功能是提取包含整个<code>String</code>的字符串切片。</p>
+<pre><pre class="playpen"><code class="language-rust editable">// File: ./examples/use_raw_pointer_str.rs
+// clear &amp;&amp; cargo run --example use_raw_pointer_str | bat -l cmd
+
+<span class="boring">![allow(unused_variables)]
+</span>
+use std::slice;
+
+fn main() {
+    /// ANCHOR: string-type-variable
+    println!(&quot;&quot;);
+    let instance :String = String::from(&quot;Hello&quot;);
+    let ref_raw :*const u8 = instance.as_ptr();
+    println!(&quot;instance value = {}&quot;, instance);
+    println!(&quot;instance reference raw address = {:?}&quot;, ref_raw);
+    /// ANCHOR_END: string-type-variable
+
+    /// ANCHOR: str-type-variable
+    println!(&quot;&quot;);
+    let ref_str :&amp;str = &amp;instance;
+    let ref_str = instance.as_str();
+    let ref_str :&amp;str = instance.as_str();
+    let ref_str :&amp;str = &amp;instance[0..=4];
+    println!(&quot;ref_str value = {}&quot;, ref_str);
+    println!(&quot;ref_str owned address = {:p}&quot;, ref_str);    
+    let ref_str :*const u8 = ref_str.as_ptr();
+    /// ANCHOR_END: str-type-variable
+
+    /// ANCHOR: str-testing
+    assert_eq!(ref_raw, ref_str);
+    /// ANCHOR_END: str-testing
+
+    /// ANCHOR: show-raw-address
+    println!(&quot;&quot;);
+    let slice = unsafe { slice::from_raw_parts(&amp;ref_raw, 5) };
+    dbg!(slice);
+    /// ANCHOR_END: show-raw-address
+
+    /// ANCHOR: raw-testing
+    assert_eq!(&amp;ref_raw, &amp;slice[0]);
+    /// ANCHOR_END: raw-testing
+
+    /// ANCHOR: show-raw-u8
+    println!(&quot;&quot;);
+    let slice = unsafe { slice::from_raw_parts(ref_raw, 5) };
+    dbg!(slice);
+    /// ANCHOR_END: show-raw-u8
+}
+</code></pre></pre>
+<p><img src="hello-borrowing/../../hello-borrowing/images/hello_borrowing-07-pointers.png" alt="image" /></p>
+<h2><a class="header" href="#引用类型string与原始指针关系图" id="引用类型string与原始指针关系图">引用类型<code>&amp;String</code>与原始指针关系图</a></h2>
+<p><img src="hello-borrowing/../../hello-borrowing/images/hello_borrowing-01-pointers.png" alt="image" /></p>
+<pre><pre class="playpen"><code class="language-rust editable">// File: ./examples/use_raw_pointer_string.rs
+// clear &amp;&amp; cargo run --example use_raw_pointer_string | bat -l cmd
+
+<span class="boring">![allow(unused_variables)]
+</span>
+use std::slice;
+
+fn main() {
+    println!(&quot;&quot;);
+    let instance :String = String::from(&quot;Hello&quot;);
+    let ref_raw = instance.as_ptr();
+    println!(&quot;instance value = {}&quot;, instance);
+    println!(&quot;instance reference raw address = {:?}&quot;, ref_raw);
+
+    println!(&quot;&quot;);
+    let ref_string :&amp;String = &amp;instance;
+    //let ref_string = &amp;instance;
+    println!(&quot;ref_string value = {}&quot;, ref_string);
+    println!(&quot;ref_string owned address = {:p}&quot;, ref_string);
+    let ref_string :*const u8 = ref_string.as_ptr();
+
+    assert_eq!(ref_raw, ref_string);
+
+    println!(&quot;&quot;);
+    let slice = unsafe { slice::from_raw_parts(&amp;ref_raw, 5) };
+    dbg!(slice);
+    
+    assert_eq!(&amp;ref_raw, &amp;slice[0]);
+
+    println!(&quot;&quot;);
+    let slice = unsafe { slice::from_raw_parts(ref_raw, 5) };
+    dbg!(slice);
+}
+
+</code></pre></pre>
+<h2><a class="header" href="#引用类型与原始指针解释-1" id="引用类型与原始指针解释-1">引用、类型与原始指针解释</a></h2>
+<p>　　引用类型<code>&amp;String</code>与引用类型<code>&amp;str</code>的区别</p>
+<p><img src="hello-borrowing/../../hello-borrowing/images/hello_borrowing-06-pointers.png" alt="image" /></p>
+<p>　　Rust语言的数据类型可以理解为是一种复杂的“引用”类型。</p>
+<p><img src="hello-borrowing/../../hello-borrowing/images/hello_borrowing-02_references.png" alt="image" /></p>
+<h3><a class="header" href="#软件篋chars" id="软件篋chars">软件篋Cha(rs)</a></h3>
+<p>cargo install chars
+chars 'H'</p>
+<h3><a class="header" href="#软件篋ripgrep" id="软件篋ripgrep">软件篋ripgrep</a></h3>
+<p>cargo install ripgrep
+ifconfig | rg netmask</p>
+<h2><a class="header" href="#参考资料-30" id="参考资料-30">参考资料</a></h2>
+<ul>
+<li><a href="https://doc.rust-lang.org/std/string/struct.String.html">std string struct.String</a></li>
+</ul>
+<h1><a class="header" href="#借用关键词move" id="借用关键词move">借用关键词move</a></h1>
 <h1><a class="header" href="#应用篋类型实例借用方法" id="应用篋类型实例借用方法">应用篋：类型实例借用方法</a></h1>
+<p>string_type.rs</p>
+<h1><a class="header" href="#应用篋引用借用实例" id="应用篋引用借用实例">应用篋：引用借用实例</a></h1>
+<h1><a class="header" href="#应用篋指针类型借用方法" id="应用篋指针类型借用方法">应用篋：指针类型借用方法</a></h1>
+<h2><a class="header" href="#参考资料-31" id="参考资料-31">参考资料</a></h2>
+<ul>
+<li>http://smallcultfollowing.com/babysteps/blog/2012/07/17/borrowed-pointer-tutorial/</li>
+<li>https://aminb.gitbooks.io/rust-for-c/content/borrowed/index.html</li>
+<li>https://stackoverflow.com/questions/18943513/rust-borrowed-pointers-syntax</li>
+</ul>
+<h1><a class="header" href="#应用篋固定大小类型实例" id="应用篋固定大小类型实例">应用篋：固定大小类型实例</a></h1>
+<h1><a class="header" href="#应用篋可变大小类型实例" id="应用篋可变大小类型实例">应用篋：可变大小类型实例</a></h1>
 <h1><a class="header" href="#应用篋栈和堆借用方法" id="应用篋栈和堆借用方法">应用篋：栈和堆借用方法</a></h1>
 <p>栈(stack)和堆(heap)</p>
+<h1><a class="header" href="#应用篋函数借用方法" id="应用篋函数借用方法">应用篋：函数借用方法</a></h1>
 <h1><a class="header" href="#题外话应用篋的软件包结构" id="题外话应用篋的软件包结构">题外话：应用篋的软件包结构</a></h1>
 <h1><a class="header" href="#题外话cargo工具features功能" id="题外话cargo工具features功能">题外话：Cargo工具features功能</a></h1>
 <h1><a class="header" href="#题外话介绍几个软件篋" id="题外话介绍几个软件篋">题外话：介绍几个软件篋</a></h1>
@@ -3736,6 +4079,18 @@ fn main() {
         </script>
         
 
+        
+
+        
+        <script type="text/javascript">
+            window.playpen_line_numbers = true;
+        </script>
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
         
 
         

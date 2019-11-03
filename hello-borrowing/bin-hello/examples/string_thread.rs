@@ -1,18 +1,18 @@
 #[cfg(feature = "ok")]
 fn main() {
-    use std::thread;
     use std::sync::mpsc;
+    use std::thread;
 
     let (tx, rx) = mpsc::channel();
 
     thread::spawn(move || {
         let instance = String::from("hi");
         println!("Got from tx: {}", instance);
-        
+
         // the variable `instance` begin to move
         tx.send(instance).unwrap();
         // the variable `instance` moved here
-        
+
         // ERROR: The variable `instance` borrowed here after move
         //println!("val is {}", instance);
     });
@@ -23,19 +23,19 @@ fn main() {
 
 #[cfg(feature = "err")]
 fn main() {
-    use std::thread;
     use std::sync::mpsc;
+    use std::thread;
 
     let (tx, rx) = mpsc::channel();
 
     thread::spawn(move || {
         let instance = String::from("hi");
         println!("Got from tx: {}", instance);
-        
+
         // the variable `instance` begin to move
         tx.send(instance).unwrap();
         // the variable `instance` moved here
-        
+
         // ERROR: The variable `instance` borrowed here after move
         println!("val is {}", instance);
     });

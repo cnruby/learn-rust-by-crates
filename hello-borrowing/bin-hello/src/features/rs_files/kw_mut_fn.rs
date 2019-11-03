@@ -1,4 +1,4 @@
-pub const KW_MUT_FN_OK :&str = r#"#![allow(unused)]
+pub const KW_MUT_FN_OK: &str = r#"#![allow(unused)]
 
 fn main() {
     fn bar(x: &mut i32) {}
@@ -11,7 +11,7 @@ fn main() {
 }
 "#;
 
-pub const KW_MUT_FN_ERR :&str = r#"#![allow(unused)]
+pub const KW_MUT_FN_ERR: &str = r#"#![allow(unused)]
 
 fn main() {
     fn bar(x: &mut i32) {}

@@ -1,4 +1,4 @@
-pub const EXPAND_STRUCT_OK :&str = r#"fn main() {
+pub const EXPAND_STRUCT_OK: &str = r#"fn main() {
     #[derive(Clone, Copy)]
     struct Struct(u8);
 
@@ -9,7 +9,7 @@ pub const EXPAND_STRUCT_OK :&str = r#"fn main() {
 }
 "#;
 
-pub const EXPAND_STRUCT_ERR :&str = r#"fn main() {
+pub const EXPAND_STRUCT_ERR: &str = r#"fn main() {
     #[derive(Clone)]
     struct Struct(u8);
 

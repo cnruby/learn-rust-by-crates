@@ -7,13 +7,13 @@ pub fn with_script(args: &Vec<String>, mode: &str, file_name: &str) {
     match mode.as_ref() {
         "ok" => {
             rs_code = rs_files::get_rs_ok(file_name);
-        },
+        }
         "err" => {
             rs_code = rs_files::get_rs_err(file_name);
-        },
+        }
         _ => {
             rs_code = rs_files::get_rs_ok("hello");
-        },
+        }
     }
     //dbg!(rs_code);
     let set_file = format!("echo '{}'", rs_code);
@@ -23,7 +23,10 @@ pub fn with_script(args: &Vec<String>, mode: &str, file_name: &str) {
     //dbg!(&rs_code);
     //dbg!(&cargo_script);
     //let cmds = format!("{}", &set_file);
-    let cmds = format!("{}\n{}\n{}\n{}", &set_file, &cmd_echo, &cargo_script, &rm_script);
+    let cmds = format!(
+        "{}\n{}\n{}\n{}",
+        &set_file, &cmd_echo, &cargo_script, &rm_script
+    );
     let (_code, output, error) = run_script::run(&cmds, &args, &options).unwrap();
     //println!("Exit Code: {}\n\n", code);
     println!("{}\n\n", output);

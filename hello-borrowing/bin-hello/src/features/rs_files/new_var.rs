@@ -1,4 +1,4 @@
-pub const NEW_VAR_OK :&str = r#"#![allow(unused_variables)]
+pub const NEW_VAR_OK: &str = r#"#![allow(unused_variables)]
 
 fn main() {
     struct Struct(u8);
@@ -10,7 +10,7 @@ fn main() {
 
 "#;
 
-pub const NEW_VAR_ERR :&str = r#"#![allow(unused_variables)]
+pub const NEW_VAR_ERR: &str = r#"#![allow(unused_variables)]
 
 fn main() {
     struct Struct(u8);

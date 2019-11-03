@@ -26,7 +26,6 @@ args:
             #- user  # information commands for user
             #- bwx   # bin for information commands
             ## END for insider
-            - kw_let_mut
             - kw_fn
             - new_var
             - kw_mut
@@ -34,7 +33,8 @@ args:
             - stack_head
             - vec_for
             - expand_struct
-            - closure_type
+            - closure_string
+            - closure_vec
             - clone_struct
             - clone_derive
             - dbg_marco

@@ -1,4 +1,7 @@
-# 第三章 软件篋mod_trait_exerci
+[![Crates.io](https://img.shields.io/crates/v/mod_trait_exerci?label=mod_trait_exerci)](https://crates.io/crates/mod_trait_exerci)
+[![The Crate mod_trait_exerci Code](https://img.shields.io/badge/hello--mod--trait-code-yellowgreen)](https://github.com/cnruby/learn-rust-by-crates/tree/master/hello-mod-trait)
+
+# 软件篋mod_trait_exerci
 
 ## 学习内容
 - 学习软件篋文件、模块与程序结构

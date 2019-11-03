@@ -21,7 +21,7 @@ fn main() {
 #[cfg(feature = "err")]
 fn main() {
     #[derive(Debug, Clone)]
-    // move occurs because `v` has type `main::Tuple`, 
+    // move occurs because `v` has type `main::Tuple`,
     // which does not implement the `Copy` trait
     struct Tuple(u8);
     let v = Tuple(42);
@@ -30,12 +30,12 @@ fn main() {
     // clone
     let z = v.clone();
     println!("z is {:p}", &z);
-    println!("v is {:p}", &v); 
+    println!("v is {:p}", &v);
 
     // copy
-    let w = v;  // value moved here
+    let w = v; // value moved here
     println!("w is {:p}", &w);
-    println!("v is {:p}", &v);  // ERROR: value borrowed here after
+    println!("v is {:p}", &v); // ERROR: value borrowed here after
 }
 
 #[cfg(all(not(feature = "ok"), not(feature = "err")))]

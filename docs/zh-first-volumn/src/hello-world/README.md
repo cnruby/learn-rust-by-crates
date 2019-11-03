@@ -1,3 +1,6 @@
+[![Crates.io](https://img.shields.io/crates/v/hello_exercism?label=hello_exercism)](https://crates.io/crates/hello_exercism)
+[![The Crate hello_exercism Code](https://img.shields.io/badge/hello--world-code-yellowgreen)](https://github.com/cnruby/learn-rust-by-crates/tree/master/hello-world)
+
 # 关于软件篋项目hello-world
 
 ## 项目目标

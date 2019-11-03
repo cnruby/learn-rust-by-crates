@@ -1,4 +1,4 @@
-pub const STACK_HEAD_OK :&str = r#"#![allow(unused)]
+pub const STACK_HEAD_OK: &str = r#"#![allow(unused)]
 
 fn main() {
     let i = 42;
@@ -22,7 +22,7 @@ fn main() {
 
 "#;
 
-pub const STACK_HEAD_ERR :&str = r#"#![allow(unused)]
+pub const STACK_HEAD_ERR: &str = r#"#![allow(unused)]
 
 fn main() {
     let i = 42;

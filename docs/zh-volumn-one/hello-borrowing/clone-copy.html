@@ -1,9 +1,9 @@
 <!DOCTYPE HTML>
-<html lang="zh" class="sidebar-visible no-js">
+<html lang="zh" class="sidebar-visible no-js light">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>克隆（Clone）和复制（Copy） - 以软件篋学习Rust语言</title>
+        <title>特质：克隆（Clone）和复制（Copy） - 以软件篋学习Rust语言</title>
         
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -35,11 +35,11 @@
         <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         
     </head>
-    <body class="light">
+    <body>
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "../";
-            var default_theme = "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -63,8 +63,11 @@
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            document.body.className = theme;
-            document.querySelector('html').className = theme + ' js';
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
@@ -80,8 +83,8 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li><a href="../foreword/index.html"><strong aria-hidden="true">1.</strong> 前言</a></li><li><ol class="section"><li><a href="../foreword/about.html"><strong aria-hidden="true">1.1.</strong> 本书项目结构</a></li><li><a href="../foreword/crate.html"><strong aria-hidden="true">1.2.</strong> 关于作业区和软件篋实例</a></li><li><a href="../foreword/cargo.html"><strong aria-hidden="true">1.3.</strong> 关于Cargo工具基础命令</a></li><li><a href="../foreword/rust.html"><strong aria-hidden="true">1.4.</strong> Rust语言新思维和新概念</a></li></ol></li><li><a href="../hello-world/index.html"><strong aria-hidden="true">2.</strong> 软件篋hello_exercism</a></li><li><ol class="section"><li><a href="../hello-world/about.html"><strong aria-hidden="true">2.1.</strong> 关于软件篋项目</a></li><li><a href="../hello-world/commands-lib.html"><strong aria-hidden="true">2.2.</strong> 共享篋：开发命令</a></li><li><a href="../hello-world/lib.html"><strong aria-hidden="true">2.3.</strong> 共享篋：程序代码解释</a></li><li><a href="../hello-world/lib-tests.html"><strong aria-hidden="true">2.4.</strong> 共享篋：目录tests的测试代码解释</a></li><li><a href="../hello-world/src-tests.html"><strong aria-hidden="true">2.5.</strong> 共享篋：目录src的测试代码解释</a></li><li><a href="../hello-world/commands-local.html"><strong aria-hidden="true">2.6.</strong> 本地程序：开发命令</a></li><li><a href="../hello-world/bin-local.html"><strong aria-hidden="true">2.7.</strong> 本地程序：程序代码解释</a></li><li><a href="../hello-world/commands-bin.html"><strong aria-hidden="true">2.8.</strong> 仓库程序：开发命令</a></li><li><a href="../hello-world/bin.html"><strong aria-hidden="true">2.9.</strong> 仓库程序：程序代码解释</a></li><li><a href="../hello-world/off-topic.html"><strong aria-hidden="true">2.10.</strong> 题外话</a></li></ol></li><li><a href="../hello-trait/index.html"><strong aria-hidden="true">3.</strong> 软件篋trait_exerci</a></li><li><ol class="section"><li><a href="../hello-trait/examples-struct.html"><strong aria-hidden="true">3.1.</strong> 类型关键词struct</a></li><li><a href="../hello-trait/examples-impl.html"><strong aria-hidden="true">3.2.</strong> 关键词impl与方法代码实现</a></li><li><a href="../hello-trait/examples-methods.html"><strong aria-hidden="true">3.3.</strong> 函数与方法代码实现</a></li><li><a href="../hello-trait/examples-trait.html"><strong aria-hidden="true">3.4.</strong> 衔接关键词trait</a></li><li><a href="../hello-trait/examples-trait-impl.html"><strong aria-hidden="true">3.5.</strong> 特质实现及其对象</a></li><li><a href="../hello-trait/examples-trait-default.html"><strong aria-hidden="true">3.6.</strong> 题外话：默认衔接特质Default</a></li><li><a href="../hello-trait/lib-structure.html"><strong aria-hidden="true">3.7.</strong> 程序代码结构</a></li><li><a href="../hello-trait/about.html"><strong aria-hidden="true">3.8.</strong> 关于软件篋项目</a></li><li><a href="../hello-trait/commands-lib.html"><strong aria-hidden="true">3.9.</strong> 共享篋：开发命令</a></li><li><a href="../hello-trait/lib-codes.html"><strong aria-hidden="true">3.10.</strong> 共享篋：程序代码解释</a></li><li><a href="../hello-trait/lib-tests.html"><strong aria-hidden="true">3.11.</strong> 共享篋：目录测试代码解释</a></li><li><a href="../hello-trait/off-topic.html"><strong aria-hidden="true">3.12.</strong> 题外话</a></li></ol></li><li><a href="../hello-mod-trait/index.html"><strong aria-hidden="true">4.</strong> 软件篋mod_trait_exerci</a></li><li><ol class="section"><li><a href="../hello-mod-trait/about.html"><strong aria-hidden="true">4.1.</strong> 关于软件篋mod_trait_exerci</a></li><li><a href="../hello-mod-trait/crate-structure.html"><strong aria-hidden="true">4.2.</strong> 文件与模块</a></li><li><a href="../hello-mod-trait/lib-codes.html"><strong aria-hidden="true">4.3.</strong> 共享篋：程序结构和代码解释</a></li><li><a href="../hello-mod-trait/exampels-codes.html"><strong aria-hidden="true">4.4.</strong> 三种调用方式解释</a></li><li><a href="../hello-mod-trait/examples-dispatch.html"><strong aria-hidden="true">4.5.</strong> 理解动态与静态调度实现</a></li><li><a href="../hello-mod-trait/examples-miri.html"><strong aria-hidden="true">4.6.</strong> 深度解析动态与静态调度实现</a></li><li><a href="../hello-mod-trait/lib-fn.html"><strong aria-hidden="true">4.7.</strong> 共享篋：简单三层结构实现</a></li><li><a href="../hello-mod-trait/lib-static.html"><strong aria-hidden="true">4.8.</strong> 共享篋：基于封装的静态调度实现</a></li><li><a href="../hello-mod-trait/lib-dynamic.html"><strong aria-hidden="true">4.9.</strong> 共享篋：基于封装的动态调度实现</a></li><li><a href="../hello-mod-trait/lib-tests.html"><strong aria-hidden="true">4.10.</strong> 共享篋：单元测试代码解释</a></li><li><a href="../hello-mod-trait/off-topic.html"><strong aria-hidden="true">4.11.</strong> 题外话：泛型实例</a></li></ol></li><li><a href="../hello-borrowing/index.html"><strong aria-hidden="true">5.</strong> 软件篋borrowing_exerci</a></li><li><ol class="section"><li><a href="../hello-borrowing/about.html"><strong aria-hidden="true">5.1.</strong> 关于应用篋borrowing_exerci</a></li><li><a href="../hello-borrowing/clone-copy.html" class="active"><strong aria-hidden="true">5.2.</strong> 克隆（Clone）和复制（Copy）</a></li><li><a href="../hello-borrowing/borrowing-var.html"><strong aria-hidden="true">5.3.</strong> 应用篋：变量借用方法</a></li><li><a href="../hello-borrowing/borrowing-fn.html"><strong aria-hidden="true">5.4.</strong> 应用篋：函数借用方法</a></li><li><a href="../hello-borrowing/borrowing-type.html"><strong aria-hidden="true">5.5.</strong> 应用篋：类型实例借用方法</a></li><li><a href="../hello-borrowing/stack_head.html"><strong aria-hidden="true">5.6.</strong> 应用篋：栈和堆借用方法</a></li><li><a href="../hello-borrowing/bin-lib.html"><strong aria-hidden="true">5.7.</strong> 题外话：应用篋的软件包结构</a></li><li><a href="../hello-borrowing/cargo-features.html"><strong aria-hidden="true">5.8.</strong> 题外话：Cargo工具features功能</a></li><li><a href="../hello-borrowing/crates.html"><strong aria-hidden="true">5.9.</strong> 题外话：介绍几个软件篋</a></li></ol></li><li><a href="../hello-deref/index.html"><strong aria-hidden="true">6.</strong> 软件篋deref_exerci</a></li><li><ol class="section"><li><a href="../hello-deref/about.html"><strong aria-hidden="true">6.1.</strong> 关于软件篋deref_exerci</a></li><li><a href="../hello-deref/develop.html"><strong aria-hidden="true">6.2.</strong> 开发软件篋deref_exerci</a></li><li><a href="../hello-deref/apply.html"><strong aria-hidden="true">6.3.</strong> 使用软件篋deref_exerci</a></li></ol></li><li><a href="../hello-macro/index.html"><strong aria-hidden="true">7.</strong> 软件篋macro_exerci</a></li><li><ol class="section"><li><a href="../hello-macro/about.html"><strong aria-hidden="true">7.1.</strong> 关于软件篋macro_exerci</a></li><li><a href="../hello-macro/develop.html"><strong aria-hidden="true">7.2.</strong> 开发软件篋macro_exerci</a></li><li><a href="../hello-macro/apply.html"><strong aria-hidden="true">7.3.</strong> 使用软件篋macro_exerci</a></li></ol></li><li><a href="../hello-generics/index.html"><strong aria-hidden="true">8.</strong> 软件篋generics_exerci</a></li><li><ol class="section"><li><a href="../hello-generics/about.html"><strong aria-hidden="true">8.1.</strong> 关于软件篋generics_exerci</a></li><li><a href="../hello-generics/develop.html"><strong aria-hidden="true">8.2.</strong> 开发软件篋generics_exerci</a></li><li><a href="../hello-generics/apply.html"><strong aria-hidden="true">8.3.</strong> 使用软件篋generics_exerci</a></li></ol></li></ol>
+            <div id="sidebar-scrollbox" class="sidebar-scrollbox">
+                <ol class="chapter"><li class="expanded "><a href="../foreword/index.html"><strong aria-hidden="true">1.</strong> 前言</a></li><li><ol class="section"><li class="expanded "><a href="../foreword/about.html"><strong aria-hidden="true">1.1.</strong> 本书项目结构</a></li><li class="expanded "><a href="../foreword/crate.html"><strong aria-hidden="true">1.2.</strong> 关于作业区和软件篋实例</a></li><li class="expanded "><a href="../foreword/cargo.html"><strong aria-hidden="true">1.3.</strong> 关于Cargo工具基础命令</a></li><li class="expanded "><a href="../foreword/rust.html"><strong aria-hidden="true">1.4.</strong> Rust语言新思维和新概念</a></li></ol></li><li class="expanded "><a href="../hello-world/index.html"><strong aria-hidden="true">2.</strong> 软件篋hello_exercism</a></li><li><ol class="section"><li class="expanded "><a href="../hello-world/about.html"><strong aria-hidden="true">2.1.</strong> 关于软件篋项目</a></li><li class="expanded "><a href="../hello-world/commands-lib.html"><strong aria-hidden="true">2.2.</strong> 共享篋：开发命令</a></li><li class="expanded "><a href="../hello-world/lib.html"><strong aria-hidden="true">2.3.</strong> 共享篋：程序代码解释</a></li><li class="expanded "><a href="../hello-world/lib-tests.html"><strong aria-hidden="true">2.4.</strong> 共享篋：目录tests的测试代码解释</a></li><li class="expanded "><a href="../hello-world/src-tests.html"><strong aria-hidden="true">2.5.</strong> 共享篋：目录src的测试代码解释</a></li><li class="expanded "><a href="../hello-world/commands-local.html"><strong aria-hidden="true">2.6.</strong> 本地程序：开发命令</a></li><li class="expanded "><a href="../hello-world/bin-local.html"><strong aria-hidden="true">2.7.</strong> 本地程序：程序代码解释</a></li><li class="expanded "><a href="../hello-world/commands-bin.html"><strong aria-hidden="true">2.8.</strong> 仓库程序：开发命令</a></li><li class="expanded "><a href="../hello-world/bin.html"><strong aria-hidden="true">2.9.</strong> 仓库程序：程序代码解释</a></li><li class="expanded "><a href="../hello-world/off-topic.html"><strong aria-hidden="true">2.10.</strong> 题外话</a></li></ol></li><li class="expanded "><a href="../hello-trait/index.html"><strong aria-hidden="true">3.</strong> 软件篋trait_exerci</a></li><li><ol class="section"><li class="expanded "><a href="../hello-trait/examples-struct.html"><strong aria-hidden="true">3.1.</strong> 类型关键词struct</a></li><li class="expanded "><a href="../hello-trait/examples-impl.html"><strong aria-hidden="true">3.2.</strong> 关键词impl与方法代码实现</a></li><li class="expanded "><a href="../hello-trait/examples-methods.html"><strong aria-hidden="true">3.3.</strong> 函数与方法代码实现</a></li><li class="expanded "><a href="../hello-trait/examples-trait.html"><strong aria-hidden="true">3.4.</strong> 衔接关键词trait</a></li><li class="expanded "><a href="../hello-trait/examples-trait-impl.html"><strong aria-hidden="true">3.5.</strong> 特质实现及其对象</a></li><li class="expanded "><a href="../hello-trait/examples-trait-default.html"><strong aria-hidden="true">3.6.</strong> 题外话：默认衔接特质Default</a></li><li class="expanded "><a href="../hello-trait/lib-structure.html"><strong aria-hidden="true">3.7.</strong> 程序代码结构</a></li><li class="expanded "><a href="../hello-trait/about.html"><strong aria-hidden="true">3.8.</strong> 关于软件篋项目</a></li><li class="expanded "><a href="../hello-trait/commands-lib.html"><strong aria-hidden="true">3.9.</strong> 共享篋：开发命令</a></li><li class="expanded "><a href="../hello-trait/lib-codes.html"><strong aria-hidden="true">3.10.</strong> 共享篋：程序代码解释</a></li><li class="expanded "><a href="../hello-trait/lib-tests.html"><strong aria-hidden="true">3.11.</strong> 共享篋：目录测试代码解释</a></li><li class="expanded "><a href="../hello-trait/off-topic.html"><strong aria-hidden="true">3.12.</strong> 题外话</a></li></ol></li><li class="expanded "><a href="../hello-mod-trait/index.html"><strong aria-hidden="true">4.</strong> 软件篋mod_trait_exerci</a></li><li><ol class="section"><li class="expanded "><a href="../hello-mod-trait/about.html"><strong aria-hidden="true">4.1.</strong> 关于软件篋mod_trait_exerci</a></li><li class="expanded "><a href="../hello-mod-trait/crate-structure.html"><strong aria-hidden="true">4.2.</strong> 文件与模块</a></li><li class="expanded "><a href="../hello-mod-trait/lib-codes.html"><strong aria-hidden="true">4.3.</strong> 共享篋：程序结构和代码解释</a></li><li class="expanded "><a href="../hello-mod-trait/exampels-codes.html"><strong aria-hidden="true">4.4.</strong> 三种调用方式解释</a></li><li class="expanded "><a href="../hello-mod-trait/examples-dispatch.html"><strong aria-hidden="true">4.5.</strong> 理解动态与静态调度实现</a></li><li class="expanded "><a href="../hello-mod-trait/examples-miri.html"><strong aria-hidden="true">4.6.</strong> 深度解析动态与静态调度实现</a></li><li class="expanded "><a href="../hello-mod-trait/lib-fn.html"><strong aria-hidden="true">4.7.</strong> 共享篋：简单三层结构实现</a></li><li class="expanded "><a href="../hello-mod-trait/lib-static.html"><strong aria-hidden="true">4.8.</strong> 共享篋：基于封装的静态调度实现</a></li><li class="expanded "><a href="../hello-mod-trait/lib-dynamic.html"><strong aria-hidden="true">4.9.</strong> 共享篋：基于封装的动态调度实现</a></li><li class="expanded "><a href="../hello-mod-trait/lib-tests.html"><strong aria-hidden="true">4.10.</strong> 共享篋：单元测试代码解释</a></li><li class="expanded "><a href="../hello-mod-trait/off-topic.html"><strong aria-hidden="true">4.11.</strong> 题外话：泛型实例</a></li></ol></li><li class="expanded "><a href="../hello-borrowing/index.html"><strong aria-hidden="true">5.</strong> 软件篋borrowing_exerci</a></li><li><ol class="section"><li class="expanded "><a href="../hello-borrowing/about.html"><strong aria-hidden="true">5.1.</strong> 关于应用篋borrowing_exerci</a></li><li class="expanded "><a href="../hello-borrowing/clone-copy.html" class="active"><strong aria-hidden="true">5.2.</strong> 特质：克隆（Clone）和复制（Copy）</a></li><li class="expanded "><a href="../hello-borrowing/reference-pointer.html"><strong aria-hidden="true">5.3.</strong> 引用Reference与指针Pointer基本概念</a></li><li class="expanded "><a href="../hello-borrowing/reference-type-pointer.html"><strong aria-hidden="true">5.4.</strong> 引用、类型与原始指针解释</a></li><li class="expanded "><a href="../hello-borrowing/keyword-move.html"><strong aria-hidden="true">5.5.</strong> 应用篋：移动关键词move</a></li><li class="expanded "><a href="../hello-borrowing/borrowing-simple.html"><strong aria-hidden="true">5.6.</strong> 应用篋：简单借用方法</a></li><li class="expanded "><a href="../hello-borrowing/borrowing-reference.html"><strong aria-hidden="true">5.7.</strong> 应用篋：引用借用实例</a></li><li class="expanded "><a href="../hello-borrowing/borrowing-pointer.html"><strong aria-hidden="true">5.8.</strong> 应用篋：指针借用实例</a></li><li class="expanded "><a href="../hello-borrowing/borrowing-fixed-size.html"><strong aria-hidden="true">5.9.</strong> 应用篋：固定大小类型实例</a></li><li class="expanded "><a href="../hello-borrowing/borrowing-re-sizable.html"><strong aria-hidden="true">5.10.</strong> 应用篋：可变大小类型实例</a></li><li class="expanded "><a href="../hello-borrowing/stack_head.html"><strong aria-hidden="true">5.11.</strong> 应用篋：栈（Stack）和堆（Head）</a></li><li class="expanded "><a href="../hello-borrowing/borrowing-fn.html"><strong aria-hidden="true">5.12.</strong> 应用篋：函数借用方法</a></li><li class="expanded "><a href="../hello-borrowing/bin-lib.html"><strong aria-hidden="true">5.13.</strong> 题外话：应用篋的软件包结构</a></li><li class="expanded "><a href="../hello-borrowing/cargo-features.html"><strong aria-hidden="true">5.14.</strong> 题外话：Cargo工具features功能</a></li><li class="expanded "><a href="../hello-borrowing/crates.html"><strong aria-hidden="true">5.15.</strong> 题外话：介绍几个软件篋</a></li></ol></li><li class="expanded "><a href="../hello-deref/index.html"><strong aria-hidden="true">6.</strong> 软件篋deref_exerci</a></li><li><ol class="section"><li class="expanded "><a href="../hello-deref/about.html"><strong aria-hidden="true">6.1.</strong> 关于软件篋deref_exerci</a></li><li class="expanded "><a href="../hello-deref/develop.html"><strong aria-hidden="true">6.2.</strong> 开发软件篋deref_exerci</a></li><li class="expanded "><a href="../hello-deref/apply.html"><strong aria-hidden="true">6.3.</strong> 使用软件篋deref_exerci</a></li></ol></li><li class="expanded "><a href="../hello-macro/index.html"><strong aria-hidden="true">7.</strong> 软件篋macro_exerci</a></li><li><ol class="section"><li class="expanded "><a href="../hello-macro/about.html"><strong aria-hidden="true">7.1.</strong> 关于软件篋macro_exerci</a></li><li class="expanded "><a href="../hello-macro/develop.html"><strong aria-hidden="true">7.2.</strong> 开发软件篋macro_exerci</a></li><li class="expanded "><a href="../hello-macro/apply.html"><strong aria-hidden="true">7.3.</strong> 使用软件篋macro_exerci</a></li></ol></li><li class="expanded "><a href="../hello-generics/**README.html"><strong aria-hidden="true">8.</strong> 软件篋generics_exerci</a></li><li><ol class="section"><li class="expanded "><a href="../hello-generics/about.html"><strong aria-hidden="true">8.1.</strong> 关于软件篋generics_exerci</a></li><li class="expanded "><a href="../hello-generics/develop.html"><strong aria-hidden="true">8.2.</strong> 开发软件篋generics_exerci</a></li><li class="expanded "><a href="../hello-generics/apply.html"><strong aria-hidden="true">8.3.</strong> 使用软件篋generics_exerci</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -149,6 +152,85 @@
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#克隆clone和复制copy" id="克隆clone和复制copy">克隆（Clone）和复制（Copy）</a></h1>
+<p>use_clone_array.rs</p>
+<h2><a class="header" href="#复制copy和克隆clone有什么区别" id="复制copy和克隆clone有什么区别">复制（Copy）和克隆（Clone）有什么区别？</a></h2>
+<h3><a class="header" href="#表达方式不同" id="表达方式不同">表达方式不同</a></h3>
+<p>Copies happen implicitly, for example as part of an assignment y = x. The behavior of Copy is not overloadable; it is always a simple bit-wise copy.</p>
+<p>Rust is explicit first!!!
+Cloning is an explicit action, x.clone(). The implementation of Clone can provide any type-specific behavior necessary to duplicate values safely. For example, the implementation of Clone for String needs to copy the pointed-to string buffer in the heap. A simple bitwise copy of String values would merely copy the pointer, leading to a double free down the line. For this reason, String is Clone but not Copy.</p>
+<p>Clone is a supertrait of Copy, so everything which is Copy must also implement Clone. If a type is Copy then its Clone implementation only needs to return *self (see the example above).</p>
+<p>By the way, every Copy type is also required to be Clone. However, they are not required to do the same thing! For your own types, .clone() can be an arbitrary method of your choice, whereas implicit copying will always trigger a memcpy, not the clone(&amp;self) implementation.</p>
+<p>复制：
+y = x</p>
+<p>克隆
+y = x.clone()</p>
+<p>Arrays with Copy elements are intrinsically Copy themselves, so the Clone implementation can trivially dereference and return self by-value.</p>
+<p>具有Copy元素的数组本质上就是复制自身，因此Clone实现可以琐碎地取消引用并返回自身按值。</p>
+<h3><a class="header" href="#内部实现不同" id="内部实现不同">内部实现不同</a></h3>
+<p>Clone is designed for arbitrary duplications: a Clone implementation for a type T can do arbitrarily complicated operations required to create a new T. It is a normal trait (other than being in the prelude), and so requires being used like a normal trait, with method calls, etc.</p>
+<p>The Copy trait represents values that can be safely duplicated via memcpy: things like reassignments and passing an argument by-value to a function are always memcpys, and so for Copy types, the compiler understands that it doesn't need to consider those a move.</p>
+<h3><a class="header" href="#类型区别不同" id="类型区别不同">类型区别不同</a></h3>
+<p>Copy is meant to be implemented for &quot;cheap&quot; types, such as u8 in the example. If you write a quite heavyweight type, for which you think a move is more efficient than a copy, make it not impl Copy. Note that in the u8 case, you cannot possibly be more efficient with a move, since under the hood it would probably at least entail a pointer copy -- which is already as expensive as a u8 copy, so why bother.</p>
+<h2><a class="header" href="#问题when-should-my-type-be-copy" id="问题when-should-my-type-be-copy">问题：When should my type be Copy?</a></h2>
+<p>Always. If it warns add Copy unless you have a really good reason not to do that.
+总是。 如果警告显示，请添加“复制”，除非您有充分的理由不这样做。</p>
+<p>According to the docs, Copy should be implemented for all types that is possible. </p>
+<p>Even if your huge struct is Copy there is nothing that prevents you from passing it by reference. Copy just makes copying more convenient. Besides, if you do something like this:</p>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+fn main() {
+</span>struct Huge {}
+let a = Huge::new(); // and Huge implements Copy
+let b = a;
+// continue to work with 'b' here, never touch 'a' again.
+<span class="boring">}
+</code></pre></pre>
+<p>then LLVM will happily optimize the copy away. Personally I would recommend deriving Copy for all types that can, with the exception of types that control access to some kind of resource (but in that case perhaps you don't want them to implement Clone either).</p>
+<p>Right, but what if I accidentally continued to use a after is was copied? I would prefer to have the compiler tell me that I (possibly) unnecessarily copied a large struct and that if I really intended on doing that, I should do it explicitly with .clone().</p>
+<h2><a class="header" href="#为什么存在克隆" id="为什么存在克隆">为什么存在克隆？</a></h2>
+<p>That’s reserved for Clone. There are two reasons:</p>
+<p>a Copy copy can be caused by something innocuous like a = b or a function call; it should not be allowed to execute arbitrary code</p>
+<p>a move (which is possible for all types) is (under the hood) always the same as a copy, just that the compiler doesn’t let you access the source anymore</p>
+<p>Copy requires that the value can be copied using a simple memcpy of the bytes on the stack. But copying a String not only needs to copy the value on the stack (which is just capacity, length and a pointer to the contents) but also to create a new allocation that duplicates the contents.</p>
+<p>This is also why Rc, while cheap, cannot be Copy: it needs to increment the reference counter.</p>
+<p>o ensure your remark:</p>
+<ul>
+<li>String is copyable, use .clone()</li>
+<li>String is not implicitly copyable, because that would cause non-obvious memory allocations to occur</li>
+</ul>
+<h2><a class="header" href="#两种不同特质实现" id="两种不同特质实现">两种不同特质实现</a></h2>
+<p>This explicitness shows in the two traits you have here:</p>
+<p>Clone is about indicating how to create a new instance, and must be called explicitly. Most types (but not all) can be copied using it.</p>
+<p>Copy is a specific compiler trait which indicates that the developer wishes to activate implicit copying for the type; it is only available if a shallow copy is equivalent to a deep copy, which ensures that no memory allocation will occur as part of those implicit copies</p>
+<h2><a class="header" href="#代码说明" id="代码说明">代码说明</a></h2>
+<pre><pre class="playpen"><code class="language-rust"><span class="boring">[derive(Debug, Clone, Copy)]
+</span>struct Point { x: i32, y: i32 }
+
+fn main() {
+    let a = Point{x:3,y:4};
+    let b = a; // line#1:  call copy method
+    
+    let c = b.clone(); // is some difference here with last statement line#1 ?
+
+   println!(&quot;origin={:?} copied={:?} cloned={:?}&quot;,a,b,c);
+}
+</code></pre></pre>
+<p>The short explanation is “Clone is a way of copying a type that can run arbitrary code. Copy is a way of copying a type that just takes a memcpy.” Since Clone is more general than Copy, you can automatically make anything Copy Clone as well.</p>
+<p>In your case, they’re the same. you’re just using a different method.</p>
+<h3><a class="header" href="#问题" id="问题">问题</a></h3>
+<p>Can I understand as Clone is a deep-copy, and Copy is shadow-copy? </p>
+<p>Clone opens the possibility that the type might do either a deep or shallow copy: &quot;arbitrarily complicated&quot;. </p>
+<h2><a class="header" href="#参考资料" id="参考资料">参考资料</a></h2>
+<ul>
+<li><a href="https://doc.rust-lang.org/std/marker/trait.Copy.html">std/marker/trait.Copy</a></li>
+<li><a href="https://doc.rust-lang.org/std/marker/trait.Copy.html#whats-the-difference-between-copy-and-clone">whats-the-difference-between-copy-and-clone</a></li>
+<li><a href="https://stackoverflow.com/questions/31012923/what-is-the-difference-between-copy-and-clone">what-is-the-difference-between-copy-and-clone</a></li>
+<li><a href="https://users.rust-lang.org/t/whats-the-difference-between-trait-copy-and-clone/2609">whats-the-difference-between-trait-copy-and-clone</a></li>
+<li><a href="https://www.reddit.com/r/rust/comments/2xxjda/when_should_my_type_be_copy/">when_should_my_type_be_copy</a></li>
+<li><a href="https://users.rust-lang.org/t/cant-derive-copy-because-of-string/18665/11">cant-derive-copy-because-of-string</a></li>
+<li><a href="https://stackoverflow.com/questions/38215753/how-do-i-implement-copy-and-clone-for-a-type-that-contains-a-string">how-do-i-implement-copy-and-clone-for-a-type-that-contains-a-string</a></li>
+<li><a href="https://stackoverflow.com/questions/38304666/how-to-define-a-copyable-struct-containing-a-string">how-to-define-a-copyable-struct-containing-a-string</a></li>
+</ul>
 
                     </main>
 
@@ -161,7 +243,7 @@
                         
 
                         
-                            <a rel="next" href="../hello-borrowing/borrowing-var.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../hello-borrowing/reference-pointer.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -179,7 +261,7 @@
                 
 
                 
-                    <a href="../hello-borrowing/borrowing-var.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="../hello-borrowing/reference-pointer.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
@@ -204,6 +286,18 @@
         </script>
         
 
+        
+
+        
+        <script type="text/javascript">
+            window.playpen_line_numbers = true;
+        </script>
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
         
 
         
