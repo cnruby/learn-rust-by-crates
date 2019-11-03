@@ -65,7 +65,7 @@
   - [关于软件篋macro_exerci](./hello-macro/about.md)
   - [开发软件篋macro_exerci](./hello-macro/develop.md)
   - [使用软件篋macro_exerci](./hello-macro/apply.md)
-- [软件篋generics_exerci](./hello-generics/**README.md)
+- [软件篋generics_exerci](./hello-generics/README.md)
   - [关于软件篋generics_exerci](./hello-generics/about.md)
   - [开发软件篋generics_exerci](./hello-generics/develop.md)
   - [使用软件篋generics_exerci](./hello-generics/apply.md)
