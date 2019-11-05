@@ -26,6 +26,8 @@ cargo run --bin bwx conv clone_derive
 // get a help for clone_derive
 cargo run --bin bwx clone_derive
 
+cargo run --bin bwx conv closure_string
+cargo run --bin bwx closure_string | bat -l rs
 
 cargo run --bin bwx conv closure_vec
 cargo run --bin bwx closure_vec | bat -l rs
@@ -50,6 +52,9 @@ cargo run --bin bwx dbg_marco | bat -l rs
 
 cargo run --bin bwx conv string_type
 cargo run --bin bwx string_type | bat -l rs
+
+cargo run --bin bwx conv string_type_str
+cargo run --bin bwx string_type_str | bat -l rs
 
 cargo run --bin bwx conv move_tuple
 cargo run --bin bwx move_tuple | bat -l rs

@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="zh" class="sidebar-visible no-js light">
+<html lang="zh" class="sidebar-visible no-js">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -35,11 +35,11 @@
         <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         
     </head>
-    <body>
+    <body class="light">
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "../";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+            var default_theme = "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -63,11 +63,8 @@
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            var html = document.querySelector('html');
-            html.classList.remove('no-js')
-            html.classList.remove('light')
-            html.classList.add(theme);
-            html.classList.add('js');
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
@@ -83,8 +80,8 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div id="sidebar-scrollbox" class="sidebar-scrollbox">
-                <ol class="chapter"><li class="expanded "><a href="../foreword/index.html"><strong aria-hidden="true">1.</strong> 前言</a></li><li><ol class="section"><li class="expanded "><a href="../foreword/about.html"><strong aria-hidden="true">1.1.</strong> 本书项目结构</a></li><li class="expanded "><a href="../foreword/crate.html"><strong aria-hidden="true">1.2.</strong> 关于作业区和软件篋实例</a></li><li class="expanded "><a href="../foreword/cargo.html"><strong aria-hidden="true">1.3.</strong> 关于Cargo工具基础命令</a></li><li class="expanded "><a href="../foreword/rust.html"><strong aria-hidden="true">1.4.</strong> Rust语言新思维和新概念</a></li></ol></li><li class="expanded "><a href="../hello-world/index.html"><strong aria-hidden="true">2.</strong> 软件篋hello_exercism</a></li><li><ol class="section"><li class="expanded "><a href="../hello-world/about.html"><strong aria-hidden="true">2.1.</strong> 关于软件篋项目</a></li><li class="expanded "><a href="../hello-world/commands-lib.html"><strong aria-hidden="true">2.2.</strong> 共享篋：开发命令</a></li><li class="expanded "><a href="../hello-world/lib.html"><strong aria-hidden="true">2.3.</strong> 共享篋：程序代码解释</a></li><li class="expanded "><a href="../hello-world/lib-tests.html"><strong aria-hidden="true">2.4.</strong> 共享篋：目录tests的测试代码解释</a></li><li class="expanded "><a href="../hello-world/src-tests.html"><strong aria-hidden="true">2.5.</strong> 共享篋：目录src的测试代码解释</a></li><li class="expanded "><a href="../hello-world/commands-local.html"><strong aria-hidden="true">2.6.</strong> 本地程序：开发命令</a></li><li class="expanded "><a href="../hello-world/bin-local.html"><strong aria-hidden="true">2.7.</strong> 本地程序：程序代码解释</a></li><li class="expanded "><a href="../hello-world/commands-bin.html"><strong aria-hidden="true">2.8.</strong> 仓库程序：开发命令</a></li><li class="expanded "><a href="../hello-world/bin.html"><strong aria-hidden="true">2.9.</strong> 仓库程序：程序代码解释</a></li><li class="expanded "><a href="../hello-world/off-topic.html"><strong aria-hidden="true">2.10.</strong> 题外话</a></li></ol></li><li class="expanded "><a href="../hello-trait/index.html"><strong aria-hidden="true">3.</strong> 软件篋trait_exerci</a></li><li><ol class="section"><li class="expanded "><a href="../hello-trait/examples-struct.html"><strong aria-hidden="true">3.1.</strong> 类型关键词struct</a></li><li class="expanded "><a href="../hello-trait/examples-impl.html"><strong aria-hidden="true">3.2.</strong> 关键词impl与方法代码实现</a></li><li class="expanded "><a href="../hello-trait/examples-methods.html"><strong aria-hidden="true">3.3.</strong> 函数与方法代码实现</a></li><li class="expanded "><a href="../hello-trait/examples-trait.html"><strong aria-hidden="true">3.4.</strong> 衔接关键词trait</a></li><li class="expanded "><a href="../hello-trait/examples-trait-impl.html"><strong aria-hidden="true">3.5.</strong> 特质实现及其对象</a></li><li class="expanded "><a href="../hello-trait/examples-trait-default.html"><strong aria-hidden="true">3.6.</strong> 题外话：默认衔接特质Default</a></li><li class="expanded "><a href="../hello-trait/lib-structure.html"><strong aria-hidden="true">3.7.</strong> 程序代码结构</a></li><li class="expanded "><a href="../hello-trait/about.html"><strong aria-hidden="true">3.8.</strong> 关于软件篋项目</a></li><li class="expanded "><a href="../hello-trait/commands-lib.html"><strong aria-hidden="true">3.9.</strong> 共享篋：开发命令</a></li><li class="expanded "><a href="../hello-trait/lib-codes.html"><strong aria-hidden="true">3.10.</strong> 共享篋：程序代码解释</a></li><li class="expanded "><a href="../hello-trait/lib-tests.html"><strong aria-hidden="true">3.11.</strong> 共享篋：目录测试代码解释</a></li><li class="expanded "><a href="../hello-trait/off-topic.html"><strong aria-hidden="true">3.12.</strong> 题外话</a></li></ol></li><li class="expanded "><a href="../hello-mod-trait/index.html"><strong aria-hidden="true">4.</strong> 软件篋mod_trait_exerci</a></li><li><ol class="section"><li class="expanded "><a href="../hello-mod-trait/about.html"><strong aria-hidden="true">4.1.</strong> 关于软件篋mod_trait_exerci</a></li><li class="expanded "><a href="../hello-mod-trait/crate-structure.html"><strong aria-hidden="true">4.2.</strong> 文件与模块</a></li><li class="expanded "><a href="../hello-mod-trait/lib-codes.html"><strong aria-hidden="true">4.3.</strong> 共享篋：程序结构和代码解释</a></li><li class="expanded "><a href="../hello-mod-trait/exampels-codes.html"><strong aria-hidden="true">4.4.</strong> 三种调用方式解释</a></li><li class="expanded "><a href="../hello-mod-trait/examples-dispatch.html"><strong aria-hidden="true">4.5.</strong> 理解动态与静态调度实现</a></li><li class="expanded "><a href="../hello-mod-trait/examples-miri.html"><strong aria-hidden="true">4.6.</strong> 深度解析动态与静态调度实现</a></li><li class="expanded "><a href="../hello-mod-trait/lib-fn.html"><strong aria-hidden="true">4.7.</strong> 共享篋：简单三层结构实现</a></li><li class="expanded "><a href="../hello-mod-trait/lib-static.html"><strong aria-hidden="true">4.8.</strong> 共享篋：基于封装的静态调度实现</a></li><li class="expanded "><a href="../hello-mod-trait/lib-dynamic.html"><strong aria-hidden="true">4.9.</strong> 共享篋：基于封装的动态调度实现</a></li><li class="expanded "><a href="../hello-mod-trait/lib-tests.html"><strong aria-hidden="true">4.10.</strong> 共享篋：单元测试代码解释</a></li><li class="expanded "><a href="../hello-mod-trait/off-topic.html"><strong aria-hidden="true">4.11.</strong> 题外话：泛型实例</a></li></ol></li><li class="expanded "><a href="../hello-borrowing/index.html"><strong aria-hidden="true">5.</strong> 软件篋borrowing_exerci</a></li><li><ol class="section"><li class="expanded "><a href="../hello-borrowing/about.html"><strong aria-hidden="true">5.1.</strong> 关于应用篋borrowing_exerci</a></li><li class="expanded "><a href="../hello-borrowing/clone-copy.html"><strong aria-hidden="true">5.2.</strong> 特质：克隆（Clone）和复制（Copy）</a></li><li class="expanded "><a href="../hello-borrowing/reference-pointer.html"><strong aria-hidden="true">5.3.</strong> 引用Reference与指针Pointer基本概念</a></li><li class="expanded "><a href="../hello-borrowing/reference-type-pointer.html" class="active"><strong aria-hidden="true">5.4.</strong> 引用、类型与原始指针解释</a></li><li class="expanded "><a href="../hello-borrowing/keyword-move.html"><strong aria-hidden="true">5.5.</strong> 应用篋：移动关键词move</a></li><li class="expanded "><a href="../hello-borrowing/borrowing-simple.html"><strong aria-hidden="true">5.6.</strong> 应用篋：简单借用方法</a></li><li class="expanded "><a href="../hello-borrowing/borrowing-reference.html"><strong aria-hidden="true">5.7.</strong> 应用篋：引用借用实例</a></li><li class="expanded "><a href="../hello-borrowing/borrowing-pointer.html"><strong aria-hidden="true">5.8.</strong> 应用篋：指针借用实例</a></li><li class="expanded "><a href="../hello-borrowing/borrowing-fixed-size.html"><strong aria-hidden="true">5.9.</strong> 应用篋：固定大小类型实例</a></li><li class="expanded "><a href="../hello-borrowing/borrowing-re-sizable.html"><strong aria-hidden="true">5.10.</strong> 应用篋：可变大小类型实例</a></li><li class="expanded "><a href="../hello-borrowing/stack_head.html"><strong aria-hidden="true">5.11.</strong> 应用篋：栈（Stack）和堆（Head）</a></li><li class="expanded "><a href="../hello-borrowing/borrowing-fn.html"><strong aria-hidden="true">5.12.</strong> 应用篋：函数借用方法</a></li><li class="expanded "><a href="../hello-borrowing/bin-lib.html"><strong aria-hidden="true">5.13.</strong> 题外话：应用篋的软件包结构</a></li><li class="expanded "><a href="../hello-borrowing/cargo-features.html"><strong aria-hidden="true">5.14.</strong> 题外话：Cargo工具features功能</a></li><li class="expanded "><a href="../hello-borrowing/crates.html"><strong aria-hidden="true">5.15.</strong> 题外话：介绍几个软件篋</a></li></ol></li><li class="expanded "><a href="../hello-deref/index.html"><strong aria-hidden="true">6.</strong> 软件篋deref_exerci</a></li><li><ol class="section"><li class="expanded "><a href="../hello-deref/about.html"><strong aria-hidden="true">6.1.</strong> 关于软件篋deref_exerci</a></li><li class="expanded "><a href="../hello-deref/develop.html"><strong aria-hidden="true">6.2.</strong> 开发软件篋deref_exerci</a></li><li class="expanded "><a href="../hello-deref/apply.html"><strong aria-hidden="true">6.3.</strong> 使用软件篋deref_exerci</a></li></ol></li><li class="expanded "><a href="../hello-macro/index.html"><strong aria-hidden="true">7.</strong> 软件篋macro_exerci</a></li><li><ol class="section"><li class="expanded "><a href="../hello-macro/about.html"><strong aria-hidden="true">7.1.</strong> 关于软件篋macro_exerci</a></li><li class="expanded "><a href="../hello-macro/develop.html"><strong aria-hidden="true">7.2.</strong> 开发软件篋macro_exerci</a></li><li class="expanded "><a href="../hello-macro/apply.html"><strong aria-hidden="true">7.3.</strong> 使用软件篋macro_exerci</a></li></ol></li><li class="expanded "><a href="../hello-generics/index.html"><strong aria-hidden="true">8.</strong> 软件篋generics_exerci</a></li><li><ol class="section"><li class="expanded "><a href="../hello-generics/about.html"><strong aria-hidden="true">8.1.</strong> 关于软件篋generics_exerci</a></li><li class="expanded "><a href="../hello-generics/develop.html"><strong aria-hidden="true">8.2.</strong> 开发软件篋generics_exerci</a></li><li class="expanded "><a href="../hello-generics/apply.html"><strong aria-hidden="true">8.3.</strong> 使用软件篋generics_exerci</a></li></ol></li></ol>
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li><a href="../foreword/index.html"><strong aria-hidden="true">1.</strong> 前言</a></li><li><ol class="section"><li><a href="../foreword/about.html"><strong aria-hidden="true">1.1.</strong> 本书项目结构</a></li><li><a href="../foreword/crate.html"><strong aria-hidden="true">1.2.</strong> 关于作业区和软件篋实例</a></li><li><a href="../foreword/cargo.html"><strong aria-hidden="true">1.3.</strong> 关于Cargo工具基础命令</a></li><li><a href="../foreword/rust.html"><strong aria-hidden="true">1.4.</strong> Rust语言新思维和新概念</a></li></ol></li><li><a href="../hello-world/index.html"><strong aria-hidden="true">2.</strong> 软件篋hello_exercism</a></li><li><ol class="section"><li><a href="../hello-world/about.html"><strong aria-hidden="true">2.1.</strong> 关于软件篋项目</a></li><li><a href="../hello-world/commands-lib.html"><strong aria-hidden="true">2.2.</strong> 共享篋：开发命令</a></li><li><a href="../hello-world/lib.html"><strong aria-hidden="true">2.3.</strong> 共享篋：程序代码解释</a></li><li><a href="../hello-world/lib-tests.html"><strong aria-hidden="true">2.4.</strong> 共享篋：目录tests的测试代码解释</a></li><li><a href="../hello-world/src-tests.html"><strong aria-hidden="true">2.5.</strong> 共享篋：目录src的测试代码解释</a></li><li><a href="../hello-world/commands-local.html"><strong aria-hidden="true">2.6.</strong> 本地程序：开发命令</a></li><li><a href="../hello-world/bin-local.html"><strong aria-hidden="true">2.7.</strong> 本地程序：程序代码解释</a></li><li><a href="../hello-world/commands-bin.html"><strong aria-hidden="true">2.8.</strong> 仓库程序：开发命令</a></li><li><a href="../hello-world/bin.html"><strong aria-hidden="true">2.9.</strong> 仓库程序：程序代码解释</a></li><li><a href="../hello-world/off-topic.html"><strong aria-hidden="true">2.10.</strong> 题外话</a></li></ol></li><li><a href="../hello-trait/index.html"><strong aria-hidden="true">3.</strong> 软件篋trait_exerci</a></li><li><ol class="section"><li><a href="../hello-trait/examples-struct.html"><strong aria-hidden="true">3.1.</strong> 类型关键词struct</a></li><li><a href="../hello-trait/examples-impl.html"><strong aria-hidden="true">3.2.</strong> 关键词impl与方法代码实现</a></li><li><a href="../hello-trait/examples-methods.html"><strong aria-hidden="true">3.3.</strong> 函数与方法代码实现</a></li><li><a href="../hello-trait/examples-trait.html"><strong aria-hidden="true">3.4.</strong> 衔接关键词trait</a></li><li><a href="../hello-trait/examples-trait-impl.html"><strong aria-hidden="true">3.5.</strong> 特质实现及其对象</a></li><li><a href="../hello-trait/examples-trait-default.html"><strong aria-hidden="true">3.6.</strong> 题外话：默认衔接特质Default</a></li><li><a href="../hello-trait/lib-structure.html"><strong aria-hidden="true">3.7.</strong> 程序代码结构</a></li><li><a href="../hello-trait/about.html"><strong aria-hidden="true">3.8.</strong> 关于软件篋项目</a></li><li><a href="../hello-trait/commands-lib.html"><strong aria-hidden="true">3.9.</strong> 共享篋：开发命令</a></li><li><a href="../hello-trait/lib-codes.html"><strong aria-hidden="true">3.10.</strong> 共享篋：程序代码解释</a></li><li><a href="../hello-trait/lib-tests.html"><strong aria-hidden="true">3.11.</strong> 共享篋：目录测试代码解释</a></li><li><a href="../hello-trait/off-topic.html"><strong aria-hidden="true">3.12.</strong> 题外话</a></li></ol></li><li><a href="../hello-mod-trait/index.html"><strong aria-hidden="true">4.</strong> 软件篋mod_trait_exerci</a></li><li><ol class="section"><li><a href="../hello-mod-trait/about.html"><strong aria-hidden="true">4.1.</strong> 关于软件篋mod_trait_exerci</a></li><li><a href="../hello-mod-trait/crate-structure.html"><strong aria-hidden="true">4.2.</strong> 文件与模块</a></li><li><a href="../hello-mod-trait/lib-codes.html"><strong aria-hidden="true">4.3.</strong> 共享篋：程序结构和代码解释</a></li><li><a href="../hello-mod-trait/exampels-codes.html"><strong aria-hidden="true">4.4.</strong> 三种调用方式解释</a></li><li><a href="../hello-mod-trait/examples-dispatch.html"><strong aria-hidden="true">4.5.</strong> 理解动态与静态调度实现</a></li><li><a href="../hello-mod-trait/examples-miri.html"><strong aria-hidden="true">4.6.</strong> 深度解析动态与静态调度实现</a></li><li><a href="../hello-mod-trait/lib-fn.html"><strong aria-hidden="true">4.7.</strong> 共享篋：简单三层结构实现</a></li><li><a href="../hello-mod-trait/lib-static.html"><strong aria-hidden="true">4.8.</strong> 共享篋：基于封装的静态调度实现</a></li><li><a href="../hello-mod-trait/lib-dynamic.html"><strong aria-hidden="true">4.9.</strong> 共享篋：基于封装的动态调度实现</a></li><li><a href="../hello-mod-trait/lib-tests.html"><strong aria-hidden="true">4.10.</strong> 共享篋：单元测试代码解释</a></li><li><a href="../hello-mod-trait/off-topic.html"><strong aria-hidden="true">4.11.</strong> 题外话：泛型实例</a></li></ol></li><li><a href="../hello-borrowing/index.html"><strong aria-hidden="true">5.</strong> 软件篋borrowing_exerci</a></li><li><ol class="section"><li><a href="../hello-borrowing/about.html"><strong aria-hidden="true">5.1.</strong> 关于应用篋borrowing_exerci</a></li><li><a href="../hello-borrowing/clone-copy.html"><strong aria-hidden="true">5.2.</strong> 特质：克隆（Clone）和复制（Copy）</a></li><li><a href="../hello-borrowing/reference-pointer.html"><strong aria-hidden="true">5.3.</strong> 引用Reference与指针Pointer基本概念</a></li><li><a href="../hello-borrowing/reference-type-pointer.html" class="active"><strong aria-hidden="true">5.4.</strong> 引用、类型与原始指针解释</a></li><li><a href="../hello-borrowing/borrowing-simple.html"><strong aria-hidden="true">5.5.</strong> 应用篋：简单借用方法</a></li><li><a href="../hello-borrowing/keyword-move.html"><strong aria-hidden="true">5.6.</strong> 应用篋：移动关键词move</a></li><li><a href="../hello-borrowing/borrowing-reference.html"><strong aria-hidden="true">5.7.</strong> 应用篋：引用借用实例</a></li><li><a href="../hello-borrowing/borrowing-pointer.html"><strong aria-hidden="true">5.8.</strong> 应用篋：指针借用实例</a></li><li><a href="../hello-borrowing/borrowing-fixed-size.html"><strong aria-hidden="true">5.9.</strong> 应用篋：固定大小类型实例</a></li><li><a href="../hello-borrowing/borrowing-re-sizable.html"><strong aria-hidden="true">5.10.</strong> 应用篋：可变大小类型实例</a></li><li><a href="../hello-borrowing/stack_head.html"><strong aria-hidden="true">5.11.</strong> 应用篋：栈（Stack）和堆（Head）</a></li><li><a href="../hello-borrowing/borrowing-fn.html"><strong aria-hidden="true">5.12.</strong> 应用篋：函数借用方法</a></li><li><a href="../hello-borrowing/bin-lib.html"><strong aria-hidden="true">5.13.</strong> 题外话：应用篋的软件包结构</a></li><li><a href="../hello-borrowing/cargo-features.html"><strong aria-hidden="true">5.14.</strong> 题外话：Cargo工具features功能</a></li><li><a href="../hello-borrowing/crates.html"><strong aria-hidden="true">5.15.</strong> 题外话：介绍几个软件篋</a></li></ol></li><li><a href="../hello-deref/index.html"><strong aria-hidden="true">6.</strong> 软件篋deref_exerci</a></li><li><ol class="section"><li><a href="../hello-deref/about.html"><strong aria-hidden="true">6.1.</strong> 关于软件篋deref_exerci</a></li><li><a href="../hello-deref/develop.html"><strong aria-hidden="true">6.2.</strong> 开发软件篋deref_exerci</a></li><li><a href="../hello-deref/apply.html"><strong aria-hidden="true">6.3.</strong> 使用软件篋deref_exerci</a></li></ol></li><li><a href="../hello-macro/index.html"><strong aria-hidden="true">7.</strong> 软件篋macro_exerci</a></li><li><ol class="section"><li><a href="../hello-macro/about.html"><strong aria-hidden="true">7.1.</strong> 关于软件篋macro_exerci</a></li><li><a href="../hello-macro/develop.html"><strong aria-hidden="true">7.2.</strong> 开发软件篋macro_exerci</a></li><li><a href="../hello-macro/apply.html"><strong aria-hidden="true">7.3.</strong> 使用软件篋macro_exerci</a></li></ol></li><li><a href="../hello-generics/index.html"><strong aria-hidden="true">8.</strong> 软件篋generics_exerci</a></li><li><ol class="section"><li><a href="../hello-generics/about.html"><strong aria-hidden="true">8.1.</strong> 关于软件篋generics_exerci</a></li><li><a href="../hello-generics/develop.html"><strong aria-hidden="true">8.2.</strong> 开发软件篋generics_exerci</a></li><li><a href="../hello-generics/apply.html"><strong aria-hidden="true">8.3.</strong> 使用软件篋generics_exerci</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -167,23 +164,24 @@
 <li><a href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">参考资料</a></li>
 </ul>
 <h2><a class="header" href="#引用类型str与原始指针关系图" id="引用类型str与原始指针关系图">引用类型<code>&amp;str</code>与原始指针关系图</a></h2>
-<p>　　字符串<code>String</code>类型由三个部分组成：指向原始指针的指针地址、其长度和容量。该指针地址指向内部缓冲字符串（buffer string），用于存储其数据。</p>
-<p>方法<code>as_ptr()</code>功能是将字符串切片转换为原始指针。
-方法<code>as_str()</code>功能是提取包含整个<code>String</code>的字符串切片。</p>
+<p><img src="../../hello-borrowing/images/hello_borrowing-07-pointers.png" alt="image" /></p>
 <pre><pre class="playpen"><code class="language-rust editable">// File: ./examples/use_raw_pointer_str.rs
 // clear &amp;&amp; cargo run --example use_raw_pointer_str | bat -l cmd
 
-<span class="boring">![allow(unused_variables)]
-</span>
+#![allow(unused_variables)]
+
 use std::slice;
 
 fn main() {
+    // ANCHOR: string-type-variable
     println!(&quot;&quot;);
     let instance :String = String::from(&quot;Hello&quot;);
     let ref_raw :*const u8 = instance.as_ptr();
     println!(&quot;instance value = {}&quot;, instance);
     println!(&quot;instance reference raw address = {:?}&quot;, ref_raw);
+    // ANCHOR_END: string-type-variable
 
+    // ANCHOR: str-type-variable
     println!(&quot;&quot;);
     let ref_str :&amp;str = &amp;instance;
     let ref_str = instance.as_str();
@@ -191,73 +189,217 @@ fn main() {
     let ref_str :&amp;str = &amp;instance[0..=4];
     println!(&quot;ref_str value = {}&quot;, ref_str);
     println!(&quot;ref_str owned address = {:p}&quot;, ref_str);    
-    let ref_str :*const u8 = ref_str.as_ptr();
+    let ref_raw_str :*const u8 = ref_str.as_ptr();
+    // ANCHOR_END: str-type-variable
 
-    assert_eq!(ref_raw, ref_str);
+    // ANCHOR: str-testing
+    assert_eq!(ref_raw, ref_raw_str);
+    // ANCHOR_END: str-testing
 
+    // ANCHOR: show-raw-address
     println!(&quot;&quot;);
-    let slice = unsafe { slice::from_raw_parts(&amp;ref_raw, 5) };
-    dbg!(slice);
+    let ref_slice :&amp;[*const u8] = unsafe { slice::from_raw_parts(&amp;ref_raw, 5) };
+    dbg!(ref_slice);
+    // ANCHOR_END: show-raw-address
 
-    assert_eq!(&amp;ref_raw, &amp;slice[0]);
+    // ANCHOR: raw-testing
+    assert_eq!(&amp;ref_raw, &amp;ref_slice[0]);
+    // ANCHOR_END: raw-testing
 
+    // ANCHOR: show-raw-u8
     println!(&quot;&quot;);
-    let slice = unsafe { slice::from_raw_parts(ref_raw, 5) };
-    dbg!(slice);
+    let u8_slice :&amp;[u8] = unsafe { slice::from_raw_parts(ref_raw, 5) };
+    dbg!(u8_slice);
+    // ANCHOR_END: show-raw-u8
 }
 </code></pre></pre>
-<p><img src="../../hello-borrowing/images/hello_borrowing-07-pointers.png" alt="image" /></p>
+<h3><a class="header" href="#第一段代码绑定字符串string类型的变量instance" id="第一段代码绑定字符串string类型的变量instance">第一段代码：绑定字符串<code>String</code>类型的变量<code>instance</code></a></h3>
+<pre><code class="language-rust no_run noplaypen">    println!(&quot;&quot;);
+    let instance :String = String::from(&quot;Hello&quot;);
+    let ref_raw :*const u8 = instance.as_ptr();
+    println!(&quot;instance value = {}&quot;, instance);
+    println!(&quot;instance reference raw address = {:?}&quot;, ref_raw);
+</code></pre>
+<p>　　在这一段代码里，第一个<code>let</code>绑定了字符串<code>String</code>类型变量<code>instance</code>。这样就产生了上面图的变量<code>instance</code>及其原始指针。</p>
+<p>　　字符串<code>String</code>类型由三个部分组成：指向原始指针的指针地址、其长度和容量。该指针地址指向内部缓冲字符串（buffer string），用于存储其数据。</p>
+<p>　　在这一段代码里，第二个<code>let</code>绑定了<code>*const u8</code>类型变量<code>ref_raw</code>。其中方法<code>as_ptr()</code>功能是将字符串切片转换为原始指针。</p>
+<h3><a class="header" href="#第二段代码绑定字符串文字str类型的变量instance" id="第二段代码绑定字符串文字str类型的变量instance">第二段代码：绑定字符串文字<code>&amp;str</code>类型的变量<code>instance</code></a></h3>
+<pre><code class="language-rust no_run noplaypen">    println!(&quot;&quot;);
+    let ref_str :&amp;str = &amp;instance;
+    let ref_str = instance.as_str();
+    let ref_str :&amp;str = instance.as_str();
+    let ref_str :&amp;str = &amp;instance[0..=4];
+    println!(&quot;ref_str value = {}&quot;, ref_str);
+    println!(&quot;ref_str owned address = {:p}&quot;, ref_str);    
+    let ref_raw_str :*const u8 = ref_str.as_ptr();
+</code></pre>
+<p>　　在这一段代码里，前面四个<code>let</code>绑定了字符串文字<code>＆str</code>类型变量<code>ref_str</code>，它们是完全等效的。其中方法<code>as_str()</code>功能是提取包含整个<code>String</code>的字符串切片。</p>
+<p>　　在这一段代码里，最后的<code>let</code>绑定了<code>*const u8</code>类型变量<code>ref_raw_str</code>。特别需要注意的是，变量<code>ref_raw_str</code>也是原始指针的地址。</p>
+<h3><a class="header" href="#第三段代码第一次验证原始指针地址" id="第三段代码第一次验证原始指针地址">第三段代码：第一次验证原始指针地址</a></h3>
+<p>　　这里将验证，第一段代码和第二段代码的原始指针变量<code>ref_raw</code>和<code>ref_raw_str</code>的地址是相等的。</p>
+<pre><code class="language-rust no_run noplaypen">    assert_eq!(ref_raw, ref_raw_str);
+</code></pre>
+<h3><a class="header" href="#第四段代码原始指针内存地址的数组切片" id="第四段代码原始指针内存地址的数组切片">第四段代码：原始指针内存地址的数组切片</a></h3>
+<p>　　在这一段代码里，使用了关键词<code>unsafe</code>，然后启动一个包含不安全代码的新代码块。该代码块存在方法from_raw_parts()，它是根据原始指针的引用及其长度返回一个内存地址数组切片。这数组切片的每一项是字符串其中一个字符的内存地址。</p>
+<pre><code class="language-rust no_run noplaypen">    println!(&quot;&quot;);
+    let ref_slice :&amp;[*const u8] = unsafe { slice::from_raw_parts(&amp;ref_raw, 5) };
+    dbg!(ref_slice);
+</code></pre>
+<h3><a class="header" href="#第五段代码第二次验证原始指针地址" id="第五段代码第二次验证原始指针地址">第五段代码：：第二次验证原始指针地址</a></h3>
+<p>　　这里将验证，两个原始指针，第一段代码的变量<code>ref_raw</code>和第四段代码数组切片<code>ref_slice</code>的第一项的地址是相等的。</p>
+<pre><code class="language-rust no_run noplaypen">    assert_eq!(&amp;ref_raw, &amp;ref_slice[0]);
+</code></pre>
+<h3><a class="header" href="#第六段代码原始指针字符值的数组切片" id="第六段代码原始指针字符值的数组切片">第六段代码：原始指针字符值的数组切片</a></h3>
+<p>　　在这一段代码里，使用了关键词<code>unsafe</code>，然后启动一个包含不安全代码的新代码块。该代码块存在方法from_raw_parts()，它是根据原始指针及其长度返回一个类型u8数组切片。这类型u8数组切片的每一项是字符串其中的一个字符值。</p>
+<pre><code class="language-rust no_run noplaypen">    println!(&quot;&quot;);
+    let u8_slice :&amp;[u8] = unsafe { slice::from_raw_parts(ref_raw, 5) };
+    dbg!(u8_slice);
+</code></pre>
+<h3><a class="header" href="#程序输出结果" id="程序输出结果">程序输出结果</a></h3>
+<p>　　该程序输出结果如下，可以比较上面的阐述：</p>
+<pre><code class="language-bash">[bin-hello/examples/use_raw_pointer_str.rs:35] ref_slice = [
+    0x00007fa772403730,
+    0x00000001034db528,
+    0x0000000000000002,
+    0x0000000000000000,
+    0x00007fff5c750d80,
+]
+[bin-hello/examples/use_raw_pointer_str.rs:45] u8_slice = [
+    72,
+    101,
+    108,
+    108,
+    111,
+]
+───────┬─────────────────────────────────────────────────────────────────────────
+       │ STDIN
+───────┼─────────────────────────────────────────────────────────────────────────
+   1   │ 
+   2   │ instance value = Hello
+   3   │ instance reference raw address = 0x7fa772403730
+   4   │ 
+   5   │ ref_str value = Hello
+   6   │ ref_str owned address = 0x7fa772403730
+   7   │ 
+   8   │ 
+───────┴─────────────────────────────────────────────────────────────────────────
+</code></pre>
 <h2><a class="header" href="#引用类型string与原始指针关系图" id="引用类型string与原始指针关系图">引用类型<code>&amp;String</code>与原始指针关系图</a></h2>
 <p><img src="../../hello-borrowing/images/hello_borrowing-01-pointers.png" alt="image" /></p>
 <pre><pre class="playpen"><code class="language-rust editable">// File: ./examples/use_raw_pointer_string.rs
 // clear &amp;&amp; cargo run --example use_raw_pointer_string | bat -l cmd
 
-<span class="boring">![allow(unused_variables)]
-</span>
+#![allow(unused_variables)]
+
 use std::slice;
 
 fn main() {
+    // ANCHOR: string-type-variable
     println!(&quot;&quot;);
     let instance :String = String::from(&quot;Hello&quot;);
     let ref_raw = instance.as_ptr();
     println!(&quot;instance value = {}&quot;, instance);
     println!(&quot;instance reference raw address = {:?}&quot;, ref_raw);
+    // ANCHOR_END: string-type-variable
 
+    // ANCHOR: string-ref-type-variable
     println!(&quot;&quot;);
     let ref_string :&amp;String = &amp;instance;
-    //let ref_string = &amp;instance;
+    let ref_string = &amp;instance;
     println!(&quot;ref_string value = {}&quot;, ref_string);
     println!(&quot;ref_string owned address = {:p}&quot;, ref_string);
-    let ref_string :*const u8 = ref_string.as_ptr();
+    let ref_raw_string :*const u8 = ref_string.as_ptr();
+    // ANCHOR_END: string-ref-type-variable
 
-    assert_eq!(ref_raw, ref_string);
+    // ANCHOR: string-testing
+    assert_eq!(ref_raw, ref_raw_string);
+    // ANCHOR_END: string-testing
 
     println!(&quot;&quot;);
-    let slice = unsafe { slice::from_raw_parts(&amp;ref_raw, 5) };
-    dbg!(slice);
+    let ref_slice = unsafe { slice::from_raw_parts(&amp;ref_raw, 5) };
+    dbg!(ref_slice);
     
-    assert_eq!(&amp;ref_raw, &amp;slice[0]);
+    // ANCHOR: raw-testing
+    assert_eq!(&amp;ref_raw, &amp;ref_slice[0]);
+    // ANCHOR_END: raw-testing
 
+    // ANCHOR: show-raw-u8
     println!(&quot;&quot;);
-    let slice = unsafe { slice::from_raw_parts(ref_raw, 5) };
-    dbg!(slice);
+    let u8_slice = unsafe { slice::from_raw_parts(ref_raw, 5) };
+    dbg!(u8_slice);
+    // ANCHOR: show-raw-u8
 }
 
 </code></pre></pre>
+<h3><a class="header" href="#第二段代码绑定字符串引用string类型的变量instance" id="第二段代码绑定字符串引用string类型的变量instance">第二段代码：绑定字符串引用<code>&amp;String</code>类型的变量<code>instance</code></a></h3>
+<pre><code class="language-rust no_run noplaypen">    println!(&quot;&quot;);
+    let ref_string :&amp;String = &amp;instance;
+    let ref_string = &amp;instance;
+    println!(&quot;ref_string value = {}&quot;, ref_string);
+    println!(&quot;ref_string owned address = {:p}&quot;, ref_string);
+    let ref_raw_string :*const u8 = ref_string.as_ptr();
+</code></pre>
+<p>　　这是唯一一段代码与前面实例代码不同的。在这一段代码里，前面两个<code>let</code>绑定了字符串引用<code>&amp;String</code>类型的变量<code>ref_string</code>，它们是完全等效的。特别需要指出的是，在关键词<code>let</code>等式右边类型定义有时候是必要的，尽管这个实例可以省略，但是在上面实例里，就是必须的。</p>
+<p>　　在这一段代码里，最后的<code>let</code>绑定了<code>*const u8</code>类型变量<code>ref_raw_string</code>。</p>
+<h3><a class="header" href="#程序输出结果-1" id="程序输出结果-1">程序输出结果</a></h3>
+<p>　　该程序输出结果如下。比较上面实例结果，可以看到：在这个实例结果只有两个内存地址是一样的，而上面实例有三个内存地址是完全相同的。上面两个结构图就是示意这个结果。</p>
+<pre><code>[bin-hello/examples/use_raw_pointer_string.rs:32] slice = [
+    0x00007fac6ac03770,
+    0x0000000101bc4520,
+    0x0000000000000002,
+    0x0000000000000000,
+    0x00007fff5e066ca0,
+]
+[bin-hello/examples/use_raw_pointer_string.rs:41] slice = [
+    72,
+    101,
+    108,
+    108,
+    111,
+]
+───────┬─────────────────────────────────────────────────────────────────────────
+       │ STDIN
+───────┼─────────────────────────────────────────────────────────────────────────
+   1   │ 
+   2   │ instance value = Hello
+   3   │ instance reference raw address = 0x7fac6ac03770
+   4   │ 
+   5   │ ref_string value = Hello
+   6   │ ref_string owned address = 0x7fff5e066ca0
+   7   │ 
+   8   │ 
+───────┴─────────────────────────────────────────────────────────────────────────
+</code></pre>
 <h2><a class="header" href="#引用类型与原始指针解释-1" id="引用类型与原始指针解释-1">引用、类型与原始指针解释</a></h2>
-<p>　　引用类型<code>&amp;String</code>与引用类型<code>&amp;str</code>的区别</p>
+<p>　　上面两个实例有什么不同？或者说，引用类型<code>&amp;String</code>与引用类型<code>&amp;str</code>的区别在哪里？</p>
+<p>　　引用类型<code>&amp;String</code>是通过类型<code>String</code>访问原始指针，而引用类型<code>&amp;str</code>是直接访问原始指针。引用类型<code>&amp;str</code>的方法是Rust语言借用系统的组成部分。这种方法更安全和更快速。我们把上面两个示意图合并到一起，如下所示：</p>
 <p><img src="../../hello-borrowing/images/hello_borrowing-06-pointers.png" alt="image" /></p>
-<p>　　Rust语言的数据类型可以理解为是一种复杂的“引用”类型。</p>
+<p>　　从下面示意图可以看到，Rust语言的数据类型可以理解为是一种复杂的“引用”类型。引用类型主要是储存内存地址，而数据类型尽管也储存内存地址，但其重点是储存数据。</p>
 <p><img src="../../hello-borrowing/images/hello_borrowing-02_references.png" alt="image" /></p>
 <h3><a class="header" href="#软件篋chars" id="软件篋chars">软件篋Cha(rs)</a></h3>
-<p>cargo install chars
-chars 'H'</p>
+<p>　　工具Cha(rs)可以显示各种ASCII和unicode字符/代码指针的名称和编码号。</p>
+<pre><code class="language-bash"># install
+cargo install chars
+# use
+chars 'H'
+</code></pre>
 <h3><a class="header" href="#软件篋ripgrep" id="软件篋ripgrep">软件篋ripgrep</a></h3>
-<p>cargo install ripgrep
-ifconfig | rg netmask</p>
+<p>　　ripgrep是一款系统终端的搜索工具，类似于ack和grep。</p>
+<pre><code class="language-bash"># install
+cargo install ripgrep
+# use
+ifconfig | rg netmask
+</code></pre>
 <h2><a class="header" href="#参考资料" id="参考资料">参考资料</a></h2>
 <ul>
+<li><a href="https://words.steveklabnik.com/pointers-in-rust-a-guide">pointers-in-rust-a-guide</a></li>
+<li><a href="https://www.cs.brandeis.edu/%7Ecs146a/rust/doc-02-21-2015/book/pointers.html">www.cs.brandeis.edu pointers</a></li>
 <li><a href="https://doc.rust-lang.org/std/string/struct.String.html">std string struct.String</a></li>
+<li><a href="https://apprize.info/programming/rust/5.html">Programming Rust (2016)</a></li>
+<li><a href="http://chenju2k6.github.io/blog/2019/05/rustlearn">rust learn</a></li>
+<li><a href="https://users.rust-lang.org/t/which-problems-does-owning-ref-solve/29245/4">which-problems-does-owning-ref-solve</a></li>
+<li><a href="https://crates.io/crates/chars">crates chars</a></li>
+<li><a href="https://crates.io/crates/ripgrep">crates ripgrep</a></li>
 </ul>
 
                     </main>
@@ -271,7 +413,7 @@ ifconfig | rg netmask</p>
                         
 
                         
-                            <a rel="next" href="../hello-borrowing/keyword-move.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../hello-borrowing/borrowing-simple.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -289,7 +431,7 @@ ifconfig | rg netmask</p>
                 
 
                 
-                    <a href="../hello-borrowing/keyword-move.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="../hello-borrowing/borrowing-simple.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
@@ -314,18 +456,6 @@ ifconfig | rg netmask</p>
         </script>
         
 
-        
-
-        
-        <script type="text/javascript">
-            window.playpen_line_numbers = true;
-        </script>
-        
-        
-        
-        <script type="text/javascript">
-            window.playpen_copyable = true;
-        </script>
         
 
         

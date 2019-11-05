@@ -11,6 +11,7 @@ description = "Chinese"
 build-dir = "../zh-volumn-one"
 
 [output.html]
+# $$\text{只有心灵的淡定宁静，继而产生的身心愉悦，才是幸福的真正源泉}$$
 mathjax-support = true
 
 [output.html.playpen]
@@ -26,5 +27,3 @@ boost-hierarchy = 2
 boost-paragraph = 1
 expand = true
 heading-split-level = 2
-
-#[preprocessor.bookimport]

@@ -1,24 +1,28 @@
-#![allow(unused_variables)]
+// File: ./examples/string_type.rs
+// clear && cargo run --example string_type_str --features ok | bat -l rs
+// clear && cargo run --example string_type_str --features err
 
 #[cfg(feature = "ok")]
+// ANCHOR: feature-ok
 fn main() {
-    let instance = String::from("hello");
-    println!("{}", instance);
+    let instance = String::from("Hello");
+    let raw_instance = instance.as_str();
+    println!("raw_instance = {:p}", raw_instance);
 
-    // The variable `instance` begin to borrow here
-    let borrow_instance_str = instance.as_str();
-    // The variable `instance` borrowed here
+    let borrow_instance :&str = &instance;
+    println!("borrow_instance = {:p}", borrow_instance);
 
     println!("{}", instance);
-    // The variable `instance` end to borrow here
+    println!("{}", borrow_instance);
 }
+// ANCHOR_END: feature-ok
 
 #[cfg(feature = "err")]
+// ANCHOR: feature-err
 fn main() {
     // move occurs because `instance` has type `std::string::String`,
     // which does not implement the `Copy` trait
     let instance = String::from("hello");
-    println!("{}", instance);
 
     // The variable `instance` begin to move here
     let copy_instance = instance;
@@ -26,7 +30,9 @@ fn main() {
 
     // ERROR: The variable `instance` borrowed here after move
     println!("{}", instance);
+    println!("{}", copy_instance);
 }
+// ANCHOR_END: feature-err
 
 #[cfg(all(not(feature = "ok"), not(feature = "err")))]
 fn main() {

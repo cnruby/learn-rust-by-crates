@@ -41,6 +41,7 @@ args:
             - move_vec
             - move_tuple
             - string_type
+            - string_type_str
             - string_mut_type
             - string_thread
             - string_ref_thread

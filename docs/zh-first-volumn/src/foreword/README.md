@@ -50,7 +50,7 @@ _mdbook version 0.3.4_ [![crates.io](https://img.shields.io/crates/v/mdbook.svg)
 - [Rust官方网站](https://www.rust-lang.org/)
 - [rustup官方网站](https://rustup.rs/)
 - [Cargo项目源代码](https://github.com/rust-lang/cargo)
-- [Crates s.io官方网站](https://crates.io/)
+- [Crates.io官方网站](https://crates.io/)
 
 ## Rust语言入门在线图书
 - [官方网站: The Rust Programming Language](https://doc.rust-lang.org/book/)
@@ -81,3 +81,4 @@ _mdbook version 0.3.4_ [![crates.io](https://img.shields.io/crates/v/mdbook.svg)
 - [The Rust Playground Codes](https://gist.github.com/rust-play)
 - [stable error-index](https://doc.rust-lang.org/stable/error-index.html)
 - [markdown basics](https://daringfireball.net/projects/markdown/basics)
+- [Lib.rs — home for Rust crates](https://lib.rs/)

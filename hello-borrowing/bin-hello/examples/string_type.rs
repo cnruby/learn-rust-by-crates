@@ -1,3 +1,5 @@
+// File: ./examples/string_type.rs
+// clear && cargo run --example string_type --features err
 #![allow(unused_variables)]
 
 #[cfg(feature = "ok")]
@@ -5,12 +7,9 @@ fn main() {
     let instance = String::from("hello");
     println!("{}", instance);
 
-    // The variable `instance` begin to move here
     let copy_instance = instance;
-    // The variable `instance` moved here
 
-    // The variable `instance` borrowed here after move
-    // println!("{}", instance);
+    //println!("{}", instance);
 }
 
 #[cfg(feature = "err")]

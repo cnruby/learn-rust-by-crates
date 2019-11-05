@@ -5,6 +5,9 @@
 
 # 软件篋borrowing_exerci
 
+
+
+
 ## re-sizable type / dynamical type / resizable containers / a heap allocated value of type:
 - their size is not known at compile time, but they can grow or shrink at any time
 - capacity / length
