@@ -1,5 +1,5 @@
-// File: ./examples/use_u8_type_borrowing.rs
-// clear && cargo run --example use_u8_type_borrowing
+// File: ./examples/use_u8_type.rs
+// clear && cargo run --example use_u8_type
 
 fn main() {
     let instance = 42u8;

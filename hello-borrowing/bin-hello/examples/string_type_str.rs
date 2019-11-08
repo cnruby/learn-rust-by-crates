@@ -9,7 +9,7 @@ fn main() {
     let raw_instance = instance.as_str();
     println!("raw_instance = {:p}", raw_instance);
 
-    let borrow_instance :&str = &instance;
+    let borrow_instance: &str = &instance;
     println!("borrow_instance = {:p}", borrow_instance);
 
     println!("{}", instance);

@@ -3,10 +3,10 @@
 #![allow(unused_variables)]
 
 fn main() {
-    let instance :&str = "Hello";
+    let instance: &str = "Hello";
     let instance = "Hello";
 
-    let copy_instance :&str = instance;
+    let copy_instance: &str = instance;
     let copy_instance = instance;
 
     println!("instance reference address = {:p}", instance);

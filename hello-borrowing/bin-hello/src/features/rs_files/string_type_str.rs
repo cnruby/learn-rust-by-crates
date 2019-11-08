@@ -1,4 +1,4 @@
-pub const STRING_TYPE_STR_OK :&str = r#"// File: ./examples/string_type.rs
+pub const STRING_TYPE_STR_OK: &str = r#"// File: ./examples/string_type.rs
 
 fn main() {
     let instance = String::from("Hello");
@@ -13,7 +13,7 @@ fn main() {
 }
 "#;
 
-pub const STRING_TYPE_STR_ERR :&str = r#"// File: ./examples/string_type.rs
+pub const STRING_TYPE_STR_ERR: &str = r#"// File: ./examples/string_type.rs
 
 fn main() {
     let instance = String::from("hello");

@@ -1,4 +1,4 @@
-# 应用篋：简单借用方法
+# 应用篋：字符串类型借用方法
 
 ## 学习内容
 - 了解和学习Rust语言类型`String`借用实例
@@ -7,26 +7,35 @@
 
 - [变量生命周期](#变量生命周期)
 - [错误使用变量实例](#错误使用变量实例)
-- [借用变量代码实例](#借用变量代码实例)
-- [题外话](#题外话)
+- [借用机制代码实例](#借用机制代码实例)
 - [题外话](#题外话)
 - [开发工具`cargo-hack`](#开发工具cargo-hack)
 - [参考资料](#参考资料)
 
 ## 变量生命周期
 
-　　在英文解释中，无论是复制特质`Copy`，还是克隆特质`Clone`，都使用了动词`duplicate`，这明确说明了实际运作时，将再产生一份新对象即：原对象和复制对象。要是没有达到这个目的，就不能称之为复制或者克隆。
+　　在官方文档英文解释中，无论是复制特质`Copy`，还是克隆特质`Clone`，都使用了动词`duplicate`，这明确说明了实际运作时，将再产生一份新对象，即：原对象和复制对象。要是没有达到这个目的，就不能称之为复制或者克隆。
 
 ```rust
 let instance = String::from("Hello");
 let copy_instance = instance;
 ```
 
-　　在上面的代码实例里，尽管变量`instance`和`copy_instance`是不同的对象，且变量`copy_instance`是通过所谓”复制“方式产生的，但是它们不能同时使用。在第二个`let`语句结束以后，变量`instance`生命周期也就结束了，之后就不能再使用它了。这是因为类型`String`没有复制特质`Copy`的实现。这种”复制“没有产生第二个对象，只是对象名称及其内存地址不同而已，所以不是真正的复制功能。
+　　在上面的代码实例里，尽管变量`instance`和`copy_instance`是不同的对象，且变量`copy_instance`是通过所谓”复制“方式产生的，但是它们不能同时使用。这种”复制“没有产生第二个对象，只是改变了对象名称及其内存地址不同而已，所以不是真正的复制功能。
 
 　　下面示意图说明了，从第一行`let`语句开始到第二行`let`语句结束，内存数据储存的状态变化过程。
 
-![image](../../hello-borrowing/images/hello_borrowing-10_simple.png)
+![image](../../hello-borrowing/images/hello_borrowing-10_string.png)
+
+　　在第二个`let`语句结束以后，变量`instance`生命周期也就结束了，之后就不能再使用它了。这是因为类型`String`没有复制特质`Copy`的实现。要是一种类型实现了复制特质`Copy`，那么其生命周期还是存在的。
+
+　　例如，类型正整数u8实现了复制特质`Copy`，使用这种隐式复制方法，该类型就生命周期还是存在的。哪些类型实现了复制特质`Copy`，请参考[Rust语言标准库文档](https://doc.rust-lang.org/std/marker/trait.Copy.html)。
+
+　　类型正整数`u8`或者逻辑类型`bool`等都是实现了复制特质`Copy`的典型实例，而字符串`String`和向量Vec`等都是没有实现复制特质`Copy`的典型实例。
+
+```rust
+{{ #include ../../../../hello-borrowing/bin-hello/examples/use_u8_type.rs }}
+```
 
 ## 错误使用变量实例
 
@@ -52,7 +61,7 @@ error[E0382]: borrow of moved value: `instance`
    |                    ^^^^^^^^ value borrowed here after move
 ```
 
-### 借用机制代码实例
+## 借用机制代码实例
 
 　　下面看看Rust如何实现借用方法。这是典型Rust语言的代码。下面程序在方法`main()`有三段代码。在该方法里，类型`String`对象`instance`和`borrow_instance`始终是有效的。
 
@@ -64,7 +73,7 @@ error[E0382]: borrow of moved value: `instance`
 
 　　下面示意图告诉我们，程序代码对象的内存储存结构。
 
-![image](../../hello-borrowing/images/hello_borrowing-11_simple.png)
+![image](../../hello-borrowing/images/hello_borrowing-11_string.png)
 
 　　该程序输出结果如下，从这个结果可以看到两个内存是完全一样的，这个内存地址就是原始指针的地址。
 
@@ -104,3 +113,4 @@ cargo hack check --example string_type_str --each-feature --no-dev-deps
 
 ## 参考资料
 - [crate cargo-hack](https://crates.io/crates/cargo-hack)
+- [trait std::marker::Copy](https://doc.rust-lang.org/std/marker/trait.Copy.html)

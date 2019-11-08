@@ -1,4 +1,4 @@
-pub const CLOSURE_STRING_OK :&str = r#"// File: ./examples/closure_string.rs
+pub const CLOSURE_STRING_OK: &str = r#"// File: ./examples/closure_string.rs
 
 fn main() {
     let string_instance: String = "Hello".to_string();
@@ -10,7 +10,7 @@ fn main() {
 }
 "#;
 
-pub const CLOSURE_STRING_ERR :&str = r#"// File: ./examples/closure_string.rs
+pub const CLOSURE_STRING_ERR: &str = r#"// File: ./examples/closure_string.rs
 
 fn main() {
     let string_instance: String = "hello".to_string();

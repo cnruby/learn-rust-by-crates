@@ -1,6 +1,6 @@
 [package]
 name = "borrowing_exerci"
-version = "0.3.52"
+version = "0.3.53"
 authors = ["cnruby <gudao.luo@gmail.com>"]
 edition = "2018"
 readme = "README.md"
@@ -28,6 +28,7 @@ prettytable-rs = "^0.8"
 [features]
 ok = []
 err = []
+cp = []
 
 #[[example]]
 # example.path

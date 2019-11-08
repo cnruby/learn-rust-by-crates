@@ -1,6 +1,7 @@
 #![allow(unused_variables)]
 
-#[macro_use] extern crate prettytable;
+#[macro_use]
+extern crate prettytable;
 
 fn main() {
     // move occurs because `instance` has type `&str`,
@@ -18,11 +19,25 @@ fn main() {
     println!("instance address      = {:p}", &instance);
     println!("copy_instance address = {:p}", &copy_instance);
 
-    let table = table!(["Name", "Value", "Remark"],
-                       ["instance reference address", format!("{:p}", instance), "is equal to the following line"],
-                       ["copy_instance reference address", format!("{:p}", copy_instance), ""],
-                       ["instance address", format!("{:p}", &instance), "is not equal to the following line"],
-                       ["copy_instance address", format!("{:p}", &copy_instance), ""]);
+    let table = table!(
+        ["Name", "Value", "Remark"],
+        [
+            "instance reference address",
+            format!("{:p}", instance),
+            "is equal to the following line"
+        ],
+        [
+            "copy_instance reference address",
+            format!("{:p}", copy_instance),
+            ""
+        ],
+        [
+            "instance address",
+            format!("{:p}", &instance),
+            "is not equal to the following line"
+        ],
+        ["copy_instance address", format!("{:p}", &copy_instance), ""]
+    );
 
     table.printstd();
 }

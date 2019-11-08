@@ -1,26 +1,35 @@
 // File: ./examples/closure_string.rs
-// clear && cargo run --example closure_string --features ok
+// clear && cargo run --example closure_string --features ok | bat -l rs
 // clear && cargo run --example closure_string --features err
 
 #[cfg(feature = "ok")]
+// ANCHOR: feature-ok
 fn main() {
     let string_instance: String = "Hello".to_string();
 
-    let greet_friend = |str: &str| println!("{} Friend", str);
-    greet_friend(&string_instance);
+    println!("Before fn = {:p}", &string_instance);
+    let closure_instance = |hello: &str| {
+        println!("{} Friend!", hello);
+        println!("Inside fn = {:p}", &hello);
+    };
+    closure_instance(&string_instance);
+    println!("After fn = {:p}", &string_instance);
 
     println!("{} World!", string_instance);
 }
+// ANCHOR_END: feature-ok
 
 #[cfg(feature = "err")]
+// ANCHOR: feature-err
 fn main() {
-    let string_instance: String = "hello".to_string();
+    let string_instance: String = "Hello".to_string();
 
-    let greet_friend = |string: String| println!("{} Friend", string);
-    greet_friend(string_instance);
+    let closure_instance = |hello: String| println!("{} Friend!", hello);
+    closure_instance(string_instance);
 
     println!("{} World!", string_instance);
 }
+// ANCHOR_END: feature-err
 
 #[cfg(all(not(feature = "ok"), not(feature = "err")))]
 fn main() {

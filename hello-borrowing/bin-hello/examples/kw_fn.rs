@@ -1,6 +1,7 @@
+// File: ./examples/kw_fn.rs
+//
+
 #[cfg(feature = "ok")]
-// kw_fn.rs
-// ok
 fn main() {
     fn print_berry_names(berries: &Vec<&str>) {
         for berry in berries {
@@ -15,7 +16,6 @@ fn main() {
 }
 
 #[cfg(feature = "err")]
-// kw_fn.rs
 // error[E0384]
 fn main() {
     fn print_berry_names(berries: Vec<&str>) {
