@@ -29,3 +29,9 @@ fn main() {
     dbg!(num);
 }
 // ANCHOR_END: features-cp
+
+#[cfg(all(not(feature = "ok"), not(feature = "cp")))]
+fn main() {
+    use aide::hello;
+    hello();
+}
