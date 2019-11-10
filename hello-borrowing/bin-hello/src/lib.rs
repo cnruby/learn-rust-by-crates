@@ -44,8 +44,8 @@ pub fn convert_rs(file_name: &str) {
     let begin_ok = re_rs_file_name.replace_all(begin_ok, file_name.to_uppercase().as_str());
     let begin_ok = &format!("{}", begin_ok);
     let _begin_cp: &str = r#"pub const RS_CP :&str = r#""#;
-    let _begin_cp = re_rs_file_name.replace_all(begin_cp, file_name.to_uppercase().as_str());
-    let _begin_cp = &format!("{}", begin_cp);
+    let _begin_cp = re_rs_file_name.replace_all(_begin_cp, file_name.to_uppercase().as_str());
+    let _begin_cp = &format!("{}", _begin_cp);
     let begin_err: &str = r#"pub const RS_ERR :&str = r#""#;
     let begin_err = re_rs_file_name.replace_all(begin_err, file_name.to_uppercase().as_str());
     let begin_err = &format!("{}", begin_err);
