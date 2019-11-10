@@ -11,3 +11,8 @@
 ## 类和对象
 
 ## 全局软件篋和项目软件篋
+
+## 题外话
+
+### 工具cargo-play
+- https://journal.zeyi.fan/2019/08/20/announce-cargo-play.html

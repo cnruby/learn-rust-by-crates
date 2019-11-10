@@ -29,6 +29,9 @@ cargo run --bin bwx clone_derive
 cargo run --bin bwx conv closure_string
 cargo run --bin bwx closure_string | bat -l rs
 
+cargo run --bin bwx conv closure_move_vec
+cargo run --bin bwx closure_move_vec | bat -l rs
+
 cargo run --bin bwx conv closure_vec
 cargo run --bin bwx closure_vec | bat -l rs
 

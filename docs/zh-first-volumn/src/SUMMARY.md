@@ -16,6 +16,8 @@
   - [仓库程序：开发命令](./hello-world/commands-bin.md)
   - [仓库程序：程序代码解释](./hello-world/bin.md)
   - [题外话](./hello-world/off-topic.md)
+  - [调试代码](./hello-world/debug.md)
+
 - [软件篋trait_exerci](./hello-trait/README.md)
   - [类型关键词`struct`](./hello-trait/examples-struct.md)
   - [关键词`impl`与方法代码实现](./hello-trait/examples-impl.md)
@@ -50,7 +52,7 @@
   - [应用篋：方法借用实例](./hello-borrowing/borrowing-fn.md)
   - [应用篋：闭包借用实例](./hello-borrowing/borrowing-closure.md)
   - [应用篋：移动关键词`move`借用实例](./hello-borrowing/keyword-move.md)
-  - [应用篋：循环for语句实例](./hello-borrowing/borrowing-for-loop.md)
+  - [应用篋：循环`for`语句借用实例](./hello-borrowing/borrowing-for-loop.md)
   - [应用篋：分析不可变与可变类型](./hello-borrowing/cargo-expand.md)
   - [应用篋：可变类型实例](./hello-borrowing/borrowing-mut.md)
   - [应用篋：可变类型与函数实例](./hello-borrowing/borrowing-mut-fn.md)

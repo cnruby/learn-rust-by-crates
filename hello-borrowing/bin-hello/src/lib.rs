@@ -6,9 +6,11 @@ use std::path::Path;
 
 pub mod features;
 
-const STR_ERR: &str = r#"#[cfg(feature = "err")]"#;
 const STR_OK: &str = r#"#[cfg(feature = "ok")]"#;
+const STR_CP: &str = r#"#[cfg(feature = "ok")]"#;
+const STR_ERR: &str = r#"#[cfg(feature = "err")]"#;
 const STR_NOT: &str = r#"#[cfg(all(not(feature = "ok"), not(feature = "err")))]"#;
+const STR_NOT_ALL: &str = r#"#[cfg(all(not(feature = "ok"), not(feature = "cp"), not(feature = "err") ))]"#;
 const END: &str = "\"#;";
 
 pub fn hello() {
@@ -41,6 +43,9 @@ pub fn convert_rs(file_name: &str) {
     let begin_ok: &str = r#"pub const RS_OK :&str = r#""#;
     let begin_ok = re_rs_file_name.replace_all(begin_ok, file_name.to_uppercase().as_str());
     let begin_ok = &format!("{}", begin_ok);
+    let begin_cp: &str = r#"pub const RS_CP :&str = r#""#;
+    let begin_cp = re_rs_file_name.replace_all(begin_cp, file_name.to_uppercase().as_str());
+    let begin_cp = &format!("{}", begin_cp);
     let begin_err: &str = r#"pub const RS_ERR :&str = r#""#;
     let begin_err = re_rs_file_name.replace_all(begin_err, file_name.to_uppercase().as_str());
     let begin_err = &format!("{}", begin_err);
@@ -57,6 +62,7 @@ pub fn convert_rs(file_name: &str) {
         } else {
             if split[1].contains("main()") {
                 destination = format!("{}{}{}", destination, begin_ok, pre);
+                //let split: Vec<&str> = split[1].split(STR_CP).split(STR_ERR).collect();
                 let split: Vec<&str> = split[1].split(STR_ERR).collect();
                 if split[0].contains("main()") {
                     //dbg!(split[0]); //ok

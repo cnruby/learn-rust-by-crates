@@ -26,6 +26,12 @@ args:
             #- user  # information commands for user
             #- bwx   # bin for information commands
             ## END for insider
+            - clone_derive
+            - clone_struct
+            - closure_move_vec
+            - closure_move
+            - closure_string
+            - dbg_marco
             - kw_fn
             - new_var
             - kw_mut
@@ -35,9 +41,6 @@ args:
             - expand_struct
             - closure_string
             - closure_vec
-            - clone_struct
-            - clone_derive
-            - dbg_marco
             - move_vec
             - move_tuple
             - string_type
