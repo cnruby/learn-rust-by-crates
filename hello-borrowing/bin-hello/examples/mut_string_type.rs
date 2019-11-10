@@ -1,3 +1,8 @@
+// File: ./examples/mut_string_type.rs
+// clear && cargo run --example mut_string_type --features ok | bat -l rs
+// clear && cargo run --example mut_string_type --features cp | bat -l rs
+// clear && cargo run --example mut_string_type --features err
+
 #![allow(unused_variables)]
 
 #[cfg(feature = "ok")]
@@ -7,11 +12,11 @@ fn main() {
     println!("{}", mut_instance);
 
     // The variable `mut_instance` begin to move here
-    let copy_mut_instance = mut_instance;
+    let copy_mut_instance = &mut_instance;
     // The variable `mut_instance` moved here
 
     // The variable `mut_instance` borrowed here after move
-    //println!("{}", mut_instance);
+    println!("{}", mut_instance);
 }
 
 #[cfg(feature = "err")]
