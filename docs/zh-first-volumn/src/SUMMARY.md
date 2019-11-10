@@ -5,7 +5,7 @@
   - [关于作业区和软件篋实例](./foreword/crate.md)
   - [关于Cargo工具基础命令](./foreword/cargo.md)
   - [Rust语言新思维和新概念](./foreword/rust.md)
-- [软件篋hello_exercism](./hello-world/README.md)
+- [软件篋hello_exercism](./hello-world/READM
   - [关于软件篋项目](./hello-world/about.md)
   - [共享篋：开发命令](./hello-world/commands-lib.md)
   - [共享篋：程序代码解释](./hello-world/lib.md)
@@ -17,7 +17,6 @@
   - [仓库程序：程序代码解释](./hello-world/bin.md)
   - [题外话](./hello-world/off-topic.md)
   - [调试代码](./hello-world/debug.md)
-
 - [软件篋trait_exerci](./hello-trait/README.md)
   - [类型关键词`struct`](./hello-trait/examples-struct.md)
   - [关键词`impl`与方法代码实现](./hello-trait/examples-impl.md)

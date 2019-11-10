@@ -177,10 +177,14 @@ borrow the array with `&` or call `.iter()` on it to iterate over it(`instance`)
 
 ## 题外话
 
+### 关键词`ref`与引用符`&`
+
+
+
 
 ## 参考资料
 - [What is the difference between iter and into_iter?](https://stackoverflow.com/questions/34733811/what-is-the-difference-between-iter-and-into-iter)
 - [Effectively Using Iterators In Rust](https://hermanradtke.com/2015/06/22/effectively-using-iterators-in-rust.html)
 - [How to iterate over and filter an array?](https://stackoverflow.com/questions/30467085/how-to-iterate-over-and-filter-an-array)
 - [How to iterate over an array of integers?](https://stackoverflow.com/questions/28378407/how-to-iterate-over-an-array-of-integers)
-- 
+- [rust-patterns-ref](http://xion.io/post/code/rust-patterns-ref.html)
