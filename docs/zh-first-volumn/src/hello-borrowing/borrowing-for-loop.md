@@ -181,7 +181,7 @@ borrow the array with `&` or call `.iter()` on it to iterate over it(`instance`)
 
 ### 关键词`ref`与引用符`&`
 
-{{#playpen ../../../../hello-world/lib-hello/src/use_ref_and.rs}}
+{{#playpen ../../../../hello-borrowing/bin-hello/examples/use_ref_and.rs}}
 
 
 ## 参考资料

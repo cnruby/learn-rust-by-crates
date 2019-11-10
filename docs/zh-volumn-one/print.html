@@ -4923,7 +4923,39 @@ borrow the array with `&amp;` or call `.iter()` on it to iterate over it(`instan
 <p><img src="hello-borrowing/../../hello-borrowing/images/hello_borrowing-12_vec_for_loop.png" alt="image" /></p>
 <h2><a class="header" href="#题外话-20" id="题外话-20">题外话</a></h2>
 <h3><a class="header" href="#关键词ref与引用符" id="关键词ref与引用符">关键词<code>ref</code>与引用符<code>&amp;</code></a></h3>
-<p>{{#playpen ../../../../hello-world/lib-hello/src/use_ref_and.rs}}</p>
+<pre><pre class="playpen"><code class="language-rust">fn main() {
+    let x: u8 = 1;
+    let w: &amp;u8 = &amp;x;
+    let ref y: u8 = x;
+    let z: &amp;u8 = y;
+    
+    println!(&quot;x = {:p}&quot;, &amp;x);
+    println!(&quot;w = {:p}&quot;, w);
+    println!(&quot;y = {:p}&quot;, y);
+    println!(&quot;z = {:p}&quot;, z);
+
+    println!(&quot;x = {}&quot;, x);
+    println!(&quot;w = {}&quot;, w);
+    println!(&quot;y = {}&quot;, y);
+    println!(&quot;z = {}&quot;, z);
+
+    let x: Vec&lt;u8&gt; = vec![10, 20];
+    let w: &amp;Vec&lt;u8&gt; = &amp;x;
+    let ref y: Vec&lt;u8&gt; = x;
+    let z: &amp;Vec&lt;u8&gt; = y;
+    
+    println!(&quot;x = {:p}&quot;, &amp;x);
+    println!(&quot;w = {:p}&quot;, w);
+    println!(&quot;y = {:p}&quot;, y);
+    println!(&quot;z = {:p}&quot;, z);
+
+    println!(&quot;x = {:?}&quot;, x);
+    println!(&quot;w = {:?}&quot;, w);
+    println!(&quot;y = {:?}&quot;, y);
+    println!(&quot;z = {:?}&quot;, z);
+}
+
+</code></pre></pre>
 <h2><a class="header" href="#参考资料-36" id="参考资料-36">参考资料</a></h2>
 <ul>
 <li><a href="https://stackoverflow.com/questions/34733811/what-is-the-difference-between-iter-and-into-iter">What is the difference between iter and into_iter?</a></li>
