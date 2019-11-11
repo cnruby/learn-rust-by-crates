@@ -60,7 +60,7 @@
   - [应用篋：循环`for`语句可变借用实例](./mut-hello-borrowing/borrowing-for-loop-mut.md)
   - [应用篋：可变大小类型借用实例](./mut-hello-borrowing/borrowing-mut.md)
   - [应用篋：可变类型与函数实例](./mut-hello-borrowing/borrowing-mut-fn.md)
-  - [题外话：介绍几个软件篋](./mut-hello-borrowing/crates.md)
+  - [题外话：使用工具cargo](./mut-hello-borrowing/crates.md)
 - [软件篋some_exerci](./hello-some/README.md)
   - [关于软件篋some_exerci](./hello-some/about.md)
   - [应用篋：栈（Stack）和堆（Head）](./hello-some/stack_head.md)

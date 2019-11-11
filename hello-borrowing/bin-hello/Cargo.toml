@@ -35,3 +35,12 @@ cp = []
 #name = "kw_fn"
 #crate-type = ["lib", "bin"]
 #crate-type = ["bin"]
+
+#[[example]]
+#name = "box_simple"
+#path = "examples/immut/box_simple.rs"
+
+#[[example]]
+#name = "box"
+#path = "examples/immut/bin/box.rs"
+#crate-type = ["bin"]
