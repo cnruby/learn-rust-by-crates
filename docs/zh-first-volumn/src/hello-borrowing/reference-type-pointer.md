@@ -6,24 +6,25 @@
 ## 篇目
 
 - [引用类型`&str`与原始指针关系图](#引用类型str与原始指针关系图)
-- [引用类型`&String`与原始指针关系图](#引用类型String与原始指针关系图)
+- [引用类型`&String`与原始指针关系图](#引用类型string与原始指针关系图)
 - [引用、类型与原始指针解释](#引用、类型与原始指针解释)
 - [题外话](#题外话)
-- [开发工具Cha(rs)](#开发工具Chars)
-- [开发工具：软件篋ripgrep](#开发工具：软件篋ripgrep)
+- [开发工具`Cha(rs)`](#开发工具chars)
+- [开发工具：软件篋`ripgrep`](#开发工具：软件篋ripgrep)
 - [参考资料](#参考资料)
-
 
 ## 引用类型`&str`与原始指针关系图
 
 ![image](../../hello-borrowing/images/hello_borrowing-07-pointers.png)
 
-{{#playpen ../../../../hello-borrowing/bin-hello/examples/use_raw_pointer_str.rs editable}}
+```rust
+{{ #include ../../../../hello-borrowing/lib-hello/src/immut/raw_pointer/mod.rs:use_raw_pointer_str}}
+```
 
 ### 第一段代码：绑定字符串`String`类型的变量`instance`
 
 ```rust,no_run,noplaypen
-{{ #include ../../../../hello-borrowing/bin-hello/examples/use_raw_pointer_str.rs:string-type-variable }}
+{{ #include ../../../../hello-borrowing/lib-hello/src/immut/raw_pointer/mod.rs:string-type-variable}}
 ```
 
 　　在这一段代码里，第一个`let`绑定了字符串`String`类型变量`instance`。这样就产生了上面图的变量`instance`及其原始指针。
@@ -35,7 +36,7 @@
 ### 第二段代码：绑定字符串文字`&str`类型的变量`instance`
 
 ```rust,no_run,noplaypen
-{{ #include ../../../../hello-borrowing/bin-hello/examples/use_raw_pointer_str.rs:str-type-variable }}
+{{ #include ../../../../hello-borrowing/lib-hello/src/immut/raw_pointer/mod.rs:str-type-variable }}
 ```
 
 　　在这一段代码里，前面四个`let`绑定了字符串文字`＆str`类型变量`ref_str`，它们是完全等效的。其中方法`as_str()`功能是提取包含整个`String`的字符串切片。
@@ -47,7 +48,7 @@
 　　这里将验证，第一段代码和第二段代码的原始指针变量`ref_raw`和`ref_raw_str`的地址是相等的。
 
 ```rust,no_run,noplaypen
-{{ #include ../../../../hello-borrowing/bin-hello/examples/use_raw_pointer_str.rs:str-testing }}
+{{ #include ../../../../hello-borrowing/lib-hello/src/immut/raw_pointer/mod.rs:str-testing }}
 ```
 
 ### 第四段代码：原始指针内存地址的数组切片
@@ -55,7 +56,7 @@
 　　在这一段代码里，使用了关键词`unsafe`，然后启动一个包含不安全代码的新代码块。该代码块存在方法from_raw_parts()，它是根据原始指针的引用及其长度返回一个内存地址数组切片。这数组切片的每一项是字符串其中一个字符的内存地址。
 
 ```rust,no_run,noplaypen
-{{ #include ../../../../hello-borrowing/bin-hello/examples/use_raw_pointer_str.rs:show-raw-address }}
+{{ #include ../../../../hello-borrowing/lib-hello/src/immut/raw_pointer/mod.rs:show-raw-address }}
 ```
 
 ### 第五段代码：：第二次验证原始指针地址
@@ -63,7 +64,7 @@
 　　这里将验证，两个原始指针，第一段代码的变量`ref_raw`和第四段代码数组切片`ref_slice`的第一项的地址是相等的。
 
 ```rust,no_run,noplaypen
-{{ #include ../../../../hello-borrowing/bin-hello/examples/use_raw_pointer_str.rs:raw-testing }}
+{{ #include ../../../../hello-borrowing/lib-hello/src/immut/raw_pointer/mod.rs:raw-testing }}
 ```
 
 ### 第六段代码：原始指针字符值的数组切片
@@ -71,7 +72,7 @@
 　　在这一段代码里，使用了关键词`unsafe`，然后启动一个包含不安全代码的新代码块。该代码块存在方法from_raw_parts()，它是根据原始指针及其长度返回一个类型u8数组切片。这类型u8数组切片的每一项是字符串其中的一个字符值。
 
 ```rust,no_run,noplaypen
-{{ #include ../../../../hello-borrowing/bin-hello/examples/use_raw_pointer_str.rs:show-raw-u8 }}
+{{ #include ../../../../hello-borrowing/lib-hello/src/immut/raw_pointer/mod.rs:show-raw-u8 }}
 ```
 
 ### 程序输出结果
@@ -111,12 +112,14 @@
 
 ![image](../../hello-borrowing/images/hello_borrowing-01-pointers.png)
 
-{{#playpen ../../../../hello-borrowing/bin-hello/examples/use_raw_pointer_string.rs editable}}
+```rust
+{{ #include ../../../../hello-borrowing/lib-hello/src/immut/raw_pointer/mod.rs:use_raw_pointer_string}}
+```
 
 ### 第二段代码：绑定字符串引用`&String`类型的变量`instance`
 
 ```rust,no_run,noplaypen
-{{ #include ../../../../hello-borrowing/bin-hello/examples/use_raw_pointer_string.rs:string-ref-type-variable }}
+{{ #include ../../../../hello-borrowing/lib-hello/src/immut/raw_pointer/mod.rs:string-ref-type-variable }}
 ```
 
 　　这是唯一一段代码与前面实例代码不同的。在这一段代码里，前面两个`let`绑定了字符串引用`&String`类型的变量`ref_string`，它们是完全等效的。特别需要指出的是，在关键词`let`等式右边类型定义有时候是必要的，尽管这个实例可以省略，但是在上面实例里，就是必须的。
@@ -168,9 +171,9 @@
 
 ![image](../../hello-borrowing/images/hello_borrowing-02_references.png)
 
-### 软件篋Cha(rs)
+### 软件篋`Cha(rs)`
 
-　　工具Cha(rs)可以显示各种ASCII和unicode字符/代码指针的名称和编码号。
+　　工具`Cha(rs)`可以显示各种`ASCII`和`Unicode`字符/代码指针的名称和编码号。
 
 ```bash
 # install
@@ -179,9 +182,9 @@ cargo install chars
 chars 'H'
 ```
 
-### 软件篋ripgrep
+### 软件篋`ripgrep`
 
-　　ripgrep是一款系统终端的搜索工具，类似于ack和grep。
+　　软件篋`ripgrep`是一款系统终端的搜索工具，类似于`ack`和`grep`。
 
 ```bash
 # install

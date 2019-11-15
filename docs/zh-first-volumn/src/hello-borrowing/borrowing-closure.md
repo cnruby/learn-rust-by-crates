@@ -5,7 +5,7 @@
 
 ## 篇目
 
-- [理解Rust语言闭包](#理解Rust语言闭包)
+- [理解Rust语言闭包](#理解rust语言闭包)
 - [闭包实例](#闭包实例)
 - [未实现复制特质`Copy`类型的借用实例](#未实现复制特质copy类型的借用实例)
 - [借用机制代码实例](#借用机制代码实例)
@@ -52,14 +52,16 @@ fn main(){
 
 　　需要说明的是，在方法`main()`里，前面四段代码，既定义了闭包，同时也调用了闭包。只有第五段代码定义与调用分成了两个语句。
 
-{{ #playpen ../../../../hello-borrowing/bin-hello/examples/use_closure.rs editable}}
+```rust
+{{ #include ../../../../hello-borrowing/lib-hello/src/immut/closure/mod.rs:use_closure }}
+```
 
 ## 未实现复制特质`Copy`类型的借用实例
 
 　　下面代码说明字符串类型`String`对象作为闭包参数使用以后，其生命周期结束的实例。变量作为闭包参数使用以后，在闭包里，进行了一次变量的复制，导致了Rust语言所示的移动`move`，实际上，在闭包完成调用以后，该变量从内存里被剔除掉了。
 
 ```rust
-{{ #include ../../../../hello-borrowing/bin-hello/examples/closure_string.rs:feature-err }}
+{{ #include ../../../../hello-borrowing/bin-hello/examples/closure/immut_string.rs:feature-err }}
 ```
 
 ## 借用机制代码实例
@@ -67,7 +69,7 @@ fn main(){
 　　解决上面实例的方法，与前面一节函数方法一样，使用引用类型对象。传递到闭包里，而不是类型字符串对象。引用变量对象仅仅是利用了类型字符串对象的内容而已，闭包本身实际上没有与类型字符串对象发生联系。
 
 ```rust
-{{ #include ../../../../hello-borrowing/bin-hello/examples/closure_string.rs:feature-ok }}
+{{ #include ../../../../hello-borrowing/bin-hello/examples/closure/immut_string.rs:feature-ok }}
 ```
 
 ## 题外话

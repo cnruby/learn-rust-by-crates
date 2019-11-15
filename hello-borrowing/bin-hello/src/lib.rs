@@ -10,7 +10,8 @@ const STR_OK: &str = r#"#[cfg(feature = "ok")]"#;
 const _STR_CP: &str = r#"#[cfg(feature = "cp")]"#;
 const STR_ERR: &str = r#"#[cfg(feature = "err")]"#;
 const STR_NOT: &str = r#"#[cfg(all(not(feature = "ok"), not(feature = "err")))]"#;
-const _STR_NOT_ALL: &str = r#"#[cfg(all(not(feature = "ok"), not(feature = "cp"), not(feature = "err") ))]"#;
+const _STR_NOT_ALL: &str =
+    r#"#[cfg(all(not(feature = "ok"), not(feature = "cp"), not(feature = "err") ))]"#;
 const END: &str = "\"#;";
 
 pub fn hello() {

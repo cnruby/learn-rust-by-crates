@@ -64,4 +64,8 @@ test_script:
   - cd ..
   - cd hello-borrowing
   - cargo build --verbose
+  - cargo build --verbose --features ok
+  - cargo build --verbose --features cp
   - cargo test
+  - cargo test --features ok
+  - cargo test --features cp

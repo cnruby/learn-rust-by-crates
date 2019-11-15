@@ -1,3 +1,4 @@
 [workspace]
 #members = ["lib-hello", "bin-hello", "bin-local-hello", "lib-extern"]
-members = ["lib-hello", "bin-hello"]
+members = ["lib-hello", "bin-hello", "bin-local-hello"]
+#members = ["lib-hello", "bin-hello"]

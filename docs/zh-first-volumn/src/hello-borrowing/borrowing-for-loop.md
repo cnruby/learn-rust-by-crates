@@ -21,8 +21,9 @@
 　　这是一个说明固定数组类型`[T;N]`借用错误的实例。在循环语句里，不能将固定数组对象`instance`作为`for`语句的迭代部分，这是因为固定数组对象本身不是一个迭代器。
 
 ```rust
-{{ #include ../../../../hello-borrowing/bin-hello/examples/for_arr.rs:feature-err }}
+{{ #include ../../../../hello-borrowing/bin-hello/examples/for_loop/for_arr.rs:feature-err }}
 ```
+
 
 　　在编译该程序以后，编译器给出有用的信息提示，如下所示：
 
@@ -46,8 +47,9 @@ borrow the array with `&` or call `.iter()` on it to iterate over it(`instance`)
 　　在循环`for`语句里，对于数组类型，Rust语言提供里几种借用方法。但是对于固定数组和可变数组类型，其方法上略有不同。这里先说明固定数组类型的借用机制实例。
 
 ```rust
-{{ #include ../../../../hello-borrowing/bin-hello/examples/for_arr.rs:feature-ok }}
+{{ #include ../../../../hello-borrowing/bin-hello/examples/for_loop/for_arr.rs:feature-ok }}
 ```
+
 　　在方法`main()`里，一共有五段代码，说明如下：
 
 - 中间三段代码就是固定数组的借用方法，三种方法都可以使用；
@@ -75,7 +77,7 @@ borrow the array with `&` or call `.iter()` on it to iterate over it(`instance`)
 　　下面是一个可变数组的循环`for`语句实例。注意，这个实例仅仅说明，与固定数组错误不同的是，可变数组对象是一个迭代器。
 
 ```rust
-{{ #include ../../../../hello-borrowing/bin-hello/examples/for_vec.rs:feature-cp }}
+{{ #include ../../../../hello-borrowing/bin-hello/examples/for_loop/for_vec.rs:feature-cp }}
 ```
 
 　　可能有人发现，上面程序的下面输出结果内存地址不一样，这是为什么，是因为一旦可变数组对象作为迭代器，在循环`for`语句被使用以后，该对象就被转移了（moved），自然它们的内存地址就不一样了。
@@ -92,7 +94,7 @@ borrow the array with `&` or call `.iter()` on it to iterate over it(`instance`)
 　　接下来才是一个可变数组的借用错误实例，只是在上面实例中多增加了最后一行代码。只是一旦将其作为迭代器，其生命周期就解释了。这样就出现下面出现所谓的“借用错误”。
 
 ```rust
-{{ #include ../../../../hello-borrowing/bin-hello/examples/for_vec.rs:feature-err }}
+{{ #include ../../../../hello-borrowing/bin-hello/examples/for_loop/for_vec.rs:feature-err }}
 ```
 
 ## 可变数组的借用机制实例
@@ -100,7 +102,7 @@ borrow the array with `&` or call `.iter()` on it to iterate over it(`instance`)
 　　下面我们使用可变数组对象作为迭代器，解决可变数组的借用问题。
 
 ```rust
-{{ #include ../../../../hello-borrowing/bin-hello/examples/for_vec.rs:feature-ok }}
+{{ #include ../../../../hello-borrowing/bin-hello/examples/for_loop/for_vec.rs:feature-ok }}
 ```
 
 　　上面实例在借用机制方法下，可以看到该程序输出的结果，它们内存地址是相同的，这是因为它们仅仅借用而已。
@@ -122,7 +124,7 @@ borrow the array with `&` or call `.iter()` on it to iterate over it(`instance`)
 　　在上面固定数组对象实例中，我们使用了迭代方法`into_iter()`，运行是正常的，为什么到了可变数组对象就不可编译了呢？
 
 ```rust
-{{ #include ../../../../hello-borrowing/bin-hello/examples/for_vec_iter.rs:feature-err }}
+{{ #include ../../../../hello-borrowing/bin-hello/examples/for_loop/for_vec_iter.rs:feature-err }}
 ```
 
 　　下面分析其原因。Rust语言提供了三个迭代方法。这里代码仅仅说明其中两个方法`iter()`和`into_iter()`，但是这里把三个方法功能说明如下：
@@ -134,7 +136,7 @@ borrow the array with `&` or call `.iter()` on it to iterate over it(`instance`)
 　　从上面三个方法的功能，可以知道，方法`into_iter()`的迭代手段不是借用，而是直接消费了。
 
 ```rust
-{{ #include ../../../../hello-borrowing/bin-hello/examples/for_vec_iter.rs:feature-cp }}
+{{ #include ../../../../hello-borrowing/bin-hello/examples/for_loop/for_vec_iter.rs:feature-cp }}
 ```
 
 　　通过下面实例输出结果来分析方法`into_iter()`：
@@ -159,7 +161,7 @@ borrow the array with `&` or call `.iter()` on it to iterate over it(`instance`)
 　　通过上面分析，下面实例代码就比较简单了。它是使用方法`iter()`，实现循环语句`for`的迭代借用机制。
 
 ```rust
-{{ #include ../../../../hello-borrowing/bin-hello/examples/for_vec_iter.rs:feature-ok }}
+{{ #include ../../../../hello-borrowing/bin-hello/examples/for_loop/for_vec_iter.rs:feature-ok }}
 ```
 
 　　该程序输出结果如下。从中可以看到这些原始指针的内存地址都是一样的，它们指向相同的可变数组的数据。
@@ -179,14 +181,10 @@ borrow the array with `&` or call `.iter()` on it to iterate over it(`instance`)
 
 ## 题外话
 
-### 关键词`ref`与引用符`&`
-
-{{#playpen ../../../../hello-borrowing/bin-hello/examples/use_ref_and.rs}}
-
-
 ## 参考资料
 - [What is the difference between iter and into_iter?](https://stackoverflow.com/questions/34733811/what-is-the-difference-between-iter-and-into-iter)
 - [Effectively Using Iterators In Rust](https://hermanradtke.com/2015/06/22/effectively-using-iterators-in-rust.html)
 - [How to iterate over and filter an array?](https://stackoverflow.com/questions/30467085/how-to-iterate-over-and-filter-an-array)
 - [How to iterate over an array of integers?](https://stackoverflow.com/questions/28378407/how-to-iterate-over-an-array-of-integers)
 - [rust-patterns-ref](http://xion.io/post/code/rust-patterns-ref.html)
+- 

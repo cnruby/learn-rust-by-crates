@@ -79,7 +79,9 @@ println!("{:p}", ref_u8);
 
 　　在函数`main()`里，一共有四段代码，前面两段代码形成了上面示意图内容，后面两段代码是获取它们的地址，以便说明问题。
 
-{{#playpen ../../../../hello-borrowing/bin-hello/examples/use_references_simple.rs editable}}
+```rust
+{{ #include ../../../../hello-borrowing/lib-hello/src/immut/type_ref/mod.rs:use_references_simple }}
+```
 
 　　第一段的两行代码是等效的，实际只需要一行代码就可以了。这代码把字符串文字绑定了变量`instance`同时，也形成了原始指针，变量`instance`的地址值指向了原始指针的地址。
 
@@ -126,7 +128,9 @@ prettytable-rs = "0.8.0"
 
 　　具体使用实例代码如下：
 
-{{#playpen ../../../../hello-borrowing/bin-hello/examples/use_references.rs editable}}
+```rust,no_run,noplaypen
+{{ #include ../../../../hello-borrowing/lib-hello/src/other/crate_tools/mod.rs:use_prettytable }}
+```
 
 　　程序输出结果：
 

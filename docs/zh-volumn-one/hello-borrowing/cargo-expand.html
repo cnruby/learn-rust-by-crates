@@ -1,0 +1,608 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>可变类型派生分析 - 以软件篋学习Rust语言</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Chinese">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li><a href="../foreword/index.html"><strong aria-hidden="true">1.</strong> 前言</a></li><li><ol class="section"><li><a href="../foreword/about.html"><strong aria-hidden="true">1.1.</strong> 本书项目结构</a></li><li><a href="../foreword/crate.html"><strong aria-hidden="true">1.2.</strong> 关于作业区和软件篋实例</a></li><li><a href="../foreword/cargo.html"><strong aria-hidden="true">1.3.</strong> 关于Cargo工具基础命令</a></li><li><a href="../foreword/rust.html"><strong aria-hidden="true">1.4.</strong> Rust语言新思维和新概念</a></li></ol></li><li><a href="../hello-world/index.html"><strong aria-hidden="true">2.</strong> 软件篋hello_exercism</a></li><li><ol class="section"><li><a href="../hello-world/about.html"><strong aria-hidden="true">2.1.</strong> 关于软件篋项目</a></li><li><a href="../hello-world/commands-lib.html"><strong aria-hidden="true">2.2.</strong> 共享篋：开发命令</a></li><li><a href="../hello-world/lib.html"><strong aria-hidden="true">2.3.</strong> 共享篋：程序代码解释</a></li><li><a href="../hello-world/lib-tests.html"><strong aria-hidden="true">2.4.</strong> 共享篋：目录tests的测试代码解释</a></li><li><a href="../hello-world/src-tests.html"><strong aria-hidden="true">2.5.</strong> 共享篋：目录src的测试代码解释</a></li><li><a href="../hello-world/commands-local.html"><strong aria-hidden="true">2.6.</strong> 本地程序：开发命令</a></li><li><a href="../hello-world/bin-local.html"><strong aria-hidden="true">2.7.</strong> 本地程序：程序代码解释</a></li><li><a href="../hello-world/commands-bin.html"><strong aria-hidden="true">2.8.</strong> 仓库程序：开发命令</a></li><li><a href="../hello-world/bin.html"><strong aria-hidden="true">2.9.</strong> 仓库程序：程序代码解释</a></li><li><a href="../hello-world/off-topic.html"><strong aria-hidden="true">2.10.</strong> 题外话</a></li><li><a href="../hello-world/debug.html"><strong aria-hidden="true">2.11.</strong> 调试代码</a></li></ol></li><li><a href="../hello-trait/index.html"><strong aria-hidden="true">3.</strong> 软件篋trait_exerci</a></li><li><ol class="section"><li><a href="../hello-trait/examples-struct.html"><strong aria-hidden="true">3.1.</strong> 类型关键词struct</a></li><li><a href="../hello-trait/examples-impl.html"><strong aria-hidden="true">3.2.</strong> 关键词impl与方法代码实现</a></li><li><a href="../hello-trait/examples-methods.html"><strong aria-hidden="true">3.3.</strong> 函数与方法代码实现</a></li><li><a href="../hello-trait/examples-trait.html"><strong aria-hidden="true">3.4.</strong> 衔接关键词trait</a></li><li><a href="../hello-trait/examples-trait-impl.html"><strong aria-hidden="true">3.5.</strong> 特质实现及其对象</a></li><li><a href="../hello-trait/examples-trait-default.html"><strong aria-hidden="true">3.6.</strong> 题外话：默认衔接特质Default</a></li><li><a href="../hello-trait/lib-structure.html"><strong aria-hidden="true">3.7.</strong> 程序代码结构</a></li><li><a href="../hello-trait/about.html"><strong aria-hidden="true">3.8.</strong> 关于软件篋项目</a></li><li><a href="../hello-trait/commands-lib.html"><strong aria-hidden="true">3.9.</strong> 共享篋：开发命令</a></li><li><a href="../hello-trait/lib-codes.html"><strong aria-hidden="true">3.10.</strong> 共享篋：程序代码解释</a></li><li><a href="../hello-trait/lib-tests.html"><strong aria-hidden="true">3.11.</strong> 共享篋：目录测试代码解释</a></li><li><a href="../hello-trait/off-topic.html"><strong aria-hidden="true">3.12.</strong> 题外话</a></li></ol></li><li><a href="../hello-mod-trait/index.html"><strong aria-hidden="true">4.</strong> 软件篋mod_trait_exerci</a></li><li><ol class="section"><li><a href="../hello-mod-trait/about.html"><strong aria-hidden="true">4.1.</strong> 关于软件篋mod_trait_exerci</a></li><li><a href="../hello-mod-trait/crate-structure.html"><strong aria-hidden="true">4.2.</strong> 文件与模块</a></li><li><a href="../hello-mod-trait/lib-codes.html"><strong aria-hidden="true">4.3.</strong> 共享篋：程序结构和代码解释</a></li><li><a href="../hello-mod-trait/exampels-codes.html"><strong aria-hidden="true">4.4.</strong> 三种调用方式解释</a></li><li><a href="../hello-mod-trait/examples-dispatch.html"><strong aria-hidden="true">4.5.</strong> 理解动态与静态调度实现</a></li><li><a href="../hello-mod-trait/examples-miri.html"><strong aria-hidden="true">4.6.</strong> 深度解析动态与静态调度实现</a></li><li><a href="../hello-mod-trait/lib-fn.html"><strong aria-hidden="true">4.7.</strong> 共享篋：简单三层结构实现</a></li><li><a href="../hello-mod-trait/lib-static.html"><strong aria-hidden="true">4.8.</strong> 共享篋：基于封装的静态调度实现</a></li><li><a href="../hello-mod-trait/lib-dynamic.html"><strong aria-hidden="true">4.9.</strong> 共享篋：基于封装的动态调度实现</a></li><li><a href="../hello-mod-trait/lib-tests.html"><strong aria-hidden="true">4.10.</strong> 共享篋：单元测试代码解释</a></li><li><a href="../hello-mod-trait/off-topic.html"><strong aria-hidden="true">4.11.</strong> 题外话：泛型实例</a></li></ol></li><li><a href="../hello-borrowing/index.html"><strong aria-hidden="true">5.</strong> 软件篋borrowing_exerci（一）</a></li><li><ol class="section"><li><a href="../hello-borrowing/about.html"><strong aria-hidden="true">5.1.</strong> 关于应用篋borrowing_exerci</a></li><li><a href="../hello-borrowing/clone-copy.html"><strong aria-hidden="true">5.2.</strong> 特质：克隆（Clone）和复制（Copy）</a></li><li><a href="../hello-borrowing/cargo-expand.html" class="active"><strong aria-hidden="true">5.3.</strong> 可变类型派生分析</a></li><li><a href="../hello-borrowing/reference-pointer.html"><strong aria-hidden="true">5.4.</strong> 引用Reference与指针Pointer基本概念</a></li><li><a href="../hello-borrowing/reference-type-pointer.html"><strong aria-hidden="true">5.5.</strong> 引用、类型与原始指针解释</a></li><li><a href="../hello-borrowing/borrowing-string.html"><strong aria-hidden="true">5.6.</strong> 应用篋：字符串类型借用方法</a></li><li><a href="../hello-borrowing/borrowing-fn.html"><strong aria-hidden="true">5.7.</strong> 应用篋：方法借用实例</a></li><li><a href="../hello-borrowing/borrowing-closure.html"><strong aria-hidden="true">5.8.</strong> 应用篋：闭包借用实例</a></li><li><a href="../hello-borrowing/keyword-move.html"><strong aria-hidden="true">5.9.</strong> 应用篋：移动关键词move借用实例</a></li><li><a href="../hello-borrowing/borrowing-for-loop.html"><strong aria-hidden="true">5.10.</strong> 应用篋：循环for语句不可变借用实例</a></li><li><a href="../hello-borrowing/ref_and.html"><strong aria-hidden="true">5.11.</strong> 关键词ref与引用符&amp;</a></li></ol></li><li><a href="../hello-mut-borrowing/index.html"><strong aria-hidden="true">6.</strong> 软件篋borrowing_exerci（二）</a></li><li><ol class="section"><li><a href="../hello-mut-borrowing/about.html"><strong aria-hidden="true">6.1.</strong> 关于应用篋mut_borrowing_exerci</a></li><li><a href="../hello-mut-borrowing/borrowing-count.html"><strong aria-hidden="true">6.2.</strong> 应用篋：借用次数实例</a></li><li><a href="../hello-mut-borrowing/borrowing-dbg.html"><strong aria-hidden="true">6.3.</strong> 应用篋：宏dbg!与可变实例</a></li><li><a href="../hello-mut-borrowing/borrowing-mut.html"><strong aria-hidden="true">6.4.</strong> 应用篋：可变大小类型借用实例</a></li><li><a href="../hello-mut-borrowing/borrowing-for-loop-mut.html"><strong aria-hidden="true">6.5.</strong> 应用篋：循环for语句可变借用实例</a></li><li><a href="../hello-mut-borrowing/borrowing-mut-fn.html"><strong aria-hidden="true">6.6.</strong> 应用篋：可变类型与函数实例</a></li><li><a href="../hello-mut-borrowing/crates.html"><strong aria-hidden="true">6.7.</strong> 题外话：使用工具cargo</a></li></ol></li><li><a href="../hello-some/index.html"><strong aria-hidden="true">7.</strong> 软件篋some_exerci</a></li><li><ol class="section"><li><a href="../hello-some/about.html"><strong aria-hidden="true">7.1.</strong> 关于软件篋some_exerci</a></li><li><a href="../hello-some/stack_head.html"><strong aria-hidden="true">7.2.</strong> 应用篋：栈（Stack）和堆（Head）</a></li><li><a href="../hello-some/develop.html"><strong aria-hidden="true">7.3.</strong> 开发软件篋some_exerci</a></li><li><a href="../hello-some/apply.html"><strong aria-hidden="true">7.4.</strong> 使用软件篋some_exerci</a></li><li><a href="../hello-borrowing/bin-lib.html"><strong aria-hidden="true">7.5.</strong> 题外话：应用篋的软件包结构</a></li><li><a href="../hello-some/cargo-features.html"><strong aria-hidden="true">7.6.</strong> 题外话：Cargo工具features功能</a></li></ol></li><li><a href="../hello-macro/index.html"><strong aria-hidden="true">8.</strong> 软件篋macro_exerci</a></li><li><ol class="section"><li><a href="../hello-macro/about.html"><strong aria-hidden="true">8.1.</strong> 关于软件篋macro_exerci</a></li><li><a href="../hello-macro/develop.html"><strong aria-hidden="true">8.2.</strong> 开发软件篋macro_exerci</a></li><li><a href="../hello-macro/apply.html"><strong aria-hidden="true">8.3.</strong> 使用软件篋macro_exerci</a></li></ol></li><li><a href="../hello-generics/index.html"><strong aria-hidden="true">9.</strong> 软件篋generics_exerci</a></li><li><ol class="section"><li><a href="../hello-generics/about.html"><strong aria-hidden="true">9.1.</strong> 关于软件篋generics_exerci</a></li><li><a href="../hello-generics/develop.html"><strong aria-hidden="true">9.2.</strong> 开发软件篋generics_exerci</a></li><li><a href="../hello-generics/apply.html"><strong aria-hidden="true">9.3.</strong> 使用软件篋generics_exerci</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">以软件篋学习Rust语言</h1>
+
+                        <div class="right-buttons">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#可变类型派生分析" id="可变类型派生分析">可变类型派生分析</a></h1>
+<p>　　首先，通过自定义结构类型<code>Struct(u8)</code>，展示派生属性<code>Clone</code>和<code>Copy</code>的代码，且说明两种派生属性区别。其次，对于派生属性<code>Clone</code>和<code>Copy</code>，应用于结构类型<code>Struct(u8)</code>与<code>Struct(String)</code>的区别。最后说明自定义类型<code>Struct&lt;'cn&gt;(&amp;'cn &amp;str)</code>的派生属性。</p>
+<h2><a class="header" href="#学习内容" id="学习内容">学习内容</a></h2>
+<ul>
+<li>了解和学习Rust语言可变类型的派生</li>
+</ul>
+<h2><a class="header" href="#篇目" id="篇目">篇目</a></h2>
+<ul>
+<li><a href="#%E5%8F%AF%E5%8F%98%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%B4%BE%E7%94%9F%E5%B1%9E%E6%80%A7clone%E5%92%8Ccopy">可变类型的派生属性<code>Clone</code>和<code>Copy</code></a></li>
+<li><a href="#%E5%8F%AF%E5%8F%98%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%B4%BE%E7%94%9F%E5%B1%9E%E6%80%A7clone">可变类型的派生属性<code>Clone</code></a></li>
+<li><a href="#%E5%8F%AF%E5%8F%98%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%B4%BE%E7%94%9F%E5%B1%9E%E6%80%A7copy">可变类型的派生属性<code>Copy</code></a></li>
+<li><a href="#%E5%88%86%E6%9E%90%E4%B8%8D%E5%90%8C%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%B4%BE%E7%94%9F%E5%B1%9E%E6%80%A7">分析不同类型的派生属性</a></li>
+<li><a href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%9E%8Bstructcncn-str%E7%9A%84%E6%B4%BE%E7%94%9F%E5%B1%9E%E6%80%A7">自定义类型Struct&lt;'cn&gt;(&amp;'cn str)的派生属性</a></li>
+<li><a href="#%E9%A2%98%E5%A4%96%E8%AF%9D">题外话</a></li>
+<li><a href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">参考资料</a></li>
+</ul>
+<h2><a class="header" href="#可变类型的派生属性clone和copy" id="可变类型的派生属性clone和copy">可变类型的派生属性<code>Clone</code>和<code>Copy</code></a></h2>
+<p>　　在介绍可变类型的派生属性<code>Clone</code>和<code>Copy</code>之前，先考察下面不可变类型的实例。</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+// File: ./examples/expand/use_u8.rs
+// clear &amp;&amp; cargo expand --example expand -- use_u8
+// clear &amp;&amp; cargo run --example expand -- use_u8
+
+#![allow(unused_variables)]
+
+pub fn adjoin() {
+    let instance = 42u8;
+    let clone_instance = instance.clone();
+    let copy_instance = instance;
+
+    let use_instance = instance;
+}
+
+#}</code></pre></pre>
+<p>　　上面程序是可运行的。使用派生工具<code>cargo-expand</code>，展开其代码的结果如下：</p>
+<pre><code class="language-rust no_run noplaypen">mod use_u8 {
+    #![allow(unused_variables)]
+    pub fn adjoin() {
+        let instance = 42u8;
+        let clone_instance = instance.clone();
+        let copy_instance = instance;
+        let use_instance = instance;
+    }
+}
+</code></pre>
+<p>　　对于自定义的可变类型，要能够保证其对象克隆和复制，必须实现<code>Clone</code>和<code>Copy</code>两个特质，该类型才能使用克隆和复制其对象。途径有两条：要么自己实现该类型的这两个特质；要么使用语言提供的默认实现。这里使用后面方法。</p>
+<p>　　下面程序是包含了自定义的可变类型。之所以该程序能够正常运行，是因为，下面与上面程序比较可以知道，除了类型不同之外，还多增加了包括两个派生属性<code>Clone</code>和<code>Copy</code>的一行代码，其作用是使得该类型可以克隆和复制其对象。对于不可变类型，Rust语言已经实现了克隆和复制功能，在这种情况下，克隆和复制功能是等价的。</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+    // File: ./examples/expand/struct_u8.rs
+    // #[cfg(feature = &quot;ok&quot;)]
+
+    #[derive(Clone, Copy)]
+    struct Struct(u8);
+
+    let instance: Struct = Struct(42u8);
+    let clone_instance = instance.clone();
+    let copy_instance = instance;
+
+    // can copy and clone, because derive *Clone*
+    // can move, because derive *Copy*,
+    // and instance and copy_instance live
+    let use_instance = instance;
+
+#}</code></pre></pre>
+<p>　　下面看看上面程序其两个派生属性<code>Clone</code>和<code>Copy</code>代码是怎么样实现的。使用派生工具运行结果如下。可以看到对于自定义类型<code>Struct(u8)</code>，存在两个特质<code>Clone</code>和<code>Copy</code>实现：</p>
+<pre><code class="language-rust no_run noplaypen">mod struct_u8 {
+    #![allow(unused_variables)]
+    #[cfg(feature = &quot;ok&quot;)]
+    pub fn adjoin() {
+        struct Struct(u8);
+        #[automatically_derived]
+        #[allow(unused_qualifications)]
+        impl ::core::clone::Clone for Struct {
+            #[inline]
+            fn clone(&amp;self) -&gt; Struct {
+                {
+                    let _: ::core::clone::AssertParamIsClone&lt;u8&gt;;
+                    *self
+                }
+            }
+        }
+        #[automatically_derived]
+        #[allow(unused_qualifications)]
+        impl ::core::marker::Copy for Struct {}
+        let instance: Struct = Struct(42u8);
+        let clone_instance = instance.clone();
+        let copy_instance = instance;
+        let use_instance = instance;
+    }
+}
+</code></pre>
+<p>　　对于上面这种可变类型，要是其每一元素都是不可变类型，Rust语言可以实现了克隆和复制功能，同样，在这种情况下，克隆和复制功能也是等价的。</p>
+<p>　　在上面程序里，之所以该类型对象<code>instance</code>能够被克隆和复制，是因为该类型实现了克隆特质<code>Clone</code>；之所以该类型对象<code>instance</code>能够被转移（move），是因为该类型实现了复制特质<code>Copy</code>。下面看看这是为什么。</p>
+<h2><a class="header" href="#可变类型的派生属性clone" id="可变类型的派生属性clone">可变类型的派生属性<code>Clone</code></a></h2>
+<p>　　注意比较上下两个程序的代码，下面代码缺少了复制特质<code>Copy</code>，且最后一行代码不是使用对象<code>instance</code>，而是使用<code>copy_instance</code>作为变量的绑定值。</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+    // File: ./examples/expand/struct_u8.rs
+    // #[cfg(feature = &quot;cp&quot;)]
+
+    #[derive(Clone)]
+    struct Struct(u8);
+
+    let instance = Struct(42u8);
+    let clone_instance = instance.clone();
+    let copy_instance = instance;
+
+    // can copy and clone, because derive *Clone*
+    // but can NOT move, because without derive *Copy*,
+    // and instance live not, but copy_instance live
+    let use_copy_instance = copy_instance;
+
+#}</code></pre></pre>
+<p>　　还是先让我们使用派生工具，展开其代码，其运行结果：</p>
+<pre><code class="language-rust no_run noplaypen">mod struct_u8 {
+    #![allow(unused_variables)]
+    #[cfg(feature = &quot;cp&quot;)]
+    pub fn adjoin() {
+        struct Struct(u8);
+        #[automatically_derived]
+        #[allow(unused_qualifications)]
+        impl ::core::clone::Clone for Struct {
+            #[inline]
+            fn clone(&amp;self) -&gt; Struct {
+                match *self {
+                    Struct(ref __self_0_0) =&gt; Struct(::core::clone::Clone::clone(&amp;(*__self_0_0))),
+                }
+            }
+        }
+        let instance = Struct(42u8);
+        let clone_instance = instance.clone();
+        let copy_instance = instance;
+        let use_copy_instance = copy_instance;
+    }
+}
+</code></pre>
+<p>　　从上面展开的代码来看，代码里不仅没有了复制特质<code>Copy</code>的实现，而且复制特质<code>Copy</code>存在与否直接影响到克隆特质<code>Clone</code>代码的实现。</p>
+<p>　　在上面程序里，之所以该类型对象<code>instance</code>能够被克隆和复制，是因为该类型实现了克隆特质<code>Clone</code>；之所以该类型对象<code>instance</code>不能被转移（move），是因为该类型没有实现复制特质<code>Copy</code>。下面看看这是为什么。</p>
+<p>　　上下程序唯一不同是最后一行代码，但是其结果完全不同了。</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+    // File: ./examples/expand/struct_u8.rs
+    // ANCHOR = &quot;struct_u8_error_01&quot;
+    // error[E0382]: use of moved value: `instance`
+
+    #[derive(Clone)]
+    struct Struct(u8);
+
+    let instance = Struct(42u8);
+    let clone_instance = instance.clone();
+    let copy_instance = instance;
+
+    // can copy and clone, because derive *Clone*
+    // but can NOT move, because without derive *Copy*,
+    // and instance live not
+    let use_instance = instance;
+
+#}</code></pre></pre>
+<p>　　上面程序以错误运行结果结束：</p>
+<pre><code>error[E0382]: use of moved value: `instance`
+  --&gt; bin-hello/examples/expand/struct_u8.rs:76:24
+   |
+69 |     let instance = Struct(42u8);
+   |         -------- move occurs because `instance` has type `struct_u8::adjoin::Struct`, which does not implement the `Copy` trait
+70 |     let clone_instance = instance.clone();
+71 |     let copy_instance = instance;
+   |                         -------- value moved here
+...
+76 |     let use_instance = instance;
+   |                        ^^^^^^^^ value used here after move
+</code></pre>
+<h2><a class="header" href="#可变类型的派生属性copy" id="可变类型的派生属性copy">可变类型的派生属性<code>Copy</code></a></h2>
+<p>　　对于自定义类型，要是只有复制特质<code>Copy</code>，程序编译会是什么结果？</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+    // File: ./examples/expand/struct_u8.rs
+    // ANCHOR = &quot;struct_u8_error_03&quot;
+    // error[E0277]: the trait bound `struct_u8::adjoin::Struct: std::clone::Clone` is not satisfied
+
+    #[derive(Copy)]
+    struct Struct(u8);
+
+    let instance = Struct(42u8);
+    let clone_instance = instance.clone();
+    let copy_instance = instance;
+
+    // derive *Copy* error, because without derive *Clone*
+    let use_instance = instance;
+
+#}</code></pre></pre>
+<p>　　该程序运行结果是以错误结束。而这种错误说明需要先实现克隆特质<code>Clone</code>。</p>
+<pre><code>error[E0277]: the trait bound `main::Struct: std::clone::Clone` is not satisfied
+  --&gt; bin-hello/examples/struct_u8.rs:56:14
+   |
+56 |     #[derive(Copy)]
+   |              ^^^^ the trait `std::clone::Clone` is not implemented for `main::Struct`
+</code></pre>
+<p>　　尽管该程序不能编译，但是还是可以运行派生工具，其结果如下：</p>
+<pre><code>#![feature(prelude_import)]
+#![allow(unused_variables)]
+#[prelude_import]
+use std::prelude::v1::*;
+#[macro_use]
+extern crate std;
+#[cfg(feature = &quot;err_02&quot;)]
+fn main() {
+    struct Struct(u8);
+    #[automatically_derived]
+    #[allow(unused_qualifications)]
+    impl ::core::marker::Copy for Struct {}
+    let instance = Struct(42u8);
+    let clone_instance = instance.clone();
+    let copy_instance = instance;
+    let get_instance = instance;
+}
+</code></pre>
+<h2><a class="header" href="#分析不同类型的派生属性" id="分析不同类型的派生属性">分析不同类型的派生属性</a></h2>
+<p>　　将前面包含派生属性<code>Clone</code>和<code>Copy</code>程序进行这样的调整：把结构类型的元素类型<code>u8</code>修改为<code>String</code>，得到如下程序：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+    // File: ./examples/expand/struct_string.rs
+    // ANCHOR = &quot;struct_string-error_01&quot;
+    // error[E0204]: the trait `Copy` may not be implemented for this type
+
+    #[derive(Clone, Copy)]
+    struct Struct(String);
+
+    let instance = Struct(String::from(&quot;Hello&quot;));
+    let clone_instance = instance.clone();
+    let copy_instance = instance;
+
+    let use_instance = instance;
+
+#}</code></pre></pre>
+<p>　　上面程序运行结果如下。我们知道前面类似程序运行是正常的，为什么到这里就不能运行了呢？这是因为类型<code>String</code>是可变类型，对于所有这种形式的类型，Rust语言都没有实现其复制特质<code>Copy</code>.</p>
+<pre><code>error[E0204]: the trait `Copy` may not be implemented for this type
+  --&gt; bin-hello/examples/expand/struct_string.rs:38:21
+   |
+38 |     #[derive(Clone, Copy)]
+   |                     ^^^^
+39 |     struct Struct(String);
+   |                   ------ this field does not implement `Copy`
+</code></pre>
+<p>　　那么什么是这种类型一般性使用方法呢？对于这种类型，仅使用Rust语言提供的克隆特质<code>Clone</code>，其代码如下：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+    // File: ./examples/expand/struct_string.rs
+    // #[cfg(feature = &quot;ok&quot;)]
+
+    #[derive(Clone)]
+    struct Struct(String);
+
+    let instance = Struct(String::from(&quot;Hello&quot;));
+    let clone_instance = instance.clone();
+    let copy_instance = instance;
+
+    // can copy and clone, because derive *Clone*
+    // can not move, because without derive *Copy*,
+    // and instance live not, copy_instance live
+    let use_copy_instance = copy_instance;
+
+#}</code></pre></pre>
+<p>　　通过派生工具命令，展开该程序代码。注意这里克隆特质<code>Clone</code>实现，比较前面类型<code>Struct(u8)</code>程序实现，可以了解到两者实现是完全一样的。对于仅仅使用克隆特质<code>Clone</code>，两种类型<code>Struct(u8)</code>和<code>Struct(String)</code>是完全相似的。</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+mod struct_string {
+    #![allow(unused_variables)]
+    #[cfg(feature = &quot;ok&quot;)]
+    pub fn adjoin() {
+        struct Struct(String);
+        #[automatically_derived]
+        #[allow(unused_qualifications)]
+        impl ::core::clone::Clone for Struct {
+            #[inline]
+            fn clone(&amp;self) -&gt; Struct {
+                match *self {
+                    Struct(ref __self_0_0) =&gt; Struct(::core::clone::Clone::clone(&amp;(*__self_0_0))),
+                }
+            }
+        }
+        let instance = Struct(String::from(&quot;Hello&quot;));
+        let clone_instance = instance.clone();
+        let copy_instance = instance;
+        let use_copy_instance = copy_instance;
+    }
+}
+#}</code></pre></pre>
+<p>　　下面程序说明了，对于这种类型<code>Struct(String)</code>也是不能转移（move）的。</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+    // File: ./examples/expand/struct_string.rs
+    // ANCHOR = &quot;struct_string-error_02&quot;
+    // error[E0382]: use of moved value: `instance`
+
+    #[derive(Clone)]
+    struct Struct(String);
+
+    let instance = Struct(String::from(&quot;Hello&quot;));
+    let clone_instance = instance.clone();
+    let copy_instance = instance;
+
+    // can copy and clone, because derive *Clone*
+    // but can NOT move, because without derive *Copy*,
+    // and instance live not
+    let use_instance = instance;
+
+#}</code></pre></pre>
+<h2><a class="header" href="#自定义类型structcncn-str的派生属性" id="自定义类型structcncn-str的派生属性">自定义类型<code>Struct&lt;'cn&gt;(&amp;'cn str)</code>的派生属性</a></h2>
+<p>　　对于结构类型<code>Struct&lt;'cn&gt;(&amp;'cn str)</code>的元素是字符串文字类型，只是其类型定义的表达方式上差距比较大，下面给出实现代码。在实际中经常会使用这种类型。</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+    // File: ./examples/expand/struct_str.rs
+    // #[cfg(feature = &quot;ok&quot;)]
+
+    #[derive(Clone, Copy)]
+    struct Struct&lt;'cn&gt;(&amp;'cn str);
+
+    let instance: Struct = Struct(&quot;Hello&quot;);
+    let clone_instance = instance.clone();
+    let copy_instance = instance;
+
+    // can copy and clone, because derive *Clone*
+    // can move, because derive *Copy*,
+    // and instance and copy_instance live
+    let use_instance = instance;
+
+#}</code></pre></pre>
+<p>　　但是，其处理方法上与类型<code>Struct(u8)</code>是完全相同的，通过派生工具展开其代码，可以解释这个问题，把前面展开代码与下面展开代码相比较。</p>
+<p>　　该程序派生工具运行结果如下：</p>
+<pre><code class="language-rust no_run noplaypen">mod struct_str {
+    #![allow(unused_variables)]
+    #[cfg(feature = &quot;ok&quot;)]
+    pub fn adjoin() {
+        struct Struct&lt;'cn&gt;(&amp;'cn str);
+        #[automatically_derived]
+        #[allow(unused_qualifications)]
+        impl&lt;'cn&gt; ::core::clone::Clone for Struct&lt;'cn&gt; {
+            #[inline]
+            fn clone(&amp;self) -&gt; Struct&lt;'cn&gt; {
+                {
+                    let _: ::core::clone::AssertParamIsClone&lt;&amp;'cn str&gt;;
+                    *self
+                }
+            }
+        }
+        #[automatically_derived]
+        #[allow(unused_qualifications)]
+        impl&lt;'cn&gt; ::core::marker::Copy for Struct&lt;'cn&gt; {}
+        let instance: Struct = Struct(&quot;Hello&quot;);
+        let clone_instance = instance.clone();
+        let use_copy_instance = instance;
+        let use_instance = instance;
+    }
+}
+</code></pre>
+<h2><a class="header" href="#题外话" id="题外话">题外话</a></h2>
+<h2><a class="header" href="#参考资料" id="参考资料">参考资料</a></h2>
+<ul>
+<li><a href="https://github.com/dtolnay/cargo-expand">cargo-expand</a></li>
+<li><a href="http://smallcultfollowing.com/babysteps/blog/2012/07/17/borrowed-pointer-tutorial/">borrowed-pointer-tutorial</a></li>
+<li><a href="https://aminb.gitbooks.io/rust-for-c/content/borrowed/index.html">book rust-for-c</a></li>
+<li><a href="https://stackoverflow.com/questions/18943513/rust-borrowed-pointers-syntax">rust-borrowed-pointers-syntax</a></li>
+<li><a href="https://users.rust-lang.org/t/fighting-the-borrow-checker-in-a-loop/22975">fighting-the-borrow-checker-in-a-loop</a></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../hello-borrowing/clone-copy.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../hello-borrowing/reference-pointer.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../hello-borrowing/clone-copy.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../hello-borrowing/reference-pointer.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3001");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload(true); // force reload from server (not from cache)
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+        
+
+        
+
+        
+        <script src="../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

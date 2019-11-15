@@ -34,7 +34,7 @@ let copy_instance = instance;
 　　类型正整数`u8`或者逻辑类型`bool`等都是实现了复制特质`Copy`的典型实例，而字符串`String`和向量Vec`等都是没有实现复制特质`Copy`的典型实例。
 
 ```rust
-{{ #include ../../../../hello-borrowing/bin-hello/examples/use_u8_type.rs }}
+{{ #include ../../../../hello-borrowing/lib-hello/src/immut/type_ref/mod.rs:use_u8_type }}
 ```
 
 ## 错误使用变量实例
@@ -42,7 +42,7 @@ let copy_instance = instance;
 　　下面程序在方法`main()`有三段代码。第一段代码创建一个类型`String`对象`instance`；第二段代码是一种复制或者拷贝对象的行为，从上面变量生命周期可以知道，第三段代码的变量`instance`已经成为没有定义的变量。所以，编译器指出其错误，其含意如上所述。Rust语言使用了“移动（move）”，说明变量生命周期的过程。
 
 ```rust
-{{ #include ../../../../hello-borrowing/bin-hello/examples/string_type_str.rs:feature-err }}
+{{ #include ../../../../hello-borrowing/bin-hello/examples/string_type/string_str.rs:feature-err_01 }}
 ```
 
 　　该程序输出结果如下：
@@ -66,7 +66,7 @@ error[E0382]: borrow of moved value: `instance`
 　　下面看看Rust如何实现借用方法。这是典型Rust语言的代码。下面程序在方法`main()`有三段代码。在该方法里，类型`String`对象`instance`和`borrow_instance`始终是有效的。
 
 ```rust
-{{ #include ../../../../hello-borrowing/bin-hello/examples/string_type_str.rs:feature-ok }}
+{{ #include ../../../../hello-borrowing/bin-hello/examples/string_type/string_str.rs:feature-ok }}
 ```
 
 　　与前面代码实例一样，第一段代码创建一个类型`String`对象`instance`；第二段代码也是一种复制或者拷贝对象的行为，但是该对象的类型是引用，这是Rust语言的一种借用机制，所谓”借用“，就是把对象`instance`的值借过来使用。第三段代码的变量`instance`和变量`borrow_instance`还都是可以使用的。

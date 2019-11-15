@@ -1,0 +1,337 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>应用篋：宏dbg!与可变实例 - 以软件篋学习Rust语言</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Chinese">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li><a href="../foreword/index.html"><strong aria-hidden="true">1.</strong> 前言</a></li><li><ol class="section"><li><a href="../foreword/about.html"><strong aria-hidden="true">1.1.</strong> 本书项目结构</a></li><li><a href="../foreword/crate.html"><strong aria-hidden="true">1.2.</strong> 关于作业区和软件篋实例</a></li><li><a href="../foreword/cargo.html"><strong aria-hidden="true">1.3.</strong> 关于Cargo工具基础命令</a></li><li><a href="../foreword/rust.html"><strong aria-hidden="true">1.4.</strong> Rust语言新思维和新概念</a></li></ol></li><li><a href="../hello-world/index.html"><strong aria-hidden="true">2.</strong> 软件篋hello_exercism</a></li><li><ol class="section"><li><a href="../hello-world/about.html"><strong aria-hidden="true">2.1.</strong> 关于软件篋项目</a></li><li><a href="../hello-world/commands-lib.html"><strong aria-hidden="true">2.2.</strong> 共享篋：开发命令</a></li><li><a href="../hello-world/lib.html"><strong aria-hidden="true">2.3.</strong> 共享篋：程序代码解释</a></li><li><a href="../hello-world/lib-tests.html"><strong aria-hidden="true">2.4.</strong> 共享篋：目录tests的测试代码解释</a></li><li><a href="../hello-world/src-tests.html"><strong aria-hidden="true">2.5.</strong> 共享篋：目录src的测试代码解释</a></li><li><a href="../hello-world/commands-local.html"><strong aria-hidden="true">2.6.</strong> 本地程序：开发命令</a></li><li><a href="../hello-world/bin-local.html"><strong aria-hidden="true">2.7.</strong> 本地程序：程序代码解释</a></li><li><a href="../hello-world/commands-bin.html"><strong aria-hidden="true">2.8.</strong> 仓库程序：开发命令</a></li><li><a href="../hello-world/bin.html"><strong aria-hidden="true">2.9.</strong> 仓库程序：程序代码解释</a></li><li><a href="../hello-world/off-topic.html"><strong aria-hidden="true">2.10.</strong> 题外话</a></li><li><a href="../hello-world/debug.html"><strong aria-hidden="true">2.11.</strong> 调试代码</a></li></ol></li><li><a href="../hello-trait/index.html"><strong aria-hidden="true">3.</strong> 软件篋trait_exerci</a></li><li><ol class="section"><li><a href="../hello-trait/examples-struct.html"><strong aria-hidden="true">3.1.</strong> 类型关键词struct</a></li><li><a href="../hello-trait/examples-impl.html"><strong aria-hidden="true">3.2.</strong> 关键词impl与方法代码实现</a></li><li><a href="../hello-trait/examples-methods.html"><strong aria-hidden="true">3.3.</strong> 函数与方法代码实现</a></li><li><a href="../hello-trait/examples-trait.html"><strong aria-hidden="true">3.4.</strong> 衔接关键词trait</a></li><li><a href="../hello-trait/examples-trait-impl.html"><strong aria-hidden="true">3.5.</strong> 特质实现及其对象</a></li><li><a href="../hello-trait/examples-trait-default.html"><strong aria-hidden="true">3.6.</strong> 题外话：默认衔接特质Default</a></li><li><a href="../hello-trait/lib-structure.html"><strong aria-hidden="true">3.7.</strong> 程序代码结构</a></li><li><a href="../hello-trait/about.html"><strong aria-hidden="true">3.8.</strong> 关于软件篋项目</a></li><li><a href="../hello-trait/commands-lib.html"><strong aria-hidden="true">3.9.</strong> 共享篋：开发命令</a></li><li><a href="../hello-trait/lib-codes.html"><strong aria-hidden="true">3.10.</strong> 共享篋：程序代码解释</a></li><li><a href="../hello-trait/lib-tests.html"><strong aria-hidden="true">3.11.</strong> 共享篋：目录测试代码解释</a></li><li><a href="../hello-trait/off-topic.html"><strong aria-hidden="true">3.12.</strong> 题外话</a></li></ol></li><li><a href="../hello-mod-trait/index.html"><strong aria-hidden="true">4.</strong> 软件篋mod_trait_exerci</a></li><li><ol class="section"><li><a href="../hello-mod-trait/about.html"><strong aria-hidden="true">4.1.</strong> 关于软件篋mod_trait_exerci</a></li><li><a href="../hello-mod-trait/crate-structure.html"><strong aria-hidden="true">4.2.</strong> 文件与模块</a></li><li><a href="../hello-mod-trait/lib-codes.html"><strong aria-hidden="true">4.3.</strong> 共享篋：程序结构和代码解释</a></li><li><a href="../hello-mod-trait/exampels-codes.html"><strong aria-hidden="true">4.4.</strong> 三种调用方式解释</a></li><li><a href="../hello-mod-trait/examples-dispatch.html"><strong aria-hidden="true">4.5.</strong> 理解动态与静态调度实现</a></li><li><a href="../hello-mod-trait/examples-miri.html"><strong aria-hidden="true">4.6.</strong> 深度解析动态与静态调度实现</a></li><li><a href="../hello-mod-trait/lib-fn.html"><strong aria-hidden="true">4.7.</strong> 共享篋：简单三层结构实现</a></li><li><a href="../hello-mod-trait/lib-static.html"><strong aria-hidden="true">4.8.</strong> 共享篋：基于封装的静态调度实现</a></li><li><a href="../hello-mod-trait/lib-dynamic.html"><strong aria-hidden="true">4.9.</strong> 共享篋：基于封装的动态调度实现</a></li><li><a href="../hello-mod-trait/lib-tests.html"><strong aria-hidden="true">4.10.</strong> 共享篋：单元测试代码解释</a></li><li><a href="../hello-mod-trait/off-topic.html"><strong aria-hidden="true">4.11.</strong> 题外话：泛型实例</a></li></ol></li><li><a href="../hello-borrowing/index.html"><strong aria-hidden="true">5.</strong> 软件篋borrowing_exerci（一）</a></li><li><ol class="section"><li><a href="../hello-borrowing/about.html"><strong aria-hidden="true">5.1.</strong> 关于应用篋borrowing_exerci</a></li><li><a href="../hello-borrowing/clone-copy.html"><strong aria-hidden="true">5.2.</strong> 特质：克隆（Clone）和复制（Copy）</a></li><li><a href="../hello-borrowing/cargo-expand.html"><strong aria-hidden="true">5.3.</strong> 可变类型派生分析</a></li><li><a href="../hello-borrowing/reference-pointer.html"><strong aria-hidden="true">5.4.</strong> 引用Reference与指针Pointer基本概念</a></li><li><a href="../hello-borrowing/reference-type-pointer.html"><strong aria-hidden="true">5.5.</strong> 引用、类型与原始指针解释</a></li><li><a href="../hello-borrowing/borrowing-string.html"><strong aria-hidden="true">5.6.</strong> 应用篋：字符串类型借用方法</a></li><li><a href="../hello-borrowing/borrowing-fn.html"><strong aria-hidden="true">5.7.</strong> 应用篋：方法借用实例</a></li><li><a href="../hello-borrowing/borrowing-closure.html"><strong aria-hidden="true">5.8.</strong> 应用篋：闭包借用实例</a></li><li><a href="../hello-borrowing/keyword-move.html"><strong aria-hidden="true">5.9.</strong> 应用篋：移动关键词move借用实例</a></li><li><a href="../hello-borrowing/borrowing-for-loop.html"><strong aria-hidden="true">5.10.</strong> 应用篋：循环for语句不可变借用实例</a></li><li><a href="../hello-borrowing/ref_and.html"><strong aria-hidden="true">5.11.</strong> 关键词ref与引用符&amp;</a></li></ol></li><li><a href="../hello-mut-borrowing/index.html"><strong aria-hidden="true">6.</strong> 软件篋borrowing_exerci（二）</a></li><li><ol class="section"><li><a href="../hello-mut-borrowing/about.html"><strong aria-hidden="true">6.1.</strong> 关于应用篋mut_borrowing_exerci</a></li><li><a href="../hello-mut-borrowing/borrowing-count.html"><strong aria-hidden="true">6.2.</strong> 应用篋：借用次数实例</a></li><li><a href="../hello-mut-borrowing/borrowing-dbg.html" class="active"><strong aria-hidden="true">6.3.</strong> 应用篋：宏dbg!与可变实例</a></li><li><a href="../hello-mut-borrowing/borrowing-mut.html"><strong aria-hidden="true">6.4.</strong> 应用篋：可变大小类型借用实例</a></li><li><a href="../hello-mut-borrowing/borrowing-for-loop-mut.html"><strong aria-hidden="true">6.5.</strong> 应用篋：循环for语句可变借用实例</a></li><li><a href="../hello-mut-borrowing/borrowing-mut-fn.html"><strong aria-hidden="true">6.6.</strong> 应用篋：可变类型与函数实例</a></li><li><a href="../hello-mut-borrowing/crates.html"><strong aria-hidden="true">6.7.</strong> 题外话：使用工具cargo</a></li></ol></li><li><a href="../hello-some/index.html"><strong aria-hidden="true">7.</strong> 软件篋some_exerci</a></li><li><ol class="section"><li><a href="../hello-some/about.html"><strong aria-hidden="true">7.1.</strong> 关于软件篋some_exerci</a></li><li><a href="../hello-some/stack_head.html"><strong aria-hidden="true">7.2.</strong> 应用篋：栈（Stack）和堆（Head）</a></li><li><a href="../hello-some/develop.html"><strong aria-hidden="true">7.3.</strong> 开发软件篋some_exerci</a></li><li><a href="../hello-some/apply.html"><strong aria-hidden="true">7.4.</strong> 使用软件篋some_exerci</a></li><li><a href="../hello-borrowing/bin-lib.html"><strong aria-hidden="true">7.5.</strong> 题外话：应用篋的软件包结构</a></li><li><a href="../hello-some/cargo-features.html"><strong aria-hidden="true">7.6.</strong> 题外话：Cargo工具features功能</a></li></ol></li><li><a href="../hello-macro/index.html"><strong aria-hidden="true">8.</strong> 软件篋macro_exerci</a></li><li><ol class="section"><li><a href="../hello-macro/about.html"><strong aria-hidden="true">8.1.</strong> 关于软件篋macro_exerci</a></li><li><a href="../hello-macro/develop.html"><strong aria-hidden="true">8.2.</strong> 开发软件篋macro_exerci</a></li><li><a href="../hello-macro/apply.html"><strong aria-hidden="true">8.3.</strong> 使用软件篋macro_exerci</a></li></ol></li><li><a href="../hello-generics/index.html"><strong aria-hidden="true">9.</strong> 软件篋generics_exerci</a></li><li><ol class="section"><li><a href="../hello-generics/about.html"><strong aria-hidden="true">9.1.</strong> 关于软件篋generics_exerci</a></li><li><a href="../hello-generics/develop.html"><strong aria-hidden="true">9.2.</strong> 开发软件篋generics_exerci</a></li><li><a href="../hello-generics/apply.html"><strong aria-hidden="true">9.3.</strong> 使用软件篋generics_exerci</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">以软件篋学习Rust语言</h1>
+
+                        <div class="right-buttons">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#应用篋宏dbg与可变实例" id="应用篋宏dbg与可变实例">应用篋：宏<code>dbg!</code>与可变实例</a></h1>
+<h2><a class="header" href="#学习内容" id="学习内容">学习内容</a></h2>
+<ul>
+<li>了解和学习使用宏方法<code>dbg!</code>的借用实例</li>
+</ul>
+<h2><a class="header" href="#篇目" id="篇目">篇目</a></h2>
+<ul>
+<li><a href="#%E5%AE%8Fdbg%E4%B8%8E%E5%80%9F%E7%94%A8%E6%9C%BA%E5%88%B6">宏<code>dbg!</code>与借用机制</a></li>
+<li><a href="#%E5%8F%AF%E5%8F%98%E5%AF%B9%E8%B1%A1%E5%8F%8A%E5%85%B6%E5%9B%BA%E5%AE%9A%E5%BC%95%E7%94%A8%E5%AF%B9%E8%B1%A1">可变对象及其固定引用对象</a></li>
+<li><a href="#%E5%8F%AF%E5%8F%98%E5%AF%B9%E8%B1%A1%E5%8F%8A%E5%85%B6%E5%8F%AF%E5%8F%98%E5%BC%95%E7%94%A8%E5%AF%B9%E8%B1%A1">可变对象及其可变引用对象</a></li>
+<li><a href="#%E9%A2%98%E5%A4%96%E8%AF%9D">题外话</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BA%E7%B1%BB%E5%9E%8B%60String%60%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95">创建类型<code>String</code>对象方法</a></li>
+<li><a href="#%E7%B1%BB%E5%9E%8Bstring%E6%96%B9%E6%B3%95push%E5%92%8Cpush_str">类型<code>String</code>：方法<code>push</code>和<code>push_str</code></a></li>
+<li><a href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">参考资料</a></li>
+</ul>
+<h2><a class="header" href="#宏dbg与借用机制" id="宏dbg与借用机制">宏<code>dbg!</code>与借用机制</a></h2>
+<p>　　宏方法<code>dbg!</code>实现打印并返回给定表达式的值，目的进行快速而简陋的调试。该宏类似于程序输出宏<code>println!</code>，但是宏方法<code>dbg!</code>使用简单方便，并且它不是以与程序输出在一起，而是单独输出。所以，当使用在线图书执行它时，我们将看不到其输出结果。</p>
+<p>　　先看一个宏方法<code>dbg!</code>的简单应用实例：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+    // File: ./examples/dbg/mut_macro.rs
+    // #[cfg(feature = &quot;cp&quot;)]
+
+    let string :String = format!(&quot;{}&quot;, &quot;Hello&quot;);
+    dbg!(std::mem::size_of_val(&amp;string));
+    dbg!(&amp;string);
+    dbg!(string);
+
+#}</code></pre></pre>
+<p>其输出结果如下：</p>
+<pre><code class="language-rust no_run noplaypen"></code></pre>
+<p>　　<a href="id_01">官方文档</a>解释宏方法<code>dbg!</code>如下：</p>
+<blockquote>
+<p>Invoking the macro on an expression moves and takes ownership of it before returning the evaluated expression unchanged. If the type of the expression does not implement Copy and you don't want to give up ownership, you can instead borrow with dbg!(&amp;expr) for some expression expr.</p>
+</blockquote>
+<p>中文翻译：</p>
+<blockquote>
+<p>调用基于表达式<code>expr</code>的宏，会转移对象并获取其所有权，然后再返回已求值的表达式不变。如果表达式的类型未实现特质<code>Copy</code>且不想放弃所有权，则对于一些表达式<code>expr</code>可以改用这种调用方法<code>dbg!(＆expr)</code>。</p>
+</blockquote>
+<p>　　下面程序的目的就是来验证上面阐述的第一句话。一旦使用了没有实现特质<code>Copy</code>的类型<code>String</code>对象，是否宏方法<code>dbg!</code>转移该对象，并且调用该宏结束以后，就拿走了该对象的所有权。只要运行一下该程序，就得到了验证。在实际中，都会使用这种<code>dbg!(＆expr)</code>调用方法。</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+    // File: ./examples/dbg/mut_macro.rs
+    // ANCHOR = &quot;error_01&quot;
+    // error[E0382]: borrow of moved value: `string`
+
+    let string = format!(&quot;{}&quot;, &quot;Hello&quot;);
+    dbg!(string);
+    dbg!(&amp;string);
+
+#}</code></pre></pre>
+<h2><a class="header" href="#可变对象及其固定引用对象" id="可变对象及其固定引用对象">可变对象及其固定引用对象</a></h2>
+<p>　　对于可变类型对象，在使用宏方法<code>dbg!</code>时，可以绑定其固定引用对象，具体实例如下：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+    // File: ./examples/dbg/mut_macro.rs
+    // #[cfg(feature = &quot;ok&quot;)]
+
+    let mut string :String = format!(&quot;{}&quot;, &quot;Hello&quot;);
+    string.push('!');
+    let ref_string = &amp;string;
+    dbg!(ref_string);
+    dbg!(ref_string);
+
+#}</code></pre></pre>
+<p>　　上面程序运行正常，说明固定引用对象<code>ref_string</code>的借用是正常的。那么我们可否绑定其可变引用对象呢？</p>
+<h2><a class="header" href="#可变对象及其可变引用对象" id="可变对象及其可变引用对象">可变对象及其可变引用对象</a></h2>
+<p>　　下面程序将回答上面的问题。对于可变类型对象，在使用宏方法<code>dbg!</code>时，可以绑定其可变引用对象，将会发生什么？具体实例如下：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+    // File: ./examples/dbg/mut_macro.rs
+    // ANCHOR = &quot;error_03&quot;
+    // error[E0382]: use of moved value: `ref_mut_string`
+
+    let mut string = format!(&quot;{}&quot;, &quot;Hello&quot;);
+    string.push('!');
+    let ref_mut_string = &amp;mut string;
+    dbg!(ref_mut_string);
+    dbg!(ref_mut_string);
+
+#}</code></pre></pre>
+<p>　　对于可变引用对象，宏方法<code>dbg!</code>也将其可变对象的所有权收回了。</p>
+<h2><a class="header" href="#题外话" id="题外话">题外话</a></h2>
+<h3><a class="header" href="#创建类型string对象方法" id="创建类型string对象方法">创建类型<code>String</code>对象方法</a></h3>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let new_string :String = String::new();
+let from_string :String = String::from(&quot;Hello&quot;);
+let format_string :String = format!(&quot;{}&quot;, &quot;Hello&quot;);
+let to_string :String = &quot;Hello&quot;.to_string();
+#}</code></pre></pre>
+<h3><a class="header" href="#类型string方法push和push_str" id="类型string方法push和push_str">类型<code>String</code>：方法<code>push</code>和<code>push_str</code></a></h3>
+<p>　　在创建类型<code>String</code>的可变对象时，经常会使用到方法<code>push()</code>和<code>push_str()</code>，前者方法参数类型是<code>char</code>，而后者方法参数类型<code>&amp;str</code>。</p>
+<h2><a class="header" href="#参考资料" id="参考资料">参考资料</a></h2>
+<ul>
+<li><a href="https://doc.rust-lang.org/std/macro.dbg.html">std macro.dbg</a></li>
+<li><a href="https://brown121407.github.io/programming/2019/01/18/rusts-dbg-macro.html">rusts-dbg-macro</a></li>
+<li><a href="https://stackoverflow.com/questions/38141056/does-rust-have-a-debug-macro">does-rust-have-a-debug-macro</a></li>
+<li><a href="https://github.com/rust-lang/rust/issues/59087">Generator size: borrowed variables are...</a></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../hello-mut-borrowing/borrowing-count.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../hello-mut-borrowing/borrowing-mut.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../hello-mut-borrowing/borrowing-count.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../hello-mut-borrowing/borrowing-mut.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3001");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload(true); // force reload from server (not from cache)
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+        
+
+        
+
+        
+        <script src="../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

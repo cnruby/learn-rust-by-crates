@@ -21,13 +21,13 @@
 　　连使用对象的引用，也失去其对象本身的所有权，这是否与借用机制不一致了？网上有人提出这样的问题。我们下面使用了一个技巧，来解决这个问题。
 
 ```rust
-{{ #include ../../../../hello-borrowing/bin-hello/examples/closure_move.rs:feature-cp }}
+{{ #include ../../../../hello-borrowing/bin-hello/examples/closure/kw_move.rs:feature-cp }}
 ```
 
 　　在下面程序里，也有定义闭包的语句。即使仅使用定义语句，也会出现错误。
 
 ```rust
-{{ #include ../../../../hello-borrowing/bin-hello/examples/closure_move.rs:feature-err }}
+{{ #include ../../../../hello-borrowing/bin-hello/examples/closure/kw_move.rs:feature-err }}
 ```
 
 ## 借用机制代码实例
@@ -37,7 +37,7 @@
 　　为了使得一些变量不能失去其所有权，而又要借用该变量。解决办法是这样的：为了使得一个对象的借用有效，这时候需要在闭包以前先把该对象引用绑定一个变量，然后把绑定引用对象变量使用到闭包里。
 
 ```rust
-{{ #include ../../../../hello-borrowing/bin-hello/examples/closure_move_vec.rs:feature-ok }}
+{{ #include ../../../../hello-borrowing/bin-hello/examples/closure/move_vec.rs:feature-ok }}
 ```
 
 ## 题外话
