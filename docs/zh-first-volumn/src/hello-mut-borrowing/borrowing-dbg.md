@@ -59,7 +59,7 @@
 {{ #include ../../../../hello-borrowing/bin-hello/examples/dbg/mut_macro.rs:feature-error_03 }}
 ```
 
-　　对于可变引用对象，宏方法`dbg!`也将其可变对象的所有权收回了。
+　　对于可变引用对象，宏方法`dbg!`将收回其所有权。但是前面我们看到，对于固定引用对象，宏方法`dbg!`则不会收回其所有权。
 
 ## 题外话
 

@@ -16,19 +16,19 @@ pub fn adjoin() {
     let mut instance = String::new();
     instance.push_str("hello");
 
-    let ref_mut_instance :&mut String = &mut instance;
-    ref_mut_instance.push_str(" world");
+    let mut_ref :&mut String = &mut instance;
+    mut_ref.push_str(" world");
 
-    let ref_instance :&String = ref_mut_instance;
-    println!("ref_instance = {}", ref_instance);
-    println!("ref_mut_instance = {}", ref_mut_instance);
+    let immut_ref :&String = mut_ref;
+    println!("immut_ref = {}", immut_ref);
+    println!("mut_ref = {}", mut_ref);
 
-    ref_mut_instance.make_ascii_uppercase(); // ref_instance is moved after here
-    //println!("ref_instance = {}", ref_instance);
-    println!("ref_mut_instance = {}", ref_mut_instance);
+    mut_ref.make_ascii_uppercase(); // immut_ref is moved after here
+    //println!("immut_ref = {}", immut_ref);
+    println!("mut_ref = {}", mut_ref);
 
-    instance.push('!'); // ref_mut_instance is moved after here
-    //println!("ref_instance = {}", ref_mut_instance);
+    instance.push('!'); // mut_ref is moved after here
+    //println!("immut_ref = {}", mut_ref);
 
     println!("instance = {}", instance);
 
@@ -42,24 +42,24 @@ pub fn adjoin() {
     // ANCHOR: feature-error_01
     // File: ./examples/mut_var_sized/string_refs.rs
     // ANCHOR = "string_refs-error_01"
-    // error[E0502]: cannot borrow `*ref_mut_instance` as mutable because it is also borrowed as immutable
+    // error[E0502]: cannot borrow `*mut_ref` as mutable because it is also borrowed as immutable
 
     let mut instance = String::new();
     instance.push_str("hello");
 
-    let ref_mut_instance :&mut String = &mut instance;
-    ref_mut_instance.push_str(" world");
+    let mut_ref :&mut String = &mut instance;
+    mut_ref.push_str(" world");
 
-    let ref_instance :&String = ref_mut_instance;
-    println!("ref_instance = {}", ref_instance);
-    println!("ref_mut_instance = {}", ref_mut_instance);
+    let immut_ref :&String = mut_ref;
+    println!("immut_ref = {}", immut_ref);
+    println!("mut_ref = {}", mut_ref);
 
-    ref_mut_instance.make_ascii_uppercase(); // ref_instance is moved after here
-    println!("ref_instance = {}", ref_instance); // ERROR
-    println!("ref_mut_instance = {}", ref_mut_instance);
+    mut_ref.make_ascii_uppercase(); // immut_ref is moved after here
+    println!("immut_ref = {}", immut_ref); // ERROR
+    println!("mut_ref = {}", mut_ref);
 
-    instance.push('!'); // ref_mut_instance is moved after here
-    //println!("ref_instance = {}", ref_mut_instance);
+    instance.push('!'); // mut_ref is moved after here
+    //println!("immut_ref = {}", mut_ref);
 
     println!("instance = {}", instance);
 
@@ -78,19 +78,19 @@ pub fn adjoin() {
     let mut instance = String::new();
     instance.push_str("hello");
 
-    let ref_mut_instance :&mut String = &mut instance;
-    ref_mut_instance.push_str(" world");
+    let mut_ref :&mut String = &mut instance;
+    mut_ref.push_str(" world");
 
-    let ref_instance :&String = ref_mut_instance;
-    println!("ref_instance = {}", ref_instance);
-    println!("ref_mut_instance = {}", ref_mut_instance);
+    let immut_ref :&String = mut_ref;
+    println!("immut_ref = {}", immut_ref);
+    println!("mut_ref = {}", mut_ref);
 
-    ref_mut_instance.make_ascii_uppercase(); // ref_instance is moved after here
-    //println!("ref_instance = {}", ref_instance);
-    println!("ref_mut_instance = {}", ref_mut_instance);
+    mut_ref.make_ascii_uppercase(); // immut_ref is moved after here
+    //println!("immut_ref = {}", immut_ref);
+    println!("mut_ref = {}", mut_ref);
 
-    instance.push('!'); // ref_mut_instance is moved after here
-    println!("ref_instance = {}", ref_mut_instance);
+    instance.push('!'); // mut_ref is moved after here
+    println!("mut_ref = {}", mut_ref);  // ERROR
 
     println!("instance = {}", instance);
 
@@ -110,20 +110,20 @@ pub fn adjoin() {
     let mut instance = String::new();
     instance.push_str("hello");
 
-    let ref_mut_instance :&mut String = &mut instance;
-    ref_mut_instance.push_str(" world");
+    let mut_ref :&mut String = &mut instance;
+    mut_ref.push_str(" world");
 
-    //let ref_instance :&String = ref_mut_instance;
-    let ref_instance :&String = &instance;
-    println!("ref_instance = {}", ref_instance);
-    println!("ref_mut_instance = {}", ref_mut_instance);  // ERROR
+    //let immut_ref :&String = mut_ref;
+    let immut_ref :&String = &instance;
+    println!("immut_ref = {}", immut_ref);
+    println!("mut_ref = {}", mut_ref);  // ERROR
 
-    ref_mut_instance.make_ascii_uppercase(); // ref_instance is moved after here
-    //println!("ref_instance = {}", ref_instance);
-    println!("ref_mut_instance = {}", ref_mut_instance);
+    mut_ref.make_ascii_uppercase(); // immut_ref is moved after here
+    //println!("immut_ref = {}", immut_ref);
+    println!("mut_ref = {}", mut_ref);
 
-    instance.push('!'); // ref_mut_instance is moved after here
-    //println!("ref_instance = {}", ref_mut_instance);
+    instance.push('!'); // mut_ref is moved after here
+    //println!("mut_ref = {}", mut_ref);
 
     println!("instance = {}", instance);
 

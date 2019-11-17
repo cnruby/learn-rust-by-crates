@@ -78,6 +78,7 @@ pub fn adjoin() {
     // File: ./examples/dbg/mut_macro.rs
     // ANCHOR = "error_03"
     // error[E0382]: use of moved value: `ref_mut_string`
+    dbg!("");
 
     let mut string = format!("{}", "Hello");
     string.push('!');

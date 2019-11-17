@@ -17,14 +17,12 @@ pub fn adjoin() {
     mut_instance.push_str(", world");
     println!("1. use mut_instance = {}", mut_instance);
 
-    // The variable `mut_instance` begin to move here
-    let copy_mut_instance = &mut_instance;
-    // The variable `mut_instance` moved here
-    println!("1. use copy_mut_instance = {}", copy_mut_instance);
+    let immut_ref = &mut_instance;
+    println!("1. use immut_ref = {}", immut_ref);
 
     // The variable `mut_instance` borrowed here after move
     println!("2. use mut_instance = {}", mut_instance);
-    println!("2. use copy_mut_instance = {}", copy_mut_instance);
+    println!("2. use immut_ref = {}", immut_ref);
 
     // ANCHOR_END: feature-ok
 }
@@ -61,13 +59,13 @@ pub fn adjoin() {
     mut_instance.push_str(", world");
     println!("1. use mut_instance = {}", mut_instance);
 
-    let copy_mut_instance = &mut_instance;
-    println!("1. use copy_mut_instance = {}", copy_mut_instance);
+    let immut_ref = &mut_instance;
+    println!("1. use immut_ref = {}", immut_ref);
 
-    // The variable `copy_mut_instance` begin to move here
+    // The variable `immut_ref` begin to move here
     mut_instance.push_str("!");
-    // The variable `copy_mut_instance` moved here
-    println!("2. use copy_mut_instance = {}", copy_mut_instance); //ERROR
+    // The variable `immut_ref` moved here
+    println!("2. use immut_ref = {}", immut_ref); //ERROR
 
     // The variable `mut_instance` borrowed here after move
     println!("2. use mut_instance = {}", mut_instance);
@@ -86,11 +84,11 @@ pub fn adjoin() {
     println!("1. use mut_instance = {}", mut_instance);
 
     // The variable `mut_instance` begin to move here
-    let ref_mut_instance = &mut mut_instance;
+    let mut_ref = &mut mut_instance;
     // The variable `mut_instance` moved here
-    println!("1. use copy_mut_instance = {}", ref_mut_instance);
-    ref_mut_instance.push_str("!");
-    println!("2. use ref_mut_instance = {}", ref_mut_instance);
+    println!("1. use mut_ref = {}", mut_ref);
+    mut_ref.push_str("!");
+    println!("2. use mut_ref = {}", mut_ref);
 
     mut_instance.make_ascii_uppercase();
 
@@ -111,17 +109,17 @@ pub fn adjoin() {
     println!("1. use mut_instance = {}", mut_instance);
 
     // The variable `mut_instance` begin to move here
-    let ref_mut_instance = &mut mut_instance;
+    let mut_ref = &mut mut_instance;
     // The variable `mut_instance` moved here
-    println!("1. use ref_mut_instance = {}", ref_mut_instance);
-    ref_mut_instance.push_str("!");
-    println!("2. use ref_mut_instance = {}", ref_mut_instance);
+    println!("1. use mut_ref = {}", mut_ref);
+    mut_ref.push_str("!");
+    println!("2. use mut_ref = {}", mut_ref);
 
-    // The variable `ref_mut_instance` begin to move here
+    // The variable `mut_ref` begin to move here
     mut_instance.make_ascii_uppercase();
-    // The variable `ref_mut_instance` moved here
+    // The variable `mut_ref` moved here
 
-    println!("3. use ref_mut_instance = {}", ref_mut_instance); // ERROR
+    println!("3. use mut_ref = {}", mut_ref); // ERROR
 
     // The variable `mut_instance` borrowed here after move
     println!("2. use mut_instance = {}", mut_instance);
