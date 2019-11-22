@@ -5,6 +5,8 @@
 
 # 软件篋borrowing_exerci（一）
 
+　　借用和所有权机制的基本思想很简单。每个值都由一个对象拥有，在一个时刻只能由一个对象拥有，并且当对象超出范围时，该值将从内存中删除。只能借用该对象，而不能拥有该对象的所有权，但是可以创建引用对象拥有该对象值的指针，引用对象拥有该对象值的所有权，但是该对象可以随时收回其所有权。
+
 ## 软件篋borrowing_exerci
 
 　　Rust语言的借用机制是其最主要的特点。通过实现借用方法，使得代码更加安全和可靠。
@@ -37,4 +39,4 @@
 - [the-basics-of-rust-structs](https://facility9.com/2016/04/the-basics-of-rust-structs/)
 - [a-single-command-to-compile-and-run-rust-programs](http://blog.joncairns.com/2015/10/a-single-command-to-compile-and-run-rust-programs/)
 - [how-to-execute-rust-code-directly-on-unix-systems-using-the-shebang](https://stackoverflow.com/questions/41322300/how-to-execute-rust-code-directly-on-unix-systems-using-the-shebang)
-- 
+- [rust-ownership](https://hellocode.dev/rust-ownership)

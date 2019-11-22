@@ -27,6 +27,9 @@ prettytable-rs = "^0.8"
 
 [features]
 ok = []
+cp = []
+okay = []
+okey = []
 err = []
 err_01 = []
 err_02 = []
@@ -38,7 +41,7 @@ err_07 = []
 err_08 = []
 err_09 = []
 err_10 = []
-cp = []
+err_11 = []
 
 #[[example]]
 # example.path

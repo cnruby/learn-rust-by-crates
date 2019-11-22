@@ -11,9 +11,9 @@ pub fn adjoin() {
     // File: ./examples/mut_fn/double_refs.rs
     // #[cfg(feature = "ok")]
 
-    fn fn_borrow(x: &mut i32) {}
-    fn fn_main(mut_ref: &mut i32) {
-        fn_borrow(mut_ref); // mutable borrow occurs here
+    fn fn_borrowed(mut_ref: &mut i32) {}
+    fn fn_borrow(mut_ref: &mut i32) {
+        fn_borrowed(mut_ref); // mutable borrow occurs here
         let immut_ref = mut_ref; // immutable borrow occurs here
 
         println!("{}", immut_ref); // immutable borrow later used here
@@ -31,11 +31,10 @@ pub fn adjoin() {
     // ANCHOR = "string_refs-error_01"
     // error[E0382]: borrow of moved value: `mut_ref`
 
-    fn fn_borrow(x: &mut i32) {}
-    fn fn_main(mut_ref: &mut i32) {
-        let immut_ref = mut_ref; // a is borrowed as immutable.
-        fn_borrow(mut_ref); // error: cannot borrow `*a` as mutable because
-                //        `a` is also borrowed as immutable
+    fn fn_borrowed(mut_ref: &mut i32) {}
+    fn fn_borrow(mut_ref: &mut i32) {
+        let immut_ref = mut_ref;
+        fn_borrowed(mut_ref);
         println!("{}", immut_ref);
     }
 
@@ -46,11 +45,10 @@ pub fn adjoin() {
 
 #[cfg(feature = "err_02")]
 pub fn adjoin() {
-    fn bar(x: &mut i32) {}
-    fn foo(mut_ref: &mut i32) {
-        let immut_ref_ref = &mut_ref; // a is borrowed as immutable.
-        bar(a); // error: cannot borrow `*a` as mutable because
-                //        `a` is also borrowed as immutable
+    fn fn_borrowed(mut_ref: &mut i32) {}
+    fn fn_borrow(mut_ref: &mut i32) {
+        let immut_ref_ref = &mut_ref;
+        fn_borrowed(mut_ref); 
         println!("{}", immut_ref_ref);
     }
 }
