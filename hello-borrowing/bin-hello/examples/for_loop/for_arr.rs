@@ -1,4 +1,4 @@
-// File: ./bin-hello/examples/for_loop/for_arr/mod.rs
+// File: ./bin-hello/examples/for_loop/for_arr.rs
 // clear && cargo run --example for_loop --features ok -- for_arr | bat -l cmd
 // clear && cargo run --example for_loop --features err_01
 // clear && cargo run --example for_loop -- for_arr
@@ -6,7 +6,7 @@
 #[cfg(feature = "ok")]
 pub fn adjoin() {
     // ANCHOR: feature-ok
-    // File: ./bin-hello/examples/for_loop/for_arr/mod.rs
+    // File: ./bin-hello/examples/for_loop/for_arr.rs
     // #[cfg(feature = "ok")]
 
     let instance = [1u8, 2, 3];
@@ -43,7 +43,7 @@ pub fn adjoin() {
 // error[E0277]
 pub fn adjoin() {
     // ANCHOR: feature-err
-    // File: ./bin-hello/examples/for_loop/for_arr/mod.rs
+    // File: ./bin-hello/examples/for_loop/for_arr.rs
     // #[cfg(feature = "err_01")]
 
     let instance = [1u8, 2, 3];

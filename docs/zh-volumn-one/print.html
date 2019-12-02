@@ -5183,7 +5183,7 @@ clear &amp;&amp; cargo run --example string_type_str --features err
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
 #fn main() {
-    // File: ./bin-hello/examples/for_loop/for_arr/mod.rs
+    // File: ./bin-hello/examples/for_loop/for_arr.rs
     // #[cfg(feature = &quot;err_01&quot;)]
 
     let instance = [1u8, 2, 3];
@@ -5213,7 +5213,7 @@ borrow the array with `&amp;` or call `.iter()` on it to iterate over it(`instan
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
 #fn main() {
-    // File: ./bin-hello/examples/for_loop/for_arr/mod.rs
+    // File: ./bin-hello/examples/for_loop/for_arr.rs
     // #[cfg(feature = &quot;ok&quot;)]
 
     let instance = [1u8, 2, 3];
@@ -5269,7 +5269,7 @@ borrow the array with `&amp;` or call `.iter()` on it to iterate over it(`instan
 # #![allow(unused_variables)]
 #fn main() {
 pub fn adjoin() {
-    // File: ./bin-hello/examples/for_loop/for_vec/mod.rs
+    // File: ./bin-hello/examples/for_loop/for_vec.rs
     // #[cfg(feature = &quot;cp&quot;)]
 
     let instance = vec![1, 2, 3];
@@ -5295,7 +5295,7 @@ pub fn adjoin() {
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
 #fn main() {
-    // File: ./bin-hello/examples/for_loop/for_vec/mod.rs
+    // File: ./bin-hello/examples/for_loop/for_vec.rs
     // #[cfg(feature = &quot;err_02&quot;)]
 
     let instance = vec![1, 2, 3];
@@ -5316,7 +5316,7 @@ pub fn adjoin() {
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
 #fn main() {
-    // File: ./bin-hello/examples/for_loop/for_vec/mod.rs
+    // File: ./bin-hello/examples/for_loop/for_vec.rs
     // #[cfg(feature = &quot;ok&quot;)]
 
     let instance = vec![1u8, 2, 3];
@@ -5347,7 +5347,7 @@ pub fn adjoin() {
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
 #fn main() {
-    // File: ./bin-hello/examples/for_loop/for_vec_iter/mod.rs
+    // File: ./bin-hello/examples/for_loop/for_vec_iter.rs
     // #[cfg(feature = &quot;err_03&quot;)]
 
     let instance = vec![1, 2, 3];
@@ -5373,7 +5373,7 @@ pub fn adjoin() {
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
 #fn main() {
-    // File: ./bin-hello/examples/for_loop/for_vec_iter/mod.rs
+    // File: ./bin-hello/examples/for_loop/for_vec_iter.rs
     // #[cfg(feature = &quot;cp&quot;)]
 
     let instance = vec![1u8, 2, 3];
@@ -5409,7 +5409,7 @@ pub fn adjoin() {
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
 #fn main() {
-    // File: ./bin-hello/examples/for_loop/for_vec_iter/mod.rs
+    // File: ./bin-hello/examples/for_loop/for_vec_iter.rs
     // #[cfg(feature = &quot;ok&quot;)]
 
     let instance = vec![1u8, 2, 3];
@@ -6361,6 +6361,8 @@ let mut mut_ref_immut :&amp;str = &amp;instance;
 <blockquote>
 <p>let mut mut_and_mut_ref = &amp;mut mut_instance;</p>
 </blockquote>
+<p>　　与前面了解到的绑定可变引用的固定对象与绑定固定引用的可变对象实例类似，这种如上Rust语句的对象<code>mut_and_mut_ref</code>，无论是所引用对象<code>mut_instance</code>值，还是对象<code>mut_and_mut_ref</code>本身值都是可变的。</p>
+<p>　　下面是如何使用绑定可变引用的可变对象具体实例：</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
 #fn main() {
@@ -6379,25 +6381,23 @@ let mut mut_ref_immut :&amp;str = &amp;instance;
 
     let mut mut_instance = String::new();
     mut_instance.push_str(&quot;Hello&quot;);
+    println!(&quot;1. mut_instance = {:?}&quot;, mut_instance);
     
     let mut mut_ref :&amp;mut String = &amp;mut mut_instance;
     mut_instance = one(mut_ref).to_string();
+    println!(&quot;2. mut_instance = {:?}&quot;, mut_instance);
     
     mut_ref = &amp;mut mut_instance;
     mut_instance = two(mut_ref).to_string();
-
-    println!(&quot;hello from {:?}&quot;, mut_instance);
+    println!(&quot;3. mut_instance = {:?}&quot;, mut_instance);
 
 #}</code></pre></pre>
-<pre><code>// https://internals.rust-lang.org/t/allow-mut-value-not-just-mut-reference/7424/2
-let mut a = &amp;mut x;
-</code></pre>
-<p>You can also do let mut a = &amp;mut x; which would mean you could later change a to be a mutable reference to another variable.
-A mut after let means the variable can be changed. This is not equivalent to a mut at any place right of the =.</p>
-<p>https://hermanradtke.com/2015/06/09/strategies-for-solving-cannot-move-out-of-borrowing-errors-in-rust.html</p>
-<p>borrow-clone.rs</p>
-<p>Can you spot the difference? Now, on line 4, we call the other function with a clone of the value held by the hello variable. Obviously this is not the most efficient way to write your program, and it can be risky if you don't know the size of the values which are going to be getting cloned. Also, if your functions mutate the value in some way then this is not a good solution:</p>
-<p>您看得出来差别吗？ 现在，在第4行，我们用hello变量保存的值的克隆调用另一个函数。 显然，这不是编写程序的最有效方法，如果您不知道将要克隆的值的大小，则可能会有风险。 另外，如果您的函数以某种方式更改了值，那么这不是一个好的解决方案：</p>
+<p>　　在这里之所以使用可变对象属性，是因为在第一次调用方法<code>one()</code>以后，方法将对象<code>mut_ref</code>消费掉了，尽管对象<code>mut_ref</code>本身还是存在的，但其内容已经不在了，要是直接再次调用方法<code>two()</code>，就会出现错误。这也说明了对象<code>mut_ref</code>的值是可变的。</p>
+<p>　　要是不存在对象<code>mut_ref</code>第二次的赋值，就会出现下面借用错误。</p>
+<p>　　在这里之所以使用需要绑定可变引用属性，是因为调用方法的参数是可变引用。方法参数是可变引用，说明该引用将会被修改。从方法功能可以看到，参数是被修改了。</p>
+<p>　　通过上面了解到绑定可变引用的可变对象，不仅对象<code>mut_ref</code>本身内容是可修改的，即，之后可以将其更改为另一个对象或者其本身的可变引用，而且其值的对象<code>mut_instance</code>内容也是可修改的，即，之后可以将其更改为任何字符串文字内容。</p>
+<p>　　最后非常简单地阐述类型<code>Box&lt;T&gt;</code>的作用，类型<code>Box&lt;T&gt;</code>可以将任何类型<code>T</code>打包起来，方便其打包类型<code>T</code>进行传输或者处理等，比如，要是一组不同类型都打包成类型<code>Box&lt;T&gt;</code>以后，就可以作为一个数组一起处理，另外这是一种引用数据类型。</p>
+<p>　　可以把类型<code>Box&lt;T&gt;</code>与<code>T</code>理解为类型<code>String</code>与<code>str</code>的类似关系，前者类型<code>String</code>存在可以大量操作其内容的功能，而后者主要的内容储存功能，两种各自具有不同的功能。当然类型<code>Box&lt;T&gt;</code>主要的解压功能，而后者是数据结构功能。</p>
 <h2><a class="header" href="#题外话-25" id="题外话-25">题外话</a></h2>
 <h3><a class="header" href="#连接字符串的正确方法" id="连接字符串的正确方法">连接字符串的正确方法</a></h3>
 <pre><pre class="playpen"><code class="language-rust">
@@ -6414,12 +6414,6 @@ println!(&quot;result = {}&quot;, result);
 let result :String = format!(&quot;{}{}&quot;, input, &quot;?&quot;);
 println!(&quot;result = {}&quot;, result);
 #}</code></pre></pre>
-<ul>
-<li><a href="https://users.rust-lang.org/t/what-is-right-ways-to-concat-strings/3780/1">what-is-right-ways-to-concat-strings</a></li>
-<li><a href="https://users.rust-lang.org/t/best-way-to-do-string-concatenation-in-2019-status-quo/24004">best-way-to-do-string-concatenation-in-2019-status-quo</a></li>
-<li><a href="https://stackoverflow.com/questions/30154541/how-do-i-concatenate-strings">how-do-i-concatenate-strings</a></li>
-<li></li>
-</ul>
 <h2><a class="header" href="#最主要参考资料" id="最主要参考资料">最主要参考资料</a></h2>
 <ul>
 <li><a href="https://hellocode.dev/rust-ownership">rust-ownership</a></li>
@@ -6435,7 +6429,14 @@ println!(&quot;result = {}&quot;, result);
 <li><a href="https://hermanradtke.com/2015/06/09/strategies-for-solving-cannot-move-out-of-borrowing-errors-in-rust.html">strategies-for-solving-cannot-move-out-of-borrowing-errors-in-rust</a></li>
 <li><a href="https://users.rust-lang.org/t/best-way-to-do-string-concatenation-in-2019-status-quo/24004/4">best-way-to-do-string-concatenation-in-2019-status-quo</a></li>
 <li><a href="https://users.rust-lang.org/t/what-is-right-ways-to-concat-strings/3780">what-is-right-ways-to-concat-strings</a></li>
-<li></li>
+<li><a href="https://internals.rust-lang.org/t/allow-mut-value-not-just-mut-reference/7424/2">allow-mut-value-not-just-mut-reference</a></li>
+<li><a href="https://hermanradtke.com/2015/06/09/strategies-for-solving-cannot-move-out-of-borrowing-errors-in-rust.html">strategies-for-solving-cannot-move-out-of-borrowing-errors-in-rust</a></li>
+</ul>
+<h2><a class="header" href="#参考资料题外话" id="参考资料题外话">参考资料：题外话</a></h2>
+<ul>
+<li><a href="https://users.rust-lang.org/t/what-is-right-ways-to-concat-strings/3780/1">what-is-right-ways-to-concat-strings</a></li>
+<li><a href="https://users.rust-lang.org/t/best-way-to-do-string-concatenation-in-2019-status-quo/24004">best-way-to-do-string-concatenation-in-2019-status-quo</a></li>
+<li><a href="https://stackoverflow.com/questions/30154541/how-do-i-concatenate-strings">how-do-i-concatenate-strings</a></li>
 </ul>
 <h1><a class="header" href="#应用篋宏dbg与可变实例" id="应用篋宏dbg与可变实例">应用篋：宏<code>dbg!</code>与可变实例</a></h1>
 <h2><a class="header" href="#学习内容-41" id="学习内容-41">学习内容</a></h2>
@@ -6544,10 +6545,286 @@ let to_string :String = &quot;Hello&quot;.to_string();
 <li><a href="https://github.com/rust-lang/rust/issues/59087">Generator size: borrowed variables are...</a></li>
 </ul>
 <h1><a class="header" href="#应用篋循环for语句可变借用实例" id="应用篋循环for语句可变借用实例">应用篋：循环for语句可变借用实例</a></h1>
-<p>https://www.google.com/search?q=rust+mutable+borrow+in+loop&amp;oq=rust+mut+bor&amp;aqs=chrome.3.69i57j0l5.23911j0j7&amp;sourceid=chrome&amp;ie=UTF-8</p>
+<h2><a class="header" href="#学习内容-42" id="学习内容-42">学习内容</a></h2>
+<ul>
+<li>了解和学习循环for语句可变借用实例</li>
+</ul>
+<h2><a class="header" href="#篇目-47" id="篇目-47">篇目</a></h2>
+<ul>
+<li><a href="hello-mut-borrowing/borrowing-for-loop-mut.html#%E6%96%B9%E6%B3%95into_iter%E4%B8%8E%E5%85%B3%E9%94%AE%E8%AF%8Dmut%E7%9A%84%E7%BB%84%E5%90%88%E7%BB%93%E6%9E%84">方法<code>into_iter()</code>与关键词<code>mut</code>的组合结构</a></li>
+<li><a href="hello-mut-borrowing/borrowing-for-loop-mut.html#%E6%96%B9%E6%B3%95iter_mut%E5%AE%9E%E4%BE%8B">方法<code>iter_mut()</code>实例</a></li>
+<li><a href="hello-mut-borrowing/borrowing-for-loop-mut.html#%E9%A2%98%E5%A4%96%E8%AF%9D">题外话</a></li>
+<li><a href="hello-mut-borrowing/borrowing-for-loop-mut.html#%E6%96%B9%E6%B3%95next%E5%AE%9E%E4%BE%8B">方法<code>next()</code>实例</a></li>
+<li><a href="hello-mut-borrowing/borrowing-for-loop-mut.html#%E6%96%B9%E6%B3%95enumerate%E5%AE%9E%E4%BE%8B">方法<code>enumerate()</code>实例</a></li>
+<li><a href="hello-mut-borrowing/borrowing-for-loop-mut.html#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">参考资料</a></li>
+</ul>
+<p>iter() iterates over the items by reference
+into_iter() iterates over the items, moving them into the new scope
+iter_mut() iterates over the items, giving a mutable reference to each item</p>
+<h2><a class="header" href="#方法into_iter与关键词mut的组合结构" id="方法into_iter与关键词mut的组合结构">方法<code>into_iter()</code>与关键词<code>mut</code>的组合结构</a></h2>
+<p>　　对于具有迭代器<code>Iterator</code>的对象而言，方法<code>into_iter()</code>是完全依赖于其对象类型，且遍历其所有的元素本身。下面通过实例再回顾一下这种方法。</p>
+<p>　　如下面程序，对象<code>instance</code>的类型是<code>Vec&lt;u8&gt;</code>，这样其元素是原始类型<code>u8</code>，那么方法就遍历其所有原始类型<code>u8</code>的元素。</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+    // File: ./bin-hello/examples/for_loop/for_into_iter.rs
+    // #[cfg(feature = &quot;okay&quot;)]
+
+    let instance = vec![33u8, 42];
+
+    for item in instance.into_iter() {
+        //println!(&quot;item = {:p}&quot;, item);
+        println!(&quot;item = {:p}&quot;, &amp;item);
+    }
+
+#}</code></pre></pre>
+<p>　　其实，上面程序从表面上，方法<code>into_iter()</code>，既看不能让人看到其遍历的元素类型，也看不能让人知道其已经消费了对象<code>instance</code>。</p>
+<p>　　对于第一个问题，为了简单快速了解其元素类型，可以使用上面程序注释掉的宏方法<code>println!()</code>，要是编译没有错误，就说明对象<code>item</code>是引用类型，否则就是非引用类型。</p>
+<p>　　对于第二个问题，只要在上面程序基础上，在其最后增加一行宏方法<code>println!()</code>代码，如下所示。只要编译该程序，就会出现借用编译错误。说明方法<code>into_iter()</code>已经把对象<code>instance</code>消费掉了。</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+    // File: ./bin-hello/examples/for_loop/for_iter_mut.rs
+    // #[cfg(feature = &quot;err_09&quot;)]
+
+    let instance = vec![33u8, 42];
+
+    for item in instance.into_iter() {
+        //item = 1;
+        println!(&quot;item = {:p}&quot;, &amp;item);
+    }
+
+    println!(&quot;instance = {:?}&quot;, instance);
+
+#}</code></pre></pre>
+<p>　　为了使得对象<code>instance</code>在调用方法<code>into_iter()</code>以后，且修改其元素，而对象<code>instance</code>依然存在，需要借用可变对象<code>instance</code>。</p>
+<p>　　需要指出的是，即使对象<code>instance</code>是可变的，上面程序的方法元素本身也是不可变对象。</p>
+<p>　　对于方法<code>into_iter()</code>，要是对象类型是<code>&amp;Vec&lt;u8&gt;</code>，其元素是引用类型<code>&amp;u8</code>，那么方法就遍历其所有引用类型<code>&amp;u8</code>的元素。</p>
+<p>　　下面程序可变对象<code>instance</code>的类型是<code>&amp;mut Vec&lt;u8&gt;</code>，其元素是可变引用类型<code>&amp;mut u8</code>，那么方法就遍历其所有可变引用类型<code>&amp;mut u8</code>的元素。</p>
+<p>　　下面程序是这里重点解释的结构。三个部分缺一不可：对象<code>instance</code>本身是可变的；其引用本身也是可变的；使用引用作为方法<code>into_iter()</code>的对象。这样可以实现对象<code>instance</code>内容的修改。</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+    // File: ./bin-hello/examples/for_loop/for_into_iter.rs
+    // #[cfg(feature = &quot;cp&quot;)]
+
+    let mut instance = vec![33u8, 42];
+    println!(&quot;1. instance = {:?}&quot;, instance);
+
+    let ref_instance :&amp;mut Vec&lt;u8&gt; = &amp;mut instance;
+    println!(&quot;1. ref_instance = {:?}&quot;, ref_instance);
+
+    for item in ref_instance.into_iter() {
+        *item = 1;
+    }
+
+    println!(&quot;2. ref_instance = {:?}&quot;, ref_instance);
+    println!(&quot;2. instance = {:?}&quot;, instance);
+
+#}</code></pre></pre>
+<p>　　上面程序里，引用对象<code>ref_instance</code>的类型是一种默认情况，即绑定对象<code>ref_instance</code>时，其类型写与不写是一样的意思。但是下面程序的引用对象<code>ref_instance</code>的类型可以不是默认的，而是人为绑定的，这是程序第二段代码的第一行代码。当然程序第二段代码的第二行也是一种默认绑定方式。</p>
+<p>　　对象<code>instance</code>的类型是<code>&amp;mut [u8]</code>，其元素是引用类型<code>&amp;mut u8</code>，那么方法就遍历其所有引用类型<code>&amp;mut u8</code>的元素。这种情况可以把<code>&amp;Vec&lt;u8&gt;</code>和<code>＆[u8]</code>看作为类似于<code>&amp;String</code>和<code>＆str</code>。</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+    // File: ./bin-hello/examples/for_loop/for_into_iter.rs
+    // #[cfg(feature = &quot;okey&quot;)]
+
+    let mut instance = vec![33u8, 42];
+    println!(&quot;1. instance = {:?}&quot;, instance);
+    println!(&quot;1. &amp;instance = {:p}&quot;, &amp;instance);
+
+    let ref_instance :&amp;mut [u8] = &amp;mut instance;
+    //let ref_instance = &amp;mut *instance;
+    //let ref_instance :&amp;mut [u8] = &amp;mut *instance;
+    println!(&quot;1. ref_instance = {:p}&quot;, ref_instance);
+    for item in ref_instance.into_iter() {        
+        *item = 1;
+        println!(&quot;item = {:p}&quot;, item);
+    }
+
+    println!(&quot;2. ref_instance = {:p}&quot;, ref_instance);
+    println!(&quot;2. instance = {:?}&quot;, instance);
+
+#}</code></pre></pre>
+<h2><a class="header" href="#方法iter_mut实例" id="方法iter_mut实例">方法<code>iter_mut()</code>实例</a></h2>
+<blockquote>
+<p>方法<code>iter_mut()</code> = 方法<code>into_iter()</code>与关键词<code>mut</code>的组合结构</p>
+</blockquote>
+<p>　　从上面这行文字可以了解到，接下来说明方法<code>iter_mut()</code>其实就是上面程序代码的简化。</p>
+<p>　　通过下面程序使用方法<code>iter_mut()</code>，可以了解到它涉及到下面几方面内容：</p>
+<ul>
+<li>方法<code>iter_mut()</code>遍历其元素都是引用；</li>
+<li>方法<code>iter_mut()</code>遍历其元素都是可变引用；</li>
+<li>在调用方法<code>iter_mut()</code>以后，对象<code>instance</code>依然是存在的；</li>
+<li>方法<code>iter_mut()</code>隐藏了一个可变借用对象；</li>
+</ul>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+    // File: ./bin-hello/examples/for_loop/for_iter_mut.rs
+    // #[cfg(feature = &quot;ok&quot;)]
+
+    let mut instance = vec![33u8, 42];
+    println!(&quot;1. instance = {:?}&quot;, instance);
+    println!(&quot;1. &amp;instance = {:p}&quot;, &amp;instance);
+
+    for item in instance.iter_mut() {
+        *item = 1;
+        println!(&quot;item = {:p}&quot;, item);
+    }
+
+    println!(&quot;2. instance = {:?}&quot;, instance);
+    println!(&quot;２. &amp;instance = {:p}&quot;, &amp;instance);
+
+#}</code></pre></pre>
+<h2><a class="header" href="#题外话-27" id="题外话-27">题外话</a></h2>
+<h3><a class="header" href="#方法enumerate实例" id="方法enumerate实例">方法<code>enumerate()</code>实例</a></h3>
+<p>　　常常希望通过数组的顺序号访问数组。第一个程序说明了这种想法的解决方案：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+    // File: ./bin-hello/examples/for_loop/for_enumerate.rs
+    // #[cfg(feature = &quot;cp&quot;)]
+
+    let mut instance = vec![33u8; 5];
+    
+    for index in 0..instance.len() {
+        instance[index] = (index as u8) + instance[index];
+        println!(&quot;{:?}&quot;, instance[index]);
+    }
+
+    println!(&quot;{:?}&quot;, instance);
+
+#}</code></pre></pre>
+<p>　　实现这种想法的比较标准方法是使用标准库方法<code>enumerate()</code>。这个方法不仅遍历了数组的顺序号。而且还遍历其所有元素：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+    // File: ./bin-hello/examples/for_loop/for_enumerate.rs
+    // #[cfg(feature = &quot;okey&quot;)]
+
+    let mut instance = vec![33u8; 5];
+    
+    for (index, item) in instance.iter_mut().enumerate() {
+        *item = (index as u8) + *item;
+        println!(&quot;{:?}&quot;, *item);
+    }
+
+    println!(&quot;{:?}&quot;, instance);
+
+#}</code></pre></pre>
+<p>　　第三种是最广泛使用的实现，它摒弃了循环语句：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+    // File: ./bin-hello/examples/for_loop/for_enumerate.rs
+    // #[cfg(feature = &quot;okay&quot;)]
+
+    let instance: Vec&lt;_&gt; = vec![33u8; 5]
+        .into_iter()
+        .enumerate()
+        .map(|(index, item)| (index as u8) + item)
+        .collect();
+    
+    println!(&quot;{:?}&quot;, instance);
+
+#}</code></pre></pre>
+<h3><a class="header" href="#方法next实例" id="方法next实例">方法<code>next()</code>实例</a></h3>
+<p>　　通过下面程序解释使用方法<code>next()</code>的技巧：</p>
+<blockquote>
+<p>可行结构：可变对象＋可变迭代器(iter_mut)＋方法<code>next</code></p>
+</blockquote>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+    // File: ./bin-hello/examples/for_loop/for_next.rs
+    // #[cfg(feature = &quot;ok&quot;)]
+
+    let mut instance = vec![33u8; 5];
+    let mut iter = instance.iter_mut();
+    
+    loop {
+        match iter.next() {
+            Some(x) =&gt; println!(&quot;{:?}&quot;, x),
+            None =&gt; break,
+        }
+    }
+    
+    println!(&quot;{:?}&quot;, instance);
+
+#}</code></pre></pre>
+<blockquote>
+<p>不可行结构：可变对象＋迭代器(iter_mut)＋方法<code>next</code></p>
+</blockquote>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+    // File: ./bin-hello/examples/for_loop/for_next.rs
+    // #[cfg(feature = &quot;err_07&quot;)]
+
+    let mut instance = vec![33u8; 5];
+    //let mut iter = instance.iter_mut();   // OK
+    let iter = instance.iter_mut();
+    
+    loop {
+        match iter.next() {
+            Some(x) =&gt; println!(&quot;{:?}&quot;, x),
+            None =&gt; break,
+        }
+    }
+    
+    println!(&quot;{:?}&quot;, instance);
+#}</code></pre></pre>
+<blockquote>
+<p>不可行结构：（可变）对象＋可变迭代器(into_iter)＋方法<code>next</code></p>
+</blockquote>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+    // File: ./bin-hello/examples/for_loop/for_next.rs
+    // #[cfg(feature = &quot;err_08&quot;)]
+
+    let instance = vec![33u8; 5];
+    //let mut iter = IntoIterator::into_iter(instance);
+    let mut iter = instance.into_iter();
+    
+    loop {
+        match iter.next() {
+            Some(x) =&gt; println!(&quot;{:?}&quot;, x),
+            None =&gt; break,
+        }
+    }
+    
+    println!(&quot;{:?}&quot;, instance);
+    
+#}</code></pre></pre>
+<h2><a class="header" href="#参考资料-45" id="参考资料-45">参考资料</a></h2>
+<ul>
+<li><a href="http://xion.io/post/code/rust-for-loop.html">rust-for-loop</a></li>
+<li><a href="https://blog.codeship.com/understanding-rust-loops/">understanding-rust-loops</a></li>
+<li><a href="https://users.rust-lang.org/t/fighting-the-borrow-checker-in-a-loop/22975">fighting-the-borrow-checker-in-a-loop</a></li>
+<li><a href="https://doc.rust-lang.org/rust-by-example/flow_control/for.html">rust-by-example/flow_control</a></li>
+<li><a href="https://users.rust-lang.org/t/whats-the-difference-between-for-x-in-b-and-for-x-in-b-into-iter/14739">whats-the-difference-between-for-x-in-b-and-for-x-in-b-into-iter</a></li>
+<li><a href="https://stackoverflow.com/questions/39622783/how-can-i-do-a-mutable-borrow-in-a-for-loop">how-can-i-do-a-mutable-borrow-in-a-for-loop</a></li>
+<li><a href="https://words.steveklabnik.com/pointers-in-rust-a-guide">pointers-in-rust-a-guide</a></li>
+<li><a href="https://jvns.ca/blog/2017/11/27/rust-ref/">rust-ref</a></li>
+<li><a href="https://www.google.com/search?q=rust+mutable+borrow+in+loop">search?q=rust+mutable+borrow+in+loop</a></li>
+<li><a href="https://stackoverflow.com/questions/34733811/what-is-the-difference-between-iter-and-into-iter">what-is-the-difference-between-iter-and-into-iter</a></li>
+<li><a href="https://hoverbear.org/blog/a-journey-into-iterators/">a-journey-into-iterators</a></li>
+<li><a href="https://dev.to/dandyvica/yarit-yet-another-rust-iterators-tutorial-46dk">yarit-yet-another-rust-iterators-tutorial</a></li>
+<li><a href="https://hermanradtke.com/2015/06/22/effectively-using-iterators-in-rust.html">effectively-using-iterators-in-rust</a></li>
+<li></li>
+</ul>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+{{ #include ../../../../hello-borrowing/bin-hello/examples/for_loop/mut_string.rs:feature-okey }}
+#}</code></pre></pre>
+<p><img src="hello-mut-borrowing/../../hello-borrowing/images/hello_borrowing-12_vec_for_loop.png" alt="image" /></p>
 <h1><a class="header" href="#题外话使用工具cargo" id="题外话使用工具cargo">题外话：使用工具cargo</a></h1>
 <h2><a class="header" href="#run-examples-in-subfolders-using-cargo" id="run-examples-in-subfolders-using-cargo">Run examples in subfolders using cargo</a></h2>
-<h2><a class="header" href="#参考资料-45" id="参考资料-45">参考资料</a></h2>
+<h2><a class="header" href="#参考资料-46" id="参考资料-46">参考资料</a></h2>
 <ul>
 <li>https://users.rust-lang.org/t/run-examples-in-subfolders-using-cargo/18154/3</li>
 </ul>
@@ -6556,7 +6833,7 @@ let to_string :String = &quot;Hello&quot;.to_string();
 <ul>
 <li>https://blog.codeship.com/understanding-rust-loops/</li>
 </ul>
-<h2><a class="header" href="#参考资料-46" id="参考资料-46">参考资料</a></h2>
+<h2><a class="header" href="#参考资料-47" id="参考资料-47">参考资料</a></h2>
 <ul>
 <li><a href="https://stackoverflow.com/questions/25383488/how-to-match-a-string-against-string-literals-in-rust">how-to-match-a-string-against-string-literals-in-rust</a></li>
 <li><a href="https://www.jonathanturner.org/2016/02/rust-quickie-matching-strings.html">rust-quickie-matching-strings</a></li>

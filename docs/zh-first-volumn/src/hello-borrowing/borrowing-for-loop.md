@@ -24,7 +24,6 @@
 {{ #include ../../../../hello-borrowing/bin-hello/examples/for_loop/for_arr.rs:feature-err }}
 ```
 
-
 　　在编译该程序以后，编译器给出有用的信息提示，如下所示：
 
 ```bash

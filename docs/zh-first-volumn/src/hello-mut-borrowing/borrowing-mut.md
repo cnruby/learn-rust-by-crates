@@ -5,7 +5,6 @@
 ## 学习内容
 - 了解和学习绑定固定引用和可变引用的可变对象借用实例
 
-
 ## 篇目
 
 - [可变对象及其可变引用关系](#可变对象及其可变引用关系)
@@ -97,35 +96,32 @@ let mut mut_ref_immut :&str = &instance;
 
 ## 绑定可变引用的可变对象
 
-
 > let mut mut_and_mut_ref = &mut mut_instance;
+
+　　与前面了解到的绑定可变引用的固定对象与绑定固定引用的可变对象实例类似，这种如上Rust语句的对象`mut_and_mut_ref`，无论是所引用对象`mut_instance`值，还是对象`mut_and_mut_ref`本身值都是可变的。
+
+　　下面是如何使用绑定可变引用的可变对象具体实例：
 
 ```rust
 {{ #include ../../../../hello-borrowing/bin-hello/examples/mut_immut/mut_string.rs:feature-okey }}
 ```
 
+　　在这里之所以使用可变对象属性，是因为在第一次调用方法`one()`以后，方法将对象`mut_ref`消费掉了，尽管对象`mut_ref`本身还是存在的，但其内容已经不在了，要是直接再次调用方法`two()`，就会出现错误。这也说明了对象`mut_ref`的值是可变的。
+
+　　要是不存在对象`mut_ref`第二次的赋值，就会出现下面借用错误。
 
 
-```
-// https://internals.rust-lang.org/t/allow-mut-value-not-just-mut-reference/7424/2
-let mut a = &mut x;
-```
 
-You can also do let mut a = &mut x; which would mean you could later change a to be a mutable reference to another variable.
-A mut after let means the variable can be changed. This is not equivalent to a mut at any place right of the =.
+　　在这里之所以使用需要绑定可变引用属性，是因为调用方法的参数是可变引用。方法参数是可变引用，说明该引用将会被修改。从方法功能可以看到，参数是被修改了。
 
+　　通过上面了解到绑定可变引用的可变对象，不仅对象`mut_ref`本身内容是可修改的，即，之后可以将其更改为另一个对象或者其本身的可变引用，而且其值的对象`mut_instance`内容也是可修改的，即，之后可以将其更改为任何字符串文字内容。
 
-https://hermanradtke.com/2015/06/09/strategies-for-solving-cannot-move-out-of-borrowing-errors-in-rust.html
+　　最后非常简单地阐述类型`Box<T>`的作用，类型`Box<T>`可以将任何类型`T`打包起来，方便其打包类型`T`进行传输或者处理等，比如，要是一组不同类型都打包成类型`Box<T>`以后，就可以作为一个数组一起处理，另外这是一种引用数据类型。
 
-
-borrow-clone.rs
-
-
-Can you spot the difference? Now, on line 4, we call the other function with a clone of the value held by the hello variable. Obviously this is not the most efficient way to write your program, and it can be risky if you don't know the size of the values which are going to be getting cloned. Also, if your functions mutate the value in some way then this is not a good solution:
-
-您看得出来差别吗？ 现在，在第4行，我们用hello变量保存的值的克隆调用另一个函数。 显然，这不是编写程序的最有效方法，如果您不知道将要克隆的值的大小，则可能会有风险。 另外，如果您的函数以某种方式更改了值，那么这不是一个好的解决方案：
+　　可以把类型`Box<T>`与`T`理解为类型`String`与`str`的类似关系，前者类型`String`存在可以大量操作其内容的功能，而后者主要的内容储存功能，两种各自具有不同的功能。当然类型`Box<T>`主要的解压功能，而后者是数据结构功能。
 
 ## 题外话
+
 ### 连接字符串的正确方法
 
 ```rust
@@ -142,11 +138,6 @@ println!("result = {}", result);
 ```
 
 
-- [what-is-right-ways-to-concat-strings](https://users.rust-lang.org/t/what-is-right-ways-to-concat-strings/3780/1)
-- [best-way-to-do-string-concatenation-in-2019-status-quo](https://users.rust-lang.org/t/best-way-to-do-string-concatenation-in-2019-status-quo/24004)
-- [how-do-i-concatenate-strings](https://stackoverflow.com/questions/30154541/how-do-i-concatenate-strings)
-- 
-
 ## 最主要参考资料
 - [rust-ownership](https://hellocode.dev/rust-ownership)
 - [passing-a-string-by-reference-and-manipulate-the-string](https://stackoverflow.com/questions/26151324/passing-a-string-by-reference-and-manipulate-the-string)
@@ -160,4 +151,11 @@ println!("result = {}", result);
 - [strategies-for-solving-cannot-move-out-of-borrowing-errors-in-rust](https://hermanradtke.com/2015/06/09/strategies-for-solving-cannot-move-out-of-borrowing-errors-in-rust.html)
 - [best-way-to-do-string-concatenation-in-2019-status-quo](https://users.rust-lang.org/t/best-way-to-do-string-concatenation-in-2019-status-quo/24004/4)
 - [what-is-right-ways-to-concat-strings](https://users.rust-lang.org/t/what-is-right-ways-to-concat-strings/3780)
-- 
+- [allow-mut-value-not-just-mut-reference](https://internals.rust-lang.org/t/allow-mut-value-not-just-mut-reference/7424/2)
+- [strategies-for-solving-cannot-move-out-of-borrowing-errors-in-rust](https://hermanradtke.com/2015/06/09/strategies-for-solving-cannot-move-out-of-borrowing-errors-in-rust.html)
+
+## 参考资料：题外话
+
+- [what-is-right-ways-to-concat-strings](https://users.rust-lang.org/t/what-is-right-ways-to-concat-strings/3780/1)
+- [best-way-to-do-string-concatenation-in-2019-status-quo](https://users.rust-lang.org/t/best-way-to-do-string-concatenation-in-2019-status-quo/24004)
+- [how-do-i-concatenate-strings](https://stackoverflow.com/questions/30154541/how-do-i-concatenate-strings)

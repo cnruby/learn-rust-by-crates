@@ -45,6 +45,10 @@ pub fn adjoin() {
     // ANCHOR_END: feature-ok
 }
 
+
+
+
+
 #[cfg(feature = "cp")]
 pub fn adjoin() {
     fn one(mut hello_from: String) -> String {
@@ -123,14 +127,15 @@ pub fn adjoin() {
 
     let mut mut_instance = String::new();
     mut_instance.push_str("Hello");
+    println!("1. mut_instance = {:?}", mut_instance);
     
     let mut mut_ref :&mut String = &mut mut_instance;
     mut_instance = one(mut_ref).to_string();
+    println!("2. mut_instance = {:?}", mut_instance);
     
     mut_ref = &mut mut_instance;
     mut_instance = two(mut_ref).to_string();
-
-    println!("hello from {:?}", mut_instance);
+    println!("3. mut_instance = {:?}", mut_instance);
 
     // ANCHOR_END: feature-okey
 }
@@ -167,6 +172,10 @@ pub fn adjoin() {
     // ANCHOR_END: feature-error_01
 }
 
+
+
+
+
 #[cfg(feature = "err_02")]
 pub fn adjoin() {
     // ANCHOR: feature-error_02  OK!!!!
@@ -198,6 +207,7 @@ pub fn adjoin() {
 
     // ANCHOR_END: feature-error_02
 }
+
 
 
 
@@ -238,6 +248,9 @@ pub fn adjoin() {
 
     // ANCHOR_END: feature-error_03
 }
+
+
+
 
 
 #[cfg(feature = "err_04")]

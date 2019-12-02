@@ -4,8 +4,12 @@
 // clear && cargo run --example closure --features err_04
 // clear && cargo run --example closure -- move_vec
 
+//=======
 #![allow(unused_variables)]
 
+
+
+//=======
 #[cfg(feature = "ok")]
 pub fn adjoin() {
     // ANCHOR: feature-ok
@@ -28,6 +32,7 @@ pub fn adjoin() {
     // ANCHOR_END: feature-ok
 }
 
+//=======
 #[cfg(feature = "err_03")]
 pub fn adjoin() {
     // ANCHOR: feature-err_03
@@ -51,6 +56,7 @@ pub fn adjoin() {
     // ANCHOR_END: feature-err_03
 }
 
+//=======
 #[cfg(feature = "err_04")]
 pub fn adjoin() {
     // ANCHOR: feature-err_04
@@ -75,6 +81,7 @@ pub fn adjoin() {
     // ANCHOR_END: feature-err_04
 }
 
+//=======
 #[cfg(all(not(feature = "ok"), not(feature = "err_03"), not(feature = "err_04")))]
 pub fn adjoin() {
     use aide::hello;

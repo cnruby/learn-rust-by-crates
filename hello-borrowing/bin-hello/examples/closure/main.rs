@@ -2,7 +2,8 @@ use std::env::args;
 
 mod immut_string; //01
 mod kw_move; //02
-mod move_vec; //03,04
+mod move_vec; //03 04
+mod mut_move; //05
 
 fn main() {
     match args().nth(1) {
@@ -12,6 +13,7 @@ fn main() {
                 "immut_string" => immut_string::adjoin(),
                 "kw_move" => kw_move::adjoin(),
                 "move_vec" => move_vec::adjoin(),
+                "mut_move" => mut_move::adjoin(),
                 _ => println!("No Mod thing"),
             };
         }

@@ -1,4 +1,4 @@
-// File: ./bin-hello/examples/for_loop/for_vec_iter/mod.rs
+// File: ./bin-hello/examples/for_loop/for_vec_iter.rs
 // clear && cargo run --example for_loop --features ok -- for_vec_iter | bat -l cmd
 // clear && cargo run --example for_loop --features cp -- for_vec_iter | bat -l cmd
 // clear && cargo run --example for_loop --features err_03
@@ -7,7 +7,7 @@
 #[cfg(feature = "ok")]
 pub fn adjoin() {
     // ANCHOR: feature-ok
-    // File: ./bin-hello/examples/for_loop/for_vec_iter/mod.rs
+    // File: ./bin-hello/examples/for_loop/for_vec_iter.rs
     // #[cfg(feature = "ok")]
 
     let instance = vec![1u8, 2, 3];
@@ -35,7 +35,7 @@ pub fn adjoin() {
 #[cfg(feature = "cp")]
 pub fn adjoin() {
     // ANCHOR: feature-cp
-    // File: ./bin-hello/examples/for_loop/for_vec_iter/mod.rs
+    // File: ./bin-hello/examples/for_loop/for_vec_iter.rs
     // #[cfg(feature = "cp")]
 
     let instance = vec![1u8, 2, 3];
@@ -58,7 +58,7 @@ pub fn adjoin() {
 // error[E0277]
 pub fn adjoin() {
     // ANCHOR: feature-err
-    // File: ./bin-hello/examples/for_loop/for_vec_iter/mod.rs
+    // File: ./bin-hello/examples/for_loop/for_vec_iter.rs
     // #[cfg(feature = "err_03")]
 
     let instance = vec![1, 2, 3];

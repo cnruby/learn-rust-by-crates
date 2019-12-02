@@ -1,30 +1,11 @@
-pub const MOVE_VEC_OK: &str = r#"#![allow(unused_variables)]
-
-fn main() {
-    let v: Vec<u8> = vec![1, 2, 3];
-    println!("v is {:p}", &v);
-
-    let z = v.clone();
-    println!("z is {:p}", &z);
-    println!("v is {:p}", &v);
-
-    let w = v;
-    println!("w is {:p}", &w);
-}
-"#;
-
-pub const MOVE_VEC_ERR: &str = r#"#![allow(unused_variables)]
-
-fn main() {
-    let v: Vec<u8> = vec![1, 2, 3];
-    println!("v is {:p}", &v);
-
-    let z = v.clone();
-    println!("z is {:p}", &z);
-    println!("v is {:p}", &v);
-
-    let w = v;  // value moved here
-    println!("w is {:p}", &w);
-    println!("v is {:p}", &v); // ERROR: value borrowed here after move
+pub const MOVE_VEC_OK :&str = r#"#![allow(unused_variables)]
+pub fn main() {
+    let instance = vec![1, 2, 3];
+    println!("The variable instance before borrowing: {:?}", instance);
+    let ref_instance = &instance;
+    let equal_to_val = move |input_var| input_var == ref_instance;
+    println!("The variable instance after borrowing: {:?}", instance);
+    let input_instance = vec![1, 2, 3];
+    assert!(equal_to_val(&input_instance));
 }
 "#;

@@ -35,16 +35,16 @@ fn main() {
         _ => {
             let xx: &str = &args[1];
             match xx {
+                "allx" => allx_cmds(&args[1]),
                 // cargo run --bin bw -- -f allx
                 // cargo run --bin bwx allx
-                "allx" => allx_cmds(&args[1]),
+                "user" => user_cmds(&args[1]),
                 // cargo run --bin bw -- -f user
                 // cargo run --bin bwx user
-                "user" => user_cmds(&args[1]),
+                "conv" => convert_rs(&args[2], &args[3]),
                 // ONLY FOR Developer
-                // cargo run --bin bwx conv <RUST_FILE_NAME>
-                // cargo run --bin bwx conv kw_mut
-                "conv" => convert_rs(&args[2]),
+                // cargo run --bin bwx conv <RUST_FOLDER_NAME> <RUST_FILE_NAME>
+                // cargo run --bin bwx conv closure move_vec
                 _ => {
                     // cargo run --bin bw -- -f <RUST_FILE_NAME>
                     // cargo run --bin bwx <RUST_FILE_NAME>
