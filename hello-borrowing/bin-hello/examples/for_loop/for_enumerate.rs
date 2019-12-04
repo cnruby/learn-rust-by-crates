@@ -4,6 +4,10 @@
 // clear && cargo run --example for_loop --features err_05
 // clear && cargo run --example for_loop -- for_enumerate
 
+//=======
+
+
+//=======
 #[cfg(feature = "ok")]
 pub fn adjoin() {
     // ANCHOR: feature-ok
@@ -27,7 +31,7 @@ pub fn adjoin() {
 
 
 
-
+//=======
 #[cfg(feature = "cp")]
 pub fn adjoin() {
     // ANCHOR: feature-cp
@@ -49,7 +53,7 @@ pub fn adjoin() {
 
 
 
-
+//=======
 #[cfg(feature = "okey")]
 pub fn adjoin() {
     // ANCHOR: feature-okey
@@ -71,7 +75,7 @@ pub fn adjoin() {
 
 
 
-
+//=======
 #[cfg(feature = "okay")]
 pub fn adjoin() {
     // ANCHOR: feature-okay
@@ -93,8 +97,7 @@ pub fn adjoin() {
 
 
 
-
-
+//=======
 #[cfg(all(
     not(feature = "ok"), 
     not(feature = "okay"),

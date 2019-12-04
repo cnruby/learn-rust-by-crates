@@ -8,15 +8,17 @@ settings:
 
 args:
     # cargo run --bin bw -- --help
-    - mode:
-        short: m
-        long: mode
-        help: example `-m ok`
+    - feature:
+        short: f
+        long: feature
+        # help: 
         # possible_values can also be defined in this list format
-        possible_values: [ ok, err ]
+        possible_values: [ ok, cp, okay, okey, 
+            err_01, err_02, err_03, err_04, err_05,
+            err_06, err_07, err_08, err_09, err_10,]
         takes_value: true
-    - pos:
-        help: example `bw -f kw_fn -m ok`
+    - code:
+        # help: 
         index: 1
         # A list of possible values can be defined as a list
         possible_values:
@@ -26,33 +28,39 @@ args:
             #- user  # information commands for user
             #- bwx   # bin for information commands
             ## END for insider
-            - clone_derive
-            - clone_struct
+            ##example_name
+            - string_type_string_str
+            - mut_var_sized_struct_ref
+            - mut_var_sized_string_refs
+            - mut_var_sized_string_ref
+            - mut_immut_ref_str
+            - mut_immut_mut_string
+            - mut_fn_double_refs
+            - mut_fn_base_string
+            - mut_fn_base_str
+            - mut_base_mut_count
+            - kw_fn_vec_u8
+            - kw_fn_vec_str
+            - for_loop_for_vec_iter
+            - for_loop_for_vec
+            - for_loop_for_next
+            - for_loop_for_iter_mut
+            - for_loop_for_into_iter
+            - for_loop_for_enumerate
+            - for_loop_for_arr
+            - expand_struct_u8
+            - expand_struct_string
+            - expand_struct_str
+            - dbg_mut_macro
+            - closure_mut_move
             - closure_move_vec
-            - closure_move
-            - closure_string
-            - dbg_marco
-            - kw_fn
-            - new_var
-            - kw_mut
-            - kw_mut_fn
-            - stack_head
-            - vec_for
-            - expand_struct
-            - closure_string
-            - closure_vec
-            - move_vec
-            - move_tuple
-            - string_type
-            - string_type_str
-            - string_mut_type
-            - string_thread
-            - string_ref_thread
+            - closure_kw_move
+            - closure_immut_string
     - flag:
-        help: add the rust file name in the folder `examples`
-        short: f
-        long: file
+        help: add the follow ARGS `code` hinter the flag, like `-c kw_fn_vec_u8`
+        short: c
+        long: code
         multiple: true
         global: true
         requires:
-            - pos
+            - code

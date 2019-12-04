@@ -41,6 +41,12 @@ fn main() {
                 "user" => user_cmds(&args[1]),
                 // cargo run --bin bw -- -f user
                 // cargo run --bin bwx user
+                "all_convs" => convert_all_rss(),
+                // convert all the rs files in the folder examples
+                // cargo run --bin bwx all_convs
+                "convs" => convert_rss(&args[2]),
+                // cargo run --bin bwx convs <RUST_FOLDER_NAME>
+                // cargo run --bin bwx convs closure
                 "conv" => convert_rs(&args[2], &args[3]),
                 // ONLY FOR Developer
                 // cargo run --bin bwx conv <RUST_FOLDER_NAME> <RUST_FILE_NAME>

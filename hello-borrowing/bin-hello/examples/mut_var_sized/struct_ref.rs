@@ -3,8 +3,12 @@
 // clear && cargo run --example mut_var_sized --features cp -- struct_ref
 // clear && cargo run --example mut_var_sized --features err -- struct_ref
 
+//=======
 #![allow(unused_variables)]
 
+
+
+//=======
 #[cfg(feature = "ok")]
 pub fn adjoin() {
     // ANCHOR: feature-ok
@@ -24,6 +28,10 @@ pub fn adjoin() {
     // ANCHOR_END: feature-ok
 }
 
+
+
+
+//=======
 // error[E0382]
 #[cfg(feature = "err_08")]
 pub fn adjoin() {
@@ -42,6 +50,10 @@ pub fn adjoin() {
     // ANCHOR: feature-err_08
 }
 
+
+
+
+//=======
 #[cfg(all(not(feature = "ok"), not(feature = "err_08")))]
 pub fn adjoin() {
     use aide::hello;

@@ -5,9 +5,13 @@
 // clear && cargo run --example mut_base --features err_03
 // clear && cargo run --example mut_base -- mut_count
 
+//=======
 #![allow(unused_mut)]
 #![allow(unused_variables)]
 
+
+
+//=======
 #[cfg(feature = "ok")]
 pub fn adjoin() {
     // ANCHOR: feature-ok
@@ -27,6 +31,9 @@ pub fn adjoin() {
     // ANCHOR_END: feature-ok
 }
 
+
+
+//=======
 #[cfg(feature = "err_01")]
 // error[E0499]
 pub fn adjoin() {
@@ -42,6 +49,9 @@ pub fn adjoin() {
     // ANCHOR_END: feature-err_01
 }
 
+
+
+//=======
 #[cfg(feature = "err_02")]
 // error[E0502]
 pub fn adjoin() {
@@ -57,6 +67,9 @@ pub fn adjoin() {
     // ANCHOR_END: feature-err_02
 }
 
+
+
+//=======
 #[cfg(feature = "err_03")]
 // error[E0502]
 pub fn adjoin() {
@@ -72,6 +85,9 @@ pub fn adjoin() {
     // ANCHOR_END: feature-err_03
 }
 
+
+
+//=======
 #[cfg(all(
     not(feature = "ok"),
     not(feature = "err_01"),

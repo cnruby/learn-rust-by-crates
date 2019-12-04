@@ -4,6 +4,10 @@
 // clear && cargo run --example for_loop --features err_03
 // clear && cargo run --example for_loop -- for_vec_iter
 
+//=======
+
+
+//=======
 #[cfg(feature = "ok")]
 pub fn adjoin() {
     // ANCHOR: feature-ok
@@ -32,6 +36,9 @@ pub fn adjoin() {
     // ANCHOR_END: feature-ok
 }
 
+
+
+//=======
 #[cfg(feature = "cp")]
 pub fn adjoin() {
     // ANCHOR: feature-cp
@@ -54,6 +61,10 @@ pub fn adjoin() {
     // ANCHOR_END: feature-cp
 }
 
+
+
+
+//=======
 #[cfg(feature = "err_03")]
 // error[E0277]
 pub fn adjoin() {
@@ -76,6 +87,9 @@ pub fn adjoin() {
     // ANCHOR_END: feature-err
 }
 
+
+
+//=======
 #[cfg(all(not(feature = "ok"), not(feature = "cp"), not(feature = "err_03")))]
 pub fn adjoin() {
     use aide::hello;

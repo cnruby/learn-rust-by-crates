@@ -6,7 +6,11 @@
 // clear && cargo run --example dbg --features err_03
 // clear && cargo run --example dbg --features err_04
 
+//=======
 
+
+
+//=======
 #[cfg(feature = "ok")]
 pub fn adjoin() {
     // ANCHOR: feature-ok
@@ -24,6 +28,7 @@ pub fn adjoin() {
 
 
 
+//=======
 #[cfg(feature = "cp")]
 pub fn adjoin() {
     // ANCHOR: feature-cp
@@ -40,6 +45,7 @@ pub fn adjoin() {
 
 
 
+//=======
 #[cfg(feature = "err_01")]
 pub fn adjoin() {
     // ANCHOR: feature-error_01
@@ -56,6 +62,7 @@ pub fn adjoin() {
 
 
 
+//=======
 #[cfg(feature = "err_02")]
 pub fn adjoin() {
     // ANCHOR: feature-error_02
@@ -72,6 +79,7 @@ pub fn adjoin() {
 
 
 
+//=======
 #[cfg(feature = "err_03")]
 pub fn adjoin() {
     // ANCHOR: feature-error_03
@@ -91,6 +99,7 @@ pub fn adjoin() {
 
 
 
+//=======
 #[cfg(feature = "err_04")]
 pub fn adjoin() {
     // ANCHOR: feature-error_04
@@ -108,7 +117,7 @@ pub fn adjoin() {
 }
 
 
-
+//=======
 #[cfg(all(
     not(feature = "ok"),
     not(feature = "cp"),
@@ -117,7 +126,7 @@ pub fn adjoin() {
     not(feature = "err_03"),
     not(feature = "err_04"),
 ))]
-fn main() {
+pub fn adjoin() {
     use aide::*;
     hello();
 }

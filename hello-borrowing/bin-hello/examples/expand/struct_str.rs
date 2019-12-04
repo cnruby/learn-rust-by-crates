@@ -8,8 +8,11 @@
 // clear && cargo run --example expand --features err_08 -- struct_str
 // clear && cargo expand --example expand --features err_08 -- struct_str
 
+//=======
 #![allow(unused_variables)]
 
+
+//=======
 #[cfg(feature = "ok")]
 pub fn adjoin() {
     // ANCHOR: feature-ok
@@ -31,6 +34,8 @@ pub fn adjoin() {
     // ANCHOR_END: feature-ok
 }
 
+
+//=======
 #[cfg(feature = "cp")]
 pub fn adjoin() {
     // ANCHOR: feature-cp
@@ -52,6 +57,8 @@ pub fn adjoin() {
     // ANCHOR_END: feature-cp
 }
 
+
+//=======
 #[cfg(feature = "err_07")]
 pub fn adjoin() {
     // ANCHOR: feature-error_01
@@ -75,6 +82,8 @@ pub fn adjoin() {
     // ANCHOR_END: feature-error_01
 }
 
+
+//=======
 #[cfg(feature = "err_08")]
 pub fn adjoin() {
     // ANCHOR: feature-error_02
@@ -98,6 +107,8 @@ pub fn adjoin() {
     // ANCHOR_END: feature-error_02
 }
 
+
+//=======
 #[cfg(feature = "err_09")]
 pub fn adjoin() {
     // ANCHOR: feature-error_03
@@ -119,6 +130,8 @@ pub fn adjoin() {
     // ANCHOR_END: feature-error_03
 }
 
+
+//=======
 #[cfg(all(
     not(feature = "ok"),
     not(feature = "cp"),

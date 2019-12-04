@@ -3,8 +3,12 @@
 // clear && cargo run --example mut_fn --features err_01
 // clear && cargo run --example mut_fn --features err_02
 
+//=======
 #![allow(unused)]
 
+
+
+//=======
 #[cfg(feature = "ok")]
 pub fn adjoin() {
     // ANCHOR: feature-ok
@@ -23,7 +27,7 @@ pub fn adjoin() {
 }
 
 
-
+//=======
 #[cfg(feature = "err_01")]
 pub fn adjoin() {
     // ANCHOR: feature-error_01
@@ -43,6 +47,7 @@ pub fn adjoin() {
 
 
 
+//=======
 #[cfg(feature = "err_02")]
 pub fn adjoin() {
     fn fn_borrowed(mut_ref: &mut i32) {}
@@ -55,6 +60,7 @@ pub fn adjoin() {
 
 
 
+//=======
 #[cfg(all(
     not(feature = "ok"),
     not(feature = "err_01"),

@@ -1,6 +1,13 @@
 // File: ./bin-hello/examples/mut_base/mut_ref/mod.rs
 // clear && cargo run --example mut_base -- mut_ref
 
+
+//=======
+
+
+
+//=======
+#[cfg(feature = "ok")]
 pub fn adjoin() {
     // ANCHOR: mut_ref
     // File: ./bin-hello/examples/mut_base/mut_ref/mod.rs
@@ -19,4 +26,14 @@ pub fn adjoin() {
     println!("4. mut_instance = {}", mut_instance);
 
     // ANCHOR_END: mut_ref
+}
+
+
+//=======
+#[cfg(all(
+    not(feature = "ok"),
+))]
+pub fn adjoin() {
+    use aide::*;
+    hello();
 }

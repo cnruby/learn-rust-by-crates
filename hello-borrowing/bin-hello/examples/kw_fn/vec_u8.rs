@@ -3,6 +3,11 @@
 // clear && cargo run --example kw_fn --features err_01
 // clear && cargo run --example kw_fn -- vec_u8
 
+//=======
+
+
+
+//=======
 #[cfg(feature = "ok")]
 pub fn adjoin() {
     // ANCHOR: feature-ok
@@ -23,6 +28,9 @@ pub fn adjoin() {
     // ANCHOR_END: feature-ok
 }
 
+
+
+//=======
 #[cfg(feature = "cp")]
 pub fn adjoin() {
     // ANCHOR: feature-cp
@@ -48,6 +56,9 @@ pub fn adjoin() {
     // ANCHOR_END: feature-cp
 }
 
+
+
+//=======
 #[cfg(feature = "err_01")]
 // error[E0384]
 pub fn adjoin() {
@@ -69,6 +80,9 @@ pub fn adjoin() {
     // ANCHOR_END: feature-err
 }
 
+
+
+//=======
 #[cfg(all(not(feature = "ok"), not(feature = "err_01"), not(feature = "cp")))]
 pub fn adjoin() {
     use aide::*;

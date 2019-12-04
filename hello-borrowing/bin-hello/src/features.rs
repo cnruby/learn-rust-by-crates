@@ -21,6 +21,8 @@ pub fn with_script(args: &Vec<String>, mode: &str, file_name: &str) {
         //println!("Exit Code: {}\n\n", code);
         println!("{}\n\n", output);
         println!("Compiler: Output Info  >>>>>>>>>>>>>> :\n\n{}", error);
+    } else {
+        //
     }
 }
 
@@ -51,7 +53,7 @@ pub fn without_mode(args: &Vec<String>, file_name: &str) {
     match file_name.as_ref() {
         "bwx" => {
             // cargo run --bin bw -- -f bwx
-            // # cargo run --bin bwx
+            // # cargo run --bin bwx            
             cmd_cargo = format!("cargo run --bin {}", file_name);
             dbg!(&cmd_cargo);
             let cmds = format!("{}", &cmd_cargo);
@@ -60,17 +62,24 @@ pub fn without_mode(args: &Vec<String>, file_name: &str) {
             dbg!(error);
         }
         _ => {
-            // cargo run --bin bw -- -f kw_let
-            // cargo run --bin bw -- -f allx
-            // cargo run --bin bw -- -f devx
-            // # cargo run --bin bwx kw_let
+            println!("\n\nList commands with all features for this code {}:\n", file_name);
+            for item in rs_files::FEATURE_MODE.iter() {
+                let code_name = &format!("{}_{}", file_name, item);
+                let result = rs_files::get_rs(code_name);
+                if result != rs_files::HELLO {
+                    println!("bw -c {} -f {} | bat -l rs", file_name, item);
+                    println!("cargo run --bin bw -- -c {} -f {} | bat -l rs\n", file_name, item);
+                }
+            }
+            
             // # cargo run --bin bwx allx
             // # cargo run --bin bwx devx
-            cmd_cargo = format!("cargo run --bin bwx {}", file_name);
-            let cmds = format!("{}", &cmd_cargo);
-            let (_code, output, error) = run_script::run(&cmds, &args, &options).unwrap();
-            println!("{}", output);
-            dbg!(error);
+
+            //cmd_cargo = format!("cargo run --bin bwx {}", file_name);
+            //let cmds = format!("{}", &cmd_cargo);
+            //let (_code, output, error) = run_script::run(&cmds, &args, &options).unwrap();
+            //println!("{}", output);
+            //dbg!(error);
         }
     }
 }

@@ -3,6 +3,10 @@
 // clear && cargo run --example string_type --features err_01
 // clear && cargo run --example string_type -- string_str
 
+//=======
+
+
+//=======
 #[cfg(feature = "ok")]
 pub fn adjoin() {
     // ANCHOR: feature-ok
@@ -22,6 +26,9 @@ pub fn adjoin() {
     // ANCHOR_END: feature-ok
 }
 
+
+
+//=======
 #[cfg(feature = "err_01")]
 pub fn adjoin() {
     // ANCHOR: feature-err_01
@@ -43,6 +50,10 @@ pub fn adjoin() {
     // ANCHOR_END: feature-err_01
 }
 
+
+
+
+//=======
 #[cfg(all(not(feature = "ok"), not(feature = "err_01")))]
 pub fn adjoin() {
     use aide::hello;

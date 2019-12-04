@@ -3,6 +3,10 @@
 // clear && cargo run --example closure --features err_02
 // clear && cargo run --example closure -- kw_move
 
+//=======
+
+
+//=======
 #[cfg(feature = "ok")]
 pub fn adjoin() {
     // ANCHOR: feature-ok
@@ -20,6 +24,8 @@ pub fn adjoin() {
     // ANCHOR_END: feature-ok
 }
 
+
+//=======
 #[cfg(feature = "cp")]
 pub fn adjoin() {
     // ANCHOR: feature-cp
@@ -40,6 +46,8 @@ pub fn adjoin() {
     // ANCHOR_END: feature-cp
 }
 
+
+//=======
 #[cfg(feature = "err_02")]
 pub fn adjoin() {
     // ANCHOR: feature-err
@@ -62,6 +70,8 @@ pub fn adjoin() {
     // ANCHOR_END: feature-err
 }
 
+
+//=======
 #[cfg(all(not(feature = "ok"), not(feature = "err_02"), not(feature = "cp")))]
 pub fn adjoin() {
     use aide::hello;

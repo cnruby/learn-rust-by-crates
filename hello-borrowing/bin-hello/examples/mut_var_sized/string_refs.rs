@@ -4,9 +4,13 @@
 // clear && cargo run --example mut_var_sized --features err_05
 // clear && cargo run --example mut_var_sized --features err_06
 
+//=======
 #![allow(unused_variables)]
 #![allow(unused_mut)]
 
+
+
+//=======
 #[cfg(feature = "ok")]
 pub fn adjoin() {
     // ANCHOR: feature-ok
@@ -37,6 +41,7 @@ pub fn adjoin() {
 
 
 
+//=======
 #[cfg(feature = "err_04")]
 pub fn adjoin() {
     // ANCHOR: feature-error_01
@@ -68,6 +73,7 @@ pub fn adjoin() {
 
 
 
+//=======
 #[cfg(feature = "err_05")]
 pub fn adjoin() {
     // ANCHOR: feature-error_02
@@ -100,6 +106,7 @@ pub fn adjoin() {
 
 
 
+//=======
 #[cfg(feature = "err_06")]
 pub fn adjoin() {
     // ANCHOR: feature-error_03
@@ -132,6 +139,7 @@ pub fn adjoin() {
 
 
 
+//=======
 #[cfg(all(
     not(feature = "ok"),
     not(feature = "err_04"),
