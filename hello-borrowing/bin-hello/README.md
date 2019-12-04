@@ -11,6 +11,7 @@
 ## Getting Started
 - Learn the crate [hello_exercism](https://crates.io/crates/hello_exercism)
 - install [cargo script](https://crates.io/crates/cargo-script)
+- install [bat](https://crates.io/crates/bat)
 ```bash
 cargo install cargo-script
 cargo install bat

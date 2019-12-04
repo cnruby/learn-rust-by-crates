@@ -68,7 +68,7 @@ pub fn without_mode(args: &Vec<String>, file_name: &str) {
                 let result = rs_files::get_rs(code_name);
                 if result != rs_files::HELLO {
                     println!("bw -c {} -f {} | bat -l rs", file_name, item);
-                    println!("cargo run --bin bw -- -c {} -f {} | bat -l rs\n", file_name, item);
+                    //println!("cargo run --bin bw -- -c {} -f {} | bat -l rs\n", file_name, item);
                 }
             }
             
