@@ -13,6 +13,7 @@
 - install [cargo script](https://crates.io/crates/cargo-script)
 ```bash
 cargo install cargo-script
+cargo install bat
 ```
 
 ## Project
@@ -34,17 +35,30 @@ cargo install borrowing_exerci
 bw -h
 ```
 
-## Use the crate `borrowing_exerci`
-- run a rust file like `kw_fn.rs` (See Help Command) with error codes
+## List all commands with features for code
 ```bash
-bw -f kw_fn -m err | bat -l rs
+bw -c <code>
+
+# example:
+bw -c closure_immut_string
+```
+
+## Run the code with a feature
+- run a rust file with a feature
+```bash
+bw -c <code> -f <feature> | bat -l rs
+
+# example "closure_immut_string" with a feature "ok":
+bw -c closure_immut_string -f ok | bat -l rs
 # tip: `f`, Forward  one window
 # tip: `b`, Backward  one window
 # tip: `q`, Exit.
-```
-- run a rust file ex `kw_fn.rs` without error codes
-```bash
-bw -f kw_fn -m ok | bat -l rs
+
+# example "closure_immut_string" with a feature "err_01":
+bw -c closure_immut_string -f err_01 | bat -l rs
+# tip: `f`, Forward  one window
+# tip: `b`, Backward  one window
+# tip: `q`, Exit.
 ```
 
 ### Resources
