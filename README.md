@@ -1,5 +1,8 @@
 # Learn Rust By Crates
 
+## EBook
+- [以软件篋学习Rust语言](https://cnruby.github.io/learn-rust-by-crates/zh-volumn-one/)
+
 ## List Projects
 ### hello-world
 - crate name: [hello_exercism](https://crates.io/crates/hello_exercism)
@@ -10,3 +13,4 @@
 ### hello-mod-trait
 - crate name: [mod_trait_exerci](https://crates.io/crates/mod_trait_exerci)
 - description: how to understand the rust feature trait with mod
+
